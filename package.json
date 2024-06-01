@@ -4,30 +4,12 @@
   "description": "Provide a defineConfig function for .eslintrc.js files",
   "scripts": {
     "clean": "rimraf coverage .eslintcache dist pnpm-lock.yaml node_modules",
-    "build": "tsup-node",
     "format": "prettier --cache --write .",
-    "lint:run": "eslint --cache --cache-strategy content --report-unused-disable-directives .",
-    "lint": "run-s build lint:run",
-    "typecheck": "vitest typecheck",
-    "ts-check": "tsc",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "generate:rules": "tsx ./scripts/generate-rule-files/cli.ts",
-    "prepublishOnly": "pnpm run clean && pnpm install && pnpm run build",
-    "preflight": "pnpm install && run-s format lint ts-check test typecheck"
+    "generate": "tsx ./scripts/cli.ts",
+    "prepublishOnly": "pnpm run clean && pnpm install && pnpm run build"
   },
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.js"
-    }
-  },
+  "types": "src/index.d.ts",
   "keywords": [
     "config",
     "configuration",
@@ -110,16 +92,24 @@
     "prettier-plugin-organize-imports": "~3.2.3",
     "rimraf": "~5.0.5",
     "ts-dedent": "~2.2.0",
-    "tsup": "~7.2.0",
     "tsx": "~3.13.0",
     "typescript": "~5.2.2",
     "vitest": "~0.34.6",
     "vue-eslint-parser": "~9.3.2"
   },
-  "packageManager": "pnpm@8.8.0",
   "engines": {
     "node": ">=18.0.0",
-    "npm": ">=9.0.0",
-    "pnpm": ">=8.6.0"
+    "npm": ">=9.0.0"
+  },
+  "upstream": {
+    "version": 1,
+    "sources": {
+      "main": {
+        "repository": "https://github.com/eslint-types/eslint-define-config.git",
+        "commit": "c320ba4732c43c571bafac05595c95fedceab5ef",
+        "branch": "main",
+        "date": "2023-10-22T15:23:25+02:00"
+      }
+    }
   }
 }
