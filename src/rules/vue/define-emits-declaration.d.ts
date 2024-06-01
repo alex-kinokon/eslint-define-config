@@ -3,7 +3,10 @@ import type { RuleConfig } from '../rule-config';
 /**
  * Option.
  */
-export type DefineEmitsDeclarationOption = 'type-based' | 'runtime';
+export type DefineEmitsDeclarationOption =
+  | 'type-based'
+  | 'type-literal'
+  | 'runtime';
 
 /**
  * Options.

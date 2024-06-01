@@ -16,6 +16,8 @@ export type ObjectPropertyNewlineOptions = [ObjectPropertyNewlineOption?];
 /**
  * Enforce placing object properties on separate lines.
  *
+ * @deprecated
+ *
  * @see [object-property-newline](https://eslint.org/docs/latest/rules/object-property-newline)
  */
 export type ObjectPropertyNewlineRuleConfig =
@@ -24,11 +26,15 @@ export type ObjectPropertyNewlineRuleConfig =
 /**
  * Enforce placing object properties on separate lines.
  *
+ * @deprecated
+ *
  * @see [object-property-newline](https://eslint.org/docs/latest/rules/object-property-newline)
  */
 export interface ObjectPropertyNewlineRule {
   /**
    * Enforce placing object properties on separate lines.
+   *
+   * @deprecated
    *
    * @see [object-property-newline](https://eslint.org/docs/latest/rules/object-property-newline)
    */

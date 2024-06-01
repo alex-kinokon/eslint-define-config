@@ -30,6 +30,8 @@ export type SemiOptions = SemiOption;
 /**
  * Require or disallow semicolons instead of ASI.
  *
+ * @deprecated
+ *
  * @see [semi](https://eslint.org/docs/latest/rules/semi)
  */
 export type SemiRuleConfig = RuleConfig<SemiOptions>;
@@ -37,11 +39,15 @@ export type SemiRuleConfig = RuleConfig<SemiOptions>;
 /**
  * Require or disallow semicolons instead of ASI.
  *
+ * @deprecated
+ *
  * @see [semi](https://eslint.org/docs/latest/rules/semi)
  */
 export interface SemiRule {
   /**
    * Require or disallow semicolons instead of ASI.
+   *
+   * @deprecated
    *
    * @see [semi](https://eslint.org/docs/latest/rules/semi)
    */

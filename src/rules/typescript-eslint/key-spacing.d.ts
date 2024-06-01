@@ -64,6 +64,8 @@ export type KeySpacingOptions = [KeySpacingOption?];
 /**
  * Enforce consistent spacing between property names and type annotations in types and interfaces.
  *
+ * @deprecated
+ *
  * @see [key-spacing](https://typescript-eslint.io/rules/key-spacing)
  */
 export type KeySpacingRuleConfig = RuleConfig<KeySpacingOptions>;
@@ -71,11 +73,15 @@ export type KeySpacingRuleConfig = RuleConfig<KeySpacingOptions>;
 /**
  * Enforce consistent spacing between property names and type annotations in types and interfaces.
  *
+ * @deprecated
+ *
  * @see [key-spacing](https://typescript-eslint.io/rules/key-spacing)
  */
 export interface KeySpacingRule {
   /**
    * Enforce consistent spacing between property names and type annotations in types and interfaces.
+   *
+   * @deprecated
    *
    * @see [key-spacing](https://typescript-eslint.io/rules/key-spacing)
    */

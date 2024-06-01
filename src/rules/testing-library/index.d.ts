@@ -18,6 +18,7 @@ import type { NoWaitForSideEffectsRule } from './no-wait-for-side-effects';
 import type { NoWaitForSnapshotRule } from './no-wait-for-snapshot';
 import type { PreferExplicitAssertRule } from './prefer-explicit-assert';
 import type { PreferFindByRule } from './prefer-find-by';
+import type { PreferImplicitAssertRule } from './prefer-implicit-assert';
 import type { PreferPresenceQueriesRule } from './prefer-presence-queries';
 import type { PreferQueryByDisappearanceRule } from './prefer-query-by-disappearance';
 import type { PreferQueryMatchersRule } from './prefer-query-matchers';
@@ -48,6 +49,7 @@ export type TestingLibraryRules = AwaitAsyncEventsRule &
   NoWaitForSnapshotRule &
   PreferExplicitAssertRule &
   PreferFindByRule &
+  PreferImplicitAssertRule &
   PreferPresenceQueriesRule &
   PreferQueryByDisappearanceRule &
   PreferQueryMatchersRule &

@@ -9,6 +9,7 @@ export interface CheckParamNamesOption {
   checkRestProperty?: boolean;
   checkTypesPattern?: string;
   disableExtraPropertyReporting?: boolean;
+  disableMissingParamChecks?: boolean;
   enableFixer?: boolean;
   useDefaultObjectProperties?: boolean;
 }

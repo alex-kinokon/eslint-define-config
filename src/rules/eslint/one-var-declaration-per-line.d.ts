@@ -13,6 +13,8 @@ export type OneVarDeclarationPerLineOptions = [OneVarDeclarationPerLineOption?];
 /**
  * Require or disallow newlines around variable declarations.
  *
+ * @deprecated
+ *
  * @see [one-var-declaration-per-line](https://eslint.org/docs/latest/rules/one-var-declaration-per-line)
  */
 export type OneVarDeclarationPerLineRuleConfig =
@@ -21,11 +23,15 @@ export type OneVarDeclarationPerLineRuleConfig =
 /**
  * Require or disallow newlines around variable declarations.
  *
+ * @deprecated
+ *
  * @see [one-var-declaration-per-line](https://eslint.org/docs/latest/rules/one-var-declaration-per-line)
  */
 export interface OneVarDeclarationPerLineRule {
   /**
    * Require or disallow newlines around variable declarations.
+   *
+   * @deprecated
    *
    * @see [one-var-declaration-per-line](https://eslint.org/docs/latest/rules/one-var-declaration-per-line)
    */

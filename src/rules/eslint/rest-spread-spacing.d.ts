@@ -13,6 +13,8 @@ export type RestSpreadSpacingOptions = [RestSpreadSpacingOption?];
 /**
  * Enforce spacing between rest and spread operators and their expressions.
  *
+ * @deprecated
+ *
  * @see [rest-spread-spacing](https://eslint.org/docs/latest/rules/rest-spread-spacing)
  */
 export type RestSpreadSpacingRuleConfig = RuleConfig<RestSpreadSpacingOptions>;
@@ -20,11 +22,15 @@ export type RestSpreadSpacingRuleConfig = RuleConfig<RestSpreadSpacingOptions>;
 /**
  * Enforce spacing between rest and spread operators and their expressions.
  *
+ * @deprecated
+ *
  * @see [rest-spread-spacing](https://eslint.org/docs/latest/rules/rest-spread-spacing)
  */
 export interface RestSpreadSpacingRule {
   /**
    * Enforce spacing between rest and spread operators and their expressions.
+   *
+   * @deprecated
    *
    * @see [rest-spread-spacing](https://eslint.org/docs/latest/rules/rest-spread-spacing)
    */

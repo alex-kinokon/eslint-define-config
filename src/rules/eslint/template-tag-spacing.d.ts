@@ -13,6 +13,8 @@ export type TemplateTagSpacingOptions = [TemplateTagSpacingOption?];
 /**
  * Require or disallow spacing between template tags and their literals.
  *
+ * @deprecated
+ *
  * @see [template-tag-spacing](https://eslint.org/docs/latest/rules/template-tag-spacing)
  */
 export type TemplateTagSpacingRuleConfig =
@@ -21,11 +23,15 @@ export type TemplateTagSpacingRuleConfig =
 /**
  * Require or disallow spacing between template tags and their literals.
  *
+ * @deprecated
+ *
  * @see [template-tag-spacing](https://eslint.org/docs/latest/rules/template-tag-spacing)
  */
 export interface TemplateTagSpacingRule {
   /**
    * Require or disallow spacing between template tags and their literals.
+   *
+   * @deprecated
    *
    * @see [template-tag-spacing](https://eslint.org/docs/latest/rules/template-tag-spacing)
    */

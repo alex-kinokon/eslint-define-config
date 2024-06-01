@@ -42,11 +42,12 @@ export type NamingConventionOption = (
         | 'typeLike'
         | 'method'
         | 'property'
+        | 'accessor'
         | 'variable'
         | 'function'
         | 'parameter'
         | 'parameterProperty'
-        | 'accessor'
+        | 'classicAccessor'
         | 'enumMember'
         | 'classMethod'
         | 'objectLiteralMethod'
@@ -54,11 +55,13 @@ export type NamingConventionOption = (
         | 'classProperty'
         | 'objectLiteralProperty'
         | 'typeProperty'
+        | 'autoAccessor'
         | 'class'
         | 'interface'
         | 'typeAlias'
         | 'enum'
         | 'typeParameter'
+        | 'import'
       )[];
       modifiers?: (
         | 'const'
@@ -76,6 +79,8 @@ export type NamingConventionOption = (
         | 'requiresQuotes'
         | 'override'
         | 'async'
+        | 'default'
+        | 'namespace'
       )[];
       types?: TypeModifiers[];
     }
@@ -105,6 +110,8 @@ export type NamingConventionOption = (
         | 'requiresQuotes'
         | 'override'
         | 'async'
+        | 'default'
+        | 'namespace'
       )[];
     }
   | {
@@ -350,6 +357,48 @@ export type NamingConventionOption = (
       suffix?: PrefixSuffixConfig;
       failureMessage?: string;
       filter?: string | MatchRegexConfig;
+      selector: 'classicAccessor';
+      modifiers?: (
+        | 'abstract'
+        | 'private'
+        | 'protected'
+        | 'public'
+        | 'requiresQuotes'
+        | 'static'
+        | 'override'
+      )[];
+      types?: TypeModifiers[];
+    }
+  | {
+      format: FormatOptionsConfig;
+      custom?: MatchRegexConfig;
+      leadingUnderscore?: UnderscoreOptions;
+      trailingUnderscore?: UnderscoreOptions;
+      prefix?: PrefixSuffixConfig;
+      suffix?: PrefixSuffixConfig;
+      failureMessage?: string;
+      filter?: string | MatchRegexConfig;
+      selector: 'autoAccessor';
+      modifiers?: (
+        | 'abstract'
+        | 'private'
+        | 'protected'
+        | 'public'
+        | 'requiresQuotes'
+        | 'static'
+        | 'override'
+      )[];
+      types?: TypeModifiers[];
+    }
+  | {
+      format: FormatOptionsConfig;
+      custom?: MatchRegexConfig;
+      leadingUnderscore?: UnderscoreOptions;
+      trailingUnderscore?: UnderscoreOptions;
+      prefix?: PrefixSuffixConfig;
+      suffix?: PrefixSuffixConfig;
+      failureMessage?: string;
+      filter?: string | MatchRegexConfig;
       selector: 'accessor';
       modifiers?: (
         | 'abstract'
@@ -445,6 +494,18 @@ export type NamingConventionOption = (
       filter?: string | MatchRegexConfig;
       selector: 'typeParameter';
       modifiers?: 'unused'[];
+    }
+  | {
+      format: FormatOptionsConfig;
+      custom?: MatchRegexConfig;
+      leadingUnderscore?: UnderscoreOptions;
+      trailingUnderscore?: UnderscoreOptions;
+      prefix?: PrefixSuffixConfig;
+      suffix?: PrefixSuffixConfig;
+      failureMessage?: string;
+      filter?: string | MatchRegexConfig;
+      selector: 'import';
+      modifiers?: ('default' | 'namespace')[];
     }
 )[];
 

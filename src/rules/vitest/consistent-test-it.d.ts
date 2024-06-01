@@ -14,20 +14,20 @@ export interface ConsistentTestItOption {
 export type ConsistentTestItOptions = [ConsistentTestItOption?];
 
 /**
- * Prefer test or it but not both.
+ * Enforce using test or it but not both.
  *
  * @see [consistent-test-it](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md)
  */
 export type ConsistentTestItRuleConfig = RuleConfig<ConsistentTestItOptions>;
 
 /**
- * Prefer test or it but not both.
+ * Enforce using test or it but not both.
  *
  * @see [consistent-test-it](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md)
  */
 export interface ConsistentTestItRule {
   /**
-   * Prefer test or it but not both.
+   * Enforce using test or it but not both.
    *
    * @see [consistent-test-it](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md)
    */

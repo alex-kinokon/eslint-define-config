@@ -13,6 +13,8 @@ export type SemiStyleOptions = [SemiStyleOption?];
 /**
  * Enforce location of semicolons.
  *
+ * @deprecated
+ *
  * @see [semi-style](https://eslint.org/docs/latest/rules/semi-style)
  */
 export type SemiStyleRuleConfig = RuleConfig<SemiStyleOptions>;
@@ -20,11 +22,15 @@ export type SemiStyleRuleConfig = RuleConfig<SemiStyleOptions>;
 /**
  * Enforce location of semicolons.
  *
+ * @deprecated
+ *
  * @see [semi-style](https://eslint.org/docs/latest/rules/semi-style)
  */
 export interface SemiStyleRule {
   /**
    * Enforce location of semicolons.
+   *
+   * @deprecated
    *
    * @see [semi-style](https://eslint.org/docs/latest/rules/semi-style)
    */

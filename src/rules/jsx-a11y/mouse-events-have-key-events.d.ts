@@ -4,6 +4,14 @@ import type { RuleConfig } from '../rule-config';
  * Option.
  */
 export interface MouseEventsHaveKeyEventsOption {
+  /**
+   * An array of events that need to be accompanied by `onFocus`
+   */
+  hoverInHandlers?: string[];
+  /**
+   * An array of events that need to be accompanied by `onBlur`
+   */
+  hoverOutHandlers?: string[];
   [k: string]: any;
 }
 

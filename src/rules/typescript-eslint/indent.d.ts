@@ -50,6 +50,8 @@ export type IndentOptions = [IndentOption?, IndentConfig?];
 /**
  * Enforce consistent indentation.
  *
+ * @deprecated
+ *
  * @see [indent](https://typescript-eslint.io/rules/indent)
  */
 export type IndentRuleConfig = RuleConfig<IndentOptions>;
@@ -57,11 +59,15 @@ export type IndentRuleConfig = RuleConfig<IndentOptions>;
 /**
  * Enforce consistent indentation.
  *
+ * @deprecated
+ *
  * @see [indent](https://typescript-eslint.io/rules/indent)
  */
 export interface IndentRule {
   /**
    * Enforce consistent indentation.
+   *
+   * @deprecated
    *
    * @see [indent](https://typescript-eslint.io/rules/indent)
    */

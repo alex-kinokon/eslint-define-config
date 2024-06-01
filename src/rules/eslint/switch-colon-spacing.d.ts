@@ -16,6 +16,8 @@ export type SwitchColonSpacingOptions = [SwitchColonSpacingOption?];
 /**
  * Enforce spacing around colons of switch statements.
  *
+ * @deprecated
+ *
  * @see [switch-colon-spacing](https://eslint.org/docs/latest/rules/switch-colon-spacing)
  */
 export type SwitchColonSpacingRuleConfig =
@@ -24,11 +26,15 @@ export type SwitchColonSpacingRuleConfig =
 /**
  * Enforce spacing around colons of switch statements.
  *
+ * @deprecated
+ *
  * @see [switch-colon-spacing](https://eslint.org/docs/latest/rules/switch-colon-spacing)
  */
 export interface SwitchColonSpacingRule {
   /**
    * Enforce spacing around colons of switch statements.
+   *
+   * @deprecated
    *
    * @see [switch-colon-spacing](https://eslint.org/docs/latest/rules/switch-colon-spacing)
    */

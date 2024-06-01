@@ -23,7 +23,7 @@ export type FileExtensionInImportOptions = [
 /**
  * Enforce the style of file extensions in `import` declarations.
  *
- * @see [file-extension-in-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/file-extension-in-import.md)
+ * @see [file-extension-in-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/file-extension-in-import.md)
  */
 export type FileExtensionInImportRuleConfig =
   RuleConfig<FileExtensionInImportOptions>;
@@ -31,13 +31,13 @@ export type FileExtensionInImportRuleConfig =
 /**
  * Enforce the style of file extensions in `import` declarations.
  *
- * @see [file-extension-in-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/file-extension-in-import.md)
+ * @see [file-extension-in-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/file-extension-in-import.md)
  */
 export interface FileExtensionInImportRule {
   /**
    * Enforce the style of file extensions in `import` declarations.
    *
-   * @see [file-extension-in-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/file-extension-in-import.md)
+   * @see [file-extension-in-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/file-extension-in-import.md)
    */
   'n/file-extension-in-import': FileExtensionInImportRuleConfig;
 }

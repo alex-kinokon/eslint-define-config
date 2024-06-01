@@ -4,7 +4,14 @@ import type { RuleConfig } from '../rule-config';
  * Option.
  */
 export interface DefineMacrosOrderOption {
-  order?: ('defineEmits' | 'defineProps' | 'defineOptions' | 'defineSlots')[];
+  order?: (
+    | 'defineEmits'
+    | 'defineProps'
+    | 'defineOptions'
+    | 'defineSlots'
+    | 'defineModel'
+  )[];
+  defineExposeLast?: boolean;
 }
 
 /**

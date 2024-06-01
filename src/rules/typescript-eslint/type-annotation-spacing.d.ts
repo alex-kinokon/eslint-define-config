@@ -28,6 +28,8 @@ export type TypeAnnotationSpacingOptions = [TypeAnnotationSpacingOption?];
 /**
  * Require consistent spacing around type annotations.
  *
+ * @deprecated
+ *
  * @see [type-annotation-spacing](https://typescript-eslint.io/rules/type-annotation-spacing)
  */
 export type TypeAnnotationSpacingRuleConfig =
@@ -36,11 +38,15 @@ export type TypeAnnotationSpacingRuleConfig =
 /**
  * Require consistent spacing around type annotations.
  *
+ * @deprecated
+ *
  * @see [type-annotation-spacing](https://typescript-eslint.io/rules/type-annotation-spacing)
  */
 export interface TypeAnnotationSpacingRule {
   /**
    * Require consistent spacing around type annotations.
+   *
+   * @deprecated
    *
    * @see [type-annotation-spacing](https://typescript-eslint.io/rules/type-annotation-spacing)
    */

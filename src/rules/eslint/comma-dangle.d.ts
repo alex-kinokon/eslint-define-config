@@ -31,6 +31,8 @@ export type CommaDangleOptions = CommaDangleOption;
 /**
  * Require or disallow trailing commas.
  *
+ * @deprecated
+ *
  * @see [comma-dangle](https://eslint.org/docs/latest/rules/comma-dangle)
  */
 export type CommaDangleRuleConfig = RuleConfig<CommaDangleOptions>;
@@ -38,11 +40,15 @@ export type CommaDangleRuleConfig = RuleConfig<CommaDangleOptions>;
 /**
  * Require or disallow trailing commas.
  *
+ * @deprecated
+ *
  * @see [comma-dangle](https://eslint.org/docs/latest/rules/comma-dangle)
  */
 export interface CommaDangleRule {
   /**
    * Require or disallow trailing commas.
+   *
+   * @deprecated
    *
    * @see [comma-dangle](https://eslint.org/docs/latest/rules/comma-dangle)
    */

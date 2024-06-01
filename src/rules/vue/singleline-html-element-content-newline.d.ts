@@ -7,6 +7,7 @@ export interface SinglelineHtmlElementContentNewlineOption {
   ignoreWhenNoAttributes?: boolean;
   ignoreWhenEmpty?: boolean;
   ignores?: string[];
+  externalIgnores?: string[];
 }
 
 /**

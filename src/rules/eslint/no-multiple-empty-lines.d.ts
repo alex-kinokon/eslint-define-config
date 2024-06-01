@@ -17,6 +17,8 @@ export type NoMultipleEmptyLinesOptions = [NoMultipleEmptyLinesOption?];
 /**
  * Disallow multiple empty lines.
  *
+ * @deprecated
+ *
  * @see [no-multiple-empty-lines](https://eslint.org/docs/latest/rules/no-multiple-empty-lines)
  */
 export type NoMultipleEmptyLinesRuleConfig =
@@ -25,11 +27,15 @@ export type NoMultipleEmptyLinesRuleConfig =
 /**
  * Disallow multiple empty lines.
  *
+ * @deprecated
+ *
  * @see [no-multiple-empty-lines](https://eslint.org/docs/latest/rules/no-multiple-empty-lines)
  */
 export interface NoMultipleEmptyLinesRule {
   /**
    * Disallow multiple empty lines.
+   *
+   * @deprecated
    *
    * @see [no-multiple-empty-lines](https://eslint.org/docs/latest/rules/no-multiple-empty-lines)
    */

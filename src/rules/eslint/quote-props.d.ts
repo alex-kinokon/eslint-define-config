@@ -25,6 +25,8 @@ export type QuotePropsOptions = QuotePropsOption;
 /**
  * Require quotes around object literal property names.
  *
+ * @deprecated
+ *
  * @see [quote-props](https://eslint.org/docs/latest/rules/quote-props)
  */
 export type QuotePropsRuleConfig = RuleConfig<QuotePropsOptions>;
@@ -32,11 +34,15 @@ export type QuotePropsRuleConfig = RuleConfig<QuotePropsOptions>;
 /**
  * Require quotes around object literal property names.
  *
+ * @deprecated
+ *
  * @see [quote-props](https://eslint.org/docs/latest/rules/quote-props)
  */
 export interface QuotePropsRule {
   /**
    * Require quotes around object literal property names.
+   *
+   * @deprecated
    *
    * @see [quote-props](https://eslint.org/docs/latest/rules/quote-props)
    */

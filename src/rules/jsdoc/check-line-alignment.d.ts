@@ -14,6 +14,7 @@ export interface CheckLineAlignmentConfig {
   preserveMainDescriptionPostDelimiter?: boolean;
   tags?: string[];
   wrapIndent?: string;
+  disableWrapIndent?: boolean;
 }
 
 /**

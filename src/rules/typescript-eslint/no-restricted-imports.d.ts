@@ -42,6 +42,7 @@ export type NoRestrictedImportsOption =
                * @minItems 1
                */
               group: [string, ...string[]];
+              importNamePattern?: string;
               message?: string;
               caseSensitive?: boolean;
               /**

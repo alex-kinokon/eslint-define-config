@@ -20,6 +20,8 @@ export type WrapIifeOptions = [WrapIifeOption?, WrapIifeConfig?];
 /**
  * Require parentheses around immediate `function` invocations.
  *
+ * @deprecated
+ *
  * @see [wrap-iife](https://eslint.org/docs/latest/rules/wrap-iife)
  */
 export type WrapIifeRuleConfig = RuleConfig<WrapIifeOptions>;
@@ -27,11 +29,15 @@ export type WrapIifeRuleConfig = RuleConfig<WrapIifeOptions>;
 /**
  * Require parentheses around immediate `function` invocations.
  *
+ * @deprecated
+ *
  * @see [wrap-iife](https://eslint.org/docs/latest/rules/wrap-iife)
  */
 export interface WrapIifeRule {
   /**
    * Require parentheses around immediate `function` invocations.
+   *
+   * @deprecated
    *
    * @see [wrap-iife](https://eslint.org/docs/latest/rules/wrap-iife)
    */

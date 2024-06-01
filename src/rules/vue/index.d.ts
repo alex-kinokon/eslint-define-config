@@ -25,6 +25,7 @@ import type { DefineMacrosOrderRule } from './define-macros-order';
 import type { DefinePropsDeclarationRule } from './define-props-declaration';
 import type { DotLocationRule } from './dot-location';
 import type { DotNotationRule } from './dot-notation';
+import type { EnforceStyleAttributeRule } from './enforce-style-attribute';
 import type { EqeqeqRule } from './eqeqeq';
 import type { FirstAttributeLinebreakRule } from './first-attribute-linebreak';
 import type { FuncCallSpacingRule } from './func-call-spacing';
@@ -120,6 +121,7 @@ import type { NoRestrictedPropsRule } from './no-restricted-props';
 import type { NoRestrictedStaticAttributeRule } from './no-restricted-static-attribute';
 import type { NoRestrictedSyntaxRule } from './no-restricted-syntax';
 import type { NoRestrictedVBindRule } from './no-restricted-v-bind';
+import type { NoRestrictedVOnRule } from './no-restricted-v-on';
 import type { NoRootVIfRule } from './no-root-v-if';
 import type { NoSetupPropsDestructureRule } from './no-setup-props-destructure';
 import type { NoSetupPropsReactivityLossRule } from './no-setup-props-reactivity-loss';
@@ -137,6 +139,7 @@ import type { NoUndefComponentsRule } from './no-undef-components';
 import type { NoUndefPropertiesRule } from './no-undef-properties';
 import type { NoUnsupportedFeaturesRule } from './no-unsupported-features';
 import type { NoUnusedComponentsRule } from './no-unused-components';
+import type { NoUnusedEmitDeclarationsRule } from './no-unused-emit-declarations';
 import type { NoUnusedPropertiesRule } from './no-unused-properties';
 import type { NoUnusedRefsRule } from './no-unused-refs';
 import type { NoUnusedVarsRule } from './no-unused-vars';
@@ -177,6 +180,7 @@ import type { RequireDefaultPropRule } from './require-default-prop';
 import type { RequireDirectExportRule } from './require-direct-export';
 import type { RequireEmitValidatorRule } from './require-emit-validator';
 import type { RequireExplicitEmitsRule } from './require-explicit-emits';
+import type { RequireExplicitSlotsRule } from './require-explicit-slots';
 import type { RequireExposeRule } from './require-expose';
 import type { RequireMacroVariableNameRule } from './require-macro-variable-name';
 import type { RequireNamePropertyRule } from './require-name-property';
@@ -205,6 +209,7 @@ import type { ThisInTemplateRule } from './this-in-template';
 import type { UseVOnExactRule } from './use-v-on-exact';
 import type { VBindStyleRule } from './v-bind-style';
 import type { VForDelimiterStyleRule } from './v-for-delimiter-style';
+import type { VIfElseKeyRule } from './v-if-else-key';
 import type { VOnEventHyphenationRule } from './v-on-event-hyphenation';
 import type { VOnFunctionCallRule } from './v-on-function-call';
 import type { VOnHandlerStyleRule } from './v-on-handler-style';
@@ -265,6 +270,7 @@ export type VueRules = ArrayBracketNewlineRule &
   DefinePropsDeclarationRule &
   DotLocationRule &
   DotNotationRule &
+  EnforceStyleAttributeRule &
   EqeqeqRule &
   FirstAttributeLinebreakRule &
   FuncCallSpacingRule &
@@ -360,6 +366,7 @@ export type VueRules = ArrayBracketNewlineRule &
   NoRestrictedStaticAttributeRule &
   NoRestrictedSyntaxRule &
   NoRestrictedVBindRule &
+  NoRestrictedVOnRule &
   NoRootVIfRule &
   NoSetupPropsDestructureRule &
   NoSetupPropsReactivityLossRule &
@@ -377,6 +384,7 @@ export type VueRules = ArrayBracketNewlineRule &
   NoUndefPropertiesRule &
   NoUnsupportedFeaturesRule &
   NoUnusedComponentsRule &
+  NoUnusedEmitDeclarationsRule &
   NoUnusedPropertiesRule &
   NoUnusedRefsRule &
   NoUnusedVarsRule &
@@ -417,6 +425,7 @@ export type VueRules = ArrayBracketNewlineRule &
   RequireDirectExportRule &
   RequireEmitValidatorRule &
   RequireExplicitEmitsRule &
+  RequireExplicitSlotsRule &
   RequireExposeRule &
   RequireMacroVariableNameRule &
   RequireNamePropertyRule &
@@ -445,6 +454,7 @@ export type VueRules = ArrayBracketNewlineRule &
   UseVOnExactRule &
   VBindStyleRule &
   VForDelimiterStyleRule &
+  VIfElseKeyRule &
   VOnEventHyphenationRule &
   VOnFunctionCallRule &
   VOnHandlerStyleRule &

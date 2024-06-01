@@ -27,6 +27,8 @@ export type ArrayElementNewlineOptions = ArrayElementNewlineOption;
 /**
  * Enforce line breaks after each array element.
  *
+ * @deprecated
+ *
  * @see [array-element-newline](https://eslint.org/docs/latest/rules/array-element-newline)
  */
 export type ArrayElementNewlineRuleConfig =
@@ -35,11 +37,15 @@ export type ArrayElementNewlineRuleConfig =
 /**
  * Enforce line breaks after each array element.
  *
+ * @deprecated
+ *
  * @see [array-element-newline](https://eslint.org/docs/latest/rules/array-element-newline)
  */
 export interface ArrayElementNewlineRule {
   /**
    * Enforce line breaks after each array element.
+   *
+   * @deprecated
    *
    * @see [array-element-newline](https://eslint.org/docs/latest/rules/array-element-newline)
    */

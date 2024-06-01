@@ -16,6 +16,8 @@ export type CommaSpacingOptions = [CommaSpacingOption?];
 /**
  * Enforce consistent spacing before and after commas.
  *
+ * @deprecated
+ *
  * @see [comma-spacing](https://eslint.org/docs/latest/rules/comma-spacing)
  */
 export type CommaSpacingRuleConfig = RuleConfig<CommaSpacingOptions>;
@@ -23,11 +25,15 @@ export type CommaSpacingRuleConfig = RuleConfig<CommaSpacingOptions>;
 /**
  * Enforce consistent spacing before and after commas.
  *
+ * @deprecated
+ *
  * @see [comma-spacing](https://eslint.org/docs/latest/rules/comma-spacing)
  */
 export interface CommaSpacingRule {
   /**
    * Enforce consistent spacing before and after commas.
+   *
+   * @deprecated
    *
    * @see [comma-spacing](https://eslint.org/docs/latest/rules/comma-spacing)
    */

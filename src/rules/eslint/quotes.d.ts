@@ -23,6 +23,8 @@ export type QuotesOptions = [QuotesOption?, QuotesConfig?];
 /**
  * Enforce the consistent use of either backticks, double, or single quotes.
  *
+ * @deprecated
+ *
  * @see [quotes](https://eslint.org/docs/latest/rules/quotes)
  */
 export type QuotesRuleConfig = RuleConfig<QuotesOptions>;
@@ -30,11 +32,15 @@ export type QuotesRuleConfig = RuleConfig<QuotesOptions>;
 /**
  * Enforce the consistent use of either backticks, double, or single quotes.
  *
+ * @deprecated
+ *
  * @see [quotes](https://eslint.org/docs/latest/rules/quotes)
  */
 export interface QuotesRule {
   /**
    * Enforce the consistent use of either backticks, double, or single quotes.
+   *
+   * @deprecated
    *
    * @see [quotes](https://eslint.org/docs/latest/rules/quotes)
    */

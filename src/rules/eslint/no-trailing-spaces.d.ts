@@ -16,6 +16,8 @@ export type NoTrailingSpacesOptions = [NoTrailingSpacesOption?];
 /**
  * Disallow trailing whitespace at the end of lines.
  *
+ * @deprecated
+ *
  * @see [no-trailing-spaces](https://eslint.org/docs/latest/rules/no-trailing-spaces)
  */
 export type NoTrailingSpacesRuleConfig = RuleConfig<NoTrailingSpacesOptions>;
@@ -23,11 +25,15 @@ export type NoTrailingSpacesRuleConfig = RuleConfig<NoTrailingSpacesOptions>;
 /**
  * Disallow trailing whitespace at the end of lines.
  *
+ * @deprecated
+ *
  * @see [no-trailing-spaces](https://eslint.org/docs/latest/rules/no-trailing-spaces)
  */
 export interface NoTrailingSpacesRule {
   /**
    * Disallow trailing whitespace at the end of lines.
+   *
+   * @deprecated
    *
    * @see [no-trailing-spaces](https://eslint.org/docs/latest/rules/no-trailing-spaces)
    */

@@ -13,6 +13,8 @@ export type DotLocationOptions = [DotLocationOption?];
 /**
  * Enforce consistent newlines before and after dots.
  *
+ * @deprecated
+ *
  * @see [dot-location](https://eslint.org/docs/latest/rules/dot-location)
  */
 export type DotLocationRuleConfig = RuleConfig<DotLocationOptions>;
@@ -20,11 +22,15 @@ export type DotLocationRuleConfig = RuleConfig<DotLocationOptions>;
 /**
  * Enforce consistent newlines before and after dots.
  *
+ * @deprecated
+ *
  * @see [dot-location](https://eslint.org/docs/latest/rules/dot-location)
  */
 export interface DotLocationRule {
   /**
    * Enforce consistent newlines before and after dots.
+   *
+   * @deprecated
    *
    * @see [dot-location](https://eslint.org/docs/latest/rules/dot-location)
    */

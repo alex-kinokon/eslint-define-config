@@ -13,6 +13,8 @@ export type EolLastOptions = [EolLastOption?];
 /**
  * Require or disallow newline at the end of files.
  *
+ * @deprecated
+ *
  * @see [eol-last](https://eslint.org/docs/latest/rules/eol-last)
  */
 export type EolLastRuleConfig = RuleConfig<EolLastOptions>;
@@ -20,11 +22,15 @@ export type EolLastRuleConfig = RuleConfig<EolLastOptions>;
 /**
  * Require or disallow newline at the end of files.
  *
+ * @deprecated
+ *
  * @see [eol-last](https://eslint.org/docs/latest/rules/eol-last)
  */
 export interface EolLastRule {
   /**
    * Require or disallow newline at the end of files.
+   *
+   * @deprecated
    *
    * @see [eol-last](https://eslint.org/docs/latest/rules/eol-last)
    */

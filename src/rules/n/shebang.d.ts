@@ -39,6 +39,13 @@ export interface ShebangOption {
           replace: [string, string];
         }[],
       ];
+  ignoreUnpublished?: boolean;
+  additionalExecutables?: string[];
+  executableMap?: {
+    /**
+     */
+    [k: string]: string;
+  };
 }
 
 /**
@@ -47,22 +54,28 @@ export interface ShebangOption {
 export type ShebangOptions = [ShebangOption?];
 
 /**
- * Require correct usage of shebang.
+ * Require correct usage of hashbang.
  *
- * @see [shebang](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/shebang.md)
+ * @deprecated
+ *
+ * @see [shebang](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/hashbang.md)
  */
 export type ShebangRuleConfig = RuleConfig<ShebangOptions>;
 
 /**
- * Require correct usage of shebang.
+ * Require correct usage of hashbang.
  *
- * @see [shebang](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/shebang.md)
+ * @deprecated
+ *
+ * @see [shebang](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/hashbang.md)
  */
 export interface ShebangRule {
   /**
-   * Require correct usage of shebang.
+   * Require correct usage of hashbang.
    *
-   * @see [shebang](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/shebang.md)
+   * @deprecated
+   *
+   * @see [shebang](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/hashbang.md)
    */
   'n/shebang': ShebangRuleConfig;
 }

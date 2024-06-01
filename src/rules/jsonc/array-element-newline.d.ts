@@ -9,6 +9,7 @@ export type ArrayElementNewlineOption =
       | BasicConfig
       | {
           ArrayExpression?: BasicConfig;
+          JSONArrayExpression?: BasicConfig;
           ArrayPattern?: BasicConfig;
         },
     ];

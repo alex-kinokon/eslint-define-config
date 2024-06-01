@@ -122,20 +122,20 @@ export type NoDeprecatedApiOptions = [NoDeprecatedApiOption?];
 /**
  * Disallow deprecated APIs.
  *
- * @see [no-deprecated-api](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-deprecated-api.md)
+ * @see [no-deprecated-api](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-deprecated-api.md)
  */
 export type NoDeprecatedApiRuleConfig = RuleConfig<NoDeprecatedApiOptions>;
 
 /**
  * Disallow deprecated APIs.
  *
- * @see [no-deprecated-api](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-deprecated-api.md)
+ * @see [no-deprecated-api](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-deprecated-api.md)
  */
 export interface NoDeprecatedApiRule {
   /**
    * Disallow deprecated APIs.
    *
-   * @see [no-deprecated-api](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-deprecated-api.md)
+   * @see [no-deprecated-api](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-deprecated-api.md)
    */
   'n/no-deprecated-api': NoDeprecatedApiRuleConfig;
 }

@@ -6,6 +6,7 @@ import type { RuleConfig } from '../rule-config';
 export interface JsxFilenameExtensionOption {
   allow?: 'always' | 'as-needed';
   extensions?: string[];
+  ignoreFilesWithoutCode?: boolean;
 }
 
 /**

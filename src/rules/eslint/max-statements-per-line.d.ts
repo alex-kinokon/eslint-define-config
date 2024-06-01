@@ -15,6 +15,8 @@ export type MaxStatementsPerLineOptions = [MaxStatementsPerLineOption?];
 /**
  * Enforce a maximum number of statements allowed per line.
  *
+ * @deprecated
+ *
  * @see [max-statements-per-line](https://eslint.org/docs/latest/rules/max-statements-per-line)
  */
 export type MaxStatementsPerLineRuleConfig =
@@ -23,11 +25,15 @@ export type MaxStatementsPerLineRuleConfig =
 /**
  * Enforce a maximum number of statements allowed per line.
  *
+ * @deprecated
+ *
  * @see [max-statements-per-line](https://eslint.org/docs/latest/rules/max-statements-per-line)
  */
 export interface MaxStatementsPerLineRule {
   /**
    * Enforce a maximum number of statements allowed per line.
+   *
+   * @deprecated
    *
    * @see [max-statements-per-line](https://eslint.org/docs/latest/rules/max-statements-per-line)
    */

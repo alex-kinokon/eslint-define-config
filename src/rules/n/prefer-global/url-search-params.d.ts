@@ -15,7 +15,7 @@ export type PreferGlobalUrlSearchParamsOptions = [
 /**
  * Enforce either `URLSearchParams` or `require("url").URLSearchParams`.
  *
- * @see [prefer-global/url-search-params](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/url-search-params.md)
+ * @see [prefer-global/url-search-params](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/url-search-params.md)
  */
 export type PreferGlobalUrlSearchParamsRuleConfig =
   RuleConfig<PreferGlobalUrlSearchParamsOptions>;
@@ -23,13 +23,13 @@ export type PreferGlobalUrlSearchParamsRuleConfig =
 /**
  * Enforce either `URLSearchParams` or `require("url").URLSearchParams`.
  *
- * @see [prefer-global/url-search-params](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/url-search-params.md)
+ * @see [prefer-global/url-search-params](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/url-search-params.md)
  */
 export interface PreferGlobalUrlSearchParamsRule {
   /**
    * Enforce either `URLSearchParams` or `require("url").URLSearchParams`.
    *
-   * @see [prefer-global/url-search-params](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/url-search-params.md)
+   * @see [prefer-global/url-search-params](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/url-search-params.md)
    */
   'n/prefer-global/url-search-params': PreferGlobalUrlSearchParamsRuleConfig;
 }

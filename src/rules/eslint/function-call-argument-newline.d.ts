@@ -18,6 +18,8 @@ export type FunctionCallArgumentNewlineOptions = [
 /**
  * Enforce line breaks between arguments of a function call.
  *
+ * @deprecated
+ *
  * @see [function-call-argument-newline](https://eslint.org/docs/latest/rules/function-call-argument-newline)
  */
 export type FunctionCallArgumentNewlineRuleConfig =
@@ -26,11 +28,15 @@ export type FunctionCallArgumentNewlineRuleConfig =
 /**
  * Enforce line breaks between arguments of a function call.
  *
+ * @deprecated
+ *
  * @see [function-call-argument-newline](https://eslint.org/docs/latest/rules/function-call-argument-newline)
  */
 export interface FunctionCallArgumentNewlineRule {
   /**
    * Enforce line breaks between arguments of a function call.
+   *
+   * @deprecated
    *
    * @see [function-call-argument-newline](https://eslint.org/docs/latest/rules/function-call-argument-newline)
    */

@@ -51,7 +51,7 @@ export type NoExtraneousImportOptions = [NoExtraneousImportOption?];
 /**
  * Disallow `import` declarations which import extraneous modules.
  *
- * @see [no-extraneous-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-extraneous-import.md)
+ * @see [no-extraneous-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-extraneous-import.md)
  */
 export type NoExtraneousImportRuleConfig =
   RuleConfig<NoExtraneousImportOptions>;
@@ -59,13 +59,13 @@ export type NoExtraneousImportRuleConfig =
 /**
  * Disallow `import` declarations which import extraneous modules.
  *
- * @see [no-extraneous-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-extraneous-import.md)
+ * @see [no-extraneous-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-extraneous-import.md)
  */
 export interface NoExtraneousImportRule {
   /**
    * Disallow `import` declarations which import extraneous modules.
    *
-   * @see [no-extraneous-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-extraneous-import.md)
+   * @see [no-extraneous-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-extraneous-import.md)
    */
   'n/no-extraneous-import': NoExtraneousImportRuleConfig;
 }

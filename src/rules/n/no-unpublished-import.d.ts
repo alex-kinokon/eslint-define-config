@@ -52,7 +52,7 @@ export type NoUnpublishedImportOptions = [NoUnpublishedImportOption?];
 /**
  * Disallow `import` declarations which import private modules.
  *
- * @see [no-unpublished-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-import.md)
+ * @see [no-unpublished-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-import.md)
  */
 export type NoUnpublishedImportRuleConfig =
   RuleConfig<NoUnpublishedImportOptions>;
@@ -60,13 +60,13 @@ export type NoUnpublishedImportRuleConfig =
 /**
  * Disallow `import` declarations which import private modules.
  *
- * @see [no-unpublished-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-import.md)
+ * @see [no-unpublished-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-import.md)
  */
 export interface NoUnpublishedImportRule {
   /**
    * Disallow `import` declarations which import private modules.
    *
-   * @see [no-unpublished-import](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-import.md)
+   * @see [no-unpublished-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-import.md)
    */
   'n/no-unpublished-import': NoUnpublishedImportRuleConfig;
 }

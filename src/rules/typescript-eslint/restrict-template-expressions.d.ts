@@ -9,6 +9,10 @@ export interface RestrictTemplateExpressionsOption {
    */
   allowAny?: boolean;
   /**
+   * Whether to allow `array` typed values in template expressions.
+   */
+  allowArray?: boolean;
+  /**
    * Whether to allow `boolean` typed values in template expressions.
    */
   allowBoolean?: boolean;

@@ -148,6 +148,8 @@ export type PaddingLineBetweenStatementsOptions =
 /**
  * Require or disallow padding lines between statements.
  *
+ * @deprecated
+ *
  * @see [padding-line-between-statements](https://typescript-eslint.io/rules/padding-line-between-statements)
  */
 export type PaddingLineBetweenStatementsRuleConfig =
@@ -156,11 +158,15 @@ export type PaddingLineBetweenStatementsRuleConfig =
 /**
  * Require or disallow padding lines between statements.
  *
+ * @deprecated
+ *
  * @see [padding-line-between-statements](https://typescript-eslint.io/rules/padding-line-between-statements)
  */
 export interface PaddingLineBetweenStatementsRule {
   /**
    * Require or disallow padding lines between statements.
+   *
+   * @deprecated
    *
    * @see [padding-line-between-statements](https://typescript-eslint.io/rules/padding-line-between-statements)
    */

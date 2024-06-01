@@ -19,7 +19,7 @@ export type NoRestrictedRequireOptions = [NoRestrictedRequireOption?];
 /**
  * Disallow specified modules when loaded by `require`.
  *
- * @see [no-restricted-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-restricted-require.md)
+ * @see [no-restricted-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-restricted-require.md)
  */
 export type NoRestrictedRequireRuleConfig =
   RuleConfig<NoRestrictedRequireOptions>;
@@ -27,13 +27,13 @@ export type NoRestrictedRequireRuleConfig =
 /**
  * Disallow specified modules when loaded by `require`.
  *
- * @see [no-restricted-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-restricted-require.md)
+ * @see [no-restricted-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-restricted-require.md)
  */
 export interface NoRestrictedRequireRule {
   /**
    * Disallow specified modules when loaded by `require`.
    *
-   * @see [no-restricted-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-restricted-require.md)
+   * @see [no-restricted-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-restricted-require.md)
    */
   'n/no-restricted-require': NoRestrictedRequireRuleConfig;
 }

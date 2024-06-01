@@ -52,7 +52,7 @@ export type NoUnpublishedRequireOptions = [NoUnpublishedRequireOption?];
 /**
  * Disallow `require()` expressions which import private modules.
  *
- * @see [no-unpublished-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-require.md)
+ * @see [no-unpublished-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-require.md)
  */
 export type NoUnpublishedRequireRuleConfig =
   RuleConfig<NoUnpublishedRequireOptions>;
@@ -60,13 +60,13 @@ export type NoUnpublishedRequireRuleConfig =
 /**
  * Disallow `require()` expressions which import private modules.
  *
- * @see [no-unpublished-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-require.md)
+ * @see [no-unpublished-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-require.md)
  */
 export interface NoUnpublishedRequireRule {
   /**
    * Disallow `require()` expressions which import private modules.
    *
-   * @see [no-unpublished-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-require.md)
+   * @see [no-unpublished-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-require.md)
    */
   'n/no-unpublished-require': NoUnpublishedRequireRuleConfig;
 }

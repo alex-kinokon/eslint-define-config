@@ -1,6 +1,13 @@
 import type { RuleConfig } from '../rule-config';
 
 /**
+ * Config.
+ */
+export interface VBindStyleConfig {
+  sameNameShorthand?: 'always' | 'never' | 'ignore';
+}
+
+/**
  * Option.
  */
 export type VBindStyleOption = 'shorthand' | 'longform';
@@ -8,7 +15,7 @@ export type VBindStyleOption = 'shorthand' | 'longform';
 /**
  * Options.
  */
-export type VBindStyleOptions = [VBindStyleOption?];
+export type VBindStyleOptions = [VBindStyleOption?, VBindStyleConfig?];
 
 /**
  * Enforce `v-bind` directive style.

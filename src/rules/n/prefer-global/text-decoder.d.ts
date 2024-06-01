@@ -13,7 +13,7 @@ export type PreferGlobalTextDecoderOptions = [PreferGlobalTextDecoderOption?];
 /**
  * Enforce either `TextDecoder` or `require("util").TextDecoder`.
  *
- * @see [prefer-global/text-decoder](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/text-decoder.md)
+ * @see [prefer-global/text-decoder](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/text-decoder.md)
  */
 export type PreferGlobalTextDecoderRuleConfig =
   RuleConfig<PreferGlobalTextDecoderOptions>;
@@ -21,13 +21,13 @@ export type PreferGlobalTextDecoderRuleConfig =
 /**
  * Enforce either `TextDecoder` or `require("util").TextDecoder`.
  *
- * @see [prefer-global/text-decoder](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/text-decoder.md)
+ * @see [prefer-global/text-decoder](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/text-decoder.md)
  */
 export interface PreferGlobalTextDecoderRule {
   /**
    * Enforce either `TextDecoder` or `require("util").TextDecoder`.
    *
-   * @see [prefer-global/text-decoder](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/text-decoder.md)
+   * @see [prefer-global/text-decoder](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/text-decoder.md)
    */
   'n/prefer-global/text-decoder': PreferGlobalTextDecoderRuleConfig;
 }

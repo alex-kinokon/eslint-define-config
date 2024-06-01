@@ -16,6 +16,8 @@ export type SemiSpacingOptions = [SemiSpacingOption?];
 /**
  * Enforce consistent spacing before and after semicolons.
  *
+ * @deprecated
+ *
  * @see [semi-spacing](https://eslint.org/docs/latest/rules/semi-spacing)
  */
 export type SemiSpacingRuleConfig = RuleConfig<SemiSpacingOptions>;
@@ -23,11 +25,15 @@ export type SemiSpacingRuleConfig = RuleConfig<SemiSpacingOptions>;
 /**
  * Enforce consistent spacing before and after semicolons.
  *
+ * @deprecated
+ *
  * @see [semi-spacing](https://eslint.org/docs/latest/rules/semi-spacing)
  */
 export interface SemiSpacingRule {
   /**
    * Enforce consistent spacing before and after semicolons.
+   *
+   * @deprecated
    *
    * @see [semi-spacing](https://eslint.org/docs/latest/rules/semi-spacing)
    */

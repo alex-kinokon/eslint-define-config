@@ -24,6 +24,8 @@ export type ObjectCurlySpacingOptions = [
 /**
  * Enforce consistent spacing inside braces.
  *
+ * @deprecated
+ *
  * @see [object-curly-spacing](https://typescript-eslint.io/rules/object-curly-spacing)
  */
 export type ObjectCurlySpacingRuleConfig =
@@ -32,11 +34,15 @@ export type ObjectCurlySpacingRuleConfig =
 /**
  * Enforce consistent spacing inside braces.
  *
+ * @deprecated
+ *
  * @see [object-curly-spacing](https://typescript-eslint.io/rules/object-curly-spacing)
  */
 export interface ObjectCurlySpacingRule {
   /**
    * Enforce consistent spacing inside braces.
+   *
+   * @deprecated
    *
    * @see [object-curly-spacing](https://typescript-eslint.io/rules/object-curly-spacing)
    */

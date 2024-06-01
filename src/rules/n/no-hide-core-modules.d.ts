@@ -49,7 +49,7 @@ export type NoHideCoreModulesOptions = [NoHideCoreModulesOption?];
  *
  * @deprecated
  *
- * @see [no-hide-core-modules](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-hide-core-modules.md)
+ * @see [no-hide-core-modules](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-hide-core-modules.md)
  */
 export type NoHideCoreModulesRuleConfig = RuleConfig<NoHideCoreModulesOptions>;
 
@@ -58,7 +58,7 @@ export type NoHideCoreModulesRuleConfig = RuleConfig<NoHideCoreModulesOptions>;
  *
  * @deprecated
  *
- * @see [no-hide-core-modules](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-hide-core-modules.md)
+ * @see [no-hide-core-modules](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-hide-core-modules.md)
  */
 export interface NoHideCoreModulesRule {
   /**
@@ -66,7 +66,7 @@ export interface NoHideCoreModulesRule {
    *
    * @deprecated
    *
-   * @see [no-hide-core-modules](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-hide-core-modules.md)
+   * @see [no-hide-core-modules](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-hide-core-modules.md)
    */
   'n/no-hide-core-modules': NoHideCoreModulesRuleConfig;
 }

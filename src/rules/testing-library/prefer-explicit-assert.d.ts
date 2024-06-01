@@ -4,7 +4,11 @@ import type { RuleConfig } from '../rule-config';
  * Option.
  */
 export interface PreferExplicitAssertOption {
-  assertion?: 'toBeInTheDocument' | 'toBeTruthy' | 'toBeDefined';
+  assertion?:
+    | 'toBeOnTheScreen'
+    | 'toBeInTheDocument'
+    | 'toBeTruthy'
+    | 'toBeDefined';
   includeFindQueries?: boolean;
 }
 

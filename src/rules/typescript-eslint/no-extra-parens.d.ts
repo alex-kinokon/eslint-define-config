@@ -32,6 +32,8 @@ export type NoExtraParensOptions = NoExtraParensOption;
 /**
  * Disallow unnecessary parentheses.
  *
+ * @deprecated
+ *
  * @see [no-extra-parens](https://typescript-eslint.io/rules/no-extra-parens)
  */
 export type NoExtraParensRuleConfig = RuleConfig<NoExtraParensOptions>;
@@ -39,11 +41,15 @@ export type NoExtraParensRuleConfig = RuleConfig<NoExtraParensOptions>;
 /**
  * Disallow unnecessary parentheses.
  *
+ * @deprecated
+ *
  * @see [no-extra-parens](https://typescript-eslint.io/rules/no-extra-parens)
  */
 export interface NoExtraParensRule {
   /**
    * Disallow unnecessary parentheses.
+   *
+   * @deprecated
    *
    * @see [no-extra-parens](https://typescript-eslint.io/rules/no-extra-parens)
    */

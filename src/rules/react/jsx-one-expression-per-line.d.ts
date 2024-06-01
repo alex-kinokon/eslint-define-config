@@ -4,7 +4,7 @@ import type { RuleConfig } from '../rule-config';
  * Option.
  */
 export interface JsxOneExpressionPerLineOption {
-  allow?: 'none' | 'literal' | 'single-child';
+  allow?: 'none' | 'literal' | 'single-child' | 'non-jsx';
 }
 
 /**

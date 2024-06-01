@@ -16,6 +16,8 @@ export type NoThrowLiteralOptions = [NoThrowLiteralOption?];
 /**
  * Disallow throwing literals as exceptions.
  *
+ * @deprecated
+ *
  * @see [no-throw-literal](https://typescript-eslint.io/rules/no-throw-literal)
  */
 export type NoThrowLiteralRuleConfig = RuleConfig<NoThrowLiteralOptions>;
@@ -23,11 +25,15 @@ export type NoThrowLiteralRuleConfig = RuleConfig<NoThrowLiteralOptions>;
 /**
  * Disallow throwing literals as exceptions.
  *
+ * @deprecated
+ *
  * @see [no-throw-literal](https://typescript-eslint.io/rules/no-throw-literal)
  */
 export interface NoThrowLiteralRule {
   /**
    * Disallow throwing literals as exceptions.
+   *
+   * @deprecated
    *
    * @see [no-throw-literal](https://typescript-eslint.io/rules/no-throw-literal)
    */

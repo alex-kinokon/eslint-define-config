@@ -9,6 +9,7 @@ export interface SortPropTypesOption {
   ignoreCase?: boolean;
   noSortAlphabetically?: boolean;
   sortShapeProp?: boolean;
+  checkTypes?: boolean;
 }
 
 /**

@@ -14,6 +14,7 @@ import type { NoDuplicateHooksRule } from './no-duplicate-hooks';
 import type { NoFocusedTestsRule } from './no-focused-tests';
 import type { NoHooksRule } from './no-hooks';
 import type { NoIdenticalTitleRule } from './no-identical-title';
+import type { NoImportNodeTestRule } from './no-import-node-test';
 import type { NoInterpolationInSnapshotsRule } from './no-interpolation-in-snapshots';
 import type { NoLargeSnapshotsRule } from './no-large-snapshots';
 import type { NoMocksImportRule } from './no-mocks-import';
@@ -26,6 +27,7 @@ import type { PreferCalledWithRule } from './prefer-called-with';
 import type { PreferComparisonMatcherRule } from './prefer-comparison-matcher';
 import type { PreferEachRule } from './prefer-each';
 import type { PreferEqualityMatcherRule } from './prefer-equality-matcher';
+import type { PreferExpectAssertionsRule } from './prefer-expect-assertions';
 import type { PreferExpectResolvesRule } from './prefer-expect-resolves';
 import type { PreferHooksInOrderRule } from './prefer-hooks-in-order';
 import type { PreferHooksOnTopRule } from './prefer-hooks-on-top';
@@ -42,6 +44,7 @@ import type { PreferToContainRule } from './prefer-to-contain';
 import type { PreferToHaveLengthRule } from './prefer-to-have-length';
 import type { PreferTodoRule } from './prefer-todo';
 import type { RequireHookRule } from './require-hook';
+import type { RequireLocalTestContextForConcurrentSnapshotsRule } from './require-local-test-context-for-concurrent-snapshots';
 import type { RequireToThrowMessageRule } from './require-to-throw-message';
 import type { RequireTopLevelDescribeRule } from './require-top-level-describe';
 import type { ValidDescribeCallbackRule } from './valid-describe-callback';
@@ -77,6 +80,7 @@ export type VitestRules = PreferLowercaseTitleRule &
   NoStandaloneExpectRule &
   NoTestPrefixesRule &
   NoTestReturnStatementRule &
+  NoImportNodeTestRule &
   PreferCalledWithRule &
   ValidTitleRule &
   ValidExpectRule &
@@ -90,6 +94,7 @@ export type VitestRules = PreferLowercaseTitleRule &
   PreferEachRule &
   PreferHooksOnTopRule &
   PreferHooksInOrderRule &
+  RequireLocalTestContextForConcurrentSnapshotsRule &
   PreferMockPromiseShorthandRule &
   PreferSnapshotHintRule &
   ValidDescribeCallbackRule &
@@ -99,4 +104,5 @@ export type VitestRules = PreferLowercaseTitleRule &
   PreferTodoRule &
   PreferSpyOnRule &
   PreferComparisonMatcherRule &
-  PreferToContainRule;
+  PreferToContainRule &
+  PreferExpectAssertionsRule;

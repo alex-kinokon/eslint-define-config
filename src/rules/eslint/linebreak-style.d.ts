@@ -13,6 +13,8 @@ export type LinebreakStyleOptions = [LinebreakStyleOption?];
 /**
  * Enforce consistent linebreak style.
  *
+ * @deprecated
+ *
  * @see [linebreak-style](https://eslint.org/docs/latest/rules/linebreak-style)
  */
 export type LinebreakStyleRuleConfig = RuleConfig<LinebreakStyleOptions>;
@@ -20,11 +22,15 @@ export type LinebreakStyleRuleConfig = RuleConfig<LinebreakStyleOptions>;
 /**
  * Enforce consistent linebreak style.
  *
+ * @deprecated
+ *
  * @see [linebreak-style](https://eslint.org/docs/latest/rules/linebreak-style)
  */
 export interface LinebreakStyleRule {
   /**
    * Enforce consistent linebreak style.
+   *
+   * @deprecated
    *
    * @see [linebreak-style](https://eslint.org/docs/latest/rules/linebreak-style)
    */

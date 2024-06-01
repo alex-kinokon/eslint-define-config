@@ -1,5 +1,6 @@
 import type { BooleanPropNamingRule } from './boolean-prop-naming';
 import type { ButtonHasTypeRule } from './button-has-type';
+import type { CheckedRequiresOnchangeOrReadonlyRule } from './checked-requires-onchange-or-readonly';
 import type { DefaultPropsMatchPropTypesRule } from './default-props-match-prop-types';
 import type { DestructuringAssignmentRule } from './destructuring-assignment';
 import type { DisplayNameRule } from './display-name';
@@ -104,6 +105,7 @@ import type { VoidDomElementsNoChildrenRule } from './void-dom-elements-no-child
  */
 export type ReactRules = BooleanPropNamingRule &
   ButtonHasTypeRule &
+  CheckedRequiresOnchangeOrReadonlyRule &
   DefaultPropsMatchPropTypesRule &
   DestructuringAssignmentRule &
   DisplayNameRule &

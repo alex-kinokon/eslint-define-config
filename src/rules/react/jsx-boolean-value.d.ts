@@ -12,6 +12,7 @@ export type JsxBooleanValueOption =
       'always',
       {
         never?: string[];
+        assumeUndefinedIsFalse?: boolean;
       },
     ]
   | []
@@ -20,6 +21,7 @@ export type JsxBooleanValueOption =
       'never',
       {
         always?: string[];
+        assumeUndefinedIsFalse?: boolean;
       },
     ];
 

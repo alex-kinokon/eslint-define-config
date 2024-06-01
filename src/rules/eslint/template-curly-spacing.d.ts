@@ -13,6 +13,8 @@ export type TemplateCurlySpacingOptions = [TemplateCurlySpacingOption?];
 /**
  * Require or disallow spacing around embedded expressions of template strings.
  *
+ * @deprecated
+ *
  * @see [template-curly-spacing](https://eslint.org/docs/latest/rules/template-curly-spacing)
  */
 export type TemplateCurlySpacingRuleConfig =
@@ -21,11 +23,15 @@ export type TemplateCurlySpacingRuleConfig =
 /**
  * Require or disallow spacing around embedded expressions of template strings.
  *
+ * @deprecated
+ *
  * @see [template-curly-spacing](https://eslint.org/docs/latest/rules/template-curly-spacing)
  */
 export interface TemplateCurlySpacingRule {
   /**
    * Require or disallow spacing around embedded expressions of template strings.
+   *
+   * @deprecated
    *
    * @see [template-curly-spacing](https://eslint.org/docs/latest/rules/template-curly-spacing)
    */

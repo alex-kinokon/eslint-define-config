@@ -26,6 +26,8 @@ export type PaddedBlocksOptions = [PaddedBlocksOption?, PaddedBlocksConfig?];
 /**
  * Require or disallow padding within blocks.
  *
+ * @deprecated
+ *
  * @see [padded-blocks](https://eslint.org/docs/latest/rules/padded-blocks)
  */
 export type PaddedBlocksRuleConfig = RuleConfig<PaddedBlocksOptions>;
@@ -33,11 +35,15 @@ export type PaddedBlocksRuleConfig = RuleConfig<PaddedBlocksOptions>;
 /**
  * Require or disallow padding within blocks.
  *
+ * @deprecated
+ *
  * @see [padded-blocks](https://eslint.org/docs/latest/rules/padded-blocks)
  */
 export interface PaddedBlocksRule {
   /**
    * Require or disallow padding within blocks.
+   *
+   * @deprecated
    *
    * @see [padded-blocks](https://eslint.org/docs/latest/rules/padded-blocks)
    */

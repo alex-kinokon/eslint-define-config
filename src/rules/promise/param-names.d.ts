@@ -14,17 +14,20 @@ export interface ParamNamesOption {
 export type ParamNamesOptions = [ParamNamesOption?];
 
 /**
+ * Enforce consistent param names and ordering when creating new promises.
  *
  * @see [param-names](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/param-names.md)
  */
 export type ParamNamesRuleConfig = RuleConfig<ParamNamesOptions>;
 
 /**
+ * Enforce consistent param names and ordering when creating new promises.
  *
  * @see [param-names](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/param-names.md)
  */
 export interface ParamNamesRule {
   /**
+   * Enforce consistent param names and ordering when creating new promises.
    *
    * @see [param-names](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/param-names.md)
    */

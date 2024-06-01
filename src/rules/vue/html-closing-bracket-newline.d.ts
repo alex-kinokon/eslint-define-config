@@ -6,6 +6,10 @@ import type { RuleConfig } from '../rule-config';
 export interface HtmlClosingBracketNewlineOption {
   singleline?: 'always' | 'never';
   multiline?: 'always' | 'never';
+  selfClosingTag?: {
+    singleline?: 'always' | 'never';
+    multiline?: 'always' | 'never';
+  };
 }
 
 /**

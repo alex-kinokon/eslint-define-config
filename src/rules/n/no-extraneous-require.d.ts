@@ -52,7 +52,7 @@ export type NoExtraneousRequireOptions = [NoExtraneousRequireOption?];
 /**
  * Disallow `require()` expressions which import extraneous modules.
  *
- * @see [no-extraneous-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-extraneous-require.md)
+ * @see [no-extraneous-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-extraneous-require.md)
  */
 export type NoExtraneousRequireRuleConfig =
   RuleConfig<NoExtraneousRequireOptions>;
@@ -60,13 +60,13 @@ export type NoExtraneousRequireRuleConfig =
 /**
  * Disallow `require()` expressions which import extraneous modules.
  *
- * @see [no-extraneous-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-extraneous-require.md)
+ * @see [no-extraneous-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-extraneous-require.md)
  */
 export interface NoExtraneousRequireRule {
   /**
    * Disallow `require()` expressions which import extraneous modules.
    *
-   * @see [no-extraneous-require](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/no-extraneous-require.md)
+   * @see [no-extraneous-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-extraneous-require.md)
    */
   'n/no-extraneous-require': NoExtraneousRequireRuleConfig;
 }

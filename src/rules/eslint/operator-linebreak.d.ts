@@ -25,6 +25,8 @@ export type OperatorLinebreakOptions = [
 /**
  * Enforce consistent linebreak style for operators.
  *
+ * @deprecated
+ *
  * @see [operator-linebreak](https://eslint.org/docs/latest/rules/operator-linebreak)
  */
 export type OperatorLinebreakRuleConfig = RuleConfig<OperatorLinebreakOptions>;
@@ -32,11 +34,15 @@ export type OperatorLinebreakRuleConfig = RuleConfig<OperatorLinebreakOptions>;
 /**
  * Enforce consistent linebreak style for operators.
  *
+ * @deprecated
+ *
  * @see [operator-linebreak](https://eslint.org/docs/latest/rules/operator-linebreak)
  */
 export interface OperatorLinebreakRule {
   /**
    * Enforce consistent linebreak style for operators.
+   *
+   * @deprecated
    *
    * @see [operator-linebreak](https://eslint.org/docs/latest/rules/operator-linebreak)
    */

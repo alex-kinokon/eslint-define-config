@@ -13,20 +13,20 @@ export interface MaxNestedDescribeOption {
 export type MaxNestedDescribeOptions = [MaxNestedDescribeOption?];
 
 /**
- * Nested describe block should be less than set max value or default value.
+ * Require describe block to be less than set max value or default value.
  *
  * @see [max-nested-describe](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-nested-describe.md)
  */
 export type MaxNestedDescribeRuleConfig = RuleConfig<MaxNestedDescribeOptions>;
 
 /**
- * Nested describe block should be less than set max value or default value.
+ * Require describe block to be less than set max value or default value.
  *
  * @see [max-nested-describe](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-nested-describe.md)
  */
 export interface MaxNestedDescribeRule {
   /**
-   * Nested describe block should be less than set max value or default value.
+   * Require describe block to be less than set max value or default value.
    *
    * @see [max-nested-describe](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-nested-describe.md)
    */

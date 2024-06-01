@@ -16,6 +16,8 @@ export type ArrowSpacingOptions = [ArrowSpacingOption?];
 /**
  * Enforce consistent spacing before and after the arrow in arrow functions.
  *
+ * @deprecated
+ *
  * @see [arrow-spacing](https://eslint.org/docs/latest/rules/arrow-spacing)
  */
 export type ArrowSpacingRuleConfig = RuleConfig<ArrowSpacingOptions>;
@@ -23,11 +25,15 @@ export type ArrowSpacingRuleConfig = RuleConfig<ArrowSpacingOptions>;
 /**
  * Enforce consistent spacing before and after the arrow in arrow functions.
  *
+ * @deprecated
+ *
  * @see [arrow-spacing](https://eslint.org/docs/latest/rules/arrow-spacing)
  */
 export interface ArrowSpacingRule {
   /**
    * Enforce consistent spacing before and after the arrow in arrow functions.
+   *
+   * @deprecated
    *
    * @see [arrow-spacing](https://eslint.org/docs/latest/rules/arrow-spacing)
    */

@@ -104,6 +104,8 @@ export type NoMixedOperatorsOptions = [NoMixedOperatorsOption?];
 /**
  * Disallow mixed binary operators.
  *
+ * @deprecated
+ *
  * @see [no-mixed-operators](https://eslint.org/docs/latest/rules/no-mixed-operators)
  */
 export type NoMixedOperatorsRuleConfig = RuleConfig<NoMixedOperatorsOptions>;
@@ -111,11 +113,15 @@ export type NoMixedOperatorsRuleConfig = RuleConfig<NoMixedOperatorsOptions>;
 /**
  * Disallow mixed binary operators.
  *
+ * @deprecated
+ *
  * @see [no-mixed-operators](https://eslint.org/docs/latest/rules/no-mixed-operators)
  */
 export interface NoMixedOperatorsRule {
   /**
    * Disallow mixed binary operators.
+   *
+   * @deprecated
    *
    * @see [no-mixed-operators](https://eslint.org/docs/latest/rules/no-mixed-operators)
    */

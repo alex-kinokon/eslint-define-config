@@ -18,6 +18,8 @@ export type ArrayBracketNewlineOptions = [ArrayBracketNewlineOption?];
 /**
  * Enforce linebreaks after opening and before closing array brackets.
  *
+ * @deprecated
+ *
  * @see [array-bracket-newline](https://eslint.org/docs/latest/rules/array-bracket-newline)
  */
 export type ArrayBracketNewlineRuleConfig =
@@ -26,11 +28,15 @@ export type ArrayBracketNewlineRuleConfig =
 /**
  * Enforce linebreaks after opening and before closing array brackets.
  *
+ * @deprecated
+ *
  * @see [array-bracket-newline](https://eslint.org/docs/latest/rules/array-bracket-newline)
  */
 export interface ArrayBracketNewlineRule {
   /**
    * Enforce linebreaks after opening and before closing array brackets.
+   *
+   * @deprecated
    *
    * @see [array-bracket-newline](https://eslint.org/docs/latest/rules/array-bracket-newline)
    */

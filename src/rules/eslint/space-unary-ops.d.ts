@@ -19,6 +19,8 @@ export type SpaceUnaryOpsOptions = [SpaceUnaryOpsOption?];
 /**
  * Enforce consistent spacing before or after unary operators.
  *
+ * @deprecated
+ *
  * @see [space-unary-ops](https://eslint.org/docs/latest/rules/space-unary-ops)
  */
 export type SpaceUnaryOpsRuleConfig = RuleConfig<SpaceUnaryOpsOptions>;
@@ -26,11 +28,15 @@ export type SpaceUnaryOpsRuleConfig = RuleConfig<SpaceUnaryOpsOptions>;
 /**
  * Enforce consistent spacing before or after unary operators.
  *
+ * @deprecated
+ *
  * @see [space-unary-ops](https://eslint.org/docs/latest/rules/space-unary-ops)
  */
 export interface SpaceUnaryOpsRule {
   /**
    * Enforce consistent spacing before or after unary operators.
+   *
+   * @deprecated
    *
    * @see [space-unary-ops](https://eslint.org/docs/latest/rules/space-unary-ops)
    */

@@ -1,6 +1,7 @@
 import type { BetterRegexRule } from './better-regex';
 import type { CatchErrorNameRule } from './catch-error-name';
 import type { ConsistentDestructuringRule } from './consistent-destructuring';
+import type { ConsistentEmptyArraySpreadRule } from './consistent-empty-array-spread';
 import type { ConsistentFunctionScopingRule } from './consistent-function-scoping';
 import type { CustomErrorDefinitionRule } from './custom-error-definition';
 import type { EmptyBraceSpacesRule } from './empty-brace-spaces';
@@ -13,6 +14,7 @@ import type { ImportIndexRule } from './import-index';
 import type { ImportStyleRule } from './import-style';
 import type { NewForBuiltinsRule } from './new-for-builtins';
 import type { NoAbusiveEslintDisableRule } from './no-abusive-eslint-disable';
+import type { NoAnonymousDefaultExportRule } from './no-anonymous-default-export';
 import type { NoArrayCallbackReferenceRule } from './no-array-callback-reference';
 import type { NoArrayForEachRule } from './no-array-for-each';
 import type { NoArrayInstanceofRule } from './no-array-instanceof';
@@ -20,6 +22,7 @@ import type { NoArrayMethodThisArgumentRule } from './no-array-method-this-argum
 import type { NoArrayPushPushRule } from './no-array-push-push';
 import type { NoArrayReduceRule } from './no-array-reduce';
 import type { NoAwaitExpressionMemberRule } from './no-await-expression-member';
+import type { NoAwaitInPromiseMethodsRule } from './no-await-in-promise-methods';
 import type { NoConsoleSpacesRule } from './no-console-spaces';
 import type { NoDocumentCookieRule } from './no-document-cookie';
 import type { NoEmptyFileRule } from './no-empty-file';
@@ -27,9 +30,11 @@ import type { NoFnReferenceInIteratorRule } from './no-fn-reference-in-iterator'
 import type { NoForLoopRule } from './no-for-loop';
 import type { NoHexEscapeRule } from './no-hex-escape';
 import type { NoInstanceofArrayRule } from './no-instanceof-array';
+import type { NoInvalidFetchOptionsRule } from './no-invalid-fetch-options';
 import type { NoInvalidRemoveEventListenerRule } from './no-invalid-remove-event-listener';
 import type { NoKeywordPrefixRule } from './no-keyword-prefix';
 import type { NoLonelyIfRule } from './no-lonely-if';
+import type { NoMagicArrayFlatDepthRule } from './no-magic-array-flat-depth';
 import type { NoNegatedConditionRule } from './no-negated-condition';
 import type { NoNestedTernaryRule } from './no-nested-ternary';
 import type { NoNewArrayRule } from './no-new-array';
@@ -38,11 +43,13 @@ import type { NoNullRule } from './no-null';
 import type { NoObjectAsDefaultParameterRule } from './no-object-as-default-parameter';
 import type { NoProcessExitRule } from './no-process-exit';
 import type { NoReduceRule } from './no-reduce';
+import type { NoSinglePromiseInPromiseMethodsRule } from './no-single-promise-in-promise-methods';
 import type { NoStaticOnlyClassRule } from './no-static-only-class';
 import type { NoThenableRule } from './no-thenable';
 import type { NoThisAssignmentRule } from './no-this-assignment';
 import type { NoTypeofUndefinedRule } from './no-typeof-undefined';
 import type { NoUnnecessaryAwaitRule } from './no-unnecessary-await';
+import type { NoUnnecessaryPolyfillsRule } from './no-unnecessary-polyfills';
 import type { NoUnreadableArrayDestructuringRule } from './no-unreadable-array-destructuring';
 import type { NoUnreadableIifeRule } from './no-unreadable-iife';
 import type { NoUnsafeRegexRule } from './no-unsafe-regex';
@@ -103,10 +110,12 @@ import type { PreferSetHasRule } from './prefer-set-has';
 import type { PreferSetSizeRule } from './prefer-set-size';
 import type { PreferSpreadRule } from './prefer-spread';
 import type { PreferStartsEndsWithRule } from './prefer-starts-ends-with';
+import type { PreferStringRawRule } from './prefer-string-raw';
 import type { PreferStringReplaceAllRule } from './prefer-string-replace-all';
 import type { PreferStringSliceRule } from './prefer-string-slice';
 import type { PreferStringStartsEndsWithRule } from './prefer-string-starts-ends-with';
 import type { PreferStringTrimStartEndRule } from './prefer-string-trim-start-end';
+import type { PreferStructuredCloneRule } from './prefer-structured-clone';
 import type { PreferSwitchRule } from './prefer-switch';
 import type { PreferTernaryRule } from './prefer-ternary';
 import type { PreferTextContentRule } from './prefer-text-content';
@@ -131,6 +140,7 @@ import type { ThrowNewErrorRule } from './throw-new-error';
 export type UnicornRules = BetterRegexRule &
   CatchErrorNameRule &
   ConsistentDestructuringRule &
+  ConsistentEmptyArraySpreadRule &
   ConsistentFunctionScopingRule &
   CustomErrorDefinitionRule &
   EmptyBraceSpacesRule &
@@ -142,21 +152,25 @@ export type UnicornRules = BetterRegexRule &
   ImportStyleRule &
   NewForBuiltinsRule &
   NoAbusiveEslintDisableRule &
+  NoAnonymousDefaultExportRule &
   NoArrayCallbackReferenceRule &
   NoArrayForEachRule &
   NoArrayMethodThisArgumentRule &
   NoArrayPushPushRule &
   NoArrayReduceRule &
   NoAwaitExpressionMemberRule &
+  NoAwaitInPromiseMethodsRule &
   NoConsoleSpacesRule &
   NoDocumentCookieRule &
   NoEmptyFileRule &
   NoForLoopRule &
   NoHexEscapeRule &
   NoInstanceofArrayRule &
+  NoInvalidFetchOptionsRule &
   NoInvalidRemoveEventListenerRule &
   NoKeywordPrefixRule &
   NoLonelyIfRule &
+  NoMagicArrayFlatDepthRule &
   NoNegatedConditionRule &
   NoNestedTernaryRule &
   NoNewArrayRule &
@@ -164,11 +178,13 @@ export type UnicornRules = BetterRegexRule &
   NoNullRule &
   NoObjectAsDefaultParameterRule &
   NoProcessExitRule &
+  NoSinglePromiseInPromiseMethodsRule &
   NoStaticOnlyClassRule &
   NoThenableRule &
   NoThisAssignmentRule &
   NoTypeofUndefinedRule &
   NoUnnecessaryAwaitRule &
+  NoUnnecessaryPolyfillsRule &
   NoUnreadableArrayDestructuringRule &
   NoUnreadableIifeRule &
   NoUnusedPropertiesRule &
@@ -219,10 +235,12 @@ export type UnicornRules = BetterRegexRule &
   PreferSetHasRule &
   PreferSetSizeRule &
   PreferSpreadRule &
+  PreferStringRawRule &
   PreferStringReplaceAllRule &
   PreferStringSliceRule &
   PreferStringStartsEndsWithRule &
   PreferStringTrimStartEndRule &
+  PreferStructuredCloneRule &
   PreferSwitchRule &
   PreferTernaryRule &
   PreferTopLevelAwaitRule &

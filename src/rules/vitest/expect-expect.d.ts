@@ -4,7 +4,8 @@ import type { RuleConfig } from '../rule-config';
  * Option.
  */
 export interface ExpectExpectOption {
-  customExpressions?: any[];
+  assertFunctionNames?: [] | [string];
+  additionalTestBlockFunctions?: string[];
 }
 
 /**

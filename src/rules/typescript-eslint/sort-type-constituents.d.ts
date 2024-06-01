@@ -13,6 +13,10 @@ export interface SortTypeConstituentsOption {
    */
   checkUnions?: boolean;
   /**
+   * Whether to sort using case sensitive sorting.
+   */
+  caseSensitive?: boolean;
+  /**
    * Ordering of the groups.
    */
   groupOrder?: (

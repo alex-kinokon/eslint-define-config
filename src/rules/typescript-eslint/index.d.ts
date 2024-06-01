@@ -12,6 +12,7 @@ import type { CommaDangleRule } from './comma-dangle';
 import type { CommaSpacingRule } from './comma-spacing';
 import type { ConsistentGenericConstructorsRule } from './consistent-generic-constructors';
 import type { ConsistentIndexedObjectStyleRule } from './consistent-indexed-object-style';
+import type { ConsistentReturnRule } from './consistent-return';
 import type { ConsistentTypeAssertionsRule } from './consistent-type-assertions';
 import type { ConsistentTypeDefinitionsRule } from './consistent-type-definitions';
 import type { ConsistentTypeExportsRule } from './consistent-type-exports';
@@ -28,11 +29,13 @@ import type { KeySpacingRule } from './key-spacing';
 import type { KeywordSpacingRule } from './keyword-spacing';
 import type { LinesAroundCommentRule } from './lines-around-comment';
 import type { LinesBetweenClassMembersRule } from './lines-between-class-members';
+import type { MaxParamsRule } from './max-params';
 import type { MemberDelimiterStyleRule } from './member-delimiter-style';
 import type { MemberOrderingRule } from './member-ordering';
 import type { MethodSignatureStyleRule } from './method-signature-style';
 import type { NamingConventionRule } from './naming-convention';
 import type { NoArrayConstructorRule } from './no-array-constructor';
+import type { NoArrayDeleteRule } from './no-array-delete';
 import type { NoBaseToStringRule } from './no-base-to-string';
 import type { NoConfusingNonNullAssertionRule } from './no-confusing-non-null-assertion';
 import type { NoConfusingVoidExpressionRule } from './no-confusing-void-expression';
@@ -86,18 +89,23 @@ import type { NoUnsafeDeclarationMergingRule } from './no-unsafe-declaration-mer
 import type { NoUnsafeEnumComparisonRule } from './no-unsafe-enum-comparison';
 import type { NoUnsafeMemberAccessRule } from './no-unsafe-member-access';
 import type { NoUnsafeReturnRule } from './no-unsafe-return';
+import type { NoUnsafeUnaryMinusRule } from './no-unsafe-unary-minus';
 import type { NoUnusedExpressionsRule } from './no-unused-expressions';
 import type { NoUnusedVarsRule } from './no-unused-vars';
 import type { NoUseBeforeDefineRule } from './no-use-before-define';
 import type { NoUselessConstructorRule } from './no-useless-constructor';
 import type { NoUselessEmptyExportRule } from './no-useless-empty-export';
+import type { NoUselessTemplateLiteralsRule } from './no-useless-template-literals';
 import type { NoVarRequiresRule } from './no-var-requires';
 import type { NonNullableTypeAssertionStyleRule } from './non-nullable-type-assertion-style';
 import type { ObjectCurlySpacingRule } from './object-curly-spacing';
+import type { OnlyThrowErrorRule } from './only-throw-error';
 import type { PaddingLineBetweenStatementsRule } from './padding-line-between-statements';
 import type { ParameterPropertiesRule } from './parameter-properties';
 import type { PreferAsConstRule } from './prefer-as-const';
+import type { PreferDestructuringRule } from './prefer-destructuring';
 import type { PreferEnumInitializersRule } from './prefer-enum-initializers';
+import type { PreferFindRule } from './prefer-find';
 import type { PreferForOfRule } from './prefer-for-of';
 import type { PreferFunctionTypeRule } from './prefer-function-type';
 import type { PreferIncludesRule } from './prefer-includes';
@@ -105,6 +113,7 @@ import type { PreferLiteralEnumMemberRule } from './prefer-literal-enum-member';
 import type { PreferNamespaceKeywordRule } from './prefer-namespace-keyword';
 import type { PreferNullishCoalescingRule } from './prefer-nullish-coalescing';
 import type { PreferOptionalChainRule } from './prefer-optional-chain';
+import type { PreferPromiseRejectErrorsRule } from './prefer-promise-reject-errors';
 import type { PreferReadonlyRule } from './prefer-readonly';
 import type { PreferReadonlyParameterTypesRule } from './prefer-readonly-parameter-types';
 import type { PreferReduceTypeParameterRule } from './prefer-reduce-type-parameter';
@@ -131,6 +140,7 @@ import type { TypeAnnotationSpacingRule } from './type-annotation-spacing';
 import type { TypedefRule } from './typedef';
 import type { UnboundMethodRule } from './unbound-method';
 import type { UnifiedSignaturesRule } from './unified-signatures';
+import type { UseUnknownInCatchCallbackVariableRule } from './use-unknown-in-catch-callback-variable';
 
 /**
  * All TypeScript rules.
@@ -149,6 +159,7 @@ export type TypeScriptRules = AdjacentOverloadSignaturesRule &
   CommaSpacingRule &
   ConsistentGenericConstructorsRule &
   ConsistentIndexedObjectStyleRule &
+  ConsistentReturnRule &
   ConsistentTypeAssertionsRule &
   ConsistentTypeDefinitionsRule &
   ConsistentTypeExportsRule &
@@ -165,11 +176,13 @@ export type TypeScriptRules = AdjacentOverloadSignaturesRule &
   KeywordSpacingRule &
   LinesAroundCommentRule &
   LinesBetweenClassMembersRule &
+  MaxParamsRule &
   MemberDelimiterStyleRule &
   MemberOrderingRule &
   MethodSignatureStyleRule &
   NamingConventionRule &
   NoArrayConstructorRule &
+  NoArrayDeleteRule &
   NoBaseToStringRule &
   NoConfusingNonNullAssertionRule &
   NoConfusingVoidExpressionRule &
@@ -223,18 +236,23 @@ export type TypeScriptRules = AdjacentOverloadSignaturesRule &
   NoUnsafeEnumComparisonRule &
   NoUnsafeMemberAccessRule &
   NoUnsafeReturnRule &
+  NoUnsafeUnaryMinusRule &
   NoUnusedExpressionsRule &
   NoUnusedVarsRule &
   NoUseBeforeDefineRule &
   NoUselessConstructorRule &
   NoUselessEmptyExportRule &
+  NoUselessTemplateLiteralsRule &
   NoVarRequiresRule &
   NonNullableTypeAssertionStyleRule &
   ObjectCurlySpacingRule &
+  OnlyThrowErrorRule &
   PaddingLineBetweenStatementsRule &
   ParameterPropertiesRule &
   PreferAsConstRule &
+  PreferDestructuringRule &
   PreferEnumInitializersRule &
+  PreferFindRule &
   PreferForOfRule &
   PreferFunctionTypeRule &
   PreferIncludesRule &
@@ -242,6 +260,7 @@ export type TypeScriptRules = AdjacentOverloadSignaturesRule &
   PreferNamespaceKeywordRule &
   PreferNullishCoalescingRule &
   PreferOptionalChainRule &
+  PreferPromiseRejectErrorsRule &
   PreferReadonlyRule &
   PreferReadonlyParameterTypesRule &
   PreferReduceTypeParameterRule &
@@ -267,4 +286,5 @@ export type TypeScriptRules = AdjacentOverloadSignaturesRule &
   TypeAnnotationSpacingRule &
   TypedefRule &
   UnboundMethodRule &
-  UnifiedSignaturesRule;
+  UnifiedSignaturesRule &
+  UseUnknownInCatchCallbackVariableRule;

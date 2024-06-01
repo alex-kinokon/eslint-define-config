@@ -20,6 +20,8 @@ export type SpaceInParensOptions = [SpaceInParensOption?, SpaceInParensConfig?];
 /**
  * Enforce consistent spacing inside parentheses.
  *
+ * @deprecated
+ *
  * @see [space-in-parens](https://eslint.org/docs/latest/rules/space-in-parens)
  */
 export type SpaceInParensRuleConfig = RuleConfig<SpaceInParensOptions>;
@@ -27,11 +29,15 @@ export type SpaceInParensRuleConfig = RuleConfig<SpaceInParensOptions>;
 /**
  * Enforce consistent spacing inside parentheses.
  *
+ * @deprecated
+ *
  * @see [space-in-parens](https://eslint.org/docs/latest/rules/space-in-parens)
  */
 export interface SpaceInParensRule {
   /**
    * Enforce consistent spacing inside parentheses.
+   *
+   * @deprecated
    *
    * @see [space-in-parens](https://eslint.org/docs/latest/rules/space-in-parens)
    */

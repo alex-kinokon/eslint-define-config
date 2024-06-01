@@ -51,6 +51,8 @@ export type ObjectCurlyNewlineOptions = [ObjectCurlyNewlineOption?];
 /**
  * Enforce consistent line breaks after opening and before closing braces.
  *
+ * @deprecated
+ *
  * @see [object-curly-newline](https://eslint.org/docs/latest/rules/object-curly-newline)
  */
 export type ObjectCurlyNewlineRuleConfig =
@@ -59,11 +61,15 @@ export type ObjectCurlyNewlineRuleConfig =
 /**
  * Enforce consistent line breaks after opening and before closing braces.
  *
+ * @deprecated
+ *
  * @see [object-curly-newline](https://eslint.org/docs/latest/rules/object-curly-newline)
  */
 export interface ObjectCurlyNewlineRule {
   /**
    * Enforce consistent line breaks after opening and before closing braces.
+   *
+   * @deprecated
    *
    * @see [object-curly-newline](https://eslint.org/docs/latest/rules/object-curly-newline)
    */

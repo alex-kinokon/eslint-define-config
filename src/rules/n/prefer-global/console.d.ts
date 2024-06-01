@@ -13,7 +13,7 @@ export type PreferGlobalConsoleOptions = [PreferGlobalConsoleOption?];
 /**
  * Enforce either `console` or `require("console")`.
  *
- * @see [prefer-global/console](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/console.md)
+ * @see [prefer-global/console](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/console.md)
  */
 export type PreferGlobalConsoleRuleConfig =
   RuleConfig<PreferGlobalConsoleOptions>;
@@ -21,13 +21,13 @@ export type PreferGlobalConsoleRuleConfig =
 /**
  * Enforce either `console` or `require("console")`.
  *
- * @see [prefer-global/console](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/console.md)
+ * @see [prefer-global/console](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/console.md)
  */
 export interface PreferGlobalConsoleRule {
   /**
    * Enforce either `console` or `require("console")`.
    *
-   * @see [prefer-global/console](https://github.com/weiran-zsd/eslint-plugin-node/blob/HEAD/docs/rules/prefer-global/console.md)
+   * @see [prefer-global/console](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/console.md)
    */
   'n/prefer-global/console': PreferGlobalConsoleRuleConfig;
 }

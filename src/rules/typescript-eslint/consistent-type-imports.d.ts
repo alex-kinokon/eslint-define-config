@@ -4,9 +4,9 @@ import type { RuleConfig } from '../rule-config';
  * Option.
  */
 export interface ConsistentTypeImportsOption {
-  prefer?: 'type-imports' | 'no-type-imports';
   disallowTypeAnnotations?: boolean;
   fixStyle?: 'separate-type-imports' | 'inline-type-imports';
+  prefer?: 'type-imports' | 'no-type-imports';
 }
 
 /**

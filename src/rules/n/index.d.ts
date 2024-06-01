@@ -3,6 +3,7 @@ import type { ExportsStyleRule } from './exports-style';
 import type { FileExtensionInImportRule } from './file-extension-in-import';
 import type { GlobalRequireRule } from './global-require';
 import type { HandleCallbackErrRule } from './handle-callback-err';
+import type { HashbangRule } from './hashbang';
 import type { NoCallbackLiteralRule } from './no-callback-literal';
 import type { NoDeprecatedApiRule } from './no-deprecated-api';
 import type { NoExportsAssignRule } from './no-exports-assign';
@@ -22,7 +23,6 @@ import type { NoSyncRule } from './no-sync';
 import type { NoUnpublishedBinRule } from './no-unpublished-bin';
 import type { NoUnpublishedImportRule } from './no-unpublished-import';
 import type { NoUnpublishedRequireRule } from './no-unpublished-require';
-import type { NoUnsupportedFeaturesRule } from './no-unsupported-features';
 import type { NoUnsupportedFeaturesEsBuiltinsRule } from './no-unsupported-features/es-builtins';
 import type { NoUnsupportedFeaturesEsSyntaxRule } from './no-unsupported-features/es-syntax';
 import type { NoUnsupportedFeaturesNodeBuiltinsRule } from './no-unsupported-features/node-builtins';
@@ -33,6 +33,7 @@ import type { PreferGlobalTextDecoderRule } from './prefer-global/text-decoder';
 import type { PreferGlobalTextEncoderRule } from './prefer-global/text-encoder';
 import type { PreferGlobalUrlRule } from './prefer-global/url';
 import type { PreferGlobalUrlSearchParamsRule } from './prefer-global/url-search-params';
+import type { PreferNodeProtocolRule } from './prefer-node-protocol';
 import type { PreferPromisesDnsRule } from './prefer-promises/dns';
 import type { PreferPromisesFsRule } from './prefer-promises/fs';
 import type { ProcessExitAsThrowRule } from './process-exit-as-throw';
@@ -74,9 +75,10 @@ export type NRules = CallbackReturnRule &
   PreferGlobalTextEncoderRule &
   PreferGlobalUrlSearchParamsRule &
   PreferGlobalUrlRule &
+  PreferNodeProtocolRule &
   PreferPromisesDnsRule &
   PreferPromisesFsRule &
   ProcessExitAsThrowRule &
-  ShebangRule &
+  HashbangRule &
   NoHideCoreModulesRule &
-  NoUnsupportedFeaturesRule;
+  ShebangRule;

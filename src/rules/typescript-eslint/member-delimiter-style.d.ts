@@ -40,6 +40,8 @@ export type MemberDelimiterStyleOptions = [MemberDelimiterStyleOption?];
 /**
  * Require a specific member delimiter style for interfaces and type literals.
  *
+ * @deprecated
+ *
  * @see [member-delimiter-style](https://typescript-eslint.io/rules/member-delimiter-style)
  */
 export type MemberDelimiterStyleRuleConfig =
@@ -48,11 +50,15 @@ export type MemberDelimiterStyleRuleConfig =
 /**
  * Require a specific member delimiter style for interfaces and type literals.
  *
+ * @deprecated
+ *
  * @see [member-delimiter-style](https://typescript-eslint.io/rules/member-delimiter-style)
  */
 export interface MemberDelimiterStyleRule {
   /**
    * Require a specific member delimiter style for interfaces and type literals.
+   *
+   * @deprecated
    *
    * @see [member-delimiter-style](https://typescript-eslint.io/rules/member-delimiter-style)
    */

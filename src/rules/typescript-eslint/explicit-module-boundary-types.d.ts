@@ -23,7 +23,7 @@ export interface ExplicitModuleBoundaryTypesOption {
    */
   allowHigherOrderFunctions?: boolean;
   /**
-   * Whether to ignore type annotations on the variable of a function expresion.
+   * Whether to ignore type annotations on the variable of a function expression.
    */
   allowTypedFunctionExpressions?: boolean;
 }

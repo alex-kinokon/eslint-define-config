@@ -13,6 +13,8 @@ export type NoMixedSpacesAndTabsOptions = [NoMixedSpacesAndTabsOption?];
 /**
  * Disallow mixed spaces and tabs for indentation.
  *
+ * @deprecated
+ *
  * @see [no-mixed-spaces-and-tabs](https://eslint.org/docs/latest/rules/no-mixed-spaces-and-tabs)
  */
 export type NoMixedSpacesAndTabsRuleConfig =
@@ -21,11 +23,15 @@ export type NoMixedSpacesAndTabsRuleConfig =
 /**
  * Disallow mixed spaces and tabs for indentation.
  *
+ * @deprecated
+ *
  * @see [no-mixed-spaces-and-tabs](https://eslint.org/docs/latest/rules/no-mixed-spaces-and-tabs)
  */
 export interface NoMixedSpacesAndTabsRule {
   /**
    * Disallow mixed spaces and tabs for indentation.
+   *
+   * @deprecated
    *
    * @see [no-mixed-spaces-and-tabs](https://eslint.org/docs/latest/rules/no-mixed-spaces-and-tabs)
    */

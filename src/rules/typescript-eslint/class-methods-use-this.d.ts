@@ -13,13 +13,13 @@ export interface ClassMethodsUseThisOption {
    */
   enforceForClassFields?: boolean;
   /**
-   * Ingore members marked with the `override` modifier
+   * Ignore members marked with the `override` modifier
    */
   ignoreOverrideMethods?: boolean;
   /**
    * Ignore classes that specifically implement some interface
    */
-  ignoreClassesThatImplementAnInterface?: boolean;
+  ignoreClassesThatImplementAnInterface?: boolean | 'public-fields';
 }
 
 /**

@@ -3,15 +3,36 @@ import type { RuleConfig } from '../rule-config';
 /**
  * Option.
  */
-export type JsxNoScriptUrlOption = {
-  name: string;
-  props: string[];
-}[];
+export type JsxNoScriptUrlOption =
+  | []
+  | [
+      {
+        name: string;
+        props: string[];
+      }[],
+    ]
+  | [
+      {
+        name: string;
+        props: string[];
+      }[],
+      {
+        includeFromSettings?: boolean;
+        [k: string]: any;
+      },
+    ]
+  | []
+  | [
+      {
+        includeFromSettings?: boolean;
+        [k: string]: any;
+      },
+    ];
 
 /**
  * Options.
  */
-export type JsxNoScriptUrlOptions = [JsxNoScriptUrlOption?];
+export type JsxNoScriptUrlOptions = JsxNoScriptUrlOption;
 
 /**
  * Disallow usage of `javascript:` URLs.

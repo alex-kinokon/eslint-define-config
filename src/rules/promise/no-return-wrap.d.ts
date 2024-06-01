@@ -13,17 +13,20 @@ export interface NoReturnWrapOption {
 export type NoReturnWrapOptions = [NoReturnWrapOption?];
 
 /**
+ * Disallow wrapping values in `Promise.resolve` or `Promise.reject` when not needed.
  *
  * @see [no-return-wrap](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-return-wrap.md)
  */
 export type NoReturnWrapRuleConfig = RuleConfig<NoReturnWrapOptions>;
 
 /**
+ * Disallow wrapping values in `Promise.resolve` or `Promise.reject` when not needed.
  *
  * @see [no-return-wrap](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-return-wrap.md)
  */
 export interface NoReturnWrapRule {
   /**
+   * Disallow wrapping values in `Promise.resolve` or `Promise.reject` when not needed.
    *
    * @see [no-return-wrap](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-return-wrap.md)
    */

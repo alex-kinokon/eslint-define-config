@@ -13,6 +13,8 @@ export type NewParensOptions = [NewParensOption?];
 /**
  * Enforce or disallow parentheses when invoking a constructor with no arguments.
  *
+ * @deprecated
+ *
  * @see [new-parens](https://eslint.org/docs/latest/rules/new-parens)
  */
 export type NewParensRuleConfig = RuleConfig<NewParensOptions>;
@@ -20,11 +22,15 @@ export type NewParensRuleConfig = RuleConfig<NewParensOptions>;
 /**
  * Enforce or disallow parentheses when invoking a constructor with no arguments.
  *
+ * @deprecated
+ *
  * @see [new-parens](https://eslint.org/docs/latest/rules/new-parens)
  */
 export interface NewParensRule {
   /**
    * Enforce or disallow parentheses when invoking a constructor with no arguments.
+   *
+   * @deprecated
    *
    * @see [new-parens](https://eslint.org/docs/latest/rules/new-parens)
    */

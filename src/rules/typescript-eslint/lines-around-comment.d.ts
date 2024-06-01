@@ -36,6 +36,8 @@ export type LinesAroundCommentOptions = [LinesAroundCommentOption?];
 /**
  * Require empty lines around comments.
  *
+ * @deprecated
+ *
  * @see [lines-around-comment](https://typescript-eslint.io/rules/lines-around-comment)
  */
 export type LinesAroundCommentRuleConfig =
@@ -44,11 +46,15 @@ export type LinesAroundCommentRuleConfig =
 /**
  * Require empty lines around comments.
  *
+ * @deprecated
+ *
  * @see [lines-around-comment](https://typescript-eslint.io/rules/lines-around-comment)
  */
 export interface LinesAroundCommentRule {
   /**
    * Require empty lines around comments.
+   *
+   * @deprecated
    *
    * @see [lines-around-comment](https://typescript-eslint.io/rules/lines-around-comment)
    */

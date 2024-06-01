@@ -20,6 +20,8 @@ export interface NoUnsupportedFeaturesOption {
     | 'v-bind-attr-modifier'
     | 'define-options'
     | 'define-slots'
+    | 'define-model'
+    | 'v-bind-same-name-shorthand'
   )[];
 }
 

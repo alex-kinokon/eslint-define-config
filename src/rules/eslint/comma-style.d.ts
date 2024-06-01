@@ -22,6 +22,8 @@ export type CommaStyleOptions = [CommaStyleOption?, CommaStyleConfig?];
 /**
  * Enforce consistent comma style.
  *
+ * @deprecated
+ *
  * @see [comma-style](https://eslint.org/docs/latest/rules/comma-style)
  */
 export type CommaStyleRuleConfig = RuleConfig<CommaStyleOptions>;
@@ -29,11 +31,15 @@ export type CommaStyleRuleConfig = RuleConfig<CommaStyleOptions>;
 /**
  * Enforce consistent comma style.
  *
+ * @deprecated
+ *
  * @see [comma-style](https://eslint.org/docs/latest/rules/comma-style)
  */
 export interface CommaStyleRule {
   /**
    * Enforce consistent comma style.
+   *
+   * @deprecated
    *
    * @see [comma-style](https://eslint.org/docs/latest/rules/comma-style)
    */

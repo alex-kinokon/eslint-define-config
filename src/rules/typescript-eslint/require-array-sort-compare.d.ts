@@ -16,7 +16,7 @@ export interface RequireArraySortCompareOption {
 export type RequireArraySortCompareOptions = [RequireArraySortCompareOption?];
 
 /**
- * Require `Array#sort` calls to always provide a `compareFunction`.
+ * Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`.
  *
  * @see [require-array-sort-compare](https://typescript-eslint.io/rules/require-array-sort-compare)
  */
@@ -24,13 +24,13 @@ export type RequireArraySortCompareRuleConfig =
   RuleConfig<RequireArraySortCompareOptions>;
 
 /**
- * Require `Array#sort` calls to always provide a `compareFunction`.
+ * Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`.
  *
  * @see [require-array-sort-compare](https://typescript-eslint.io/rules/require-array-sort-compare)
  */
 export interface RequireArraySortCompareRule {
   /**
-   * Require `Array#sort` calls to always provide a `compareFunction`.
+   * Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`.
    *
    * @see [require-array-sort-compare](https://typescript-eslint.io/rules/require-array-sort-compare)
    */
