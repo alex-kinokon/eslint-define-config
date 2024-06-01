@@ -1,8 +1,10 @@
 // @ts-check
-const { defineConfig } = require('.');
 const { readGitignoreFiles } = require('eslint-gitignore');
 
-module.exports = defineConfig({
+/**
+ * @type {import('./src/index').ESLintConfig}
+ */
+const config = {
   ignorePatterns: [
     ...readGitignoreFiles(),
     '.eslintrc.cjs', // Skip self linting
@@ -65,10 +67,6 @@ module.exports = defineConfig({
       'error',
       { allowNumber: true, allowBoolean: true },
     ],
-    '@typescript-eslint/typedef': [
-      'warn',
-      { memberVariableDeclaration: true, variableDeclaration: true },
-    ],
   },
   overrides: [
     {
@@ -82,4 +80,6 @@ module.exports = defineConfig({
       },
     },
   ],
-});
+};
+
+module.exports = config;

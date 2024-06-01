@@ -1,4 +1,4 @@
-import { logger } from '@poppinss/cliui';
+import { Logger } from '@poppinss/cliui';
 import { paramCase as kebabCase, pascalCase } from 'change-case';
 import type { Rule } from 'eslint';
 import type { JSONSchema4 } from 'json-schema';
@@ -7,8 +7,11 @@ import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
+import colors from 'picocolors';
 import { format as prettierFormat, type Config } from 'prettier';
 import { dedent } from 'ts-dedent';
+
+const logger = new Logger();
 
 type PluginRules = Record<string, Rule.RuleModule>;
 
@@ -489,7 +492,7 @@ class RuleFile {
     const ruleName: string = this.prefixedRuleName();
 
     if (existsSync(diffFile)) {
-      logger.logUpdate(logger.colors.yellow(`  🧹 Adjusting ${ruleName}`));
+      logger.logUpdate(colors.yellow(`  🧹 Adjusting ${ruleName}`));
       logger.logUpdatePersist();
 
       execSync(`git apply ${diffFile}`);
@@ -563,13 +566,13 @@ function printGenerationReport(
   const msg: string = `  ✅ Generated ${
     rules.length - failedRules.length
   } rules`;
-  logger.logUpdate(logger.colors.green(msg));
+  logger.logUpdate(colors.green(msg));
   logger.logUpdatePersist();
 
   if (failedRules.length) {
-    logger.log(logger.colors.red(`  ❌ Failed ${failedRules.length} rules`));
+    logger.log(colors.red(`  ❌ Failed ${failedRules.length} rules`));
     failedRules.forEach(({ ruleName, err }) => {
-      logger.log(logger.colors.red(`    - ${ruleName}: ${String(err)}`));
+      logger.log(colors.red(`    - ${ruleName}: ${String(err)}`));
     });
   }
 
@@ -594,7 +597,7 @@ async function generateRulesFiles(
 
   const rules: Array<[string, Rule.RuleModule]> = Object.entries(pluginRules);
   for (const [ruleName, rule] of rules) {
-    logger.logUpdate(logger.colors.yellow(`  Generating > ${ruleName}`));
+    logger.logUpdate(colors.yellow(`  Generating > ${ruleName}`));
 
     const ruleFile: RuleFile = new RuleFile(
       plugin,
@@ -625,7 +628,7 @@ function createPluginDirectory(
 ): string {
   const rulesDirectory: string = join(
     __dirname,
-    targetDirectory ?? '../../src/rules',
+    targetDirectory ?? '../src/rules',
   );
   const pluginDirectory: string = join(rulesDirectory, pluginName);
 
@@ -655,9 +658,7 @@ export async function run(options: RunOptions = {}): Promise<void> {
     }
 
     logger.info(`Generating ${plugin.name} rules.`);
-    logger.logUpdate(
-      logger.colors.yellow(`  Loading plugin > ${plugin.module}`),
-    );
+    logger.logUpdate(colors.yellow(`  Loading plugin > ${plugin.module}`));
     const loadedPlugin: Plugin = await loadPlugin(plugin);
 
     const pluginDir: string = createPluginDirectory(
