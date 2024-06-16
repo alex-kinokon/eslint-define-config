@@ -1,8 +1,8 @@
 diff --git a/src/rules/eslint.d.ts b/src/rules/eslint.d.ts
-index d446182..253d15b 100644
+index 4ea78e8..c1f218e 100644
 --- a/src/rules/eslint.d.ts
 +++ b/src/rules/eslint.d.ts
-@@ -967,10 +967,6 @@ export interface NoConsoleOption {
+@@ -896,10 +896,6 @@ export interface NoConsoleOption {
    allow?: [string, ...string[]];
  }
  
@@ -13,12 +13,12 @@ index d446182..253d15b 100644
  export interface NoEmptyFunctionOption {
    allow?: (
      | 'functions'
-@@ -2521,7 +2517,7 @@ export interface EslintRules {
+@@ -2401,7 +2397,7 @@ export interface EslintRules {
     * Disallow returning value from constructor.
     * @see [no-constructor-return](https://eslint.org/docs/latest/rules/no-constructor-return)
     */
--  'no-constructor-return': RuleConfig<NoConstructorReturnOption>;
-+  'no-constructor-return': EmptyRuleConfig;
+-  'no-constructor-return': NoConstructorReturnOption;
++  'no-constructor-return': null;
  
    /**
     * Disallow `continue` statements.

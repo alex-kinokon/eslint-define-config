@@ -1,4 +1,4 @@
-import type { EmptyRuleConfig, RuleConfig } from '../rule-config';
+import type { RulesObject } from '../rule-config';
 
 export type CallbackReturnOption = string[];
 
@@ -213,22 +213,6 @@ export interface NoExtraneousRequireOption {
   resolvePaths?: string[];
   tryExtensions?: string[];
 }
-
-export type NoMissingImportRuleConfig = [
-  {
-    allowModules?: string[];
-    tryExtensions?: string[];
-    resolvePaths?: string[];
-  }?,
-];
-
-export type NoMissingRequireRuleConfig = [
-  {
-    allowModules?: string[];
-    tryExtensions?: string[];
-    resolvePaths?: string[];
-  }?,
-];
 
 export type NoMixedRequiresOption =
   | boolean
@@ -879,245 +863,257 @@ export interface NodeRules {
    * Require `return` statements after callbacks.
    * @see [callback-return](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/callback-return.md)
    */
-  'node/callback-return': RuleConfig<[CallbackReturnOption?]>;
+  'node/callback-return': [CallbackReturnOption?];
 
   /**
    * Enforce either `module.exports` or `exports`.
    * @see [exports-style](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/exports-style.md)
    */
-  'node/exports-style': RuleConfig<ExportsStyleRuleConfig>;
+  'node/exports-style': ExportsStyleRuleConfig;
 
   /**
    * Enforce the style of file extensions in `import` declarations.
    * @see [file-extension-in-import](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/file-extension-in-import.md)
    */
-  'node/file-extension-in-import': RuleConfig<FileExtensionInImportRuleConfig>;
+  'node/file-extension-in-import': FileExtensionInImportRuleConfig;
 
   /**
    * Require `require()` calls to be placed at top-level module scope.
    * @see [global-require](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/global-require.md)
    */
-  'node/global-require': EmptyRuleConfig;
+  'node/global-require': null;
 
   /**
    * Require error handling in callbacks.
    * @see [handle-callback-err](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/handle-callback-err.md)
    */
-  'node/handle-callback-err': RuleConfig<[HandleCallbackErrOption?]>;
+  'node/handle-callback-err': [HandleCallbackErrOption?];
 
   /**
    * Ensure Node.js-style error-first callback pattern is followed.
    * @see [no-callback-literal](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-callback-literal.md)
    */
-  'node/no-callback-literal': EmptyRuleConfig;
+  'node/no-callback-literal': null;
 
   /**
    * Disallow deprecated APIs.
    * @see [no-deprecated-api](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-deprecated-api.md)
    */
-  'node/no-deprecated-api': RuleConfig<[NoDeprecatedApiOption?]>;
+  'node/no-deprecated-api': [NoDeprecatedApiOption?];
 
   /**
    * Disallow the assignment to `exports`.
    * @see [no-exports-assign](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-exports-assign.md)
    */
-  'node/no-exports-assign': EmptyRuleConfig;
+  'node/no-exports-assign': null;
 
   /**
    * Disallow `import` declarations which import extraneous modules.
    * @see [no-extraneous-import](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-extraneous-import.md)
    */
-  'node/no-extraneous-import': RuleConfig<[NoExtraneousImportOption?]>;
+  'node/no-extraneous-import': [NoExtraneousImportOption?];
 
   /**
    * Disallow `require()` expressions which import extraneous modules.
    * @see [no-extraneous-require](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-extraneous-require.md)
    */
-  'node/no-extraneous-require': RuleConfig<[NoExtraneousRequireOption?]>;
+  'node/no-extraneous-require': [NoExtraneousRequireOption?];
 
   /**
    * Disallow `import` declarations which import non-existence modules.
    * @see [no-missing-import](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-missing-import.md)
    */
-  'node/no-missing-import': RuleConfig<NoMissingImportRuleConfig>;
+  'node/no-missing-import': [
+    {
+      allowModules?: string[];
+      tryExtensions?: string[];
+      resolvePaths?: string[];
+    }?,
+  ];
 
   /**
    * Disallow `require()` expressions which import non-existence modules.
    * @see [no-missing-require](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-missing-require.md)
    */
-  'node/no-missing-require': RuleConfig<NoMissingRequireRuleConfig>;
+  'node/no-missing-require': [
+    {
+      allowModules?: string[];
+      tryExtensions?: string[];
+      resolvePaths?: string[];
+    }?,
+  ];
 
   /**
    * Disallow `require` calls to be mixed with regular variable declarations.
    * @see [no-mixed-requires](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-mixed-requires.md)
    */
-  'node/no-mixed-requires': RuleConfig<[NoMixedRequiresOption?]>;
+  'node/no-mixed-requires': [NoMixedRequiresOption?];
 
   /**
    * Disallow `new` operators with calls to `require`.
    * @see [no-new-require](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-new-require.md)
    */
-  'node/no-new-require': EmptyRuleConfig;
+  'node/no-new-require': null;
 
   /**
    * Disallow string concatenation with `__dirname` and `__filename`.
    * @see [no-path-concat](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-path-concat.md)
    */
-  'node/no-path-concat': EmptyRuleConfig;
+  'node/no-path-concat': null;
 
   /**
    * Disallow the use of `process.env`.
    * @see [no-process-env](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-process-env.md)
    */
-  'node/no-process-env': EmptyRuleConfig;
+  'node/no-process-env': null;
 
   /**
    * Disallow the use of `process.exit()`.
    * @see [no-process-exit](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-process-exit.md)
    */
-  'node/no-process-exit': EmptyRuleConfig;
+  'node/no-process-exit': null;
 
   /**
    * Disallow specified modules when loaded by `require`.
    * @see [no-restricted-import](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-restricted-import.md)
    */
-  'node/no-restricted-import': RuleConfig<[NoRestrictedImportOption?]>;
+  'node/no-restricted-import': [NoRestrictedImportOption?];
 
   /**
    * Disallow specified modules when loaded by `require`.
    * @see [no-restricted-require](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-restricted-require.md)
    */
-  'node/no-restricted-require': RuleConfig<[NoRestrictedRequireOption?]>;
+  'node/no-restricted-require': [NoRestrictedRequireOption?];
 
   /**
    * Disallow synchronous methods.
    * @see [no-sync](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-sync.md)
    */
-  'node/no-sync': RuleConfig<
-    [
-      {
-        allowAtRootLevel?: boolean;
-      }?,
-    ]
-  >;
+  'node/no-sync': [
+    {
+      allowAtRootLevel?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow `bin` files that npm ignores.
    * @see [no-unpublished-bin](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-unpublished-bin.md)
    */
-  'node/no-unpublished-bin': RuleConfig<[NoUnpublishedBinOption?]>;
+  'node/no-unpublished-bin': [NoUnpublishedBinOption?];
 
   /**
    * Disallow `import` declarations which import private modules.
    * @see [no-unpublished-import](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-unpublished-import.md)
    */
-  'node/no-unpublished-import': RuleConfig<[NoUnpublishedImportOption?]>;
+  'node/no-unpublished-import': [NoUnpublishedImportOption?];
 
   /**
    * Disallow `require()` expressions which import private modules.
    * @see [no-unpublished-require](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-unpublished-require.md)
    */
-  'node/no-unpublished-require': RuleConfig<[NoUnpublishedRequireOption?]>;
+  'node/no-unpublished-require': [NoUnpublishedRequireOption?];
 
   /**
    * Disallow unsupported ECMAScript built-ins on the specified version.
    * @see [no-unsupported-features/es-builtins](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-unsupported-features/es-builtins.md)
    */
-  'node/no-unsupported-features/es-builtins': RuleConfig<
-    [NoUnsupportedFeaturesEsBuiltinsOption?]
-  >;
+  'node/no-unsupported-features/es-builtins': [
+    NoUnsupportedFeaturesEsBuiltinsOption?,
+  ];
 
   /**
    * Disallow unsupported ECMAScript syntax on the specified version.
    * @see [no-unsupported-features/es-syntax](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-unsupported-features/es-syntax.md)
    */
-  'node/no-unsupported-features/es-syntax': RuleConfig<
-    [NoUnsupportedFeaturesEsSyntaxOption?]
-  >;
+  'node/no-unsupported-features/es-syntax': [
+    NoUnsupportedFeaturesEsSyntaxOption?,
+  ];
 
   /**
    * Disallow unsupported Node.js built-in APIs on the specified version.
    * @see [no-unsupported-features/node-builtins](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-unsupported-features/node-builtins.md)
    */
-  'node/no-unsupported-features/node-builtins': RuleConfig<NoUnsupportedFeaturesNodeBuiltins.NoUnsupportedFeaturesNodeBuiltinsRuleConfig>;
+  'node/no-unsupported-features/node-builtins': NoUnsupportedFeaturesNodeBuiltins.NoUnsupportedFeaturesNodeBuiltinsRuleConfig;
 
   /**
    * Enforce either `Buffer` or `require("buffer").Buffer`.
    * @see [prefer-global/buffer](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-global/buffer.md)
    */
-  'node/prefer-global/buffer': RuleConfig<[('always' | 'never')?]>;
+  'node/prefer-global/buffer': [('always' | 'never')?];
 
   /**
    * Enforce either `console` or `require("console")`.
    * @see [prefer-global/console](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-global/console.md)
    */
-  'node/prefer-global/console': RuleConfig<[('always' | 'never')?]>;
+  'node/prefer-global/console': [('always' | 'never')?];
 
   /**
    * Enforce either `process` or `require("process")`.
    * @see [prefer-global/process](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-global/process.md)
    */
-  'node/prefer-global/process': RuleConfig<[('always' | 'never')?]>;
+  'node/prefer-global/process': [('always' | 'never')?];
 
   /**
    * Enforce either `TextDecoder` or `require("util").TextDecoder`.
    * @see [prefer-global/text-decoder](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-global/text-decoder.md)
    */
-  'node/prefer-global/text-decoder': RuleConfig<[('always' | 'never')?]>;
+  'node/prefer-global/text-decoder': [('always' | 'never')?];
 
   /**
    * Enforce either `TextEncoder` or `require("util").TextEncoder`.
    * @see [prefer-global/text-encoder](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-global/text-encoder.md)
    */
-  'node/prefer-global/text-encoder': RuleConfig<[('always' | 'never')?]>;
+  'node/prefer-global/text-encoder': [('always' | 'never')?];
 
   /**
    * Enforce either `URLSearchParams` or `require("url").URLSearchParams`.
    * @see [prefer-global/url-search-params](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-global/url-search-params.md)
    */
-  'node/prefer-global/url-search-params': RuleConfig<[('always' | 'never')?]>;
+  'node/prefer-global/url-search-params': [('always' | 'never')?];
 
   /**
    * Enforce either `URL` or `require("url").URL`.
    * @see [prefer-global/url](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-global/url.md)
    */
-  'node/prefer-global/url': RuleConfig<[('always' | 'never')?]>;
+  'node/prefer-global/url': [('always' | 'never')?];
 
   /**
    * Enforce `require("dns").promises`.
    * @see [prefer-promises/dns](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-promises/dns.md)
    */
-  'node/prefer-promises/dns': EmptyRuleConfig;
+  'node/prefer-promises/dns': null;
 
   /**
    * Enforce `require("fs").promises`.
    * @see [prefer-promises/fs](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/prefer-promises/fs.md)
    */
-  'node/prefer-promises/fs': EmptyRuleConfig;
+  'node/prefer-promises/fs': null;
 
   /**
    * Make `process.exit()` expressions the same code path as `throw`.
    * @see [process-exit-as-throw](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/process-exit-as-throw.md)
    */
-  'node/process-exit-as-throw': EmptyRuleConfig;
+  'node/process-exit-as-throw': null;
 
   /**
    * Suggest correct usage of shebang.
    * @see [shebang](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/shebang.md)
    */
-  'node/shebang': RuleConfig<[ShebangOption?]>;
+  'node/shebang': [ShebangOption?];
 
   /**
    * Disallow third-party modules which are hiding core modules.
    * @deprecated
    * @see [no-hide-core-modules](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-hide-core-modules.md)
    */
-  'node/no-hide-core-modules': RuleConfig<[NoHideCoreModulesOption?]>;
+  'node/no-hide-core-modules': [NoHideCoreModulesOption?];
 
   /**
    * Disallow unsupported ECMAScript features on the specified version.
    * @deprecated
    * @see [no-unsupported-features](https://github.com/mysticatea/eslint-plugin-node/blob/v11.1.0/docs/rules/no-unsupported-features.md)
    */
-  'node/no-unsupported-features': RuleConfig<[NoUnsupportedFeaturesOption?]>;
+  'node/no-unsupported-features': [NoUnsupportedFeaturesOption?];
 }
+
+export type NodeRulesObject = RulesObject<NodeRules>;

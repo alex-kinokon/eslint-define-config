@@ -1,4 +1,4 @@
-import type { EmptyRuleConfig, RuleConfig } from '../rule-config';
+import type { RulesObject } from '../rule-config';
 
 export interface NoUnresolvedOption {
   commonjs?: boolean;
@@ -283,14 +283,6 @@ export interface OrderOption {
   warnOnUnassignedImports?: boolean;
 }
 
-export type NewlineAfterImportRuleConfig = [
-  {
-    count?: number;
-    exactCount?: boolean;
-    considerComments?: boolean;
-  }?,
-];
-
 export interface PreferDefaultExportOption {
   target?: 'single' | 'any';
 }
@@ -301,13 +293,6 @@ export interface NoUnassignedImportOption {
   peerDependencies?: boolean | any[];
   allow?: string[];
 }
-
-export type NoUselessPathSegmentsRuleConfig = [
-  {
-    commonjs?: boolean;
-    noUselessIndex?: boolean;
-  }?,
-];
 
 export interface DynamicImportChunknameOption {
   importFunctions?: string[];
@@ -324,313 +309,306 @@ export interface ImportXRules {
    * Ensure imports point to a file/module that can be resolved.
    * @see [no-unresolved](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-unresolved.md)
    */
-  'import-x/no-unresolved': RuleConfig<[NoUnresolvedOption?]>;
+  'import-x/no-unresolved': [NoUnresolvedOption?];
 
   /**
    * Ensure named imports correspond to a named export in the remote file.
    * @see [named](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/named.md)
    */
-  'import-x/named': RuleConfig<
-    [
-      {
-        commonjs?: boolean;
-      }?,
-    ]
-  >;
+  'import-x/named': [
+    {
+      commonjs?: boolean;
+    }?,
+  ];
 
   /**
    * Ensure a default export is present, given a default import.
    * @see [default](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/default.md)
    */
-  'import-x/default': EmptyRuleConfig;
+  'import-x/default': null;
 
   /**
    * Ensure imported namespaces contain dereferenced properties as they are dereferenced.
    * @see [namespace](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/namespace.md)
    */
-  'import-x/namespace': RuleConfig<[NamespaceOption?]>;
+  'import-x/namespace': [NamespaceOption?];
 
   /**
    * Forbid namespace (a.k.a. "wildcard" `*`) imports.
    * @see [no-namespace](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-namespace.md)
    */
-  'import-x/no-namespace': RuleConfig<[NoNamespaceOption?]>;
+  'import-x/no-namespace': [NoNamespaceOption?];
 
   /**
    * Forbid any invalid exports, i.e. re-export of the same name.
    * @see [export](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/export.md)
    */
-  'import-x/export': EmptyRuleConfig;
+  'import-x/export': null;
 
   /**
    * Forbid the use of mutable exports with `var` or `let`.
    * @see [no-mutable-exports](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-mutable-exports.md)
    */
-  'import-x/no-mutable-exports': EmptyRuleConfig;
+  'import-x/no-mutable-exports': null;
 
   /**
    * Ensure consistent use of file extension within the import path.
    * @see [extensions](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/extensions.md)
    */
-  'import-x/extensions': RuleConfig<ExtensionsOption>;
+  'import-x/extensions': ExtensionsOption;
 
   /**
    * Enforce which files can be imported in a given folder.
    * @see [no-restricted-paths](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-restricted-paths.md)
    */
-  'import-x/no-restricted-paths': RuleConfig<[NoRestrictedPathsOption?]>;
+  'import-x/no-restricted-paths': [NoRestrictedPathsOption?];
 
   /**
    * Forbid importing the submodules of other modules.
    * @see [no-internal-modules](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-internal-modules.md)
    */
-  'import-x/no-internal-modules': RuleConfig<[NoInternalModulesOption?]>;
+  'import-x/no-internal-modules': [NoInternalModulesOption?];
 
   /**
    * Prefer named exports to be grouped together in a single export declaration.
    * @see [group-exports](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/group-exports.md)
    */
-  'import-x/group-exports': EmptyRuleConfig;
+  'import-x/group-exports': null;
 
   /**
    * Forbid importing packages through relative paths.
    * @see [no-relative-packages](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-relative-packages.md)
    */
-  'import-x/no-relative-packages': RuleConfig<[NoRelativePackagesOption?]>;
+  'import-x/no-relative-packages': [NoRelativePackagesOption?];
 
   /**
    * Forbid importing modules from parent directories.
    * @see [no-relative-parent-imports](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-relative-parent-imports.md)
    */
-  'import-x/no-relative-parent-imports': RuleConfig<
-    [NoRelativeParentImportsOption?]
-  >;
+  'import-x/no-relative-parent-imports': [NoRelativeParentImportsOption?];
 
   /**
    * Enforce or ban the use of inline type-only markers for named imports.
    * @see [consistent-type-specifier-style](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/consistent-type-specifier-style.md)
    */
-  'import-x/consistent-type-specifier-style': RuleConfig<
-    [('prefer-inline' | 'prefer-top-level')?]
-  >;
+  'import-x/consistent-type-specifier-style': [
+    ('prefer-inline' | 'prefer-top-level')?,
+  ];
 
   /**
    * Forbid a module from importing itself.
    * @see [no-self-import](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-self-import.md)
    */
-  'import-x/no-self-import': EmptyRuleConfig;
+  'import-x/no-self-import': null;
 
   /**
    * Forbid a module from importing a module with a dependency path back to itself.
    * @see [no-cycle](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-cycle.md)
    */
-  'import-x/no-cycle': RuleConfig<[NoCycleOption?]>;
+  'import-x/no-cycle': [NoCycleOption?];
 
   /**
    * Forbid named default exports.
    * @see [no-named-default](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-named-default.md)
    */
-  'import-x/no-named-default': EmptyRuleConfig;
+  'import-x/no-named-default': null;
 
   /**
    * Forbid use of exported name as identifier of default export.
    * @see [no-named-as-default](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-named-as-default.md)
    */
-  'import-x/no-named-as-default': EmptyRuleConfig;
+  'import-x/no-named-as-default': null;
 
   /**
    * Forbid use of exported name as property of default export.
    * @see [no-named-as-default-member](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-named-as-default-member.md)
    */
-  'import-x/no-named-as-default-member': EmptyRuleConfig;
+  'import-x/no-named-as-default-member': null;
 
   /**
    * Forbid anonymous values as default exports.
    * @see [no-anonymous-default-export](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-anonymous-default-export.md)
    */
-  'import-x/no-anonymous-default-export': RuleConfig<NoAnonymousDefaultExport.NoAnonymousDefaultExportRuleConfig>;
+  'import-x/no-anonymous-default-export': NoAnonymousDefaultExport.NoAnonymousDefaultExportRuleConfig;
 
   /**
    * Forbid modules without exports, or exports without matching import in another module.
    * @see [no-unused-modules](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-unused-modules.md)
    */
-  'import-x/no-unused-modules': RuleConfig<NoUnusedModules.NoUnusedModulesRuleConfig>;
+  'import-x/no-unused-modules': NoUnusedModules.NoUnusedModulesRuleConfig;
 
   /**
    * Forbid CommonJS `require` calls and `module.exports` or `exports.*`.
    * @see [no-commonjs](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-commonjs.md)
    */
-  'import-x/no-commonjs': RuleConfig<NoCommonjsOption>;
+  'import-x/no-commonjs': NoCommonjsOption;
 
   /**
    * Forbid AMD `require` and `define` calls.
    * @see [no-amd](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-amd.md)
    */
-  'import-x/no-amd': EmptyRuleConfig;
+  'import-x/no-amd': null;
 
   /**
    * Forbid repeated import of the same module in multiple places.
    * @see [no-duplicates](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-duplicates.md)
    */
-  'import-x/no-duplicates': RuleConfig<[NoDuplicatesOption?]>;
+  'import-x/no-duplicates': [NoDuplicatesOption?];
 
   /**
    * Ensure all imports appear before other statements.
    * @see [first](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/first.md)
    */
-  'import-x/first': RuleConfig<
-    [('absolute-first' | 'disable-absolute-first')?]
-  >;
+  'import-x/first': [('absolute-first' | 'disable-absolute-first')?];
 
   /**
    * Enforce the maximum number of dependencies a module can have.
    * @see [max-dependencies](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/max-dependencies.md)
    */
-  'import-x/max-dependencies': RuleConfig<
-    [
-      {
-        max?: number;
-        ignoreTypeImports?: boolean;
-      }?,
-    ]
-  >;
+  'import-x/max-dependencies': [
+    {
+      max?: number;
+      ignoreTypeImports?: boolean;
+    }?,
+  ];
 
   /**
    * Forbid the use of extraneous packages.
    * @see [no-extraneous-dependencies](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-extraneous-dependencies.md)
    */
-  'import-x/no-extraneous-dependencies': RuleConfig<
-    [NoExtraneousDependenciesOption?]
-  >;
+  'import-x/no-extraneous-dependencies': [NoExtraneousDependenciesOption?];
 
   /**
    * Forbid import of modules using absolute paths.
    * @see [no-absolute-path](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-absolute-path.md)
    */
-  'import-x/no-absolute-path': RuleConfig<[NoAbsolutePathOption?]>;
+  'import-x/no-absolute-path': [NoAbsolutePathOption?];
 
   /**
    * Forbid Node.js builtin modules.
    * @see [no-nodejs-modules](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-nodejs-modules.md)
    */
-  'import-x/no-nodejs-modules': RuleConfig<
-    [
-      {
-        allow?: string[];
-      }?,
-    ]
-  >;
+  'import-x/no-nodejs-modules': [
+    {
+      allow?: string[];
+    }?,
+  ];
 
   /**
    * Forbid webpack loader syntax in imports.
    * @see [no-webpack-loader-syntax](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-webpack-loader-syntax.md)
    */
-  'import-x/no-webpack-loader-syntax': EmptyRuleConfig;
+  'import-x/no-webpack-loader-syntax': null;
 
   /**
    * Enforce a convention in module import order.
    * @see [order](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/order.md)
    */
-  'import-x/order': RuleConfig<[OrderOption?]>;
+  'import-x/order': [OrderOption?];
 
   /**
    * Enforce a newline after import statements.
    * @see [newline-after-import](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/newline-after-import.md)
    */
-  'import-x/newline-after-import': RuleConfig<NewlineAfterImportRuleConfig>;
+  'import-x/newline-after-import': [
+    {
+      count?: number;
+      exactCount?: boolean;
+      considerComments?: boolean;
+    }?,
+  ];
 
   /**
    * Prefer a default export if module exports a single name or multiple names.
    * @see [prefer-default-export](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/prefer-default-export.md)
    */
-  'import-x/prefer-default-export': RuleConfig<[PreferDefaultExportOption?]>;
+  'import-x/prefer-default-export': [PreferDefaultExportOption?];
 
   /**
    * Forbid default exports.
    * @see [no-default-export](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-default-export.md)
    */
-  'import-x/no-default-export': EmptyRuleConfig;
+  'import-x/no-default-export': null;
 
   /**
    * Forbid named exports.
    * @see [no-named-export](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-named-export.md)
    */
-  'import-x/no-named-export': EmptyRuleConfig;
+  'import-x/no-named-export': null;
 
   /**
    * Forbid `require()` calls with expressions.
    * @see [no-dynamic-require](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-dynamic-require.md)
    */
-  'import-x/no-dynamic-require': RuleConfig<
-    [
-      {
-        esmodule?: boolean;
-      }?,
-    ]
-  >;
+  'import-x/no-dynamic-require': [
+    {
+      esmodule?: boolean;
+    }?,
+  ];
 
   /**
    * Forbid potentially ambiguous parse goal (`script` vs. `module`).
    * @see [unambiguous](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/unambiguous.md)
    */
-  'import-x/unambiguous': EmptyRuleConfig;
+  'import-x/unambiguous': null;
 
   /**
    * Forbid unassigned imports.
    * @see [no-unassigned-import](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-unassigned-import.md)
    */
-  'import-x/no-unassigned-import': RuleConfig<[NoUnassignedImportOption?]>;
+  'import-x/no-unassigned-import': [NoUnassignedImportOption?];
 
   /**
    * Forbid unnecessary path segments in import and require statements.
    * @see [no-useless-path-segments](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-useless-path-segments.md)
    */
-  'import-x/no-useless-path-segments': RuleConfig<NoUselessPathSegmentsRuleConfig>;
+  'import-x/no-useless-path-segments': [
+    {
+      commonjs?: boolean;
+      noUselessIndex?: boolean;
+    }?,
+  ];
 
   /**
    * Enforce a leading comment with the webpackChunkName for dynamic imports.
    * @see [dynamic-import-chunkname](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/dynamic-import-chunkname.md)
    */
-  'import-x/dynamic-import-chunkname': RuleConfig<
-    [DynamicImportChunknameOption?]
-  >;
+  'import-x/dynamic-import-chunkname': [DynamicImportChunknameOption?];
 
   /**
    * Forbid import statements with CommonJS module.exports.
    * @see [no-import-module-exports](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-import-module-exports.md)
    */
-  'import-x/no-import-module-exports': RuleConfig<
-    [
-      {
-        exceptions?: any[];
-      }?,
-    ]
-  >;
+  'import-x/no-import-module-exports': [
+    {
+      exceptions?: any[];
+    }?,
+  ];
 
   /**
    * Forbid empty named import blocks.
    * @see [no-empty-named-blocks](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-empty-named-blocks.md)
    */
-  'import-x/no-empty-named-blocks': EmptyRuleConfig;
+  'import-x/no-empty-named-blocks': null;
 
   /**
    * Ensure all exports appear after other statements.
    * @see [exports-last](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/exports-last.md)
    */
-  'import-x/exports-last': EmptyRuleConfig;
+  'import-x/exports-last': null;
 
   /**
    * Forbid imported names marked with `@deprecated` documentation tag.
    * @see [no-deprecated](https://github.com/un-ts/eslint-plugin-import-x/blob/v0.5.1/docs/rules/no-deprecated.md)
    */
-  'import-x/no-deprecated': EmptyRuleConfig;
+  'import-x/no-deprecated': null;
 
   /**
    * Replaced by `import-x/first`.
    * @deprecated
    * @see [imports-first](https://github.com/un-ts/eslint-plugin-import-x/blob/7b25c1cb95ee18acc1531002fd343e1e6031f9ed/docs/rules/imports-first.md)
    */
-  'import-x/imports-first': RuleConfig<
-    [('absolute-first' | 'disable-absolute-first')?]
-  >;
+  'import-x/imports-first': [('absolute-first' | 'disable-absolute-first')?];
 }
+
+export type ImportXRulesObject = RulesObject<ImportXRules>;

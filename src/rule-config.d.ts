@@ -30,4 +30,9 @@ export type RuleEntry<Options extends any[] = any[]> =
  */
 export type RuleConfig<Options extends any[] = any[]> = RuleEntry<Options>;
 
-export type EmptyRuleConfig = RuleConfig<[]>;
+export type RulesObject<T> = {
+  // @ts-expect-error skip type check
+  [key in keyof T]: T[key] extends null ? EmptyRuleConfig : RuleEntry<T[key]>;
+};
+
+export type EmptyRuleConfig = RuleLevel | [RuleLevel];

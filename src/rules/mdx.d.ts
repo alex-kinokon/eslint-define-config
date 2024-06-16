@@ -1,4 +1,4 @@
-import type { EmptyRuleConfig } from '../rule-config';
+import type { RulesObject } from '../rule-config';
 
 /**
  * All Mdx rules.
@@ -7,5 +7,7 @@ export interface MdxRules {
   /**
    * Linter integration with remark plugins.
    */
-  'mdx/remark': EmptyRuleConfig;
+  'mdx/remark': null;
 }
+
+export type MdxRulesObject = RulesObject<MdxRules>;

@@ -1,8 +1,8 @@
 diff --git a/src/rules/vitest.d.ts b/src/rules/vitest.d.ts
-index d2c74fe..7333019 100644
+index 28caf63..3a72259 100644
 --- a/src/rules/vitest.d.ts
 +++ b/src/rules/vitest.d.ts
-@@ -33,20 +33,13 @@ export interface NoRestrictedMatchersOption {
+@@ -31,20 +31,13 @@ export interface NoRestrictedMatchersOption {
    [k: string]: string | null;
  }
  
@@ -25,5 +25,5 @@ index d2c74fe..7333019 100644
 +  [k: string]: any;
 +};
  
- export type ValidExpectRuleConfig = [
-   {
+ /**
+  * All Vitest rules.

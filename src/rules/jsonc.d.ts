@@ -1,4 +1,4 @@
-import type { EmptyRuleConfig, RuleConfig } from '../rule-config';
+import type { RulesObject } from '../rule-config';
 
 export type ArrayBracketNewlineOption =
   | ('always' | 'never' | 'consistent')
@@ -173,16 +173,6 @@ export type KeySpacingOption =
       };
     };
 
-export type NoIrregularWhitespaceRuleConfig = [
-  {
-    skipComments?: boolean;
-    skipStrings?: boolean;
-    skipTemplates?: boolean;
-    skipRegExps?: boolean;
-    skipJSXText?: boolean;
-  }?,
-];
-
 export type ObjectCurlyNewlineOption =
   | (
       | ('always' | 'never')
@@ -228,13 +218,6 @@ export type ObjectCurlySpacingRuleConfig = [
   {
     arraysInObjects?: boolean;
     objectsInObjects?: boolean;
-  }?,
-];
-
-export type ObjectPropertyNewlineRuleConfig = [
-  {
-    allowAllPropertiesOnSameLine?: boolean;
-    allowMultiplePropertiesPerLine?: boolean;
   }?,
 ];
 
@@ -388,263 +371,278 @@ export interface JsoncRules {
    * Enforce line breaks after opening and before closing array brackets.
    * @see [array-bracket-newline](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/array-bracket-newline.html)
    */
-  'jsonc/array-bracket-newline': RuleConfig<[ArrayBracketNewlineOption?]>;
+  'jsonc/array-bracket-newline': [ArrayBracketNewlineOption?];
 
   /**
    * Disallow or enforce spaces inside of brackets.
    * @see [array-bracket-spacing](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/array-bracket-spacing.html)
    */
-  'jsonc/array-bracket-spacing': RuleConfig<ArrayBracketSpacingRuleConfig>;
+  'jsonc/array-bracket-spacing': ArrayBracketSpacingRuleConfig;
 
   /**
    * Enforce line breaks between array elements.
    * @see [array-element-newline](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/array-element-newline.html)
    */
-  'jsonc/array-element-newline': RuleConfig<ArrayElementNewline.ArrayElementNewlineRuleConfig>;
+  'jsonc/array-element-newline': ArrayElementNewline.ArrayElementNewlineRuleConfig;
 
   /**
    * Apply jsonc rules similar to your configured ESLint core rules.
    * @see [auto](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/auto.html)
    */
-  'jsonc/auto': EmptyRuleConfig;
+  'jsonc/auto': null;
 
   /**
    * Require or disallow trailing commas.
    * @see [comma-dangle](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/comma-dangle.html)
    */
-  'jsonc/comma-dangle': RuleConfig<CommaDangle.CommaDangleRuleConfig>;
+  'jsonc/comma-dangle': CommaDangle.CommaDangleRuleConfig;
 
   /**
    * Enforce consistent comma style.
    * @see [comma-style](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/comma-style.html)
    */
-  'jsonc/comma-style': RuleConfig<[('first' | 'last')?, CommaStyleConfig?]>;
+  'jsonc/comma-style': [('first' | 'last')?, CommaStyleConfig?];
 
   /**
    * Enforce consistent indentation.
    * @see [indent](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/indent.html)
    */
-  'jsonc/indent': RuleConfig<Indent.IndentRuleConfig>;
+  'jsonc/indent': Indent.IndentRuleConfig;
 
   /**
    * Enforce naming convention to property key names.
    * @see [key-name-casing](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/key-name-casing.html)
    */
-  'jsonc/key-name-casing': RuleConfig<[KeyNameCasingOption?]>;
+  'jsonc/key-name-casing': [KeyNameCasingOption?];
 
   /**
    * Enforce consistent spacing between keys and values in object literal properties.
    * @see [key-spacing](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/key-spacing.html)
    */
-  'jsonc/key-spacing': RuleConfig<[KeySpacingOption?]>;
+  'jsonc/key-spacing': [KeySpacingOption?];
 
   /**
    * Disallow BigInt literals.
    * @see [no-bigint-literals](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-bigint-literals.html)
    */
-  'jsonc/no-bigint-literals': EmptyRuleConfig;
+  'jsonc/no-bigint-literals': null;
 
   /**
    * Disallow binary expression.
    * @see [no-binary-expression](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-binary-expression.html)
    */
-  'jsonc/no-binary-expression': EmptyRuleConfig;
+  'jsonc/no-binary-expression': null;
 
   /**
    * Disallow binary numeric literals.
    * @see [no-binary-numeric-literals](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-binary-numeric-literals.html)
    */
-  'jsonc/no-binary-numeric-literals': EmptyRuleConfig;
+  'jsonc/no-binary-numeric-literals': null;
 
   /**
    * Disallow comments.
    * @see [no-comments](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-comments.html)
    */
-  'jsonc/no-comments': EmptyRuleConfig;
+  'jsonc/no-comments': null;
 
   /**
    * Disallow duplicate keys in object literals.
    * @see [no-dupe-keys](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-dupe-keys.html)
    */
-  'jsonc/no-dupe-keys': EmptyRuleConfig;
+  'jsonc/no-dupe-keys': null;
 
   /**
    * Disallow escape sequences in identifiers.
    * @see [no-escape-sequence-in-identifier](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-escape-sequence-in-identifier.html)
    */
-  'jsonc/no-escape-sequence-in-identifier': EmptyRuleConfig;
+  'jsonc/no-escape-sequence-in-identifier': null;
 
   /**
    * Disallow leading or trailing decimal points in numeric literals.
    * @see [no-floating-decimal](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-floating-decimal.html)
    */
-  'jsonc/no-floating-decimal': EmptyRuleConfig;
+  'jsonc/no-floating-decimal': null;
 
   /**
    * Disallow hexadecimal numeric literals.
    * @see [no-hexadecimal-numeric-literals](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-hexadecimal-numeric-literals.html)
    */
-  'jsonc/no-hexadecimal-numeric-literals': EmptyRuleConfig;
+  'jsonc/no-hexadecimal-numeric-literals': null;
 
   /**
    * Disallow Infinity.
    * @see [no-infinity](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-infinity.html)
    */
-  'jsonc/no-infinity': EmptyRuleConfig;
+  'jsonc/no-infinity': null;
 
   /**
    * Disallow irregular whitespace.
    * @see [no-irregular-whitespace](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-irregular-whitespace.html)
    */
-  'jsonc/no-irregular-whitespace': RuleConfig<NoIrregularWhitespaceRuleConfig>;
+  'jsonc/no-irregular-whitespace': [
+    {
+      skipComments?: boolean;
+      skipStrings?: boolean;
+      skipTemplates?: boolean;
+      skipRegExps?: boolean;
+      skipJSXText?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow multiline strings.
    * @see [no-multi-str](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-multi-str.html)
    */
-  'jsonc/no-multi-str': EmptyRuleConfig;
+  'jsonc/no-multi-str': null;
 
   /**
    * Disallow NaN.
    * @see [no-nan](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-nan.html)
    */
-  'jsonc/no-nan': EmptyRuleConfig;
+  'jsonc/no-nan': null;
 
   /**
    * Disallow number property keys.
    * @see [no-number-props](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-number-props.html)
    */
-  'jsonc/no-number-props': EmptyRuleConfig;
+  'jsonc/no-number-props': null;
 
   /**
    * Disallow numeric separators.
    * @see [no-numeric-separators](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-numeric-separators.html)
    */
-  'jsonc/no-numeric-separators': EmptyRuleConfig;
+  'jsonc/no-numeric-separators': null;
 
   /**
    * Disallow octal escape sequences in string literals.
    * @see [no-octal-escape](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-octal-escape.html)
    */
-  'jsonc/no-octal-escape': EmptyRuleConfig;
+  'jsonc/no-octal-escape': null;
 
   /**
    * Disallow octal numeric literals.
    * @see [no-octal-numeric-literals](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-octal-numeric-literals.html)
    */
-  'jsonc/no-octal-numeric-literals': EmptyRuleConfig;
+  'jsonc/no-octal-numeric-literals': null;
 
   /**
    * Disallow legacy octal literals.
    * @see [no-octal](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-octal.html)
    */
-  'jsonc/no-octal': EmptyRuleConfig;
+  'jsonc/no-octal': null;
 
   /**
    * Disallow parentheses around the expression.
    * @see [no-parenthesized](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-parenthesized.html)
    */
-  'jsonc/no-parenthesized': EmptyRuleConfig;
+  'jsonc/no-parenthesized': null;
 
   /**
    * Disallow plus sign.
    * @see [no-plus-sign](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-plus-sign.html)
    */
-  'jsonc/no-plus-sign': EmptyRuleConfig;
+  'jsonc/no-plus-sign': null;
 
   /**
    * Disallow RegExp literals.
    * @see [no-regexp-literals](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-regexp-literals.html)
    */
-  'jsonc/no-regexp-literals': EmptyRuleConfig;
+  'jsonc/no-regexp-literals': null;
 
   /**
    * Disallow sparse arrays.
    * @see [no-sparse-arrays](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-sparse-arrays.html)
    */
-  'jsonc/no-sparse-arrays': EmptyRuleConfig;
+  'jsonc/no-sparse-arrays': null;
 
   /**
    * Disallow template literals.
    * @see [no-template-literals](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-template-literals.html)
    */
-  'jsonc/no-template-literals': EmptyRuleConfig;
+  'jsonc/no-template-literals': null;
 
   /**
    * Disallow `undefined`.
    * @see [no-undefined-value](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-undefined-value.html)
    */
-  'jsonc/no-undefined-value': EmptyRuleConfig;
+  'jsonc/no-undefined-value': null;
 
   /**
    * Disallow Unicode code point escape sequences.
    * @see [no-unicode-codepoint-escapes](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-unicode-codepoint-escapes.html)
    */
-  'jsonc/no-unicode-codepoint-escapes': EmptyRuleConfig;
+  'jsonc/no-unicode-codepoint-escapes': null;
 
   /**
    * Disallow unnecessary escape usage.
    * @see [no-useless-escape](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-useless-escape.html)
    */
-  'jsonc/no-useless-escape': EmptyRuleConfig;
+  'jsonc/no-useless-escape': null;
 
   /**
    * Enforce consistent line breaks inside braces.
    * @see [object-curly-newline](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/object-curly-newline.html)
    */
-  'jsonc/object-curly-newline': RuleConfig<[ObjectCurlyNewlineOption?]>;
+  'jsonc/object-curly-newline': [ObjectCurlyNewlineOption?];
 
   /**
    * Enforce consistent spacing inside braces.
    * @see [object-curly-spacing](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/object-curly-spacing.html)
    */
-  'jsonc/object-curly-spacing': RuleConfig<ObjectCurlySpacingRuleConfig>;
+  'jsonc/object-curly-spacing': ObjectCurlySpacingRuleConfig;
 
   /**
    * Enforce placing object properties on separate lines.
    * @see [object-property-newline](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/object-property-newline.html)
    */
-  'jsonc/object-property-newline': RuleConfig<ObjectPropertyNewlineRuleConfig>;
+  'jsonc/object-property-newline': [
+    {
+      allowAllPropertiesOnSameLine?: boolean;
+      allowMultiplePropertiesPerLine?: boolean;
+    }?,
+  ];
 
   /**
    * Require quotes around object literal property names.
    * @see [quote-props](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/quote-props.html)
    */
-  'jsonc/quote-props': RuleConfig<QuotePropsOption>;
+  'jsonc/quote-props': QuotePropsOption;
 
   /**
    * Enforce use of double or single quotes.
    * @see [quotes](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/quotes.html)
    */
-  'jsonc/quotes': RuleConfig<QuotesRuleConfig>;
+  'jsonc/quotes': QuotesRuleConfig;
 
   /**
    * Require array values to be sorted.
    * @see [sort-array-values](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/sort-array-values.html)
    */
-  'jsonc/sort-array-values': RuleConfig<SortArrayValuesOption>;
+  'jsonc/sort-array-values': SortArrayValuesOption;
 
   /**
    * Require object keys to be sorted.
    * @see [sort-keys](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/sort-keys.html)
    */
-  'jsonc/sort-keys': RuleConfig<SortKeysOption>;
+  'jsonc/sort-keys': SortKeysOption;
 
   /**
    * Disallow spaces after unary operators.
    * @see [space-unary-ops](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/space-unary-ops.html)
    */
-  'jsonc/space-unary-ops': RuleConfig<[SpaceUnaryOpsOption?]>;
+  'jsonc/space-unary-ops': [SpaceUnaryOpsOption?];
 
   /**
    * Disallow invalid number for JSON.
    * @see [valid-json-number](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/valid-json-number.html)
    */
-  'jsonc/valid-json-number': EmptyRuleConfig;
+  'jsonc/valid-json-number': null;
 
   /**
    * Disallow parsing errors in Vue custom blocks.
    * @see [vue-custom-block/no-parsing-error](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/vue-custom-block/no-parsing-error.html)
    */
-  'jsonc/vue-custom-block/no-parsing-error': EmptyRuleConfig;
+  'jsonc/vue-custom-block/no-parsing-error': null;
 }
+
+export type JsoncRulesObject = RulesObject<JsoncRules>;

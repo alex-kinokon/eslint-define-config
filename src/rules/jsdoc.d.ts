@@ -1,4 +1,4 @@
-import type { EmptyRuleConfig, RuleConfig } from '../rule-config';
+import type { RulesObject } from '../rule-config';
 
 export interface CheckExamplesOption {
   allowInlineConfig?: boolean;
@@ -39,28 +39,6 @@ export interface CheckLineAlignmentConfig {
 export type CheckLineAlignmentRuleConfig = [
   ('always' | 'never' | 'any')?,
   CheckLineAlignmentConfig?,
-];
-
-export type CheckParamNamesRuleConfig = [
-  {
-    allowExtraTrailingParamDocs?: boolean;
-    checkDestructured?: boolean;
-    checkRestProperty?: boolean;
-    checkTypesPattern?: string;
-    disableExtraPropertyReporting?: boolean;
-    disableMissingParamChecks?: boolean;
-    enableFixer?: boolean;
-    useDefaultObjectProperties?: boolean;
-  }?,
-];
-
-export type CheckTagNamesRuleConfig = [
-  {
-    definedTags?: string[];
-    enableFixer?: boolean;
-    jsxTags?: boolean;
-    typed?: boolean;
-  }?,
 ];
 
 export interface CheckTypesOption {
@@ -153,13 +131,6 @@ export interface MultilineBlocksOption {
   singleLineTags?: string[];
 }
 
-export type NoBadBlocksRuleConfig = [
-  {
-    ignore?: string[];
-    preventAllMultiAsteriskBlocks?: boolean;
-  }?,
-];
-
 export interface NoDefaultsOption {
   contexts?: (
     | string
@@ -183,14 +154,6 @@ export interface NoMissingSyntaxOption {
   )[];
 }
 
-export type NoMultiAsterisksRuleConfig = [
-  {
-    allowWhitespace?: boolean;
-    preventAtEnd?: boolean;
-    preventAtMiddleLines?: boolean;
-  }?,
-];
-
 export interface NoRestrictedSyntaxOption {
   contexts: (
     | string
@@ -211,14 +174,6 @@ export interface NoTypesOption {
       }
   )[];
 }
-
-export type NoUndefinedTypesRuleConfig = [
-  {
-    definedTypes?: string[];
-    disableReporting?: boolean;
-    markVariablesAsUsed?: boolean;
-  }?,
-];
 
 export interface RequireAsteriskPrefixConfig {
   tags?: {
@@ -248,14 +203,6 @@ export interface RequireDescriptionOption {
   descriptionStyle?: 'body' | 'tag' | 'any';
   exemptedBy?: string[];
 }
-
-export type RequireDescriptionCompleteSentenceRuleConfig = [
-  {
-    abbreviations?: string[];
-    newlineBeforeCapsAssumesBadSentenceEnd?: boolean;
-    tags?: string[];
-  }?,
-];
 
 export interface RequireExampleOption {
   checkConstructors?: boolean;
@@ -418,14 +365,6 @@ export interface RequireReturnsOption {
       };
 }
 
-export type RequireReturnsCheckRuleConfig = [
-  {
-    exemptAsync?: boolean;
-    exemptGenerators?: boolean;
-    reportMissingReturnForUndefinedTypes?: boolean;
-  }?,
-];
-
 export interface RequireReturnsDescriptionOption {
   contexts?: (
     | string
@@ -512,13 +451,6 @@ export interface TagLinesConfig {
   };
 }
 
-export type TextEscapingRuleConfig = [
-  {
-    escapeHTML?: boolean;
-    escapeMarkdown?: boolean;
-  }?,
-];
-
 /**
  * All JSDoc rules.
  */
@@ -527,351 +459,389 @@ export interface JSDocRules {
    * Checks that `@access` tags have a valid value.
    * @see [check-access](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-access.md#repos-sticky-header)
    */
-  'jsdoc/check-access': EmptyRuleConfig;
+  'jsdoc/check-access': null;
 
   /**
    * Reports invalid alignment of JSDoc block asterisks.
    * @see [check-alignment](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-alignment.md#repos-sticky-header)
    */
-  'jsdoc/check-alignment': EmptyRuleConfig;
+  'jsdoc/check-alignment': null;
 
   /**
    * Ensures that (JavaScript) examples within JSDoc adhere to ESLint rules.
    * @see [check-examples](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-examples.md#repos-sticky-header)
    */
-  'jsdoc/check-examples': RuleConfig<[CheckExamplesOption?]>;
+  'jsdoc/check-examples': [CheckExamplesOption?];
 
   /**
    * Reports invalid padding inside JSDoc blocks.
    * @see [check-indentation](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-indentation.md#repos-sticky-header)
    */
-  'jsdoc/check-indentation': RuleConfig<
-    [
-      {
-        excludeTags?: string[];
-      }?,
-    ]
-  >;
+  'jsdoc/check-indentation': [
+    {
+      excludeTags?: string[];
+    }?,
+  ];
 
   /**
    * Reports invalid alignment of JSDoc block lines.
    * @see [check-line-alignment](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-line-alignment.md#repos-sticky-header)
    */
-  'jsdoc/check-line-alignment': RuleConfig<CheckLineAlignmentRuleConfig>;
+  'jsdoc/check-line-alignment': CheckLineAlignmentRuleConfig;
 
   /**
    * Ensures that parameter names in JSDoc match those in the function declaration.
    * @see [check-param-names](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-param-names.md#repos-sticky-header)
    */
-  'jsdoc/check-param-names': RuleConfig<CheckParamNamesRuleConfig>;
+  'jsdoc/check-param-names': [
+    {
+      allowExtraTrailingParamDocs?: boolean;
+      checkDestructured?: boolean;
+      checkRestProperty?: boolean;
+      checkTypesPattern?: string;
+      disableExtraPropertyReporting?: boolean;
+      disableMissingParamChecks?: boolean;
+      enableFixer?: boolean;
+      useDefaultObjectProperties?: boolean;
+    }?,
+  ];
 
   /**
    * Ensures that property names in JSDoc are not duplicated on the same block and that nested properties have defined roots.
    * @see [check-property-names](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-property-names.md#repos-sticky-header)
    */
-  'jsdoc/check-property-names': RuleConfig<
-    [
-      {
-        enableFixer?: boolean;
-      }?,
-    ]
-  >;
+  'jsdoc/check-property-names': [
+    {
+      enableFixer?: boolean;
+    }?,
+  ];
 
   /**
    * Reports against syntax not valid for the mode (e.g., Google Closure Compiler in non-Closure mode).
    * @see [check-syntax](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-syntax.md#repos-sticky-header)
    */
-  'jsdoc/check-syntax': EmptyRuleConfig;
+  'jsdoc/check-syntax': null;
 
   /**
    * Reports invalid block tag names.
    * @see [check-tag-names](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-tag-names.md#repos-sticky-header)
    */
-  'jsdoc/check-tag-names': RuleConfig<CheckTagNamesRuleConfig>;
+  'jsdoc/check-tag-names': [
+    {
+      definedTags?: string[];
+      enableFixer?: boolean;
+      jsxTags?: boolean;
+      typed?: boolean;
+    }?,
+  ];
 
   /**
    * Reports invalid types.
    * @see [check-types](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-types.md#repos-sticky-header)
    */
-  'jsdoc/check-types': RuleConfig<[CheckTypesOption?]>;
+  'jsdoc/check-types': [CheckTypesOption?];
 
   /**
    * This rule checks the values for a handful of tags: `@version`, `@since`, `@license` and `@author`.
    * @see [check-values](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-values.md#repos-sticky-header)
    */
-  'jsdoc/check-values': RuleConfig<[CheckValuesOption?]>;
+  'jsdoc/check-values': [CheckValuesOption?];
 
   /**
    * Expects specific tags to be empty of any content.
    * @see [empty-tags](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/empty-tags.md#repos-sticky-header)
    */
-  'jsdoc/empty-tags': RuleConfig<
-    [
-      {
-        tags?: string[];
-      }?,
-    ]
-  >;
+  'jsdoc/empty-tags': [
+    {
+      tags?: string[];
+    }?,
+  ];
 
   /**
    * Reports an issue with any non-constructor function using `@implements`.
    * @see [implements-on-classes](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/implements-on-classes.md#repos-sticky-header)
    */
-  'jsdoc/implements-on-classes': RuleConfig<[ImplementsOnClassesOption?]>;
+  'jsdoc/implements-on-classes': [ImplementsOnClassesOption?];
 
   /**
    * Reports if JSDoc `import()` statements point to a package which is not listed in `dependencies` or `devDependencies`.
    * @see [imports-as-dependencies](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/imports-as-dependencies.md#repos-sticky-header)
    */
-  'jsdoc/imports-as-dependencies': EmptyRuleConfig;
+  'jsdoc/imports-as-dependencies': null;
 
   /**
    * This rule reports doc comments that only restate their attached name.
    * @see [informative-docs](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/informative-docs.md#repos-sticky-header)
    */
-  'jsdoc/informative-docs': RuleConfig<[InformativeDocsOption?]>;
+  'jsdoc/informative-docs': [InformativeDocsOption?];
 
   /**
    * Enforces a regular expression pattern on descriptions.
    * @see [match-description](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/match-description.md#repos-sticky-header)
    */
-  'jsdoc/match-description': RuleConfig<[MatchDescriptionOption?]>;
+  'jsdoc/match-description': [MatchDescriptionOption?];
 
   /**
    * Reports the name portion of a JSDoc tag if matching or not matching a given regular expression.
    * @see [match-name](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/match-name.md#repos-sticky-header)
    */
-  'jsdoc/match-name': RuleConfig<[MatchNameOption?]>;
+  'jsdoc/match-name': [MatchNameOption?];
 
   /**
    * Controls how and whether jsdoc blocks can be expressed as single or multiple line blocks.
    * @see [multiline-blocks](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/multiline-blocks.md#repos-sticky-header)
    */
-  'jsdoc/multiline-blocks': RuleConfig<[MultilineBlocksOption?]>;
+  'jsdoc/multiline-blocks': [MultilineBlocksOption?];
 
   /**
    * This rule checks for multi-line-style comments which fail to meet the criteria of a jsdoc block.
    * @see [no-bad-blocks](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-bad-blocks.md#repos-sticky-header)
    */
-  'jsdoc/no-bad-blocks': RuleConfig<NoBadBlocksRuleConfig>;
+  'jsdoc/no-bad-blocks': [
+    {
+      ignore?: string[];
+      preventAllMultiAsteriskBlocks?: boolean;
+    }?,
+  ];
 
   /**
    * Detects and removes extra lines of a blank block description.
    * @see [no-blank-block-descriptions](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-blank-block-descriptions.md#repos-sticky-header)
    */
-  'jsdoc/no-blank-block-descriptions': EmptyRuleConfig;
+  'jsdoc/no-blank-block-descriptions': null;
 
   /**
    * Removes empty blocks with nothing but possibly line breaks.
    * @see [no-blank-blocks](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-blank-blocks.md#repos-sticky-header)
    */
-  'jsdoc/no-blank-blocks': RuleConfig<
-    [
-      {
-        enableFixer?: boolean;
-      }?,
-    ]
-  >;
+  'jsdoc/no-blank-blocks': [
+    {
+      enableFixer?: boolean;
+    }?,
+  ];
 
   /**
    * This rule reports defaults being used on the relevant portion of `@param` or `@default`.
    * @see [no-defaults](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-defaults.md#repos-sticky-header)
    */
-  'jsdoc/no-defaults': RuleConfig<[NoDefaultsOption?]>;
+  'jsdoc/no-defaults': [NoDefaultsOption?];
 
   /**
    * Reports when certain comment structures are always expected.
    * @see [no-missing-syntax](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-missing-syntax.md#repos-sticky-header)
    */
-  'jsdoc/no-missing-syntax': RuleConfig<[NoMissingSyntaxOption?]>;
+  'jsdoc/no-missing-syntax': [NoMissingSyntaxOption?];
 
   /**
    * @see [no-multi-asterisks](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-multi-asterisks.md#repos-sticky-header)
    */
-  'jsdoc/no-multi-asterisks': RuleConfig<NoMultiAsterisksRuleConfig>;
+  'jsdoc/no-multi-asterisks': [
+    {
+      allowWhitespace?: boolean;
+      preventAtEnd?: boolean;
+      preventAtMiddleLines?: boolean;
+    }?,
+  ];
 
   /**
    * Reports when certain comment structures are present.
    * @see [no-restricted-syntax](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-restricted-syntax.md#repos-sticky-header)
    */
-  'jsdoc/no-restricted-syntax': RuleConfig<[NoRestrictedSyntaxOption?]>;
+  'jsdoc/no-restricted-syntax': [NoRestrictedSyntaxOption?];
 
   /**
    * This rule reports types being used on `@param` or `@returns`.
    * @see [no-types](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-types.md#repos-sticky-header)
    */
-  'jsdoc/no-types': RuleConfig<[NoTypesOption?]>;
+  'jsdoc/no-types': [NoTypesOption?];
 
   /**
    * Checks that types in jsdoc comments are defined.
    * @see [no-undefined-types](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-undefined-types.md#repos-sticky-header)
    */
-  'jsdoc/no-undefined-types': RuleConfig<NoUndefinedTypesRuleConfig>;
+  'jsdoc/no-undefined-types': [
+    {
+      definedTypes?: string[];
+      disableReporting?: boolean;
+      markVariablesAsUsed?: boolean;
+    }?,
+  ];
 
   /**
    * Requires that each JSDoc line starts with an `*`.
    * @see [require-asterisk-prefix](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-asterisk-prefix.md#repos-sticky-header)
    */
-  'jsdoc/require-asterisk-prefix': RuleConfig<RequireAsteriskPrefixRuleConfig>;
+  'jsdoc/require-asterisk-prefix': RequireAsteriskPrefixRuleConfig;
 
   /**
    * Requires that all functions have a description.
    * @see [require-description](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-description.md#repos-sticky-header)
    */
-  'jsdoc/require-description': RuleConfig<[RequireDescriptionOption?]>;
+  'jsdoc/require-description': [RequireDescriptionOption?];
 
   /**
    * Requires that block description, explicit `@description`, and `@param`/`@returns` tag descriptions are written in complete sentences.
    * @see [require-description-complete-sentence](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-description-complete-sentence.md#repos-sticky-header)
    */
-  'jsdoc/require-description-complete-sentence': RuleConfig<RequireDescriptionCompleteSentenceRuleConfig>;
+  'jsdoc/require-description-complete-sentence': [
+    {
+      abbreviations?: string[];
+      newlineBeforeCapsAssumesBadSentenceEnd?: boolean;
+      tags?: string[];
+    }?,
+  ];
 
   /**
    * Requires that all functions have examples.
    * @see [require-example](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-example.md#repos-sticky-header)
    */
-  'jsdoc/require-example': RuleConfig<[RequireExampleOption?]>;
+  'jsdoc/require-example': [RequireExampleOption?];
 
   /**
    * Checks that all files have one `@file`, `@fileoverview`, or `@overview` tag at the beginning of the file.
    * @see [require-file-overview](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-file-overview.md#repos-sticky-header)
    */
-  'jsdoc/require-file-overview': RuleConfig<[RequireFileOverviewOption?]>;
+  'jsdoc/require-file-overview': [RequireFileOverviewOption?];
 
   /**
    * Requires a hyphen before the `@param` description.
    * @see [require-hyphen-before-param-description](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-hyphen-before-param-description.md#repos-sticky-header)
    */
-  'jsdoc/require-hyphen-before-param-description': RuleConfig<RequireHyphenBeforeParamDescriptionRuleConfig>;
+  'jsdoc/require-hyphen-before-param-description': RequireHyphenBeforeParamDescriptionRuleConfig;
 
   /**
    * Require JSDoc comments.
    * @see [require-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-jsdoc.md#repos-sticky-header)
    */
-  'jsdoc/require-jsdoc': RuleConfig<[RequireJsdocOption?]>;
+  'jsdoc/require-jsdoc': [RequireJsdocOption?];
 
   /**
    * Requires that all function parameters are documented.
    * @see [require-param](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-param.md#repos-sticky-header)
    */
-  'jsdoc/require-param': RuleConfig<[RequireParamOption?]>;
+  'jsdoc/require-param': [RequireParamOption?];
 
   /**
    * Requires that each `@param` tag has a `description` value.
    * @see [require-param-description](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-param-description.md#repos-sticky-header)
    */
-  'jsdoc/require-param-description': RuleConfig<
-    [RequireParamDescriptionOption?]
-  >;
+  'jsdoc/require-param-description': [RequireParamDescriptionOption?];
 
   /**
    * Requires that all function parameters have names.
    * @see [require-param-name](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-param-name.md#repos-sticky-header)
    */
-  'jsdoc/require-param-name': RuleConfig<[RequireParamNameOption?]>;
+  'jsdoc/require-param-name': [RequireParamNameOption?];
 
   /**
    * Requires that each `@param` tag has a `type` value.
    * @see [require-param-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-param-type.md#repos-sticky-header)
    */
-  'jsdoc/require-param-type': RuleConfig<[RequireParamTypeOption?]>;
+  'jsdoc/require-param-type': [RequireParamTypeOption?];
 
   /**
    * Requires that all `@typedef` and `@namespace` tags have `@property` when their type is a plain `object`, `Object`, or `PlainObject`.
    * @see [require-property](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-property.md#repos-sticky-header)
    */
-  'jsdoc/require-property': EmptyRuleConfig;
+  'jsdoc/require-property': null;
 
   /**
    * Requires that each `@property` tag has a `description` value.
    * @see [require-property-description](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-property-description.md#repos-sticky-header)
    */
-  'jsdoc/require-property-description': EmptyRuleConfig;
+  'jsdoc/require-property-description': null;
 
   /**
    * Requires that all function `@property` tags have names.
    * @see [require-property-name](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-property-name.md#repos-sticky-header)
    */
-  'jsdoc/require-property-name': EmptyRuleConfig;
+  'jsdoc/require-property-name': null;
 
   /**
    * Requires that each `@property` tag has a `type` value.
    * @see [require-property-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-property-type.md#repos-sticky-header)
    */
-  'jsdoc/require-property-type': EmptyRuleConfig;
+  'jsdoc/require-property-type': null;
 
   /**
    * Requires that returns are documented.
    * @see [require-returns](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-returns.md#repos-sticky-header)
    */
-  'jsdoc/require-returns': RuleConfig<[RequireReturnsOption?]>;
+  'jsdoc/require-returns': [RequireReturnsOption?];
 
   /**
    * Requires a return statement in function body if a `@returns` tag is specified in jsdoc comment.
    * @see [require-returns-check](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-returns-check.md#repos-sticky-header)
    */
-  'jsdoc/require-returns-check': RuleConfig<RequireReturnsCheckRuleConfig>;
+  'jsdoc/require-returns-check': [
+    {
+      exemptAsync?: boolean;
+      exemptGenerators?: boolean;
+      reportMissingReturnForUndefinedTypes?: boolean;
+    }?,
+  ];
 
   /**
    * Requires that the `@returns` tag has a `description` value.
    * @see [require-returns-description](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-returns-description.md#repos-sticky-header)
    */
-  'jsdoc/require-returns-description': RuleConfig<
-    [RequireReturnsDescriptionOption?]
-  >;
+  'jsdoc/require-returns-description': [RequireReturnsDescriptionOption?];
 
   /**
    * Requires that `@returns` tag has `type` value.
    * @see [require-returns-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-returns-type.md#repos-sticky-header)
    */
-  'jsdoc/require-returns-type': RuleConfig<[RequireReturnsTypeOption?]>;
+  'jsdoc/require-returns-type': [RequireReturnsTypeOption?];
 
   /**
    * Requires that throw statements are documented.
    * @see [require-throws](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-throws.md#repos-sticky-header)
    */
-  'jsdoc/require-throws': RuleConfig<[RequireThrowsOption?]>;
+  'jsdoc/require-throws': [RequireThrowsOption?];
 
   /**
    * Requires yields are documented.
    * @see [require-yields](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-yields.md#repos-sticky-header)
    */
-  'jsdoc/require-yields': RuleConfig<[RequireYieldsOption?]>;
+  'jsdoc/require-yields': [RequireYieldsOption?];
 
   /**
    * Requires a yield statement in function body if a `@yields` tag is specified in jsdoc comment.
    * @see [require-yields-check](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-yields-check.md#repos-sticky-header)
    */
-  'jsdoc/require-yields-check': RuleConfig<[RequireYieldsCheckOption?]>;
+  'jsdoc/require-yields-check': [RequireYieldsCheckOption?];
 
   /**
    * Sorts tags by a specified sequence according to tag name.
    * @see [sort-tags](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/sort-tags.md#repos-sticky-header)
    */
-  'jsdoc/sort-tags': RuleConfig<[SortTagsOption?]>;
+  'jsdoc/sort-tags': [SortTagsOption?];
 
   /**
    * Enforces lines (or no lines) between tags.
    * @see [tag-lines](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/tag-lines.md#repos-sticky-header)
    */
-  'jsdoc/tag-lines': RuleConfig<
-    [('always' | 'any' | 'never')?, TagLinesConfig?]
-  >;
+  'jsdoc/tag-lines': [('always' | 'any' | 'never')?, TagLinesConfig?];
 
   /**
    * @see [text-escaping](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/text-escaping.md#repos-sticky-header)
    */
-  'jsdoc/text-escaping': RuleConfig<TextEscapingRuleConfig>;
+  'jsdoc/text-escaping': [
+    {
+      escapeHTML?: boolean;
+      escapeMarkdown?: boolean;
+    }?,
+  ];
 
   /**
    * Requires all types to be valid JSDoc or Closure compiler types without syntax errors.
    * @see [valid-types](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/valid-types.md#repos-sticky-header)
    */
-  'jsdoc/valid-types': RuleConfig<
-    [
-      {
-        allowEmptyNamepaths?: boolean;
-      }?,
-    ]
-  >;
+  'jsdoc/valid-types': [
+    {
+      allowEmptyNamepaths?: boolean;
+    }?,
+  ];
 }
+
+export type JSDocRulesObject = RulesObject<JSDocRules>;
