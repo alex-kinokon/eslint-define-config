@@ -46,7 +46,7 @@ const config = {
       {
         format: ['PascalCase'],
         selector: ['class', 'interface', 'typeAlias', 'typeParameter'],
-        leadingUnderscore: 'forbid',
+        leadingUnderscore: 'allow',
         trailingUnderscore: 'forbid',
       },
     ],

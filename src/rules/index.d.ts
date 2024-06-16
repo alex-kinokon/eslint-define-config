@@ -1,3 +1,4 @@
+import type { RuleConfig } from '../rule-config';
 import type { DeprecationRules } from './deprecation';
 import type { EslintRules } from './eslint';
 import type { EslintCommentsRules } from './eslint-comments';
@@ -11,7 +12,6 @@ import type { NodeRules } from './node';
 import type { PromiseRules } from './promise';
 import type { ReactRules } from './react';
 import type { ReactHooksRules } from './react-hooks';
-import type { RuleConfig } from './rule-config';
 import type { SonarJSRules } from './sonarjs';
 import type { SpellcheckRules } from './spellcheck';
 import type { TestingLibraryRules } from './testing-library';

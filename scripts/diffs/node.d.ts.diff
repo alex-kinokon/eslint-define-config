@@ -1,0 +1,13 @@
+diff --git a/src/rules/node.d.ts b/src/rules/node.d.ts
+index 289ef51..c3532fd 100644
+--- a/src/rules/node.d.ts
++++ b/src/rules/node.d.ts
+@@ -11,7 +11,7 @@ export type ExportsStyleRuleConfig = [
+ 
+ export interface FileExtensionInImportConfig {
+   tryExtensions?: string[];
+-  [k: string]: 'always' | 'never';
++  [ext: `.${string}`]: 'always' | 'never';
+ }
+ 
+ export type FileExtensionInImportRuleConfig = [

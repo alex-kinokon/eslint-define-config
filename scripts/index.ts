@@ -4,12 +4,11 @@ import type { Rule } from 'eslint';
 import type { JSONSchema4 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
 import { execSync } from 'node:child_process';
-import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
 import colors from 'picocolors';
 import { format as prettierFormat } from 'prettier';
-import { dedent } from 'ts-dedent';
 
 const logger = new Logger();
 
@@ -35,11 +34,12 @@ function format(content: string) {
 }
 
 function concatDoc(lines: string[]) {
-  return [
-    '/**',
-    ...lines.filter(Boolean).map((line) => ` * ${line}`),
-    ' */',
-  ].join('\n');
+  lines = lines.filter(Boolean);
+  if (!lines.length || lines.every((line) => !line.trim())) {
+    return '';
+  }
+
+  return ['/**', ...lines.map((line) => ` * ${line}`), ' */'].join('\n');
 }
 
 /**
@@ -198,6 +198,10 @@ function patchTypes(content: string): string {
     content = content.replace(pattern, replacement);
   }
 
+  if (/^export type \w+Option = \(\[\]\|/.test(content)) {
+    content = content.replaceAll('| []|', '|');
+  }
+
   return content;
 }
 
@@ -227,29 +231,24 @@ const __dirname: string = fileURLToPath(new URL('.', import.meta.url));
 
 class RuleFile {
   private content = '';
-
-  private readonly rulePath: string;
   private readonly ruleNamePascalCase: string;
+  private readonly isSchemaArray!: boolean;
+  private readonly mainSchema?: JSONSchema4;
+  private readonly sideSchema?: JSONSchema4;
+  private readonly thirdSchema?: JSONSchema4;
 
-  private isSchemaArray!: boolean;
-  private mainSchema?: JSONSchema4;
-  private sideSchema?: JSONSchema4;
-  private thirdSchema?: JSONSchema4;
+  private optionText = '';
+  private configText = '';
+  private settingText = '';
 
   constructor(
     private readonly plugin: Plugin,
-    private readonly pluginDirectory: string,
     private readonly ruleName: string,
     private readonly rule: Rule.RuleModule,
   ) {
     this.ruleNamePascalCase = pascalCase(this.ruleName);
-    this.rulePath = resolve(this.pluginDirectory, `${ruleName}.d.ts`);
-    this.assignSchemasInfo();
-  }
 
-  private assignSchemasInfo(): void {
-    const schema: JSONSchema4 | JSONSchema4[] | undefined =
-      this.rule.meta?.schema;
+    const schema = this.rule.meta?.schema;
     const isArray = Array.isArray(schema);
 
     this.mainSchema = isArray ? schema[0] : schema;
@@ -259,68 +258,40 @@ class RuleFile {
   }
 
   /**
-   * Append the `import type { RuleConfig } from '../rule-config'` at the top of the file.
+   * Generate a JSDoc with the rule description and `@see` url.
    */
-  appendRuleConfigImport(): void {
-    const nestedDepth: number = this.ruleName.split('/').length;
-    const ruleConfigImportPath: string = `${'../'.repeat(
-      nestedDepth,
-    )}rule-config`;
-    this.content += `import type { RuleConfig } from '${ruleConfigImportPath}'\n\n`;
-  }
+  private generateTypeJsDoc(): string {
+    const { meta } = this.rule;
 
-  /**
-   * Build the rule description to append to the JSDoc.
-   */
-  buildDescription(): string {
-    let description: string = this.rule.meta?.docs?.description ?? '';
-
+    /**
+     * Build the rule description to append to the JSDoc.
+     */
+    let description = this.rule.meta?.docs?.description ?? '';
     description = description.charAt(0).toUpperCase() + description.slice(1);
-
-    if (description.length > 0 && !description.endsWith('.')) {
+    if (description.length && !description.endsWith('.')) {
       description += '.';
     }
 
-    return description.replace('*/', '');
-  }
-
-  /**
-   * Build the `@see` url to the rule documentation to append to the JSDoc.
-   */
-  buildSeeDocLink(): string {
-    const { meta } = this.rule;
-    const seeDocLink: string = meta?.docs?.url
+    /**
+     * Build the `@see` url to the rule documentation to append to the JSDoc.
+     */
+    const seeDocLink = meta?.docs?.url
       ? `@see [${this.ruleName}](${meta.docs.url})`
       : '';
 
-    return seeDocLink;
-  }
-
-  /**
-   * Generate a JSDoc with the rule description and `@see` url.
-   */
-  generateTypeJsDoc(): string {
     return concatDoc([
-      this.buildDescription(),
-      ' ',
+      description.replace('*/', ''),
       this.rule.meta?.deprecated ? '@deprecated' : '',
-      this.rule.meta?.deprecated ? ' ' : '',
-      this.buildSeeDocLink(),
+      seeDocLink,
     ]);
   }
 
   /**
    * Generate a type from a JSON schema and append it to the file content.
    */
-  private async appendJsonSchemaType(schema: JSONSchema4, comment: string) {
-    const type = await generateTypeFromSchema(
-      schema,
-      this.ruleNamePascalCase + comment,
-    );
-
-    const jsdoc = concatDoc([`${comment}.`]);
-    this.content += `\n${jsdoc}`;
-    this.content += `\n${type}\n`;
+  private async appendJsonSchemaType(schema: JSONSchema4, name: string) {
+    const type = await generateTypeFromSchema(schema, this.pascal(name));
+    return `\n${type}\n`;
   }
 
   /**
@@ -328,50 +299,25 @@ class RuleFile {
    */
   private async appendRuleSchemaTypes(): Promise<void> {
     if (this.thirdSchema) {
-      await this.appendJsonSchemaType(this.thirdSchema, 'Setting');
+      this.settingText += await this.appendJsonSchemaType(
+        this.thirdSchema,
+        'Setting',
+      );
     }
 
     if (this.sideSchema) {
-      await this.appendJsonSchemaType(this.sideSchema, 'Config');
+      this.configText += await this.appendJsonSchemaType(
+        this.sideSchema,
+        'Config',
+      );
     }
 
     if (this.mainSchema) {
-      await this.appendJsonSchemaType(this.mainSchema, 'Option');
+      this.optionText += await this.appendJsonSchemaType(
+        this.mainSchema,
+        'Option',
+      );
     }
-  }
-
-  /**
-   * Append the rule type options to the file content.
-   */
-  private appendRuleOptions(): void {
-    const ruleName: string = this.ruleNamePascalCase;
-
-    let type: string = '';
-    if (!this.isSchemaArray) {
-      type = `${ruleName}Option`;
-    } else if (this.thirdSchema) {
-      type = `[${ruleName}Option?, ${ruleName}Config?, ${ruleName}Setting?]`;
-    } else if (this.sideSchema) {
-      type = `[${ruleName}Option?, ${ruleName}Config?]`;
-    } else if (this.mainSchema) {
-      type = `[${ruleName}Option?]`;
-    }
-
-    this.content += concatDoc(['Options.']) + '\n';
-    this.content += `export type ${ruleName}Options = ${type}\n\n`;
-  }
-
-  /**
-   * Append the rule config type to the file content.
-   */
-  private appendRuleConfig(): void {
-    const ruleName: string = this.ruleNamePascalCase;
-    const genericContent: string = this.mainSchema
-      ? `${ruleName}Options`
-      : '[]';
-
-    this.content += this.generateTypeJsDoc() + '\n';
-    this.content += `export type ${ruleName}RuleConfig = RuleConfig<${genericContent}>;\n\n`;
   }
 
   /**
@@ -379,7 +325,7 @@ class RuleFile {
    */
   private prefixedRuleName(): string {
     const { prefix, name } = this.plugin;
-    let rulePrefix: string = (prefix ?? kebabCase(name)) + '/';
+    let rulePrefix = (prefix ?? kebabCase(name)) + '/';
 
     if (name === 'Eslint') {
       rulePrefix = '';
@@ -388,83 +334,100 @@ class RuleFile {
     return `${rulePrefix}${this.ruleName}`;
   }
 
-  /**
-   * Append the final rule interface to the file content.
-   */
-  private appendRule() {
-    const ruleName: string = this.ruleNamePascalCase;
-
-    this.content += this.generateTypeJsDoc() + '\n';
-    this.content += `export interface ${ruleName}Rule {`;
-    this.content += `${this.generateTypeJsDoc()}\n`;
-    this.content += `'${this.prefixedRuleName()}': ${ruleName}RuleConfig;`;
-    this.content += '}';
+  private pascal(name: string) {
+    return this.ruleNamePascalCase + pascalCase(name);
   }
 
-  /**
-   * Create the directory of the rule file if it doesn't exist.
-   */
-  private createRuleDirectory() {
-    const subPath: string = dirname(this.rulePath);
-    if (!existsSync(subPath)) {
-      mkdirSync(subPath, { recursive: true });
+  private writeMember(
+    name: 'option' | 'config' | 'setting',
+    nullable: boolean,
+  ) {
+    const text = this[`${name}Text`];
+    const stripped = text
+      .replace(`export type ${this.pascal(name)} =`, '')
+      .replace(`export interface ${this.pascal(name)} `, '')
+      .trim()
+      .replace(/^\(/, '')
+      .replace(/\)$/, '')
+      .trim();
+
+    // if (text.includes('exceptions')) {
+    //   console.log({
+    //     name: this.ruleName,
+    //     text: text.slice(0, 50),
+    //     stripped,
+    //     is: isSimpleType(stripped),
+    //   });
+    // }
+
+    if (isSimpleType(stripped)) {
+      return `(${stripped})?`;
+    } else {
+      this.content += text;
+      return `${this.pascal(name)}${nullable ? '?' : ''}`;
     }
   }
 
   /**
    * Generate a file with the rule typings.
    */
-  async generate(): Promise<string> {
-    this.appendRuleConfigImport();
+  async generate() {
+    const ruleName = this.ruleNamePascalCase;
+
     await this.appendRuleSchemaTypes();
 
+    /**
+     * Append the rule type options to the file content.
+     */
+    let type = '';
     if (this.mainSchema) {
-      this.appendRuleOptions();
+      if (!this.isSchemaArray) {
+        type = this.writeMember('option', false);
+      } else if (this.thirdSchema) {
+        type = arr(
+          this.writeMember('option', true),
+          this.writeMember('config', true),
+          this.writeMember('setting', true),
+        );
+      } else if (this.sideSchema) {
+        type = arr(
+          this.writeMember('option', true),
+          this.writeMember('config', true),
+        );
+      } else if (this.mainSchema) {
+        type = arr(this.writeMember('option', true));
+      }
     }
 
-    this.appendRuleConfig();
-    this.appendRule();
+    const needsNamespace = occurrences(this.content, 'export') > 1;
 
-    this.content = await format(this.content);
-
-    return this.content;
-  }
-
-  /**
-   * Must be called after `generate()` to write the file.
-   */
-  writeGeneratedContent() {
-    this.createRuleDirectory();
-
-    writeFileSync(this.rulePath, this.content);
-  }
-
-  /**
-   * Apply a patch to the generated content if a diff file exists for it.
-   *
-   * Must be called after `generate()`.
-   */
-  applyPatch() {
-    const pathParts: string[] = this.rulePath.split('/');
-    const ruleFileName: string = pathParts[pathParts.length - 1] ?? '';
-    const rulePlugin: string = pathParts[pathParts.length - 2] ?? '';
-
-    const diffFile: string = resolve(
-      __dirname,
-      'diffs',
-      'rules',
-      rulePlugin,
-      `${ruleFileName}.diff`,
-    );
-
-    const ruleName: string = this.prefixedRuleName();
-
-    if (existsSync(diffFile)) {
-      logger.logUpdate(colors.yellow(`  🧹 Adjusting ${ruleName}`));
-      logger.logUpdatePersist();
-
-      execSync(`git apply ${diffFile}`);
+    if (needsNamespace || (this.mainSchema && type.length > 50)) {
+      this.content += `export type ${ruleName}RuleConfig = ${type};\n`;
+      type = `${ruleName}RuleConfig`;
     }
+
+    let prefix = '';
+    let suffix = '';
+    if (needsNamespace) {
+      prefix += `export namespace ${ruleName} {`;
+      suffix += '}';
+    }
+
+    const ruleType = this.mainSchema
+      ? `RuleConfig<${needsNamespace ? `${ruleName}.${type}` : type}>`
+      : 'EmptyRuleConfig';
+
+    /**
+     * Append the final rule interface to the file content.
+     */
+    let property = `${this.generateTypeJsDoc()}\n`;
+    property += `'${this.prefixedRuleName()}': ${ruleType};`;
+
+    return {
+      reference: `${ruleName}Rule`,
+      content: [prefix, this.content, suffix].join('\n'),
+      property,
+    };
   }
 }
 
@@ -476,10 +439,11 @@ interface FailedRule {
 /**
  * Generate the `index.d.ts` file for the plugin's rules that will re-export all rules.
  */
-async function generateRuleIndexFile(
-  pluginDirectory: string,
+async function generateRuleFile(
+  outDir: string,
+  filename: string,
   { rules, name }: Plugin,
-  failedRules: FailedRule[],
+  { failedRules, ruleDetails }: RulesFile,
 ): Promise<void> {
   if (!rules) {
     throw new Error(
@@ -495,33 +459,55 @@ async function generateRuleIndexFile(
   /**
    * Build all the import statements for the rules.
    */
-  const rulesImports = generatedRules
-    .map((name) => `import type { ${pascalCase(name)}Rule } from './${name}';`)
+  const rulesTexts = Array.from(ruleDetails.values())
+    .map((r) => r.content)
     .join('\n');
 
   /**
    * Build the exported type that is an intersection of all the rules.
    */
   const rulesFinalIntersection = generatedRules
-    .map((name) => `${pascalCase(name)}Rule`)
-    .join(' & ');
+    .map((name) => ruleDetails.get(name)!.property)
+    .join('\n\n');
 
-  const pluginRulesType: string = dedent(`
+  const pluginRulesType = `
     ${concatDoc([`All ${name} rules.`])}
-    export type ${name}Rules = ${rulesFinalIntersection};
-  `);
+    export interface ${name}Rules {
+      ${rulesFinalIntersection}
+    }
+  `;
 
   /**
    * Write the final `index.d.ts` file.
    */
-  const fileContent: string = dedent(`
-    ${rulesImports}
+  const fileContent = `
+    import type { RuleConfig, EmptyRuleConfig } from '../rule-config';
+
+    ${rulesTexts}
 
     ${pluginRulesType}
-  `);
+  `;
 
-  const indexPath = join(pluginDirectory, 'index.d.ts');
-  writeFileSync(indexPath, await format(fileContent));
+  const rulePath = join(outDir, filename);
+  try {
+    writeFileSync(rulePath, await format(fileContent));
+  } catch (e) {
+    console.error(e);
+    writeFileSync(rulePath, fileContent);
+  }
+
+  /**
+   * Apply a patch to the generated content if a diff file exists for it.
+   *
+   * Must be called after `generate()`.
+   */
+  const diffFile = resolve(__dirname, 'diffs', `${filename}.diff`);
+  if (existsSync(diffFile)) {
+    logger.logUpdate(colors.yellow(`  🧹 Adjusting ${name}`));
+    logger.logUpdatePersist();
+
+    execSync(`git apply ${diffFile}`);
+  }
 }
 
 /**
@@ -545,16 +531,33 @@ function printGenerationReport(
   logger.log('');
 }
 
+function occurrences(source: string, find: string) {
+  let count = 0;
+  let pos = -find.length;
+  while ((pos = source.indexOf(find, pos + find.length)) > -1) {
+    count++;
+  }
+
+  return count;
+}
+
+const isSimpleType = (type: string) =>
+  /^("[^"]+" \| )*"[^"]+"$/.test(type) ||
+  /^\{(\s*\w+\??: [\w[\]]+\n)+\s*\}$/.test(type);
+
+const arr = (...members: string[]): string => `[${members.join(', ')}]`;
+
+type RuleDetail = Awaited<ReturnType<RuleFile['generate']>>;
+type RulesFile = Awaited<ReturnType<typeof generateRulesFile>>;
+
 /**
  * Generate a `.d.ts` file for each rule in the given plugin.
  */
-async function generateRulesFiles(
-  plugin: Plugin,
-  pluginDirectory: string,
-): Promise<{ failedRules: FailedRule[] }> {
+async function generateRulesFile(plugin: Plugin) {
   const failedRules: FailedRule[] = [];
+  const ruleDetails = new Map</* ruleName */ string, RuleDetail>();
 
-  const pluginRules: PluginRules | undefined = plugin.rules;
+  const pluginRules = plugin.rules;
   if (!pluginRules) {
     throw new Error(
       `Plugin ${plugin.name} doesn't have any rules. Did you forget to load them?`,
@@ -565,11 +568,9 @@ async function generateRulesFiles(
   for (const [ruleName, rule] of rules) {
     logger.logUpdate(colors.yellow(`  Generating > ${ruleName}`));
 
-    const ruleFile = new RuleFile(plugin, pluginDirectory, ruleName, rule);
+    const ruleFile = new RuleFile(plugin, ruleName, rule);
     try {
-      await ruleFile.generate();
-      ruleFile.writeGeneratedContent();
-      ruleFile.applyPatch();
+      ruleDetails.set(ruleName, await ruleFile.generate());
     } catch (err) {
       failedRules.push({ ruleName, err });
     }
@@ -577,26 +578,7 @@ async function generateRulesFiles(
 
   printGenerationReport(rules, failedRules);
 
-  return { failedRules };
-}
-
-/**
- * If it doesn't exist, create the directory that will contain the plugin's rule files.
- */
-function createPluginDirectory(
-  pluginName: string,
-  targetDirectory?: string,
-): string {
-  const rulesDirectory = join(__dirname, targetDirectory ?? '../src/rules');
-  const pluginDirectory = join(rulesDirectory, pluginName);
-
-  if (existsSync(pluginDirectory)) {
-    rmSync(pluginDirectory, { recursive: true, force: true });
-  }
-
-  mkdirSync(pluginDirectory, { mode: 0o755, recursive: true });
-
-  return pluginDirectory;
+  return { failedRules, ruleDetails };
 }
 
 export interface RunOptions {
@@ -609,6 +591,9 @@ export async function run(options: RunOptions = {}): Promise<void> {
 
   const wantedPlugins = plugins ?? Object.keys(PLUGIN_REGISTRY);
 
+  const outDir = targetDirectory ?? join(__dirname, '../src/rules');
+  mkdirSync(outDir, { recursive: true });
+
   for (const pluginName of wantedPlugins) {
     const plugin = PLUGIN_REGISTRY[pluginName];
     if (!plugin) {
@@ -618,10 +603,11 @@ export async function run(options: RunOptions = {}): Promise<void> {
     logger.info(`Generating ${plugin.name} rules.`);
     logger.logUpdate(colors.yellow(`  Loading plugin > ${plugin.module}`));
     const loadedPlugin = await loadPlugin(plugin);
-
-    const pluginDir = createPluginDirectory(pluginName, targetDirectory);
-    const { failedRules } = await generateRulesFiles(loadedPlugin, pluginDir);
-
-    await generateRuleIndexFile(pluginDir, loadedPlugin, failedRules);
+    await generateRuleFile(
+      outDir,
+      `${pluginName}.d.ts`,
+      loadedPlugin,
+      await generateRulesFile(loadedPlugin),
+    );
   }
 }

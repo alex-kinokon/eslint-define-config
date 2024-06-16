@@ -1,0 +1,24 @@
+diff --git a/src/rules/eslint.d.ts b/src/rules/eslint.d.ts
+index d446182..253d15b 100644
+--- a/src/rules/eslint.d.ts
++++ b/src/rules/eslint.d.ts
+@@ -967,10 +967,6 @@ export interface NoConsoleOption {
+   allow?: [string, ...string[]];
+ }
+ 
+-export interface NoConstructorReturnOption {
+-  [k: string]: any;
+-}
+-
+ export interface NoEmptyFunctionOption {
+   allow?: (
+     | 'functions'
+@@ -2521,7 +2517,7 @@ export interface EslintRules {
+    * Disallow returning value from constructor.
+    * @see [no-constructor-return](https://eslint.org/docs/latest/rules/no-constructor-return)
+    */
+-  'no-constructor-return': RuleConfig<NoConstructorReturnOption>;
++  'no-constructor-return': EmptyRuleConfig;
+ 
+   /**
+    * Disallow `continue` statements.

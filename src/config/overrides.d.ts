@@ -1,5 +1,5 @@
 import type { Parser, ParserOptions } from '../parser-options';
-import type { Rules } from '../rules';
+import type { Rules } from '../rules/index';
 import type { Environments } from './env';
 import type { Extends } from './extends';
 import type { Plugin } from './plugin';

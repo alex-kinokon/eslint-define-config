@@ -1,0 +1,29 @@
+diff --git a/src/rules/vitest.d.ts b/src/rules/vitest.d.ts
+index d2c74fe..7333019 100644
+--- a/src/rules/vitest.d.ts
++++ b/src/rules/vitest.d.ts
+@@ -33,20 +33,13 @@ export interface NoRestrictedMatchersOption {
+   [k: string]: string | null;
+ }
+ 
+-export interface ValidTitleOption {
++export type ValidTitleOption = {
+   ignoreTypeOfDescribeName?: boolean;
+   allowArguments?: boolean;
+   disallowedWords?: string[];
+-  /**
+-   */
+-  [k: string]:
+-    | string
+-    | [string]
+-    | [string, string]
+-    | {
+-        [k: string]: string | [string] | [string, string];
+-      };
+-}
++} & {
++  [k: string]: any;
++};
+ 
+ export type ValidExpectRuleConfig = [
+   {
