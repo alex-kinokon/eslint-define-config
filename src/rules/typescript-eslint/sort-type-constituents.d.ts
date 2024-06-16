@@ -43,6 +43,8 @@ export type SortTypeConstituentsOptions = [SortTypeConstituentsOption?];
 /**
  * Enforce constituents of a type union/intersection to be sorted alphabetically.
  *
+ * @deprecated
+ *
  * @see [sort-type-constituents](https://typescript-eslint.io/rules/sort-type-constituents)
  */
 export type SortTypeConstituentsRuleConfig =
@@ -51,11 +53,15 @@ export type SortTypeConstituentsRuleConfig =
 /**
  * Enforce constituents of a type union/intersection to be sorted alphabetically.
  *
+ * @deprecated
+ *
  * @see [sort-type-constituents](https://typescript-eslint.io/rules/sort-type-constituents)
  */
 export interface SortTypeConstituentsRule {
   /**
    * Enforce constituents of a type union/intersection to be sorted alphabetically.
+   *
+   * @deprecated
    *
    * @see [sort-type-constituents](https://typescript-eslint.io/rules/sort-type-constituents)
    */

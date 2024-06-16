@@ -14,6 +14,7 @@ export interface KeyFormatStyleConfig {
 export type KeyFormatStyleOption =
   | 'camelCase'
   | 'kebab-case'
+  | 'lowercase'
   | 'snake_case'
   | 'SCREAMING_SNAKE_CASE';
 

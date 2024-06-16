@@ -1,4 +1,4 @@
-#!/usr/bin/env bun
+#!/usr/bin/env tsx
 import { run } from './index';
 
 const selectedPlugins: string[] | undefined = process.argv

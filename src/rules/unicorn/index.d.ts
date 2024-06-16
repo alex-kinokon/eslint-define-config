@@ -36,6 +36,7 @@ import type { NoKeywordPrefixRule } from './no-keyword-prefix';
 import type { NoLonelyIfRule } from './no-lonely-if';
 import type { NoMagicArrayFlatDepthRule } from './no-magic-array-flat-depth';
 import type { NoNegatedConditionRule } from './no-negated-condition';
+import type { NoNegationInEqualityCheckRule } from './no-negation-in-equality-check';
 import type { NoNestedTernaryRule } from './no-nested-ternary';
 import type { NoNewArrayRule } from './no-new-array';
 import type { NoNewBufferRule } from './no-new-buffer';
@@ -172,6 +173,7 @@ export type UnicornRules = BetterRegexRule &
   NoLonelyIfRule &
   NoMagicArrayFlatDepthRule &
   NoNegatedConditionRule &
+  NoNegationInEqualityCheckRule &
   NoNestedTernaryRule &
   NoNewArrayRule &
   NoNewBufferRule &

@@ -2,6 +2,8 @@ import type { KeyFormatStyleRule } from './key-format-style';
 import type { NoDeprecatedI18nComponentRule } from './no-deprecated-i18n-component';
 import type { NoDeprecatedI18nPlaceAttrRule } from './no-deprecated-i18n-place-attr';
 import type { NoDeprecatedI18nPlacesPropRule } from './no-deprecated-i18n-places-prop';
+import type { NoDeprecatedModuloSyntaxRule } from './no-deprecated-modulo-syntax';
+import type { NoDeprecatedTcRule } from './no-deprecated-tc';
 import type { NoDuplicateKeysInLocaleRule } from './no-duplicate-keys-in-locale';
 import type { NoDynamicKeysRule } from './no-dynamic-keys';
 import type { NoHtmlMessagesRule } from './no-html-messages';
@@ -24,6 +26,8 @@ export type VueI18nRules = KeyFormatStyleRule &
   NoDeprecatedI18nComponentRule &
   NoDeprecatedI18nPlaceAttrRule &
   NoDeprecatedI18nPlacesPropRule &
+  NoDeprecatedModuloSyntaxRule &
+  NoDeprecatedTcRule &
   NoDuplicateKeysInLocaleRule &
   NoDynamicKeysRule &
   NoHtmlMessagesRule &

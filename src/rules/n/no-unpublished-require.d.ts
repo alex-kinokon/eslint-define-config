@@ -42,6 +42,7 @@ export interface NoUnpublishedRequireOption {
       ];
   resolvePaths?: string[];
   tryExtensions?: string[];
+  ignorePrivate?: boolean;
 }
 
 /**

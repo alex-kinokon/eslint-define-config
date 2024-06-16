@@ -79,6 +79,7 @@ import type { NoTypeAliasRule } from './no-type-alias';
 import type { NoUnnecessaryBooleanLiteralCompareRule } from './no-unnecessary-boolean-literal-compare';
 import type { NoUnnecessaryConditionRule } from './no-unnecessary-condition';
 import type { NoUnnecessaryQualifierRule } from './no-unnecessary-qualifier';
+import type { NoUnnecessaryTemplateExpressionRule } from './no-unnecessary-template-expression';
 import type { NoUnnecessaryTypeArgumentsRule } from './no-unnecessary-type-arguments';
 import type { NoUnnecessaryTypeAssertionRule } from './no-unnecessary-type-assertion';
 import type { NoUnnecessaryTypeConstraintRule } from './no-unnecessary-type-constraint';
@@ -226,6 +227,7 @@ export type TypeScriptRules = AdjacentOverloadSignaturesRule &
   NoUnnecessaryBooleanLiteralCompareRule &
   NoUnnecessaryConditionRule &
   NoUnnecessaryQualifierRule &
+  NoUnnecessaryTemplateExpressionRule &
   NoUnnecessaryTypeArgumentsRule &
   NoUnnecessaryTypeAssertionRule &
   NoUnnecessaryTypeConstraintRule &

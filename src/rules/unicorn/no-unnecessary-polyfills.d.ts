@@ -20,7 +20,7 @@ export type NoUnnecessaryPolyfillsOptions = [NoUnnecessaryPolyfillsOption?];
 /**
  * Enforce the use of built-in methods instead of unnecessary polyfills.
  *
- * @see [no-unnecessary-polyfills](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v53.0.0/docs/rules/no-unnecessary-polyfills.md)
+ * @see [no-unnecessary-polyfills](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v54.0.0/docs/rules/no-unnecessary-polyfills.md)
  */
 export type NoUnnecessaryPolyfillsRuleConfig =
   RuleConfig<NoUnnecessaryPolyfillsOptions>;
@@ -28,13 +28,13 @@ export type NoUnnecessaryPolyfillsRuleConfig =
 /**
  * Enforce the use of built-in methods instead of unnecessary polyfills.
  *
- * @see [no-unnecessary-polyfills](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v53.0.0/docs/rules/no-unnecessary-polyfills.md)
+ * @see [no-unnecessary-polyfills](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v54.0.0/docs/rules/no-unnecessary-polyfills.md)
  */
 export interface NoUnnecessaryPolyfillsRule {
   /**
    * Enforce the use of built-in methods instead of unnecessary polyfills.
    *
-   * @see [no-unnecessary-polyfills](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v53.0.0/docs/rules/no-unnecessary-polyfills.md)
+   * @see [no-unnecessary-polyfills](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v54.0.0/docs/rules/no-unnecessary-polyfills.md)
    */
   'unicorn/no-unnecessary-polyfills': NoUnnecessaryPolyfillsRuleConfig;
 }

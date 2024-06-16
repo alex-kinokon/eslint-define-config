@@ -1321,6 +1321,7 @@ export interface NoUnsupportedFeaturesNodeBuiltinsOption {
     | 'worker_threads.MessagePort'
     | 'worker_threads.Worker'
     | 'zlib.constants'
+    | 'zlib.crc32'
     | 'zlib.createBrotliCompress'
     | 'zlib.createBrotliDecompress'
     | 'zlib.createDeflate'
