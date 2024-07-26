@@ -6,6 +6,11 @@ export interface CatchOrReturnOption {
   terminationMethod?: string | string[];
 }
 
+export interface PreferAwaitToThenOption {
+  strict?: boolean;
+  [k: string]: any;
+}
+
 /**
  * All Promise rules.
  */
@@ -48,7 +53,7 @@ export interface PromiseRules {
   'promise/catch-or-return': [CatchOrReturnOption?];
 
   /**
-   * Prefer async/await to the callback pattern.
+   * Prefer `async`/`await` to the callback pattern.
    * @see [prefer-await-to-callbacks](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/prefer-await-to-callbacks.md)
    */
   'promise/prefer-await-to-callbacks': null;
@@ -57,7 +62,7 @@ export interface PromiseRules {
    * Prefer `await` to `then()`/`catch()`/`finally()` for reading Promise values.
    * @see [prefer-await-to-then](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/prefer-await-to-then.md)
    */
-  'promise/prefer-await-to-then': null;
+  'promise/prefer-await-to-then': [PreferAwaitToThenOption?];
 
   /**
    * Require creating a `Promise` constructor before using it in an ES5 environment.
@@ -66,7 +71,7 @@ export interface PromiseRules {
   'promise/no-native': null;
 
   /**
-   * Disallow calling `cb()` inside of a `then()` (use [nodeify][] instead).
+   * Disallow calling `cb()` inside of a `then()` (use [util.callbackify][] instead).
    * @see [no-callback-in-promise](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-callback-in-promise.md)
    */
   'promise/no-callback-in-promise': [
@@ -88,7 +93,7 @@ export interface PromiseRules {
   'promise/no-nesting': null;
 
   /**
-   * Disallow creating `new` promises outside of utility libs (use [pify][] instead).
+   * Disallow creating `new` promises outside of utility libs (use [util.promisify][] instead).
    * @see [avoid-new](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/avoid-new.md)
    */
   'promise/avoid-new': null;

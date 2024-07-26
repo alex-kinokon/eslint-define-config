@@ -1406,6 +1406,12 @@ export interface NoEmptyFunctionOption {
   )[];
 }
 
+export interface NoEmptyObjectTypeOption {
+  allowInterfaces?: 'always' | 'never' | 'with-single-extends';
+  allowObjectTypes?: 'always' | 'in-type-alias-with-name' | 'never';
+  allowWithName?: string;
+}
+
 export interface NoExplicitAnyOption {
   /**
    * Whether to enable auto-fixing in which the `any` type is converted to the `unknown` type.
@@ -1457,14 +1463,6 @@ export interface NoExtraneousClassOption {
 }
 
 export interface NoFloatingPromisesOption {
-  /**
-   * Whether to ignore `void` expressions.
-   */
-  ignoreVoid?: boolean;
-  /**
-   * Whether to ignore async IIFEs (Immediately Invoked Function Expressions).
-   */
-  ignoreIIFE?: boolean;
   allowForKnownSafePromises?: (
     | string
     | {
@@ -1482,6 +1480,18 @@ export interface NoFloatingPromisesOption {
         package: string;
       }
   )[];
+  /**
+   * Whether to check all "Thenable"s, not just the built-in Promise type.
+   */
+  checkThenables?: boolean;
+  /**
+   * Whether to ignore `void` expressions.
+   */
+  ignoreVoid?: boolean;
+  /**
+   * Whether to ignore async IIFEs (Immediately Invoked Function Expressions).
+   */
+  ignoreIIFE?: boolean;
 }
 
 export interface NoInvalidVoidTypeOption {
@@ -2584,6 +2594,12 @@ export interface TypeScriptRules {
   ];
 
   /**
+   * Disallow accidentally using the "empty object" type.
+   * @see [no-empty-object-type](https://typescript-eslint.io/rules/no-empty-object-type)
+   */
+  '@typescript-eslint/no-empty-object-type': [NoEmptyObjectTypeOption?];
+
+  /**
    * Disallow the `any` type.
    * @see [no-explicit-any](https://typescript-eslint.io/rules/no-explicit-any)
    */
@@ -2813,6 +2829,12 @@ export interface TypeScriptRules {
   ];
 
   /**
+   * Disallow unnecessary assignment of constructor property parameter.
+   * @see [no-unnecessary-parameter-property-assignment](https://typescript-eslint.io/rules/no-unnecessary-parameter-property-assignment)
+   */
+  '@typescript-eslint/no-unnecessary-parameter-property-assignment': null;
+
+  /**
    * Disallow unnecessary namespace qualifiers.
    * @see [no-unnecessary-qualifier](https://typescript-eslint.io/rules/no-unnecessary-qualifier)
    */
@@ -2845,6 +2867,12 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-unnecessary-type-constraint': null;
 
   /**
+   * Disallow type parameters that only appear once.
+   * @see [no-unnecessary-type-parameters](https://typescript-eslint.io/rules/no-unnecessary-type-parameters)
+   */
+  '@typescript-eslint/no-unnecessary-type-parameters': null;
+
+  /**
    * Disallow calling a function with a value with type `any`.
    * @see [no-unsafe-argument](https://typescript-eslint.io/rules/no-unsafe-argument)
    */
@@ -2873,6 +2901,12 @@ export interface TypeScriptRules {
    * @see [no-unsafe-enum-comparison](https://typescript-eslint.io/rules/no-unsafe-enum-comparison)
    */
   '@typescript-eslint/no-unsafe-enum-comparison': null;
+
+  /**
+   * Disallow using the unsafe built-in Function type.
+   * @see [no-unsafe-function-type](https://typescript-eslint.io/rules/no-unsafe-function-type)
+   */
+  '@typescript-eslint/no-unsafe-function-type': null;
 
   /**
    * Disallow member access on a value with type `any`.
@@ -2941,6 +2975,12 @@ export interface TypeScriptRules {
    * @see [no-var-requires](https://typescript-eslint.io/rules/no-var-requires)
    */
   '@typescript-eslint/no-var-requires': [NoVarRequiresOption?];
+
+  /**
+   * Disallow using confusing built-in primitive class wrappers.
+   * @see [no-wrapper-object-types](https://typescript-eslint.io/rules/no-wrapper-object-types)
+   */
+  '@typescript-eslint/no-wrapper-object-types': null;
 
   /**
    * Enforce non-null assertions over explicit type casts.
@@ -3154,10 +3194,12 @@ export interface TypeScriptRules {
   ];
 
   /**
-   * Enforce consistent returning of awaited values.
+   * Enforce consistent awaiting of returned promises.
    * @see [return-await](https://typescript-eslint.io/rules/return-await)
    */
-  '@typescript-eslint/return-await': [('in-try-catch' | 'always' | 'never')?];
+  '@typescript-eslint/return-await': [
+    ('in-try-catch' | 'always' | 'never' | 'error-handling-correctness-only')?,
+  ];
 
   /**
    * Require or disallow semicolons instead of ASI.

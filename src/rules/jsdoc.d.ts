@@ -57,6 +57,34 @@ export interface CheckValuesOption {
   numericOnlyVariation?: boolean;
 }
 
+export interface ConvertToJsdocCommentsOption {
+  allowedPrefixes?: string[];
+  contexts?: (
+    | string
+    | {
+        context?: string;
+        inlineCommentBlock?: boolean;
+      }
+  )[];
+  contextsAfter?: (
+    | string
+    | {
+        context?: string;
+        inlineCommentBlock?: boolean;
+      }
+  )[];
+  contextsBeforeAndAfter?: (
+    | string
+    | {
+        context?: string;
+        inlineCommentBlock?: boolean;
+      }
+  )[];
+  enableFixer?: boolean;
+  enforceJsdocLineStyle?: 'multi' | 'single';
+  lineOrBlockStyle?: 'block' | 'line' | 'both';
+}
+
 export interface ImplementsOnClassesOption {
   contexts?: (
     | string
@@ -536,6 +564,12 @@ export interface JSDocRules {
   ];
 
   /**
+   * Checks that any `@template` names are actually used in the connected `@typedef` or type alias.
+   * @see [check-template-names](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-template.md#repos-sticky-header)
+   */
+  'jsdoc/check-template-names': null;
+
+  /**
    * Reports invalid types.
    * @see [check-types](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-types.md#repos-sticky-header)
    */
@@ -546,6 +580,12 @@ export interface JSDocRules {
    * @see [check-values](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-values.md#repos-sticky-header)
    */
   'jsdoc/check-values': [CheckValuesOption?];
+
+  /**
+   * Converts non-JSDoc comments preceding or following nodes into JSDoc ones.
+   * @see [convert-to-jsdoc-comments](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/convert-to-jsdoc-comments.md#repos-sticky-header)
+   */
+  'jsdoc/convert-to-jsdoc-comments': [ConvertToJsdocCommentsOption?];
 
   /**
    * Expects specific tags to be empty of any content.
@@ -792,6 +832,16 @@ export interface JSDocRules {
    * @see [require-returns-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-returns-type.md#repos-sticky-header)
    */
   'jsdoc/require-returns-type': [RequireReturnsTypeOption?];
+
+  /**
+   * Requires template tags for each generic type parameter.
+   * @see [require-template](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-template.md#repos-sticky-header)
+   */
+  'jsdoc/require-template': [
+    {
+      requireSeparateTemplates?: boolean;
+    }?,
+  ];
 
   /**
    * Requires that throw statements are documented.

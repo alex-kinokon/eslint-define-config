@@ -36,6 +36,19 @@ export interface ForbidComponentPropsOption {
         disallowedFor: [string, ...string[]];
         message?: string;
       }
+    | {
+        propNamePattern?: string;
+        allowedFor?: string[];
+        message?: string;
+      }
+    | {
+        propNamePattern?: string;
+        /**
+         * @minItems 1
+         */
+        disallowedFor: [string, ...string[]];
+        message?: string;
+      }
   )[];
   [k: string]: any;
 }
@@ -123,6 +136,12 @@ export type JsxClosingBracketLocationOption =
         | false;
     };
 
+export type JsxClosingTagLocationOption =
+  | ('tag-aligned' | 'line-aligned')
+  | {
+      location?: 'tag-aligned' | 'line-aligned';
+    };
+
 export namespace JsxCurlySpacing {
   export type JsxCurlySpacingOption =
     | []
@@ -185,24 +204,31 @@ export type JsxHandlerNamesOption =
       eventHandlerPropPrefix?: string;
       checkLocalVariables?: boolean;
       checkInlineFunction?: boolean;
+      ignoreComponentNames?: string[];
     }
   | {
       eventHandlerPrefix?: string;
       eventHandlerPropPrefix?: false;
       checkLocalVariables?: boolean;
       checkInlineFunction?: boolean;
+      ignoreComponentNames?: string[];
     }
   | {
       eventHandlerPrefix?: false;
       eventHandlerPropPrefix?: string;
       checkLocalVariables?: boolean;
       checkInlineFunction?: boolean;
+      ignoreComponentNames?: string[];
     }
   | {
       checkLocalVariables?: boolean;
     }
   | {
       checkInlineFunction?: boolean;
+    }
+  | {
+      ignoreComponentNames?: string[];
+      [k: string]: any;
     };
 
 export type JsxIndentOption = 'tab' | number;
@@ -343,6 +369,14 @@ export interface JsxWrapMultilinesOption {
 }
 
 export type NoInvalidHtmlAttributeOption = 'rel'[];
+
+export interface NoDangerOption {
+  /**
+   * @minItems 0
+   */
+  customComponentNames?: string[];
+  [k: string]: any;
+}
 
 export interface NoUnescapedEntitiesOption {
   forbid?: (
@@ -537,7 +571,7 @@ export interface ReactRules {
    * Enforce closing tag location for multiline JSX.
    * @see [jsx-closing-tag-location](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-closing-tag-location.md)
    */
-  'react/jsx-closing-tag-location': null;
+  'react/jsx-closing-tag-location': [JsxClosingTagLocationOption?];
 
   /**
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
@@ -748,6 +782,12 @@ export interface ReactRules {
   'react/jsx-props-no-spreading': [JsxPropsNoSpreadingOption?];
 
   /**
+   * Disallow JSX prop spreading the same identifier multiple times.
+   * @see [jsx-props-no-spread-multi](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-props-no-spread-multi.md)
+   */
+  'react/jsx-props-no-spread-multi': null;
+
+  /**
    * Enforce defaultProps declarations alphabetical sorting.
    * @deprecated
    * @see [jsx-sort-default-props](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-sort-default-props.md)
@@ -839,7 +879,7 @@ export interface ReactRules {
    * Disallow usage of dangerous JSX properties.
    * @see [no-danger](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-danger.md)
    */
-  'react/no-danger': null;
+  'react/no-danger': [NoDangerOption?];
 
   /**
    * Disallow when a DOM element is using both children and dangerouslySetInnerHTML.
