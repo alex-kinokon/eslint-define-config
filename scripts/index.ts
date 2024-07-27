@@ -103,7 +103,7 @@ export const PLUGIN_REGISTRY: Readonly<Record<string, Plugin>> = {
   },
   react: {
     name: 'React',
-    module: 'eslint-plugin-react',
+    module: '@eslint-react/eslint-plugin',
   },
   'react-hooks': {
     name: 'ReactHooks',
@@ -162,7 +162,7 @@ async function loadPlugin(plugin: Plugin): Promise<Plugin> {
           // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           new mod.Linter().getRules().entries(),
         )
-      : mod.rules ?? mod.default.rules;
+      : (mod.rules ?? mod.default.rules);
   return { ...plugin, rules };
 }
 
