@@ -106,12 +106,9 @@ type PromiseExtends = 'plugin:promise/recommended';
 /**
  * Eslint React extends.
  *
- * @see [Eslint React extends](https://github.com/jsx-eslint/eslint-plugin-react)
+ * @see [Eslint React extends](https://eslint-react.xyz/docs/installation)
  */
-type ReactExtends =
-  | 'plugin:react/all'
-  | 'plugin:react/jsx-runtime'
-  | 'plugin:react/recommended';
+type ReactExtends = 'plugin:@eslint-react/recommended-legacy';
 
 /**
  * Eslint ReactHooks extends.

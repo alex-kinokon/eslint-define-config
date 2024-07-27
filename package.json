@@ -1,6 +1,6 @@
 {
   "name": "@aet/eslint-define-config",
-  "version": "0.1.0-beta.5",
+  "version": "0.1.0-beta.9",
   "description": "Provide a defineConfig function for .eslintrc.js files",
   "scripts": {
     "format": "prettier --cache --write .",
@@ -106,6 +106,7 @@
   },
   "pnpm": {
     "overrides": {
+      "@graphql-tools/url-loader": "npm:-@0.0.1",
       "array-includes": "npm:@nolyfill/array-includes@^1",
       "array.prototype.findlast": "npm:@nolyfill/array.prototype.findlast@^1",
       "array.prototype.findlastindex": "npm:@nolyfill/array.prototype.findlastindex@^1",

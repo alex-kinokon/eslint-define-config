@@ -5,10 +5,13 @@ import type { JSONSchema4 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
 import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { join, resolve } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
 import colors from 'picocolors';
 import { format as prettierFormat } from 'prettier';
+
+const require = createRequire(import.meta.url);
 
 const logger = new Logger();
 
@@ -103,6 +106,7 @@ export const PLUGIN_REGISTRY: Readonly<Record<string, Plugin>> = {
   },
   react: {
     name: 'React',
+    prefix: '@eslint-react',
     module: '@eslint-react/eslint-plugin',
   },
   'react-hooks': {
@@ -154,10 +158,14 @@ export const PLUGIN_REGISTRY: Readonly<Record<string, Plugin>> = {
 } as const;
 
 async function loadPlugin(plugin: Plugin): Promise<Plugin> {
+  const { module } = plugin;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const mod: any = await import(plugin.module);
+  const mod: any =
+    module === '@graphql-eslint/eslint-plugin'
+      ? require(module)
+      : await import(module);
   const rules: PluginRules =
-    plugin.module === 'eslint'
+    module === 'eslint'
       ? Object.fromEntries(
           // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           new mod.Linter().getRules().entries(),
