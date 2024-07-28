@@ -29,6 +29,7 @@ export type Plugin = LiteralUnion<
   | 'mdx'
   | 'prettier'
   | 'promise'
+  | 'react-refresh'
   | 'react-hooks'
   | 'sonarjs'
   | 'spellcheck'

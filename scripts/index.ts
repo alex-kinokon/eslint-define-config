@@ -109,6 +109,10 @@ export const PLUGIN_REGISTRY: Readonly<Record<string, Plugin>> = {
     prefix: '@eslint-react',
     module: '@eslint-react/eslint-plugin',
   },
+  'react-refresh': {
+    name: 'ReactRefresh',
+    module: 'eslint-plugin-react-refresh',
+  },
   'react-hooks': {
     name: 'ReactHooks',
     module: 'eslint-plugin-react-hooks',
@@ -126,6 +130,10 @@ export const PLUGIN_REGISTRY: Readonly<Record<string, Plugin>> = {
   spellcheck: {
     name: 'Spellcheck',
     module: 'eslint-plugin-spellcheck',
+  },
+  storybook: {
+    name: 'Storybook',
+    module: 'eslint-plugin-storybook',
   },
   tailwind: {
     name: 'Tailwind',

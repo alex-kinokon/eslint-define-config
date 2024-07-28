@@ -1,6 +1,6 @@
 {
   "name": "@aet/eslint-define-config",
-  "version": "0.1.0-beta.13",
+  "version": "0.1.0-beta.15",
   "description": "Provide a defineConfig function for .eslintrc.js files",
   "scripts": {
     "format": "prettier --cache --write .",
@@ -70,8 +70,10 @@
     "eslint-plugin-promise": "~7.0.0",
     "eslint-plugin-react": "~7.35.0",
     "eslint-plugin-react-hooks": "~4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.9",
     "eslint-plugin-sonarjs": "~1.0.4",
     "eslint-plugin-spellcheck": "~0.0.20",
+    "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-testing-library": "~6.2.2",
     "eslint-plugin-unicorn": "~55.0.0",
@@ -107,6 +109,9 @@
       }
     }
   },
+  "resolutions": {
+    "file-entry-cache": "^9.0.0"
+  },
   "pnpm": {
     "overrides": {
       "@graphql-tools/url-loader": "npm:-@0.0.1",
@@ -116,11 +121,15 @@
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@^1",
       "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@^1",
       "array.prototype.tosorted": "npm:@nolyfill/array.prototype.tosorted@^1",
+      "browserslist": "npm:-@0.0.1",
+      "cli-color": "npm:-@0.0.1",
       "deep-equal": "npm:@nolyfill/deep-equal@^1",
       "es-iterator-helpers": "npm:@nolyfill/es-iterator-helpers@^1",
       "hasown": "npm:@nolyfill/hasown@^1",
       "is-core-module": "npm:@nolyfill/is-core-module@^1",
       "is-regex": "npm:@nolyfill/is-regex@^1",
+      "jiti": "npm:-@0.0.1",
+      "node-fetch": "npm:-@0.0.1",
       "object.assign": "npm:@nolyfill/object.assign@^1",
       "object.entries": "npm:@nolyfill/object.entries@^1",
       "object.fromentries": "npm:@nolyfill/object.fromentries@^1",
@@ -130,6 +139,7 @@
       "string.prototype.includes": "npm:@nolyfill/string.prototype.includes@^1",
       "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@^1",
       "string.prototype.repeat": "npm:@nolyfill/string.prototype.repeat@^1",
+      "sucrase": "npm:-@0.0.1",
       "typedarray": "npm:@nolyfill/typedarray@^1"
     }
   }
