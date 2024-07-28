@@ -113,6 +113,11 @@ export const PLUGIN_REGISTRY: Readonly<Record<string, Plugin>> = {
     name: 'ReactHooks',
     module: 'eslint-plugin-react-hooks',
   },
+  'react-query': {
+    name: 'ReactQuery',
+    prefix: '@tanstack/query',
+    module: '@tanstack/eslint-plugin-query',
+  },
   sonarjs: {
     name: 'SonarJS',
     prefix: 'sonarjs',

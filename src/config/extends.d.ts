@@ -118,6 +118,12 @@ type ReactExtends = 'plugin:@eslint-react/recommended-legacy';
 type ReactHooksExtends = 'plugin:react-hooks/recommended';
 
 /**
+ * React Query extends.
+ * @see [React Query extends](https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query)
+ */
+type ReactQueryExtends = 'plugin:@tanstack/eslint-plugin-query/recommended';
+
+/**
  * Eslint Sonarjs extends.
  *
  * @see [Eslint Sonarjs extends](https://github.com/SonarSource/eslint-plugin-sonarjs#available-configurations)
@@ -246,6 +252,7 @@ export type KnownExtends = LiteralUnion<
   | PromiseExtends
   | ReactExtends
   | ReactHooksExtends
+  | ReactQueryExtends
   | SonarjsExtends
   | TestingLibraryExtends
   | TypescriptEslintExtends

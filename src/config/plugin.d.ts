@@ -17,7 +17,9 @@ export interface CustomPlugins {}
 
 /** Plugin. */
 export type Plugin = LiteralUnion<
+  | '@eslint-react/eslint-plugin'
   | '@graphql-eslint'
+  | '@tanstack/query'
   | '@typescript-eslint'
   | 'deprecation'
   | 'import'
