@@ -1,11 +1,12 @@
 {
   "name": "@aet/eslint-define-config",
-  "version": "0.1.0-beta.11",
+  "version": "0.1.0-beta.13",
   "description": "Provide a defineConfig function for .eslintrc.js files",
   "scripts": {
     "format": "prettier --cache --write .",
     "build": "tsx --trace-deprecation ./scripts/cli.ts",
-    "save": "./scripts/save.sh"
+    "save": "./scripts/save.sh",
+    "do": "ver bump && npm publish && ver unpub"
   },
   "type": "module",
   "types": "src/index.d.ts",
@@ -71,6 +72,7 @@
     "eslint-plugin-react-hooks": "~4.6.2",
     "eslint-plugin-sonarjs": "~1.0.4",
     "eslint-plugin-spellcheck": "~0.0.20",
+    "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-testing-library": "~6.2.2",
     "eslint-plugin-unicorn": "~55.0.0",
     "eslint-plugin-vitest": "~0.5.4",

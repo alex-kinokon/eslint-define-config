@@ -127,6 +127,11 @@ export const PLUGIN_REGISTRY: Readonly<Record<string, Plugin>> = {
     name: 'Spellcheck',
     module: 'eslint-plugin-spellcheck',
   },
+  tailwind: {
+    name: 'Tailwind',
+    prefix: 'tailwindcss',
+    module: 'eslint-plugin-tailwindcss',
+  },
   'testing-library': {
     name: 'TestingLibrary',
     module: 'eslint-plugin-testing-library',
