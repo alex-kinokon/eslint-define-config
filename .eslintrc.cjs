@@ -56,10 +56,6 @@ const config = {
     '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-return': 'error',
-    '@typescript-eslint/padding-line-between-statements': [
-      'error',
-      { blankLine: 'always', prev: 'block-like', next: '*' },
-    ],
     '@typescript-eslint/prefer-nullish-coalescing': 'warn',
     '@typescript-eslint/prefer-optional-chain': 'warn',
     '@typescript-eslint/prefer-readonly': 'warn',

@@ -27,19 +27,19 @@ export type NamingConventionFilenameExtensionOption =
  */
 export interface ReactRules {
   /**
-   * Enforce boolean attributes notation in JSX.
+   * Avoid using shorthand boolean attribute.
    * @see [avoid-shorthand-boolean](https://eslint-react.xyz/docs/rules/avoid-shorthand-boolean)
    */
   '@eslint-react/avoid-shorthand-boolean': null;
 
   /**
-   * Enforce using fragment component instead of shorthand fragment syntax.
+   * Avoid using shorthand fragment syntax.
    * @see [avoid-shorthand-fragment](https://eslint-react.xyz/docs/rules/avoid-shorthand-fragment)
    */
   '@eslint-react/avoid-shorthand-fragment': null;
 
   /**
-   * Require all 'forwardRef' components include a 'ref' parameter.
+   * Require a 'ref' parameter to be set when using 'forwardRef'.
    * @see [ensure-forward-ref-using-ref](https://eslint-react.xyz/docs/rules/ensure-forward-ref-using-ref)
    */
   '@eslint-react/ensure-forward-ref-using-ref': null;
@@ -51,55 +51,55 @@ export interface ReactRules {
   '@eslint-react/no-access-state-in-setstate': null;
 
   /**
-   * Disallow using Array index as key.
+   * Disallow using Array index as 'key'.
    * @see [no-array-index-key](https://eslint-react.xyz/docs/rules/no-array-index-key)
    */
   '@eslint-react/no-array-index-key': null;
 
   /**
-   * Disallow 'Children.count'.
+   * Disallow using 'Children.count'.
    * @see [no-children-count](https://eslint-react.xyz/docs/rules/no-children-count)
    */
   '@eslint-react/no-children-count': null;
 
   /**
-   * Disallow 'Children.forEach'.
+   * Disallow using 'Children.forEach'.
    * @see [no-children-for-each](https://eslint-react.xyz/docs/rules/no-children-for-each)
    */
   '@eslint-react/no-children-for-each': null;
 
   /**
-   * Disallow 'Children.map'.
+   * Disallow using 'Children.map'.
    * @see [no-children-map](https://eslint-react.xyz/docs/rules/no-children-map)
    */
   '@eslint-react/no-children-map': null;
 
   /**
-   * Disallow 'Children.only'.
+   * Disallow using 'Children.only'.
    * @see [no-children-only](https://eslint-react.xyz/docs/rules/no-children-only)
    */
   '@eslint-react/no-children-only': null;
 
   /**
-   * Disallow passing of 'children' as props.
+   * Disallow passing 'children' as props.
    * @see [no-children-prop](https://eslint-react.xyz/docs/rules/no-children-prop)
    */
   '@eslint-react/no-children-prop': null;
 
   /**
-   * Disallow 'Children.toArray'.
+   * Disallow using 'Children.toArray'.
    * @see [no-children-to-array](https://eslint-react.xyz/docs/rules/no-children-to-array)
    */
   '@eslint-react/no-children-to-array': null;
 
   /**
-   * Disallow class component.
+   * Disallow using class components.
    * @see [no-class-component](https://eslint-react.xyz/docs/rules/no-class-component)
    */
   '@eslint-react/no-class-component': null;
 
   /**
-   * Disallow 'cloneElement'.
+   * Disallow using 'cloneElement'.
    * @see [no-clone-element](https://eslint-react.xyz/docs/rules/no-clone-element)
    */
   '@eslint-react/no-clone-element': null;
@@ -111,38 +111,45 @@ export interface ReactRules {
   '@eslint-react/no-comment-textnodes': null;
 
   /**
-   * Disallow complicated conditional rendering.
+   * Disallow complex conditional rendering.
    * @deprecated
-   * @see [no-complicated-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complicated-conditional-rendering)
+   * @see [no-complex-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
+   */
+  '@eslint-react/no-complex-conditional-rendering': null;
+
+  /**
+   * Disallow complex conditional rendering.
+   * @deprecated
+   * @see [no-complicated-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
    */
   '@eslint-react/no-complicated-conditional-rendering': null;
 
   /**
-   * Disallow usage of 'componentWillMount'.
+   * Disallow using 'componentWillMount'.
    * @see [no-component-will-mount](https://eslint-react.xyz/docs/rules/no-component-will-mount)
    */
   '@eslint-react/no-component-will-mount': null;
 
   /**
-   * Disallow usage of 'componentWillReceiveProps'.
+   * Disallow using 'componentWillReceiveProps'.
    * @see [no-component-will-receive-props](https://eslint-react.xyz/docs/rules/no-component-will-receive-props)
    */
   '@eslint-react/no-component-will-receive-props': null;
 
   /**
-   * Disallow usage of 'componentWillUpdate'.
+   * Disallow using 'componentWillReceiveProps'.
    * @see [no-component-will-update](https://eslint-react.xyz/docs/rules/no-component-will-update)
    */
   '@eslint-react/no-component-will-update': null;
 
   /**
-   * Disallow 'createRef' in function components.
+   * Disallow using 'createRef' in function components.
    * @see [no-create-ref](https://eslint-react.xyz/docs/rules/no-create-ref)
    */
   '@eslint-react/no-create-ref': null;
 
   /**
-   * Disallow the use of 'defaultProps' property in components.
+   * Disallow using 'defaultProps' property in components.
    * @see [no-default-props](https://eslint-react.xyz/docs/rules/no-default-props)
    */
   '@eslint-react/no-default-props': null;
@@ -160,8 +167,7 @@ export interface ReactRules {
   '@eslint-react/no-duplicate-key': null;
 
   /**
-   * Disallow spreading 'key' from objects.
-   * @deprecated
+   * Disallow implicit 'key' props.
    * @see [no-implicit-key](https://eslint-react.xyz/docs/rules/no-implicit-key)
    */
   '@eslint-react/no-implicit-key': null;
@@ -173,7 +179,7 @@ export interface ReactRules {
   '@eslint-react/no-leaked-conditional-rendering': null;
 
   /**
-   * Require 'displayName' for memo and forwardRef components.
+   * Require 'displayName' for 'memo' and 'forwardRef' components.
    * @see [no-missing-component-display-name](https://eslint-react.xyz/docs/rules/no-missing-component-display-name)
    */
   '@eslint-react/no-missing-component-display-name': null;
@@ -185,37 +191,37 @@ export interface ReactRules {
   '@eslint-react/no-missing-key': null;
 
   /**
-   * Disallow usage of unstable nested components.
+   * Disallow using unstable nested components.
    * @see [no-nested-components](https://eslint-react.xyz/docs/rules/no-nested-components)
    */
   '@eslint-react/no-nested-components': null;
 
   /**
-   * Disallow the use of 'propTypes' property in components.
+   * Disallow using 'propTypes' property in components.
    * @see [no-prop-types](https://eslint-react.xyz/docs/rules/no-prop-types)
    */
   '@eslint-react/no-prop-types': null;
 
   /**
-   * Disallow usage of 'shouldComponentUpdate' in class component extends 'React.PureComponent'.
+   * Disallow using 'shouldComponentUpdate' in class component extends 'React.PureComponent'.
    * @see [no-redundant-should-component-update](https://eslint-react.xyz/docs/rules/no-redundant-should-component-update)
    */
   '@eslint-react/no-redundant-should-component-update': null;
 
   /**
-   * Disallow 'setState' in 'componentDidMount'.
+   * Disallow using 'setState' in 'componentDidMount'.
    * @see [no-set-state-in-component-did-mount](https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-mount)
    */
   '@eslint-react/no-set-state-in-component-did-mount': null;
 
   /**
-   * Disallow 'setState' in 'componentDidUpdate'.
+   * Disallow using 'setState' in 'componentDidUpdate'.
    * @see [no-set-state-in-component-did-update](https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-update)
    */
   '@eslint-react/no-set-state-in-component-did-update': null;
 
   /**
-   * Disallow 'setState' in 'componentWillUpdate'.
+   * Disallow using 'setState' in 'componentWillUpdate'.
    * @see [no-set-state-in-component-will-update](https://eslint-react.xyz/docs/rules/no-set-state-in-component-will-update)
    */
   '@eslint-react/no-set-state-in-component-will-update': null;
@@ -227,19 +233,19 @@ export interface ReactRules {
   '@eslint-react/no-string-refs': null;
 
   /**
-   * Disallow usage of 'UNSAFE_componentWillMount'.
+   * Disallow using 'UNSAFE_componentWillMount'.
    * @see [no-unsafe-component-will-mount](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-mount)
    */
   '@eslint-react/no-unsafe-component-will-mount': null;
 
   /**
-   * Disallow usage of 'UNSAFE_componentWillReceiveProps'.
+   * Disallow using 'UNSAFE_componentWillReceiveProps'.
    * @see [no-unsafe-component-will-receive-props](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-receive-props)
    */
   '@eslint-react/no-unsafe-component-will-receive-props': null;
 
   /**
-   * Disallow usage of 'UNSAFE_componentWillUpdate'.
+   * Disallow using 'UNSAFE_componentWillUpdate'.
    * @see [no-unsafe-component-will-update](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-update)
    */
   '@eslint-react/no-unsafe-component-will-update': null;
@@ -251,7 +257,7 @@ export interface ReactRules {
   '@eslint-react/no-unstable-context-value': null;
 
   /**
-   * Disallow usage of unstable value as default param in function component.
+   * Disallow using unstable value as default param in function component.
    * @see [no-unstable-default-props](https://eslint-react.xyz/docs/rules/no-unstable-default-props)
    */
   '@eslint-react/no-unstable-default-props': null;
@@ -263,7 +269,7 @@ export interface ReactRules {
   '@eslint-react/no-unused-class-component-members': null;
 
   /**
-   * Prevents unused state of class component.
+   * Disallow unused state of class component.
    * @see [no-unused-state](https://eslint-react.xyz/docs/rules/no-unused-state)
    */
   '@eslint-react/no-unused-state': null;
@@ -281,19 +287,19 @@ export interface ReactRules {
   '@eslint-react/prefer-destructuring-assignment': null;
 
   /**
-   * Enforce that component props are read-only.
+   * Enforce read-only props in components.
    * @see [prefer-read-only-props](https://eslint-react.xyz/docs/rules/prefer-read-only-props)
    */
   '@eslint-react/prefer-read-only-props': null;
 
   /**
-   * Enforce boolean attributes notation in JSX.
+   * Enforce using shorthand boolean attributes.
    * @see [prefer-shorthand-boolean](https://eslint-react.xyz/docs/rules/prefer-shorthand-boolean)
    */
   '@eslint-react/prefer-shorthand-boolean': null;
 
   /**
-   * Enforce using fragment syntax instead of Fragment component.
+   * Enforce using fragment syntax instead of 'Fragment' component.
    * @see [prefer-shorthand-fragment](https://eslint-react.xyz/docs/rules/prefer-shorthand-fragment)
    */
   '@eslint-react/prefer-shorthand-fragment': null;
