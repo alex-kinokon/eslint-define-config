@@ -41,6 +41,7 @@ const config = {
     '@typescript-eslint/ban-ts-comment': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
+    '@typescript-eslint/triple-slash-reference': 'off',
     '@typescript-eslint/naming-convention': [
       'error',
       {

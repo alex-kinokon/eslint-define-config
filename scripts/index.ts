@@ -1,24 +1,27 @@
 import { Logger } from '@poppinss/cliui';
-import { kebabCase, pascalCase } from 'change-case';
+import { pascalCase } from 'change-case';
 import type { Rule } from 'eslint';
 import type { JSONSchema4 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
 import { execSync } from 'node:child_process';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
+import { existsSync, promises as fs } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
 import colors from 'picocolors';
 import { format as prettierFormat } from 'prettier';
-import { PLUGIN_REGISTRY, type Plugin, type PluginRules } from './registry';
+import { ExtendsCollector } from './extends';
+import {
+  PLUGIN_REGISTRY,
+  type LoadedPlugin,
+  type PluginEntry,
+} from './registry';
 
-const require = createRequire(import.meta.url);
 const logger = new Logger();
 
 /**
  * Format the given content with Prettier.
  */
-function format(content: string) {
+export function format(content: string): Promise<string> {
   return prettierFormat(content, {
     plugins: ['prettier-plugin-organize-imports'],
     parser: 'typescript',
@@ -27,7 +30,7 @@ function format(content: string) {
   });
 }
 
-function concatDoc(lines: string[]) {
+export function concatDoc(lines: string[]): string {
   lines = lines.filter(Boolean);
   if (!lines.length || lines.every((line) => !line.trim())) {
     return '';
@@ -36,21 +39,26 @@ function concatDoc(lines: string[]) {
   return ['/**', ...lines.map((line) => ` * ${line}`), ' */'].join('\n');
 }
 
-async function loadPlugin(plugin: Plugin): Promise<Plugin> {
-  const { module } = plugin;
+async function loadPlugin(entry: PluginEntry): Promise<LoadedPlugin> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const mod: any =
-    module === '@graphql-eslint/eslint-plugin'
-      ? require(module)
-      : await import(module);
-  const rules: PluginRules =
-    module === 'eslint'
-      ? Object.fromEntries(
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-          new mod.Linter().getRules().entries(),
-        )
-      : (mod.rules ?? mod.default.rules);
-  return { ...plugin, rules };
+  let mod: any = await entry.import();
+  mod = mod.default ?? mod;
+
+  if (entry.id === 'eslint') {
+    const rules = Object.fromEntries(
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      new mod.Linter().getRules().entries(),
+    );
+    return {
+      entry,
+      plugin: { rules },
+    };
+  } else {
+    return {
+      entry,
+      plugin: mod,
+    };
+  }
 }
 
 /**
@@ -117,7 +125,7 @@ async function generateTypeFromSchema(
 const __dirname: string = fileURLToPath(new URL('.', import.meta.url));
 
 async function generateRule(
-  plugin: Plugin,
+  entry: PluginEntry,
   ruleName: string,
   rule: Rule.RuleModule,
 ) {
@@ -177,8 +185,8 @@ async function generateRule(
    * Scoped rule name ESLint config uses.
    */
   function prefixedRuleName(): string {
-    const { prefix, name } = plugin;
-    let rulePrefix = (prefix ?? kebabCase(name)) + '/';
+    const { prefix, name } = entry;
+    let rulePrefix = prefix + '/';
 
     if (name === 'Eslint') {
       rulePrefix = '';
@@ -206,15 +214,6 @@ async function generateRule(
       .replace(/^\(/, '')
       .replace(/\)$/, '')
       .trim();
-
-    // if (text.includes('exceptions')) {
-    //   console.log({
-    //     name: this.ruleName,
-    //     text: text.slice(0, 50),
-    //     stripped,
-    //     is: isSimpleType(stripped),
-    //   });
-    // }
 
     if (isSimpleType(stripped)) {
       return {
@@ -316,7 +315,7 @@ interface FailedRule {
 async function generateRuleFile(
   outDir: string,
   filename: string,
-  { rules, name }: Plugin,
+  { plugin: { rules }, entry: { name } }: LoadedPlugin,
   { failedRules, ruleDetails }: RulesFile,
 ): Promise<void> {
   if (!rules) {
@@ -351,10 +350,10 @@ async function generateRuleFile(
 
   const rulePath = join(outDir, filename);
   try {
-    writeFileSync(rulePath, await format(fileContent));
+    await fs.writeFile(rulePath, await format(fileContent));
   } catch (e) {
     console.error(e);
-    writeFileSync(rulePath, fileContent);
+    await fs.writeFile(rulePath, fileContent);
   }
 
   /**
@@ -418,14 +417,14 @@ type RulesFile = Awaited<ReturnType<typeof generateRulesFile>>;
 /**
  * Generate a `.d.ts` file for each rule in the given plugin.
  */
-async function generateRulesFile(plugin: Plugin) {
+async function generateRulesFile({ plugin, entry }: LoadedPlugin) {
   const failedRules: FailedRule[] = [];
   const ruleDetails = new Map</* ruleName */ string, RuleDetail>();
 
   const pluginRules = plugin.rules;
   if (!pluginRules) {
     throw new Error(
-      `Plugin ${plugin.name} doesn't have any rules. Did you forget to load them?`,
+      `Plugin ${entry.name} doesn't have any rules. Did you forget to load them?`,
     );
   }
 
@@ -434,7 +433,7 @@ async function generateRulesFile(plugin: Plugin) {
     logger.logUpdate(colors.yellow(`  Generating > ${ruleName}`));
 
     try {
-      ruleDetails.set(ruleName, await generateRule(plugin, ruleName, rule));
+      ruleDetails.set(ruleName, await generateRule(entry, ruleName, rule));
     } catch (err) {
       failedRules.push({ ruleName, err });
     }
@@ -445,33 +444,27 @@ async function generateRulesFile(plugin: Plugin) {
   return { failedRules, ruleDetails };
 }
 
-export interface RunOptions {
-  plugins?: string[];
-  targetDirectory?: string;
-}
+const mkdirpSync = (dir: string) => fs.mkdir(dir, { recursive: true });
 
-export async function run(options: RunOptions = {}): Promise<void> {
-  const { plugins, targetDirectory } = options;
+export async function run(): Promise<void> {
+  const rulesDir = join(__dirname, '../src/rules');
+  await mkdirpSync(rulesDir);
 
-  const wantedPlugins = plugins ?? Object.keys(PLUGIN_REGISTRY);
+  const extendsCollector = new ExtendsCollector();
 
-  const outDir = targetDirectory ?? join(__dirname, '../src/rules');
-  mkdirSync(outDir, { recursive: true });
-
-  for (const pluginName of wantedPlugins) {
-    const plugin = PLUGIN_REGISTRY[pluginName];
-    if (!plugin) {
-      throw new Error(`Plugin ${pluginName} doesn't exist.`);
-    }
-
+  for (const plugin of PLUGIN_REGISTRY) {
     logger.info(`Generating ${plugin.name} rules.`);
-    logger.logUpdate(colors.yellow(`  Loading plugin > ${plugin.module}`));
+    logger.logUpdate(colors.yellow(`  Loading plugin > ${plugin.id}`));
     const loadedPlugin = await loadPlugin(plugin);
+    extendsCollector.add(loadedPlugin);
+
     await generateRuleFile(
-      outDir,
-      `${pluginName}.d.ts`,
+      rulesDir,
+      `${plugin.id}.d.ts`,
       loadedPlugin,
       await generateRulesFile(loadedPlugin),
     );
   }
+
+  await extendsCollector.write();
 }
