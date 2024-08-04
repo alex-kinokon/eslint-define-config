@@ -1,6 +1,6 @@
 {
   "name": "@aet/eslint-define-config",
-  "version": "0.1.0-beta.16",
+  "version": "0.1.0-beta.17",
   "description": "Provide a defineConfig function for .eslintrc.js files",
   "scripts": {
     "format": "prettier --cache --write .",

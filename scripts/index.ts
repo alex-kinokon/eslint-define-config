@@ -6,38 +6,17 @@ import { compile } from 'json-schema-to-typescript';
 import { execSync } from 'node:child_process';
 import { existsSync, promises as fs } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { URL, fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
 import colors from 'picocolors';
-import { format as prettierFormat } from 'prettier';
 import { ExtendsCollector } from './extends';
 import {
   PLUGIN_REGISTRY,
   type LoadedPlugin,
   type PluginEntry,
 } from './registry';
+import { concatDoc, format, RegionReplacer } from './text';
 
 const logger = new Logger();
-
-/**
- * Format the given content with Prettier.
- */
-export function format(content: string): Promise<string> {
-  return prettierFormat(content, {
-    plugins: ['prettier-plugin-organize-imports'],
-    parser: 'typescript',
-    singleQuote: true,
-    trailingComma: 'all',
-  });
-}
-
-export function concatDoc(lines: string[]): string {
-  lines = lines.filter(Boolean);
-  if (!lines.length || lines.every((line) => !line.trim())) {
-    return '';
-  }
-
-  return ['/**', ...lines.map((line) => ` * ${line}`), ' */'].join('\n');
-}
 
 async function loadPlugin(entry: PluginEntry): Promise<LoadedPlugin> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -444,6 +423,20 @@ async function generateRulesFile({ plugin, entry }: LoadedPlugin) {
   return { failedRules, ruleDetails };
 }
 
+async function generateRuleIndex(file: string, plugins: PluginEntry[]) {
+  const source = await fs.readFile(file, 'utf-8');
+  const replaced = new RegionReplacer(source)
+    .replace(
+      'imports',
+      plugins
+        .map((_) => `import type { ${_.name}RulesObject } from './${_.id}';`)
+        .join('\n'),
+    )
+    .replace('union', plugins.map((_) => `${_.name}RulesObject,`).join('\n'))
+    .get();
+  await fs.writeFile(file, await format(replaced));
+}
+
 const mkdirpSync = (dir: string) => fs.mkdir(dir, { recursive: true });
 
 export async function run(): Promise<void> {
@@ -466,5 +459,9 @@ export async function run(): Promise<void> {
     );
   }
 
+  await generateRuleIndex(
+    join(__dirname, '../src/rules/index.d.ts'),
+    PLUGIN_REGISTRY,
+  );
   await extendsCollector.write();
 }

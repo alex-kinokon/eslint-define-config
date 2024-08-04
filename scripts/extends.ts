@@ -2,8 +2,11 @@
 import { pascalCase } from 'change-case';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
-import { concatDoc, format } from './index';
+import { fileURLToPath } from 'node:url';
 import type { LoadedPlugin, PluginEntry } from './registry';
+import { concatDoc, format, RegionReplacer } from './text';
+
+const __dirname: string = fileURLToPath(new URL('.', import.meta.url));
 
 export class ExtendsCollector {
   extends: Array<{ entry: PluginEntry; configs: string[] }> = [];
@@ -42,41 +45,27 @@ export class ExtendsCollector {
       })
       .filter(Boolean);
 
-    let replaced = replaceRegion(
-      source,
-      'extensions',
-      extensions
-        .flatMap(({ name, link, ..._ }) => [
-          concatDoc([
-            `ESLint ${name} extends.`,
-            ...(link ? [' ', `@see [${name} extends](${link})`] : []),
-          ]),
-          `type ${_.extendName} =`,
-          ..._.configs.map((config) => `  | '${config}'`),
-          '\n',
-        ])
-        .join('\n'),
-    );
-
-    replaced = replaceRegion(
-      replaced,
-      'union',
-      extensions.map(({ extendName }) => `| ${extendName}`).join('\n'),
-    );
+    const replaced = new RegionReplacer(source)
+      .replace(
+        'extensions',
+        extensions
+          .flatMap(({ name, link, ..._ }) => [
+            concatDoc([
+              `ESLint ${name} extends.`,
+              ...(link ? [' ', `@see [${name} extends](${link})`] : []),
+            ]),
+            `type ${_.extendName} =`,
+            ..._.configs.map((config) => `  | '${config}'`),
+            '\n',
+          ])
+          .join('\n'),
+      )
+      .replace(
+        'union',
+        extensions.map(({ extendName }) => `| ${extendName}`).join('\n'),
+      )
+      .get();
 
     await fs.writeFile(extendsFile, await format(replaced));
   }
-}
-
-function replaceRegion(source: string, region: string, newText: string) {
-  const list = source.split('\n');
-  const start = list.findIndex((line) => line.endsWith(`// #region ${region}`));
-  const end = list.findIndex((line) =>
-    line.endsWith(`// #endregion ${region}`),
-  );
-  return list
-    .slice(0, start + 1)
-    .concat(newText.trimEnd())
-    .concat(list.slice(end))
-    .join('\n');
 }

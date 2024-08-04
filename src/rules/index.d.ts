@@ -1,19 +1,26 @@
 import type { RuleConfig, RulesObject } from '../rule-config';
+// #region imports
 import type { DeprecationRulesObject } from './deprecation';
 import type { EslintRulesObject } from './eslint';
 import type { EslintCommentsRulesObject } from './eslint-comments';
 import type { GraphQLRulesObject } from './graphql-eslint';
 import type { ImportRulesObject } from './import';
+import type { ImportXRulesObject } from './import-x';
 import type { JSDocRulesObject } from './jsdoc';
 import type { JsoncRulesObject } from './jsonc';
 import type { JsxA11yRulesObject } from './jsx-a11y';
+import type { MdxRulesObject } from './mdx';
 import type { NRulesObject } from './n';
-import type { NodeRulesObject } from './node';
+import type { PrettierRulesObject } from './prettier';
 import type { PromiseRulesObject } from './promise';
 import type { ReactRulesObject } from './react';
 import type { ReactHooksRulesObject } from './react-hooks';
+import type { ReactQueryRulesObject } from './react-query';
+import type { ReactRefreshRulesObject } from './react-refresh';
 import type { SonarJSRulesObject } from './sonarjs';
 import type { SpellcheckRulesObject } from './spellcheck';
+import type { StorybookRulesObject } from './storybook';
+import type { TailwindRulesObject } from './tailwind';
 import type { TestingLibraryRulesObject } from './testing-library';
 import type { TypeScriptRulesObject } from './typescript-eslint';
 import type { UnicornRulesObject } from './unicorn';
@@ -22,6 +29,7 @@ import type { VueRulesObject } from './vue';
 import type { VueI18nRulesObject } from './vue-i18n';
 import type { VuePugRulesObject } from './vue-pug';
 import type { YmlRulesObject } from './yml';
+// #endregion imports
 
 /**
  * This is a special exported interface for other packages to declare
@@ -48,6 +56,7 @@ import type { YmlRulesObject } from './yml';
  * }
  * ```
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CustomRuleOptions {}
 
 type CustomRules = {
@@ -63,21 +72,28 @@ type CustomRules = {
  */
 export interface Rules
   extends RulesObject<CustomRules>,
+    // #region union
     DeprecationRulesObject,
     EslintRulesObject,
     EslintCommentsRulesObject,
     GraphQLRulesObject,
     ImportRulesObject,
+    ImportXRulesObject,
     JSDocRulesObject,
     JsoncRulesObject,
     JsxA11yRulesObject,
-    NodeRulesObject,
+    MdxRulesObject,
     NRulesObject,
+    PrettierRulesObject,
     PromiseRulesObject,
-    ReactHooksRulesObject,
     ReactRulesObject,
+    ReactHooksRulesObject,
+    ReactQueryRulesObject,
+    ReactRefreshRulesObject,
     SonarJSRulesObject,
     SpellcheckRulesObject,
+    StorybookRulesObject,
+    TailwindRulesObject,
     TestingLibraryRulesObject,
     TypeScriptRulesObject,
     UnicornRulesObject,
@@ -86,4 +102,5 @@ export interface Rules
     VueI18nRulesObject,
     VuePugRulesObject,
     YmlRulesObject,
+    // #endregion union
     Record<string, RuleConfig> {}
