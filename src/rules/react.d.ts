@@ -112,14 +112,12 @@ export interface ReactRules {
 
   /**
    * Disallow complex conditional rendering.
-   * @deprecated
    * @see [no-complex-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
    */
   '@eslint-react/no-complex-conditional-rendering': null;
 
   /**
    * Disallow complex conditional rendering.
-   * @deprecated
    * @see [no-complicated-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
    */
   '@eslint-react/no-complicated-conditional-rendering': null;
@@ -161,7 +159,7 @@ export interface ReactRules {
   '@eslint-react/no-direct-mutation-state': null;
 
   /**
-   * Disallow duplicate keys in 'key' prop when rendering list.
+   * Disallow duplicate keys when rendering list.
    * @see [no-duplicate-key](https://eslint-react.xyz/docs/rules/no-duplicate-key)
    */
   '@eslint-react/no-duplicate-key': null;
@@ -185,7 +183,7 @@ export interface ReactRules {
   '@eslint-react/no-missing-component-display-name': null;
 
   /**
-   * Require 'key' prop when rendering list.
+   * Require 'key' when rendering list.
    * @see [no-missing-key](https://eslint-react.xyz/docs/rules/no-missing-key)
    */
   '@eslint-react/no-missing-key': null;
@@ -445,6 +443,12 @@ export interface ReactRules {
    * @see [debug/function-component](https://eslint-react.xyz/docs/rules/debug-function-component)
    */
   '@eslint-react/debug/function-component': null;
+
+  /**
+   * Report all identifiers that are initialized from React.
+   * @see [debug/is-from-react](https://eslint-react.xyz/docs/rules/debug-is-from-react)
+   */
+  '@eslint-react/debug/is-from-react': null;
 
   /**
    * Report all React Hooks.

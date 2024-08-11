@@ -38,7 +38,13 @@ export type ValidTitleOption = {
   allowArguments?: boolean;
   disallowedWords?: string[];
 } & {
-  [k: string]: any;
+  [k: string]:
+    | string
+    | [string]
+    | [string, string]
+    | {
+        [k: string]: string | [string] | [string, string];
+      };
 };
 
 /**

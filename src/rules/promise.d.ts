@@ -121,6 +121,16 @@ export interface PromiseRules {
    * @see [no-multiple-resolved](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-multiple-resolved.md)
    */
   'promise/no-multiple-resolved': null;
+
+  /**
+   * Disallow use of non-standard Promise static methods.
+   * @see [spec-only](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/spec-only.md)
+   */
+  'promise/spec-only': [
+    {
+      allowedMethods?: string[];
+    }?,
+  ];
 }
 
 export type PromiseRulesObject = RulesObject<PromiseRules>;

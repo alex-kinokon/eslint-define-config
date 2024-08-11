@@ -3,8 +3,8 @@ import { pascalCase } from 'change-case';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { LoadedPlugin, PluginEntry } from './registry';
-import { concatDoc, format, RegionReplacer } from './text';
+import type { LoadedPlugin, PluginEntry } from './registry.ts';
+import { concatDoc, format, RegionReplacer } from './text.ts';
 
 const __dirname: string = fileURLToPath(new URL('.', import.meta.url));
 

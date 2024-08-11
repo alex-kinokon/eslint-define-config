@@ -1,4 +1,3 @@
-#!/usr/bin/env tsx
-import { run } from './index';
+import { run } from './index.ts';
 
 run().catch((err) => console.error(err));

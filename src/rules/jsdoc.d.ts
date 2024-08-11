@@ -565,7 +565,7 @@ export interface JSDocRules {
 
   /**
    * Checks that any `@template` names are actually used in the connected `@typedef` or type alias.
-   * @see [check-template-names](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-template.md#repos-sticky-header)
+   * @see [check-template-names](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-template-names.md#repos-sticky-header)
    */
   'jsdoc/check-template-names': null;
 
@@ -614,6 +614,18 @@ export interface JSDocRules {
    * @see [informative-docs](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/informative-docs.md#repos-sticky-header)
    */
   'jsdoc/informative-docs': [InformativeDocsOption?];
+
+  /**
+   * Enforces minimum number of newlines before JSDoc comment blocks.
+   * @see [lines-before-block](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/lines-before-block.md#repos-sticky-header)
+   */
+  'jsdoc/lines-before-block': [
+    {
+      excludedTags?: string[];
+      ignoreSameLine?: boolean;
+      lines?: number;
+    }?,
+  ];
 
   /**
    * Enforces a regular expression pattern on descriptions.

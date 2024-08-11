@@ -1,0 +1,13 @@
+diff --git a/resolve.js b/resolve.js
+index 05f7b35abffce55c4c9249afcb6d1cc84d80af01..2bc0bcb9859f0970d51dcf2140ee7da7f55a66e7 100644
+--- a/resolve.js
++++ b/resolve.js
+@@ -10,7 +10,7 @@ const hashObject = require('./hash').hashObject;
+ const ModuleCache = require('./ModuleCache').default;
+ const pkgDir = require('./pkgDir').default;
+ 
+-const CASE_SENSITIVE_FS = !fs.existsSync(path.join(__dirname.toUpperCase(), 'reSOLVE.js'));
++const CASE_SENSITIVE_FS = false;
+ exports.CASE_SENSITIVE_FS = CASE_SENSITIVE_FS;
+ 
+ const ERROR_NAME = 'EslintPluginImportResolveError';

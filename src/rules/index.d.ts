@@ -20,6 +20,7 @@ import type { ReactRefreshRulesObject } from './react-refresh';
 import type { SonarJSRulesObject } from './sonarjs';
 import type { SpellcheckRulesObject } from './spellcheck';
 import type { StorybookRulesObject } from './storybook';
+import type { StylisticRulesObject } from './stylistic';
 import type { TailwindRulesObject } from './tailwind';
 import type { TestingLibraryRulesObject } from './testing-library';
 import type { TypeScriptRulesObject } from './typescript-eslint';
@@ -93,6 +94,7 @@ export interface Rules
     SonarJSRulesObject,
     SpellcheckRulesObject,
     StorybookRulesObject,
+    StylisticRulesObject,
     TailwindRulesObject,
     TestingLibraryRulesObject,
     TypeScriptRulesObject,

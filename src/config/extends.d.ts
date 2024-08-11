@@ -139,8 +139,14 @@ type PromiseExtends = 'plugin:promise/recommended';
 type ReactExtends =
   | 'plugin:@eslint-react/all'
   | 'plugin:@eslint-react/all-legacy'
+  | 'plugin:@eslint-react/core'
+  | 'plugin:@eslint-react/core-legacy'
   | 'plugin:@eslint-react/debug'
   | 'plugin:@eslint-react/debug-legacy'
+  | 'plugin:@eslint-react/disable-dom'
+  | 'plugin:@eslint-react/disable-dom-legacy'
+  | 'plugin:@eslint-react/disable-type-checked'
+  | 'plugin:@eslint-react/disable-type-checked-legacy'
   | 'plugin:@eslint-react/dom'
   | 'plugin:@eslint-react/dom-legacy'
   | 'plugin:@eslint-react/off'
@@ -194,6 +200,16 @@ type StorybookExtends =
   | 'plugin:storybook/csf'
   | 'plugin:storybook/csf-strict'
   | 'plugin:storybook/recommended';
+
+/**
+ * ESLint Stylistic extends.
+ */
+type StylisticExtends =
+  | 'plugin:stylistic/all-extends'
+  | 'plugin:stylistic/customize'
+  | 'plugin:stylistic/disable-legacy'
+  | 'plugin:stylistic/recommended-extends'
+  | 'plugin:stylistic/recommended-legacy';
 
 /**
  * ESLint Tailwind extends.
@@ -347,6 +363,7 @@ export type KnownExtends = LiteralUnion<
   | SonarJsExtends
   | SpellcheckExtends
   | StorybookExtends
+  | StylisticExtends
   | TailwindExtends
   | TestingLibraryExtends
   | TypeScriptExtends

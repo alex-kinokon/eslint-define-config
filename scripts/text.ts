@@ -22,7 +22,10 @@ export function concatDoc(lines: string[]): string {
 }
 
 export class RegionReplacer {
-  constructor(private source: string) {}
+  private source: string;
+  constructor(source: string) {
+    this.source = source;
+  }
 
   replace(region: string, newText: string): RegionReplacer {
     const list = this.source.split('\n');

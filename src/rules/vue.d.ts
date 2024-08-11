@@ -29,6 +29,7 @@ export namespace ArrayElementNewline {
   export type BasicConfig =
     | ('always' | 'never' | 'consistent')
     | {
+        consistent?: boolean;
         multiline?: boolean;
         minItems?: number | null;
       };
@@ -133,6 +134,9 @@ export namespace CommaDangle {
             imports?: ValueWithIgnore;
             exports?: ValueWithIgnore;
             functions?: ValueWithIgnore;
+            enums?: ValueWithIgnore;
+            generics?: ValueWithIgnore;
+            tuples?: ValueWithIgnore;
           },
       ];
   export type Value =
@@ -143,9 +147,9 @@ export namespace CommaDangle {
   export type ValueWithIgnore =
     | 'always-multiline'
     | 'always'
-    | 'ignore'
     | 'never'
-    | 'only-multiline';
+    | 'only-multiline'
+    | 'ignore';
 
   export type CommaDangleRuleConfig = CommaDangleOption;
 }
@@ -655,6 +659,10 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      type?: {
+        before?: boolean;
+        after?: boolean;
+      };
     };
   }
 
@@ -731,6 +739,16 @@ export namespace MaxLen {
     }?,
   ];
 }
+
+export interface MultilineTernaryConfig {
+  ignoreJSX?: boolean;
+  [k: string]: any;
+}
+
+export type MultilineTernaryRuleConfig = [
+  ('always' | 'always-multiline' | 'never')?,
+  MultilineTernaryConfig?,
+];
 
 export interface NoBareStringsInTemplateOption {
   allowlist?: string[];
@@ -1054,6 +1072,20 @@ export type ObjectCurlyNewlineOption =
             minProperties?: number;
             consistent?: boolean;
           };
+      TSTypeLiteral?:
+        | ('always' | 'never')
+        | {
+            multiline?: boolean;
+            minProperties?: number;
+            consistent?: boolean;
+          };
+      TSInterfaceBody?:
+        | ('always' | 'never')
+        | {
+            multiline?: boolean;
+            minProperties?: number;
+            consistent?: boolean;
+          };
     };
 
 export type ObjectCurlySpacingRuleConfig = [
@@ -1093,7 +1125,7 @@ export type ObjectShorthandOption =
     ];
 
 export namespace OperatorLinebreak {
-  export type OperatorLinebreakOption = 'after' | 'before' | 'none' | null;
+  export type OperatorLinebreakOption = ('after' | 'before' | 'none') | null;
 
   export interface OperatorLinebreakConfig {
     overrides?: {
@@ -1593,7 +1625,7 @@ export interface VueRules {
    * Enforce newlines between operands of ternary expressions in `<template>`.
    * @see [multiline-ternary](https://eslint.vuejs.org/rules/multiline-ternary.html)
    */
-  'vue/multiline-ternary': [('always' | 'always-multiline' | 'never')?];
+  'vue/multiline-ternary': MultilineTernaryRuleConfig;
 
   /**
    * Enforce unified spacing in mustache interpolations.

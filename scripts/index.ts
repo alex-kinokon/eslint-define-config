@@ -8,13 +8,13 @@ import { existsSync, promises as fs } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 import colors from 'picocolors';
-import { ExtendsCollector } from './extends';
+import { ExtendsCollector } from './extends.ts';
 import {
   PLUGIN_REGISTRY,
   type LoadedPlugin,
   type PluginEntry,
-} from './registry';
-import { concatDoc, format, RegionReplacer } from './text';
+} from './registry.ts';
+import { concatDoc, format, RegionReplacer } from './text.ts';
 
 const logger = new Logger();
 

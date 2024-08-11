@@ -151,6 +151,9 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     // @ts-expect-error no types
     import: () => import('eslint-plugin-storybook'),
   }),
+  include('stylistic', {
+    import: () => import('@stylistic/eslint-plugin'),
+  }),
   include('tailwind', {
     prefix: 'tailwindcss',
     // @ts-expect-error no types
@@ -263,6 +266,7 @@ const order = [
   'sonarjs',
   'spellcheck',
   'storybook',
+  'stylistic',
   'tailwind',
   'testing-library',
   'typescript-eslint',
