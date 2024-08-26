@@ -1,220 +1,6371 @@
 import type { RulesObject } from '../rule-config';
 
-export type CognitiveComplexityOption = number;
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S100Option =
+  | []
+  | [
+      {
+        format?: string;
+      },
+    ];
 
-export type CognitiveComplexityRuleConfig = [
-  CognitiveComplexityOption?,
-  ('sonar-runtime' | 'metric')?,
-];
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S101Option =
+  | []
+  | [
+      {
+        format?: string;
+      },
+    ];
 
-export type MaxSwitchCasesOption = number;
+export namespace S103 {
+  export type S103Option =
+    | {
+        code?: number;
+        comments?: number;
+        tabWidth?: number;
+        ignorePattern?: string;
+        ignoreComments?: boolean;
+        ignoreStrings?: boolean;
+        ignoreUrls?: boolean;
+        ignoreTemplateLiterals?: boolean;
+        ignoreRegExpLiterals?: boolean;
+        ignoreTrailingComments?: boolean;
+      }
+    | number;
 
-export interface NoDuplicateStringOption {
-  threshold?: number;
-  ignoreStrings?: string;
+  export type S103Config =
+    | {
+        code?: number;
+        comments?: number;
+        tabWidth?: number;
+        ignorePattern?: string;
+        ignoreComments?: boolean;
+        ignoreStrings?: boolean;
+        ignoreUrls?: boolean;
+        ignoreTemplateLiterals?: boolean;
+        ignoreRegExpLiterals?: boolean;
+        ignoreTrailingComments?: boolean;
+      }
+    | number;
+
+  export type S103RuleConfig = [
+    S103Option?,
+    S103Config?,
+    {
+      code?: number;
+      comments?: number;
+      tabWidth?: number;
+      ignorePattern?: string;
+      ignoreComments?: boolean;
+      ignoreStrings?: boolean;
+      ignoreUrls?: boolean;
+      ignoreTemplateLiterals?: boolean;
+      ignoreRegExpLiterals?: boolean;
+      ignoreTrailingComments?: boolean;
+    }?,
+  ];
+}
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S104Option =
+  | []
+  | [
+      {
+        maximum?: number;
+      },
+    ];
+
+export interface S106Option {
+  /**
+   * @minItems 1
+   */
+  allow?: [string, ...string[]];
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S1067Option =
+  | []
+  | [
+      {
+        max?: number;
+      },
+    ]
+  | [
+      {
+        max?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S107Option =
+  | []
+  | [
+      {
+        max?: number;
+      },
+    ];
+
+export interface S1077Option {
+  elements?: string[];
+  img?: string[];
+  object?: string[];
+  area?: string[];
+  'input[type="image"]'?: string[];
   [k: string]: any;
 }
 
-export type NoIdenticalFunctionsOption = number;
+export interface S109Option {
+  detectObjects?: boolean;
+  enforceConst?: boolean;
+  ignore?: (number | string)[];
+  ignoreArrayIndexes?: boolean;
+  ignoreDefaultValues?: boolean;
+  ignoreClassFieldInitialValues?: boolean;
+  ignoreNumericLiteralTypes?: boolean;
+  ignoreEnums?: boolean;
+  ignoreReadonlyClassProperties?: boolean;
+  ignoreTypeIndexes?: boolean;
+}
+
+export interface S1090Option {
+  [k: string]: any;
+}
+
+export type S1105RuleConfig = [
+  ('1tbs' | 'stroustrup' | 'allman')?,
+  {
+    allowSingleLine?: boolean;
+  }?,
+];
+
+export interface S1117Option {
+  builtinGlobals?: boolean;
+  hoist?: 'all' | 'functions' | 'never';
+  allow?: string[];
+  ignoreOnInitialization?: boolean;
+  ignoreTypeValueShadow?: boolean;
+  ignoreFunctionTypeParameterNameValueShadow?: boolean;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S117Option =
+  | []
+  | [
+      {
+        format?: string;
+      },
+    ];
+
+export interface S1186Option {
+  allow?: (
+    | 'functions'
+    | 'arrowFunctions'
+    | 'generatorFunctions'
+    | 'methods'
+    | 'generatorMethods'
+    | 'getters'
+    | 'setters'
+    | 'constructors'
+    | 'private-constructors'
+    | 'protected-constructors'
+    | 'asyncFunctions'
+    | 'asyncMethods'
+    | 'decoratedFunctions'
+    | 'overrideMethods'
+  )[];
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S1192Option =
+  | []
+  | [
+      {
+        threshold?: number;
+        ignoreStrings?: string;
+      },
+    ]
+  | [
+      {
+        threshold?: number;
+        ignoreStrings?: string;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+export type S121Option =
+  | []
+  | ['all']
+  | ['multi' | 'multi-line' | 'multi-or-nest']
+  | ['multi' | 'multi-line' | 'multi-or-nest', 'consistent'];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S124Option =
+  | []
+  | [
+      {
+        regularExpression?: string;
+        message?: string;
+        flags?: string;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S134Option =
+  | []
+  | [
+      {
+        maximumNestingLevel?: number;
+      },
+    ]
+  | [
+      {
+        maximumNestingLevel?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S138Option =
+  | []
+  | [
+      {
+        maximum?: number;
+      },
+    ];
+
+export type S139Option =
+  | ('above' | 'beside')
+  | {
+      position?: 'above' | 'beside';
+      ignorePattern?: string;
+      applyDefaultPatterns?: boolean;
+      applyDefaultIgnorePatterns?: boolean;
+    };
+
+export type S1438Option =
+  | []
+  | ['never']
+  | [
+      'never',
+      {
+        beforeStatementContinuationChars?: 'always' | 'any' | 'never';
+      },
+    ]
+  | ['always']
+  | [
+      'always',
+      {
+        omitLastInOneLineBlock?: boolean;
+        omitLastInOneLineClassBody?: boolean;
+      },
+    ];
+
+export type S1440Option =
+  | []
+  | ['always']
+  | [
+      'always',
+      {
+        null?: 'always' | 'never' | 'ignore';
+      },
+    ]
+  | ['smart' | 'allow-null'];
+
+export type S1441Config =
+  | 'avoid-escape'
+  | {
+      avoidEscape?: boolean;
+      allowTemplateLiterals?: boolean;
+    };
+
+export type S1441RuleConfig = [
+  ('single' | 'double' | 'backtick')?,
+  S1441Config?,
+];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S1451Option =
+  | []
+  | [
+      {
+        headerFormat?: string;
+        isRegularExpression?: boolean;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S1479Option = [] | [number];
+
+export namespace S1537 {
+  export type S1537Option =
+    | []
+    | [
+        | Value
+        | {
+            arrays?: ValueWithIgnore;
+            objects?: ValueWithIgnore;
+            imports?: ValueWithIgnore;
+            exports?: ValueWithIgnore;
+            functions?: ValueWithIgnore;
+            enums?: ValueWithIgnore;
+            generics?: ValueWithIgnore;
+            tuples?: ValueWithIgnore;
+          },
+      ];
+  export type Value =
+    | 'always-multiline'
+    | 'always'
+    | 'never'
+    | 'only-multiline';
+  export type ValueWithIgnore =
+    | 'always-multiline'
+    | 'always'
+    | 'never'
+    | 'only-multiline'
+    | 'ignore';
+
+  export type S1537RuleConfig = S1537Option;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S1541Option =
+  | []
+  | [
+      {
+        threshold?: number;
+      },
+    ]
+  | [
+      {
+        threshold?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S2004Option =
+  | []
+  | [
+      {
+        threshold?: number;
+      },
+    ]
+  | [
+      {
+        threshold?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S2068Option =
+  | []
+  | [
+      {
+        credentialWords?: string[];
+      },
+    ];
+
+export interface S2094Option {
+  /**
+   * Whether to allow extraneous classes that contain only a constructor.
+   */
+  allowConstructorOnly?: boolean;
+  /**
+   * Whether to allow extraneous classes that have no body (i.e. are empty).
+   */
+  allowEmpty?: boolean;
+  /**
+   * Whether to allow extraneous classes that only contain static members.
+   */
+  allowStaticOnly?: boolean;
+  /**
+   * Whether to allow extraneous classes that include a decorator.
+   */
+  allowWithDecorator?: boolean;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S2999Option =
+  | []
+  | [
+      {
+        considerJSDoc?: boolean;
+      },
+    ]
+  | [
+      {
+        considerJSDoc?: boolean;
+      },
+      any,
+    ];
+
+export interface S3353Option {
+  destructuring?: 'any' | 'all';
+  ignoreReadBeforeAssign?: boolean;
+}
+
+export type S3498Option =
+  | []
+  | [
+      | 'always'
+      | 'methods'
+      | 'properties'
+      | 'never'
+      | 'consistent'
+      | 'consistent-as-needed',
+    ]
+  | ['always' | 'methods' | 'properties']
+  | [
+      'always' | 'methods' | 'properties',
+      {
+        avoidQuotes?: boolean;
+      },
+    ]
+  | ['always' | 'methods']
+  | [
+      'always' | 'methods',
+      {
+        ignoreConstructors?: boolean;
+        methodsIgnorePattern?: string;
+        avoidQuotes?: boolean;
+        avoidExplicitReturnArrows?: boolean;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S3524Option =
+  | []
+  | [
+      {
+        requireParameterParentheses?: boolean;
+        requireBodyBraces?: boolean;
+      },
+    ];
+
+export namespace S3723 {
+  export type S3723Option =
+    | []
+    | [
+        | Value
+        | {
+            arrays?: ValueWithIgnore;
+            objects?: ValueWithIgnore;
+            imports?: ValueWithIgnore;
+            exports?: ValueWithIgnore;
+            functions?: ValueWithIgnore;
+          },
+      ];
+  export type Value =
+    | 'always-multiline'
+    | 'always'
+    | 'never'
+    | 'only-multiline';
+  export type ValueWithIgnore =
+    | 'always-multiline'
+    | 'always'
+    | 'ignore'
+    | 'never'
+    | 'only-multiline';
+
+  export type S3723RuleConfig = S3723Option;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S3776Option = [] | [number] | [number, 'sonar-runtime' | 'metric'];
+
+export interface S3863Option {
+  considerQueryString?: boolean;
+  'prefer-inline'?: boolean;
+}
+
+export interface S4084Option {
+  audio?: string[];
+  video?: string[];
+  track?: string[];
+  [k: string]: any;
+}
+
+export type S4137Option =
+  | {
+      assertionStyle: 'never';
+    }
+  | {
+      assertionStyle: 'as' | 'angle-bracket';
+      objectLiteralTypeAssertions?: 'allow' | 'allow-as-parameter' | 'never';
+    };
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S4144Option = [] | [number] | [number, 'sonar-runtime' | 'metric'];
+
+export interface S4204Option {
+  /**
+   * Whether to enable auto-fixing in which the `any` type is converted to the `unknown` type.
+   */
+  fixToUnknown?: boolean;
+  /**
+   * Whether to ignore rest parameter arrays.
+   */
+  ignoreRestArgs?: boolean;
+}
+
+export type S4275RuleConfig = [
+  {
+    allowImplicit?: boolean;
+  }?,
+  ('sonar-runtime' | 'metric')?,
+];
+
+export interface S4325Option {
+  /**
+   * A list of type names to ignore.
+   */
+  typesToIgnore?: string[];
+}
+
+export interface S4327Option {
+  /**
+   * Whether to ignore destructurings, such as `const { props, state } = this`.
+   */
+  allowDestructuring?: boolean;
+  /**
+   * Names to ignore, such as ["self"] for `const self = this;`.
+   */
+  allowedNames?: string[];
+}
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S4328Option =
+  | []
+  | [
+      {
+        whitelist?: string[];
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S4622Option =
+  | []
+  | [
+      {
+        threshold?: number;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S5604Option =
+  | []
+  | [
+      {
+        permissions?: string[];
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S5693Option =
+  | []
+  | [
+      {
+        fileUploadSizeLimit?: number;
+        standardSizeLimit?: number;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type S5843Option =
+  | []
+  | [
+      {
+        threshold?: number;
+      },
+    ]
+  | [
+      {
+        threshold?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+export interface S6544Option {
+  [k: string]: any;
+}
+
+export interface S6557Option {
+  /**
+   * Whether to allow equality checks against the first or last element of a string.
+   */
+  allowSingleElementEquality?: 'always' | 'never';
+}
+
+export interface S6582Option {
+  /**
+   * Check operands that are typed as `any` when inspecting "loose boolean" operands.
+   */
+  checkAny?: boolean;
+  /**
+   * Check operands that are typed as `unknown` when inspecting "loose boolean" operands.
+   */
+  checkUnknown?: boolean;
+  /**
+   * Check operands that are typed as `string` when inspecting "loose boolean" operands.
+   */
+  checkString?: boolean;
+  /**
+   * Check operands that are typed as `number` when inspecting "loose boolean" operands.
+   */
+  checkNumber?: boolean;
+  /**
+   * Check operands that are typed as `boolean` when inspecting "loose boolean" operands.
+   */
+  checkBoolean?: boolean;
+  /**
+   * Check operands that are typed as `bigint` when inspecting "loose boolean" operands.
+   */
+  checkBigInt?: boolean;
+  /**
+   * Skip operands that are not typed with `null` and/or `undefined` when inspecting "loose boolean" operands.
+   */
+  requireNullish?: boolean;
+  /**
+   * Allow autofixers that will change the return type of the expression. This option is considered unsafe as it may break the build.
+   */
+  allowPotentiallyUnsafeFixesThatModifyTheReturnTypeIKnowWhatImDoing?: boolean;
+}
+
+export interface S6606Option {
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  ignoreConditionalTests?: boolean;
+  ignoreMixedLogicalExpressions?: boolean;
+  ignorePrimitives?:
+    | {
+        bigint?: boolean;
+        boolean?: boolean;
+        number?: boolean;
+        string?: boolean;
+        [k: string]: any;
+      }
+    | true;
+  ignoreTernaryTests?: boolean;
+}
+
+export interface S6635Option {
+  [k: string]: any;
+}
+
+export interface S6747Option {
+  ignore?: string[];
+  [k: string]: any;
+}
+
+export interface S6749Option {
+  allowExpressions?: boolean;
+  [k: string]: any;
+}
+
+export interface S6766Option {
+  forbid?: (
+    | string
+    | {
+        char?: string;
+        alternatives?: string[];
+        [k: string]: any;
+      }
+  )[];
+}
+
+export interface S6770Option {
+  allowAllCaps?: boolean;
+  allowLeadingUnderscore?: boolean;
+  allowNamespace?: boolean;
+  /**
+   * @minItems 0
+   */
+  ignore?: [] | [string];
+}
+
+export interface S6793Option {
+  [k: string]: any;
+}
+
+export interface S6807Option {
+  [k: string]: any;
+}
+
+export interface S6811Option {
+  [k: string]: any;
+}
+
+export interface S6819Option {
+  [k: string]: any;
+}
+
+export interface S6821Option {
+  allowedInvalidRoles?: string[];
+  ignoreNonDOM?: boolean;
+  [k: string]: any;
+}
+
+export interface S6822Option {
+  [k: string]: string[];
+}
+
+export interface S6823Option {
+  [k: string]: any;
+}
+
+export interface S6824Option {
+  [k: string]: any;
+}
+
+export interface S6825Option {
+  [k: string]: any;
+}
+
+export interface S6827Option {
+  components?: string[];
+  [k: string]: any;
+}
+
+export interface S6840Option {
+  inputComponents?: string[];
+  [k: string]: any;
+}
+
+export interface S6841Option {
+  [k: string]: any;
+}
+
+export interface S6842Option {
+  [k: string]: string[];
+}
+
+export interface S6843Option {
+  [k: string]: string[];
+}
+
+export interface S6844Option {
+  components?: string[];
+  specialLink?: string[];
+  /**
+   * @minItems 1
+   */
+  aspects?: [
+    'noHref' | 'invalidHref' | 'preferButton',
+    ...('noHref' | 'invalidHref' | 'preferButton')[],
+  ];
+  [k: string]: any;
+}
+
+export interface S6845Option {
+  /**
+   * An array of ARIA roles
+   */
+  roles?: string[];
+  /**
+   * An array of HTML tag names
+   */
+  tags?: string[];
+  [k: string]: any;
+}
+
+export interface S6846Option {
+  [k: string]: any;
+}
+
+export interface S6847Option {
+  handlers?: string[];
+  [k: string]: any;
+}
+
+export interface S6848Option {
+  handlers?: string[];
+  [k: string]: any;
+}
+
+export interface S6850Option {
+  components?: string[];
+  [k: string]: any;
+}
+
+export interface S6851Option {
+  components?: string[];
+  words?: string[];
+  [k: string]: any;
+}
+
+export interface S6852Option {
+  /**
+   * @minItems 0
+   */
+  tabbable?: (
+    | 'button'
+    | 'checkbox'
+    | 'columnheader'
+    | 'combobox'
+    | 'grid'
+    | 'gridcell'
+    | 'link'
+    | 'listbox'
+    | 'menu'
+    | 'menubar'
+    | 'menuitem'
+    | 'menuitemcheckbox'
+    | 'menuitemradio'
+    | 'option'
+    | 'progressbar'
+    | 'radio'
+    | 'radiogroup'
+    | 'row'
+    | 'rowheader'
+    | 'scrollbar'
+    | 'searchbox'
+    | 'slider'
+    | 'spinbutton'
+    | 'switch'
+    | 'tab'
+    | 'tablist'
+    | 'textbox'
+    | 'tree'
+    | 'treegrid'
+    | 'treeitem'
+    | 'doc-backlink'
+    | 'doc-biblioref'
+    | 'doc-glossref'
+    | 'doc-noteref'
+  )[];
+  [k: string]: any;
+}
+
+export interface S6853Option {
+  labelComponents?: string[];
+  labelAttributes?: string[];
+  controlComponents?: string[];
+  /**
+   * Assert that the label has htmlFor, a nested label, both or either
+   */
+  assert?: 'htmlFor' | 'nesting' | 'both' | 'either';
+  /**
+   * JSX tree depth limit to check for accessible label
+   */
+  depth?: number;
+  [k: string]: any;
+}
+
+export interface S6859Option {
+  commonjs?: boolean;
+  amd?: boolean;
+  esmodule?: boolean;
+  /**
+   * @minItems 1
+   */
+  ignore?: [string, ...string[]];
+}
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type S6957Option =
+  | []
+  | [
+      {
+        'react-version'?: string;
+      },
+    ];
+
+export interface AltTextOption {
+  elements?: string[];
+  img?: string[];
+  object?: string[];
+  area?: string[];
+  'input[type="image"]'?: string[];
+  [k: string]: any;
+}
+
+export interface AnchorHasContentOption {
+  components?: string[];
+  [k: string]: any;
+}
+
+export interface AnchorIsValidOption {
+  components?: string[];
+  specialLink?: string[];
+  /**
+   * @minItems 1
+   */
+  aspects?: [
+    'noHref' | 'invalidHref' | 'preferButton',
+    ...('noHref' | 'invalidHref' | 'preferButton')[],
+  ];
+  [k: string]: any;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type ArrowFunctionConventionOption =
+  | []
+  | [
+      {
+        requireParameterParentheses?: boolean;
+        requireBodyBraces?: boolean;
+      },
+    ];
+
+export type BraceStyleRuleConfig = [
+  ('1tbs' | 'stroustrup' | 'allman')?,
+  {
+    allowSingleLine?: boolean;
+  }?,
+];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type ClassNameOption =
+  | []
+  | [
+      {
+        format?: string;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type CognitiveComplexityOption =
+  | []
+  | [number]
+  | [number, 'sonar-runtime' | 'metric'];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type CommentRegexOption =
+  | []
+  | [
+      {
+        regularExpression?: string;
+        message?: string;
+        flags?: string;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type ContentLengthOption =
+  | []
+  | [
+      {
+        fileUploadSizeLimit?: number;
+        standardSizeLimit?: number;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type CyclomaticComplexityOption =
+  | []
+  | [
+      {
+        threshold?: number;
+      },
+    ]
+  | [
+      {
+        threshold?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+export namespace EnforceTrailingComma {
+  export type EnforceTrailingCommaOption =
+    | []
+    | [
+        | Value
+        | {
+            arrays?: ValueWithIgnore;
+            objects?: ValueWithIgnore;
+            imports?: ValueWithIgnore;
+            exports?: ValueWithIgnore;
+            functions?: ValueWithIgnore;
+          },
+      ];
+  export type Value =
+    | 'always-multiline'
+    | 'always'
+    | 'never'
+    | 'only-multiline';
+  export type ValueWithIgnore =
+    | 'always-multiline'
+    | 'always'
+    | 'ignore'
+    | 'never'
+    | 'only-multiline';
+
+  export type EnforceTrailingCommaRuleConfig = EnforceTrailingCommaOption;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type ExpressionComplexityOption =
+  | []
+  | [
+      {
+        max?: number;
+      },
+    ]
+  | [
+      {
+        max?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type FileHeaderOption =
+  | []
+  | [
+      {
+        headerFormat?: string;
+        isRegularExpression?: boolean;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type FunctionNameOption =
+  | []
+  | [
+      {
+        format?: string;
+      },
+    ];
+
+export interface JsxNoUselessFragmentOption {
+  allowExpressions?: boolean;
+  [k: string]: any;
+}
+
+export interface LabelHasAssociatedControlOption {
+  labelComponents?: string[];
+  labelAttributes?: string[];
+  controlComponents?: string[];
+  /**
+   * Assert that the label has htmlFor, a nested label, both or either
+   */
+  assert?: 'htmlFor' | 'nesting' | 'both' | 'either';
+  /**
+   * JSX tree depth limit to check for accessible label
+   */
+  depth?: number;
+  [k: string]: any;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type MaxSwitchCasesOption = [] | [number];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type MaxUnionSizeOption =
+  | []
+  | [
+      {
+        threshold?: number;
+      },
+    ];
+
+export interface MediaHasCaptionOption {
+  audio?: string[];
+  video?: string[];
+  track?: string[];
+  [k: string]: any;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type NestedControlFlowOption =
+  | []
+  | [
+      {
+        maximumNestingLevel?: number;
+      },
+    ]
+  | [
+      {
+        maximumNestingLevel?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type NewOperatorMisuseOption =
+  | []
+  | [
+      {
+        considerJSDoc?: boolean;
+      },
+    ]
+  | [
+      {
+        considerJSDoc?: boolean;
+      },
+      any,
+    ];
+
+export type NoAccessorFieldMismatchRuleConfig = [
+  {
+    allowImplicit?: boolean;
+  }?,
+  ('sonar-runtime' | 'metric')?,
+];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type NoDeprecatedReactOption =
+  | []
+  | [
+      {
+        'react-version'?: string;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type NoDuplicateStringOption =
+  | []
+  | [
+      {
+        threshold?: number;
+        ignoreStrings?: string;
+      },
+    ]
+  | [
+      {
+        threshold?: number;
+        ignoreStrings?: string;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+export interface NoEmptyFunctionOption {
+  allow?: (
+    | 'functions'
+    | 'arrowFunctions'
+    | 'generatorFunctions'
+    | 'methods'
+    | 'generatorMethods'
+    | 'getters'
+    | 'setters'
+    | 'constructors'
+    | 'private-constructors'
+    | 'protected-constructors'
+    | 'asyncFunctions'
+    | 'asyncMethods'
+    | 'decoratedFunctions'
+    | 'overrideMethods'
+  )[];
+}
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type NoHardcodedCredentialsOption =
+  | []
+  | [
+      {
+        credentialWords?: string[];
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type NoIdenticalFunctionsOption =
+  | []
+  | [number]
+  | [number, 'sonar-runtime' | 'metric'];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type NoImplicitDependenciesOption =
+  | []
+  | [
+      {
+        whitelist?: string[];
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type NoIntrusivePermissionsOption =
+  | []
+  | [
+      {
+        permissions?: string[];
+      },
+    ];
+
+export interface NoMisusedPromisesOption {
+  [k: string]: any;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type NoNestedFunctionsOption =
+  | []
+  | [
+      {
+        threshold?: number;
+      },
+    ]
+  | [
+      {
+        threshold?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+export interface NoThisAliasOption {
+  /**
+   * Whether to ignore destructurings, such as `const { props, state } = this`.
+   */
+  allowDestructuring?: boolean;
+  /**
+   * Names to ignore, such as ["self"] for `const self = this;`.
+   */
+  allowedNames?: string[];
+}
+
+export interface NoUnknownPropertyOption {
+  ignore?: string[];
+  [k: string]: any;
+}
+
+export type ObjectShorthandOption =
+  | []
+  | [
+      | 'always'
+      | 'methods'
+      | 'properties'
+      | 'never'
+      | 'consistent'
+      | 'consistent-as-needed',
+    ]
+  | ['always' | 'methods' | 'properties']
+  | [
+      'always' | 'methods' | 'properties',
+      {
+        avoidQuotes?: boolean;
+      },
+    ]
+  | ['always' | 'methods']
+  | [
+      'always' | 'methods',
+      {
+        ignoreConstructors?: boolean;
+        methodsIgnorePattern?: string;
+        avoidQuotes?: boolean;
+        avoidExplicitReturnArrows?: boolean;
+      },
+    ];
+
+export interface PreferNullishCoalescingOption {
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  ignoreConditionalTests?: boolean;
+  ignoreMixedLogicalExpressions?: boolean;
+  ignorePrimitives?:
+    | {
+        bigint?: boolean;
+        boolean?: boolean;
+        number?: boolean;
+        string?: boolean;
+        [k: string]: any;
+      }
+    | true;
+  ignoreTernaryTests?: boolean;
+}
+
+export interface PreferStringStartsEndsWithOption {
+  /**
+   * Whether to allow equality checks against the first or last element of a string.
+   */
+  allowSingleElementEquality?: 'always' | 'never';
+}
+
+/**
+ * @minItems 0
+ * @maxItems 2
+ */
+export type RegexComplexityOption =
+  | []
+  | [
+      {
+        threshold?: number;
+      },
+    ]
+  | [
+      {
+        threshold?: number;
+      },
+      'sonar-runtime' | 'metric',
+    ];
+
+export type SemiOption =
+  | []
+  | ['never']
+  | [
+      'never',
+      {
+        beforeStatementContinuationChars?: 'always' | 'any' | 'never';
+      },
+    ]
+  | ['always']
+  | [
+      'always',
+      {
+        omitLastInOneLineBlock?: boolean;
+        omitLastInOneLineClassBody?: boolean;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type SonarMaxLinesOption =
+  | []
+  | [
+      {
+        maximum?: number;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type SonarMaxLinesPerFunctionOption =
+  | []
+  | [
+      {
+        maximum?: number;
+      },
+    ];
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type SonarMaxParamsOption =
+  | []
+  | [
+      {
+        max?: number;
+      },
+    ];
+
+export interface SonarNoMagicNumbersOption {
+  detectObjects?: boolean;
+  enforceConst?: boolean;
+  ignore?: (number | string)[];
+  ignoreArrayIndexes?: boolean;
+  ignoreDefaultValues?: boolean;
+  ignoreClassFieldInitialValues?: boolean;
+  ignoreNumericLiteralTypes?: boolean;
+  ignoreEnums?: boolean;
+  ignoreReadonlyClassProperties?: boolean;
+  ignoreTypeIndexes?: boolean;
+}
+
+export interface SonarPreferOptionalChainOption {
+  /**
+   * Check operands that are typed as `any` when inspecting "loose boolean" operands.
+   */
+  checkAny?: boolean;
+  /**
+   * Check operands that are typed as `unknown` when inspecting "loose boolean" operands.
+   */
+  checkUnknown?: boolean;
+  /**
+   * Check operands that are typed as `string` when inspecting "loose boolean" operands.
+   */
+  checkString?: boolean;
+  /**
+   * Check operands that are typed as `number` when inspecting "loose boolean" operands.
+   */
+  checkNumber?: boolean;
+  /**
+   * Check operands that are typed as `boolean` when inspecting "loose boolean" operands.
+   */
+  checkBoolean?: boolean;
+  /**
+   * Check operands that are typed as `bigint` when inspecting "loose boolean" operands.
+   */
+  checkBigInt?: boolean;
+  /**
+   * Skip operands that are not typed with `null` and/or `undefined` when inspecting "loose boolean" operands.
+   */
+  requireNullish?: boolean;
+  /**
+   * Allow autofixers that will change the return type of the expression. This option is considered unsafe as it may break the build.
+   */
+  allowPotentiallyUnsafeFixesThatModifyTheReturnTypeIKnowWhatImDoing?: boolean;
+}
+
+/**
+ * @minItems 0
+ * @maxItems 1
+ */
+export type VariableNameOption =
+  | []
+  | [
+      {
+        format?: string;
+      },
+    ];
 
 /**
  * All SonarJS rules.
  */
 export interface SonarJSRules {
   /**
-   * Cognitive Complexity of functions should not be too high.
-   * @see [cognitive-complexity](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/cognitive-complexity.md)
+   * Function and method names should comply with a naming convention.
+   * @see [S100](https://sonarsource.github.io/rspec/#/rspec/S100/javascript)
    */
-  'sonarjs/cognitive-complexity': CognitiveComplexityRuleConfig;
+  'sonarjs/S100': S100Option;
+
+  /**
+   * Class names should comply with a naming convention.
+   * @see [S101](https://sonarsource.github.io/rspec/#/rspec/S101/javascript)
+   */
+  'sonarjs/S101': S101Option;
+
+  /**
+   * Enforce a maximum line length.
+   * @deprecated
+   * @see [S103](https://eslint.org/docs/latest/rules/max-len)
+   */
+  'sonarjs/S103': S103.S103RuleConfig;
+
+  /**
+   * Files should not have too many lines of code.
+   * @see [S104](https://sonarsource.github.io/rspec/#/rspec/S104/javascript)
+   */
+  'sonarjs/S104': S104Option;
+
+  /**
+   * Tabulation characters should not be used.
+   * @deprecated
+   * @see [S105](https://sonarsource.github.io/rspec/#/rspec/S105/javascript)
+   */
+  'sonarjs/S105': null;
+
+  /**
+   * Disallow the use of `console`.
+   * @see [S106](https://eslint.org/docs/latest/rules/no-console)
+   */
+  'sonarjs/S106': [S106Option?];
+
+  /**
+   * Mergeable "if" statements should be combined.
+   * @see [S1066](https://sonarsource.github.io/rspec/#/rspec/S1066/javascript)
+   */
+  'sonarjs/S1066': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Expressions should not be too complex.
+   * @see [S1067](https://sonarsource.github.io/rspec/#/rspec/S1067/javascript)
+   */
+  'sonarjs/S1067': S1067Option;
+
+  /**
+   * Unused private class members should be removed.
+   * @see [S1068](https://sonarsource.github.io/rspec/#/rspec/S1068/javascript)
+   */
+  'sonarjs/S1068': null;
+
+  /**
+   * Functions should not have too many parameters.
+   * @see [S107](https://sonarsource.github.io/rspec/#/rspec/S107/javascript)
+   */
+  'sonarjs/S107': S107Option;
+
+  /**
+   * Image, area, button with image and object elements should have an alternative text.
+   * @see [S1077](https://sonarsource.github.io/rspec/#/rspec/S1077/javascript)
+   */
+  'sonarjs/S1077': [S1077Option?];
+
+  /**
+   * Disallow empty block statements.
+   * @see [S108](https://eslint.org/docs/latest/rules/no-empty)
+   */
+  'sonarjs/S108': [
+    {
+      allowEmptyCatch?: boolean;
+    }?,
+  ];
+
+  /**
+   * Mouse events should have corresponding keyboard events.
+   * @see [S1082](https://sonarsource.github.io/rspec/#/rspec/S1082/javascript)
+   */
+  'sonarjs/S1082': null;
+
+  /**
+   * Magic numbers should not be used.
+   * @see [S109](https://sonarsource.github.io/rspec/#/rspec/S109/javascript)
+   */
+  'sonarjs/S109': [S109Option?];
+
+  /**
+   * Enforce iframe elements have a title attribute.
+   * @see [S1090](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/iframe-has-title.md)
+   */
+  'sonarjs/S1090': [S1090Option?];
+
+  /**
+   * An open curly brace should be located at the end of a line.
+   * @deprecated
+   * @see [S1105](https://sonarsource.github.io/rspec/#/rspec/S1105/javascript)
+   */
+  'sonarjs/S1105': S1105RuleConfig;
+
+  /**
+   * Redundant pairs of parentheses should be removed.
+   * @deprecated
+   * @see [S1110](https://sonarsource.github.io/rspec/#/rspec/S1110/javascript)
+   */
+  'sonarjs/S1110': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Extra semicolons should be removed.
+   * @deprecated
+   * @see [S1116](https://sonarsource.github.io/rspec/#/rspec/S1116/javascript)
+   */
+  'sonarjs/S1116': null;
+
+  /**
+   * Disallow variable declarations from shadowing variables declared in the outer scope.
+   * @see [S1117](https://typescript-eslint.io/rules/no-shadow)
+   */
+  'sonarjs/S1117': [S1117Option?];
+
+  /**
+   * Labels should not be used.
+   * @see [S1119](https://sonarsource.github.io/rspec/#/rspec/S1119/javascript)
+   */
+  'sonarjs/S1119': null;
+
+  /**
+   * Assignments should not be made from within sub-expressions.
+   * @see [S1121](https://sonarsource.github.io/rspec/#/rspec/S1121/javascript)
+   */
+  'sonarjs/S1121': null;
+
+  /**
+   * Boolean literals should not be used in comparisons.
+   * @see [S1125](https://sonarsource.github.io/rspec/#/rspec/S1125/javascript)
+   */
+  'sonarjs/S1125': null;
+
+  /**
+   * Return of boolean expressions should not be wrapped into an "if-then-else" statement.
+   * @see [S1126](https://sonarsource.github.io/rspec/#/rspec/S1126/javascript)
+   */
+  'sonarjs/S1126': null;
+
+  /**
+   * Unnecessary imports should be removed.
+   * @see [S1128](https://sonarsource.github.io/rspec/#/rspec/S1128/javascript)
+   */
+  'sonarjs/S1128': null;
+
+  /**
+   * Require or disallow newline at the end of files.
+   * @deprecated
+   * @see [S113](https://eslint.org/docs/latest/rules/eol-last)
+   */
+  'sonarjs/S113': [('always' | 'never' | 'unix' | 'windows')?];
+
+  /**
+   * Disallow trailing whitespace at the end of lines.
+   * @deprecated
+   * @see [S1131](https://eslint.org/docs/latest/rules/no-trailing-spaces)
+   */
+  'sonarjs/S1131': [
+    {
+      skipBlankLines?: boolean;
+      ignoreComments?: boolean;
+    }?,
+  ];
+
+  /**
+   * Track uses of "FIXME" tags.
+   * @see [S1134](https://sonarsource.github.io/rspec/#/rspec/S1134/javascript)
+   */
+  'sonarjs/S1134': null;
+
+  /**
+   * Track uses of "TODO" tags.
+   * @see [S1135](https://sonarsource.github.io/rspec/#/rspec/S1135/javascript)
+   */
+  'sonarjs/S1135': null;
+
+  /**
+   * Disallow control flow statements in `finally` blocks.
+   * @see [S1143](https://eslint.org/docs/latest/rules/no-unsafe-finally)
+   */
+  'sonarjs/S1143': null;
+
+  /**
+   * Results of operations on strings should not be ignored.
+   * @deprecated
+   * @see [S1154](https://sonarsource.github.io/rspec/#/rspec/S1154/javascript)
+   */
+  'sonarjs/S1154': null;
+
+  /**
+   * Variable, property and parameter names should comply with a naming convention.
+   * @see [S117](https://sonarsource.github.io/rspec/#/rspec/S117/javascript)
+   */
+  'sonarjs/S117': S117Option;
+
+  /**
+   * Unused function parameters should be removed.
+   * @see [S1172](https://sonarsource.github.io/rspec/#/rspec/S1172/javascript)
+   */
+  'sonarjs/S1172': null;
+
+  /**
+   * Functions should not be empty.
+   * @see [S1186](https://sonarsource.github.io/rspec/#/rspec/S1186/javascript)
+   */
+  'sonarjs/S1186': [S1186Option?];
+
+  /**
+   * String literals should not be duplicated.
+   * @see [S1192](https://sonarsource.github.io/rspec/#/rspec/S1192/javascript)
+   */
+  'sonarjs/S1192': S1192Option;
+
+  /**
+   * Disallow unnecessary nested blocks.
+   * @see [S1199](https://eslint.org/docs/latest/rules/no-lone-blocks)
+   */
+  'sonarjs/S1199': null;
+
+  /**
+   * Enforce consistent brace style for all control statements.
+   * @see [S121](https://eslint.org/docs/latest/rules/curly)
+   */
+  'sonarjs/S121': S121Option;
+
+  /**
+   * "switch" statements should not contain non-case labels.
+   * @see [S1219](https://sonarsource.github.io/rspec/#/rspec/S1219/javascript)
+   */
+  'sonarjs/S1219': null;
+
+  /**
+   * Enforce a maximum number of statements allowed per line.
+   * @deprecated
+   * @see [S122](https://eslint.org/docs/latest/rules/max-statements-per-line)
+   */
+  'sonarjs/S122': [
+    {
+      max?: number;
+    }?,
+  ];
+
+  /**
+   * Initial values of parameters, caught exceptions, and loop variables should not be ignored.
+   * @see [S1226](https://sonarsource.github.io/rspec/#/rspec/S1226/javascript)
+   */
+  'sonarjs/S1226': null;
+
+  /**
+   * Track comments matching a regular expression.
+   * @see [S124](https://sonarsource.github.io/rspec/#/rspec/S124/javascript)
+   */
+  'sonarjs/S124': S124Option;
+
+  /**
+   * Sections of code should not be commented out.
+   * @see [S125](https://sonarsource.github.io/rspec/#/rspec/S125/javascript)
+   */
+  'sonarjs/S125': null;
 
   /**
    * "if ... else if" constructs should end with "else" clauses.
-   * @see [elseif-without-else](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/elseif-without-else.md)
+   * @see [S126](https://sonarsource.github.io/rspec/#/rspec/S126/javascript)
+   */
+  'sonarjs/S126': null;
+
+  /**
+   * A "while" loop should be used instead of a "for" loop.
+   * @see [S1264](https://sonarsource.github.io/rspec/#/rspec/S1264/javascript)
+   */
+  'sonarjs/S1264': null;
+
+  /**
+   * Switch cases should end with an unconditional "break" statement.
+   * @see [S128](https://sonarsource.github.io/rspec/#/rspec/S128/javascript)
+   */
+  'sonarjs/S128': null;
+
+  /**
+   * "switch" statements should have at least 3 "case" clauses.
+   * @see [S1301](https://sonarsource.github.io/rspec/#/rspec/S1301/javascript)
+   */
+  'sonarjs/S1301': null;
+
+  /**
+   * "switch" statements should have "default" clauses.
+   * @see [S131](https://sonarsource.github.io/rspec/#/rspec/S131/javascript)
+   */
+  'sonarjs/S131': null;
+
+  /**
+   * Using hardcoded IP addresses is security-sensitive.
+   * @see [S1313](https://sonarsource.github.io/rspec/#/rspec/S1313/javascript)
+   */
+  'sonarjs/S1313': null;
+
+  /**
+   * Disallow octal literals.
+   * @see [S1314](https://eslint.org/docs/latest/rules/no-octal)
+   */
+  'sonarjs/S1314': null;
+
+  /**
+   * Disallow `with` statements.
+   * @see [S1321](https://eslint.org/docs/latest/rules/no-with)
+   */
+  'sonarjs/S1321': null;
+
+  /**
+   * Control flow statements "if", "for", "while", "switch" and "try" should not be nested too deeply.
+   * @see [S134](https://sonarsource.github.io/rspec/#/rspec/S134/javascript)
+   */
+  'sonarjs/S134': S134Option;
+
+  /**
+   * Loops should not contain more than a single "break" or "continue" statement.
+   * @see [S135](https://sonarsource.github.io/rspec/#/rspec/S135/javascript)
+   */
+  'sonarjs/S135': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Functions should not have too many lines of code.
+   * @see [S138](https://sonarsource.github.io/rspec/#/rspec/S138/javascript)
+   */
+  'sonarjs/S138': S138Option;
+
+  /**
+   * Enforce position of line comments.
+   * @see [S139](https://eslint.org/docs/latest/rules/line-comment-position)
+   */
+  'sonarjs/S139': [S139Option?];
+
+  /**
+   * Statements should end with semicolons.
+   * @deprecated
+   * @see [S1438](https://sonarsource.github.io/rspec/#/rspec/S1438/javascript)
+   */
+  'sonarjs/S1438': S1438Option;
+
+  /**
+   * Only "while", "do", "for" and "switch" statements should be labelled.
+   * @see [S1439](https://sonarsource.github.io/rspec/#/rspec/S1439/javascript)
+   */
+  'sonarjs/S1439': null;
+
+  /**
+   * Require the use of `===` and `!==`.
+   * @see [S1440](https://eslint.org/docs/latest/rules/eqeqeq)
+   */
+  'sonarjs/S1440': S1440Option;
+
+  /**
+   * Enforce the consistent use of either backticks, double, or single quotes.
+   * @deprecated
+   * @see [S1441](https://eslint.org/docs/latest/rules/quotes)
+   */
+  'sonarjs/S1441': S1441RuleConfig;
+
+  /**
+   * Disallow the use of `alert`, `confirm`, and `prompt`.
+   * @see [S1442](https://eslint.org/docs/latest/rules/no-alert)
+   */
+  'sonarjs/S1442': null;
+
+  /**
+   * Public "static" fields should be read-only.
+   * @see [S1444](https://sonarsource.github.io/rspec/#/rspec/S1444/javascript)
+   */
+  'sonarjs/S1444': null;
+
+  /**
+   * Track lack of copyright and license headers.
+   * @see [S1451](https://sonarsource.github.io/rspec/#/rspec/S1451/javascript)
+   */
+  'sonarjs/S1451': S1451Option;
+
+  /**
+   * Function call arguments should not start on new lines.
+   * @see [S1472](https://sonarsource.github.io/rspec/#/rspec/S1472/javascript)
+   */
+  'sonarjs/S1472': null;
+
+  /**
+   * "switch" statements should not have too many "case" clauses.
+   * @see [S1479](https://sonarsource.github.io/rspec/#/rspec/S1479/javascript)
+   */
+  'sonarjs/S1479': S1479Option;
+
+  /**
+   * Unused local variables and functions should be removed.
+   * @see [S1481](https://sonarsource.github.io/rspec/#/rspec/S1481/javascript)
+   */
+  'sonarjs/S1481': null;
+
+  /**
+   * Local variables should not be declared and then immediately returned or thrown.
+   * @see [S1488](https://sonarsource.github.io/rspec/#/rspec/S1488/javascript)
+   */
+  'sonarjs/S1488': null;
+
+  /**
+   * Functions should not be defined inside loops.
+   * @see [S1515](https://sonarsource.github.io/rspec/#/rspec/S1515/javascript)
+   */
+  'sonarjs/S1515': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disallow multiline strings.
+   * @see [S1516](https://eslint.org/docs/latest/rules/no-multi-str)
+   */
+  'sonarjs/S1516': null;
+
+  /**
+   * Dynamically executing code is security-sensitive.
+   * @see [S1523](https://sonarsource.github.io/rspec/#/rspec/S1523/javascript)
+   */
+  'sonarjs/S1523': null;
+
+  /**
+   * Disallow the use of `debugger`.
+   * @see [S1525](https://eslint.org/docs/latest/rules/no-debugger)
+   */
+  'sonarjs/S1525': null;
+
+  /**
+   * Variables declared with "var" should be declared before they are used.
+   * @see [S1526](https://sonarsource.github.io/rspec/#/rspec/S1526/javascript)
+   */
+  'sonarjs/S1526': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Future reserved words should not be used as identifiers.
+   * @see [S1527](https://sonarsource.github.io/rspec/#/rspec/S1527/javascript)
+   */
+  'sonarjs/S1527': null;
+
+  /**
+   * Array constructors should not be used.
+   * @see [S1528](https://sonarsource.github.io/rspec/#/rspec/S1528/javascript)
+   */
+  'sonarjs/S1528': null;
+
+  /**
+   * Bitwise operators should not be used in boolean contexts.
+   * @see [S1529](https://sonarsource.github.io/rspec/#/rspec/S1529/javascript)
+   */
+  'sonarjs/S1529': null;
+
+  /**
+   * Function declarations should not be made within blocks.
+   * @see [S1530](https://sonarsource.github.io/rspec/#/rspec/S1530/javascript)
+   */
+  'sonarjs/S1530': null;
+
+  /**
+   * Wrapper objects should not be used for primitive types.
+   * @see [S1533](https://sonarsource.github.io/rspec/#/rspec/S1533/javascript)
+   */
+  'sonarjs/S1533': null;
+
+  /**
+   * Member names should not be duplicated within a class or object literal.
+   * @see [S1534](https://sonarsource.github.io/rspec/#/rspec/S1534/javascript)
+   */
+  'sonarjs/S1534': null;
+
+  /**
+   * "for...in" loops should filter properties before acting on them.
+   * @see [S1535](https://sonarsource.github.io/rspec/#/rspec/S1535/javascript)
+   */
+  'sonarjs/S1535': null;
+
+  /**
+   * Disallow duplicate arguments in `function` definitions.
+   * @see [S1536](https://eslint.org/docs/latest/rules/no-dupe-args)
+   */
+  'sonarjs/S1536': null;
+
+  /**
+   * Require or disallow trailing commas.
+   * @deprecated
+   * @see [S1537](https://typescript-eslint.io/rules/comma-dangle)
+   */
+  'sonarjs/S1537': S1537.S1537RuleConfig;
+
+  /**
+   * Require or disallow strict mode directives.
+   * @see [S1539](https://eslint.org/docs/latest/rules/strict)
+   */
+  'sonarjs/S1539': [('never' | 'global' | 'function' | 'safe')?];
+
+  /**
+   * Cyclomatic Complexity of functions should not be too high.
+   * @see [S1541](https://sonarsource.github.io/rspec/#/rspec/S1541/javascript)
+   */
+  'sonarjs/S1541': S1541Option;
+
+  /**
+   * Disallow assignments where both sides are exactly the same.
+   * @see [S1656](https://eslint.org/docs/latest/rules/no-self-assign)
+   */
+  'sonarjs/S1656': [
+    {
+      props?: boolean;
+    }?,
+  ];
+
+  /**
+   * Loops with at most one iteration should be refactored.
+   * @see [S1751](https://sonarsource.github.io/rspec/#/rspec/S1751/javascript)
+   */
+  'sonarjs/S1751': null;
+
+  /**
+   * All code should be reachable.
+   * @see [S1763](https://sonarsource.github.io/rspec/#/rspec/S1763/javascript)
+   */
+  'sonarjs/S1763': null;
+
+  /**
+   * Identical expressions should not be used on both sides of a binary operator.
+   * @see [S1764](https://sonarsource.github.io/rspec/#/rspec/S1764/javascript)
+   */
+  'sonarjs/S1764': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disallow ternary operators.
+   * @see [S1774](https://eslint.org/docs/latest/rules/no-ternary)
+   */
+  'sonarjs/S1774': null;
+
+  /**
+   * Function parameters with default values should be last.
+   * @see [S1788](https://sonarsource.github.io/rspec/#/rspec/S1788/javascript)
+   */
+  'sonarjs/S1788': null;
+
+  /**
+   * "switch" statements should not be nested.
+   * @see [S1821](https://sonarsource.github.io/rspec/#/rspec/S1821/javascript)
+   */
+  'sonarjs/S1821': null;
+
+  /**
+   * Objects should not be created to be dropped immediately without being used.
+   * @see [S1848](https://sonarsource.github.io/rspec/#/rspec/S1848/javascript)
+   */
+  'sonarjs/S1848': null;
+
+  /**
+   * Unused assignments should be removed.
+   * @see [S1854](https://sonarsource.github.io/rspec/#/rspec/S1854/javascript)
+   */
+  'sonarjs/S1854': null;
+
+  /**
+   * "if/else if" chains and "switch" cases should not have the same condition.
+   * @see [S1862](https://sonarsource.github.io/rspec/#/rspec/S1862/javascript)
+   */
+  'sonarjs/S1862': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Two branches in a conditional structure should not have exactly the same implementation.
+   * @see [S1871](https://sonarsource.github.io/rspec/#/rspec/S1871/javascript)
+   */
+  'sonarjs/S1871': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Deprecated APIs should not be used.
+   * @see [S1874](https://sonarsource.github.io/rspec/#/rspec/S1874/javascript)
+   */
+  'sonarjs/S1874': null;
+
+  /**
+   * Boolean checks should not be inverted.
+   * @see [S1940](https://sonarsource.github.io/rspec/#/rspec/S1940/javascript)
+   */
+  'sonarjs/S1940': null;
+
+  /**
+   * "for" loop increment clauses should modify the loops' counters.
+   * @see [S1994](https://sonarsource.github.io/rspec/#/rspec/S1994/javascript)
+   */
+  'sonarjs/S1994': null;
+
+  /**
+   * Functions should not be nested too deeply.
+   * @see [S2004](https://sonarsource.github.io/rspec/#/rspec/S2004/javascript)
+   */
+  'sonarjs/S2004': S2004Option;
+
+  /**
+   * Hard-coded credentials are security-sensitive.
+   * @see [S2068](https://sonarsource.github.io/rspec/#/rspec/S2068/javascript)
+   */
+  'sonarjs/S2068': S2068Option;
+
+  /**
+   * Formatting SQL queries is security-sensitive.
+   * @see [S2077](https://sonarsource.github.io/rspec/#/rspec/S2077/javascript)
+   */
+  'sonarjs/S2077': null;
+
+  /**
+   * Creating cookies without the "secure" flag is security-sensitive.
+   * @see [S2092](https://sonarsource.github.io/rspec/#/rspec/S2092/javascript)
+   */
+  'sonarjs/S2092': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disallow classes used as namespaces.
+   * @see [S2094](https://typescript-eslint.io/rules/no-extraneous-class)
+   */
+  'sonarjs/S2094': [S2094Option?];
+
+  /**
+   * Values should not be uselessly incremented.
+   * @see [S2123](https://sonarsource.github.io/rspec/#/rspec/S2123/javascript)
+   */
+  'sonarjs/S2123': null;
+
+  /**
+   * Special identifiers should not be bound or assigned.
+   * @see [S2137](https://sonarsource.github.io/rspec/#/rspec/S2137/javascript)
+   */
+  'sonarjs/S2137': null;
+
+  /**
+   * "undefined" should not be assigned.
+   * @see [S2138](https://sonarsource.github.io/rspec/#/rspec/S2138/javascript)
+   */
+  'sonarjs/S2138': null;
+
+  /**
+   * Test files should contain at least one test case.
+   * @see [S2187](https://sonarsource.github.io/rspec/#/rspec/S2187/javascript)
+   */
+  'sonarjs/S2187': null;
+
+  /**
+   * Loops should not be infinite.
+   * @see [S2189](https://sonarsource.github.io/rspec/#/rspec/S2189/javascript)
+   */
+  'sonarjs/S2189': null;
+
+  /**
+   * Return values from functions without side effects should not be ignored.
+   * @see [S2201](https://sonarsource.github.io/rspec/#/rspec/S2201/javascript)
+   */
+  'sonarjs/S2201': null;
+
+  /**
+   * Wildcard imports should not be used.
+   * @see [S2208](https://sonarsource.github.io/rspec/#/rspec/S2208/javascript)
+   */
+  'sonarjs/S2208': null;
+
+  /**
+   * Parameters should be passed in the correct order.
+   * @see [S2234](https://sonarsource.github.io/rspec/#/rspec/S2234/javascript)
+   */
+  'sonarjs/S2234': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using pseudorandom number generators (PRNGs) is security-sensitive.
+   * @see [S2245](https://sonarsource.github.io/rspec/#/rspec/S2245/javascript)
+   */
+  'sonarjs/S2245': null;
+
+  /**
+   * A "for" loop update clause should move the counter in the right direction.
+   * @see [S2251](https://sonarsource.github.io/rspec/#/rspec/S2251/javascript)
+   */
+  'sonarjs/S2251': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Writing cookies is security-sensitive.
+   * @deprecated
+   * @see [S2255](https://sonarsource.github.io/rspec/#/rspec/S2255/javascript)
+   */
+  'sonarjs/S2255': null;
+
+  /**
+   * Properties of variables with "null" or "undefined" values should not be accessed.
+   * @see [S2259](https://sonarsource.github.io/rspec/#/rspec/S2259/javascript)
+   */
+  'sonarjs/S2259': null;
+
+  /**
+   * Loop counters should not be assigned within the loop body.
+   * @see [S2310](https://sonarsource.github.io/rspec/#/rspec/S2310/javascript)
+   */
+  'sonarjs/S2310': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Property getters and setters should come in pairs.
+   * @see [S2376](https://sonarsource.github.io/rspec/#/rspec/S2376/javascript)
+   */
+  'sonarjs/S2376': [
+    {
+      getWithoutSet?: boolean;
+      setWithoutGet?: boolean;
+      enforceForClassMembers?: boolean;
+    }?,
+  ];
+
+  /**
+   * Variables should be used in the blocks where they are declared.
+   * @see [S2392](https://sonarsource.github.io/rspec/#/rspec/S2392/javascript)
+   */
+  'sonarjs/S2392': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Built-in objects should not be overridden.
+   * @see [S2424](https://sonarsource.github.io/rspec/#/rspec/S2424/javascript)
+   */
+  'sonarjs/S2424': null;
+
+  /**
+   * Enforce the consistent use of the radix argument when using `parseInt()`.
+   * @see [S2427](https://eslint.org/docs/latest/rules/radix)
+   */
+  'sonarjs/S2427': [('always' | 'as-needed')?];
+
+  /**
+   * Constructor names should start with an upper case letter.
+   * @see [S2430](https://sonarsource.github.io/rspec/#/rspec/S2430/javascript)
+   */
+  'sonarjs/S2430': [
+    {
+      newIsCap?: boolean;
+      capIsNew?: boolean;
+      newIsCapExceptions?: string[];
+      newIsCapExceptionPattern?: string;
+      capIsNewExceptions?: string[];
+      capIsNewExceptionPattern?: string;
+      properties?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow returning values from setters.
+   * @see [S2432](https://eslint.org/docs/latest/rules/no-setter-return)
+   */
+  'sonarjs/S2432': null;
+
+  /**
+   * Object literal syntax should be used.
+   * @see [S2428](https://sonarsource.github.io/rspec/#/rspec/S2428/javascript)
+   */
+  'sonarjs/S2428': null;
+
+  /**
+   * Exceptions should not be ignored.
+   * @see [S2486](https://sonarsource.github.io/rspec/#/rspec/S2486/javascript)
+   */
+  'sonarjs/S2486': null;
+
+  /**
+   * Boolean expressions should not be gratuitous.
+   * @see [S2589](https://sonarsource.github.io/rspec/#/rspec/S2589/javascript)
+   */
+  'sonarjs/S2589': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * File uploads should be restricted.
+   * @see [S2598](https://sonarsource.github.io/rspec/#/rspec/S2598/javascript)
+   */
+  'sonarjs/S2598': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Setting loose POSIX file permissions is security-sensitive.
+   * @see [S2612](https://sonarsource.github.io/rspec/#/rspec/S2612/javascript)
+   */
+  'sonarjs/S2612': null;
+
+  /**
+   * Empty character classes should not be used.
+   * @see [S2639](https://sonarsource.github.io/rspec/#/rspec/S2639/javascript)
+   */
+  'sonarjs/S2639': null;
+
+  /**
+   * Multiline blocks should be enclosed in curly braces.
+   * @see [S2681](https://sonarsource.github.io/rspec/#/rspec/S2681/javascript)
+   */
+  'sonarjs/S2681': null;
+
+  /**
+   * Disallow the use of `arguments.caller` or `arguments.callee`.
+   * @see [S2685](https://eslint.org/docs/latest/rules/no-caller)
+   */
+  'sonarjs/S2685': null;
+
+  /**
+   * "NaN" should not be used in comparisons.
+   * @see [S2688](https://sonarsource.github.io/rspec/#/rspec/S2688/javascript)
+   */
+  'sonarjs/S2688': [
+    {
+      enforceForSwitchCase?: boolean;
+      enforceForIndexOf?: boolean;
+    }?,
+  ];
+
+  /**
+   * "indexOf" checks should not be for positive numbers.
+   * @see [S2692](https://sonarsource.github.io/rspec/#/rspec/S2692/javascript)
+   */
+  'sonarjs/S2692': null;
+
+  /**
+   * Tests should include assertions.
+   * @see [S2699](https://sonarsource.github.io/rspec/#/rspec/S2699/javascript)
+   */
+  'sonarjs/S2699': null;
+
+  /**
+   * Variables should be declared explicitly.
+   * @see [S2703](https://sonarsource.github.io/rspec/#/rspec/S2703/javascript)
+   */
+  'sonarjs/S2703': null;
+
+  /**
+   * "catch" clauses should do more than rethrow.
+   * @see [S2737](https://sonarsource.github.io/rspec/#/rspec/S2737/javascript)
+   */
+  'sonarjs/S2737': null;
+
+  /**
+   * XML parsers should not be vulnerable to XXE attacks.
+   * @see [S2755](https://sonarsource.github.io/rspec/#/rspec/S2755/javascript)
+   */
+  'sonarjs/S2755': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Non-existent operators '=+', '=-' and '=!' should not be used.
+   * @see [S2757](https://sonarsource.github.io/rspec/#/rspec/S2757/javascript)
+   */
+  'sonarjs/S2757': null;
+
+  /**
+   * Variables and functions should not be redeclared.
+   * @see [S2814](https://sonarsource.github.io/rspec/#/rspec/S2814/javascript)
+   */
+  'sonarjs/S2814': [
+    {
+      builtinGlobals?: boolean;
+      ignoreDeclarationMerge?: boolean;
+    }?,
+  ];
+
+  /**
+   * Web SQL databases should not be used.
+   * @deprecated
+   * @see [S2817](https://sonarsource.github.io/rspec/#/rspec/S2817/javascript)
+   */
+  'sonarjs/S2817': null;
+
+  /**
+   * Origins should be verified during cross-origin communications.
+   * @see [S2819](https://sonarsource.github.io/rspec/#/rspec/S2819/javascript)
+   */
+  'sonarjs/S2819': null;
+
+  /**
+   * "delete" should not be used on arrays.
+   * @see [S2870](https://sonarsource.github.io/rspec/#/rspec/S2870/javascript)
+   */
+  'sonarjs/S2870': null;
+
+  /**
+   * "Array.prototype.sort()" and "Array.prototype.toSorted()" should use a compare function.
+   * @see [S2871](https://sonarsource.github.io/rspec/#/rspec/S2871/javascript)
+   */
+  'sonarjs/S2871': null;
+
+  /**
+   * Require private members to be marked as `readonly` if they're never modified outside of the constructor.
+   * @see [S2933](https://typescript-eslint.io/rules/prefer-readonly)
+   */
+  'sonarjs/S2933': [
+    {
+      onlyInlineLambdas?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow non-null assertions using the `!` postfix operator.
+   * @see [S2966](https://typescript-eslint.io/rules/no-non-null-assertion)
+   */
+  'sonarjs/S2966': null;
+
+  /**
+   * Assertions should be complete.
+   * @see [S2970](https://sonarsource.github.io/rspec/#/rspec/S2970/javascript)
+   */
+  'sonarjs/S2970': null;
+
+  /**
+   * The global "this" object should not be used.
+   * @see [S2990](https://sonarsource.github.io/rspec/#/rspec/S2990/javascript)
+   */
+  'sonarjs/S2990': null;
+
+  /**
+   * "new" should only be used with functions and classes.
+   * @see [S2999](https://sonarsource.github.io/rspec/#/rspec/S2999/javascript)
+   */
+  'sonarjs/S2999': S2999Option;
+
+  /**
+   * "delete" should be used only with object properties.
+   * @see [S3001](https://sonarsource.github.io/rspec/#/rspec/S3001/javascript)
+   */
+  'sonarjs/S3001': null;
+
+  /**
+   * Comparison operators should not be used with strings.
+   * @see [S3003](https://sonarsource.github.io/rspec/#/rspec/S3003/javascript)
+   */
+  'sonarjs/S3003': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disallow explicit type declarations for variables or parameters initialized to a number, string, or boolean.
+   * @see [S3257](https://typescript-eslint.io/rules/no-inferrable-types)
+   */
+  'sonarjs/S3257': [
+    {
+      ignoreParameters?: boolean;
+      ignoreProperties?: boolean;
+    }?,
+  ];
+
+  /**
+   * Default export names and file names should match.
+   * @see [S3317](https://sonarsource.github.io/rspec/#/rspec/S3317/javascript)
+   */
+  'sonarjs/S3317': null;
+
+  /**
+   * Creating cookies without the "HttpOnly" flag is security-sensitive.
+   * @see [S3330](https://sonarsource.github.io/rspec/#/rspec/S3330/javascript)
+   */
+  'sonarjs/S3330': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Require `const` declarations for variables that are never reassigned after declared.
+   * @see [S3353](https://eslint.org/docs/latest/rules/prefer-const)
+   */
+  'sonarjs/S3353': [S3353Option?];
+
+  /**
+   * Ternary operators should not be nested.
+   * @see [S3358](https://sonarsource.github.io/rspec/#/rspec/S3358/javascript)
+   */
+  'sonarjs/S3358': null;
+
+  /**
+   * Strings and non-strings should not be added.
+   * @see [S3402](https://sonarsource.github.io/rspec/#/rspec/S3402/javascript)
+   */
+  'sonarjs/S3402': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Strict equality operators should not be used with dissimilar types.
+   * @see [S3403](https://sonarsource.github.io/rspec/#/rspec/S3403/javascript)
+   */
+  'sonarjs/S3403': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Assertion arguments should be passed in the correct order.
+   * @see [S3415](https://sonarsource.github.io/rspec/#/rspec/S3415/javascript)
+   */
+  'sonarjs/S3415': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Object literal shorthand syntax should be used.
+   * @see [S3498](https://sonarsource.github.io/rspec/#/rspec/S3498/javascript)
+   */
+  'sonarjs/S3498': S3498Option;
+
+  /**
+   * Shorthand object properties should be grouped at the beginning or end of an object declaration.
+   * @see [S3499](https://sonarsource.github.io/rspec/#/rspec/S3499/javascript)
+   */
+  'sonarjs/S3499': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "const" variables should not be reassigned.
+   * @see [S3500](https://sonarsource.github.io/rspec/#/rspec/S3500/javascript)
+   */
+  'sonarjs/S3500': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Variables should be declared with "let" or "const".
+   * @see [S3504](https://sonarsource.github.io/rspec/#/rspec/S3504/javascript)
+   */
+  'sonarjs/S3504': null;
+
+  /**
+   * Template strings should be used instead of concatenation.
+   * @see [S3512](https://sonarsource.github.io/rspec/#/rspec/S3512/javascript)
+   */
+  'sonarjs/S3512': null;
+
+  /**
+   * "arguments" should not be accessed directly.
+   * @see [S3513](https://sonarsource.github.io/rspec/#/rspec/S3513/javascript)
+   */
+  'sonarjs/S3513': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Destructuring syntax should be used for assignments.
+   * @see [S3514](https://sonarsource.github.io/rspec/#/rspec/S3514/javascript)
+   */
+  'sonarjs/S3514': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Function returns should not be invariant.
+   * @see [S3516](https://sonarsource.github.io/rspec/#/rspec/S3516/javascript)
+   */
+  'sonarjs/S3516': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disallow `new` operators with the `Function` object.
+   * @see [S3523](https://eslint.org/docs/latest/rules/no-new-func)
+   */
+  'sonarjs/S3523': null;
+
+  /**
+   * Braces and parentheses should be used consistently with arrow functions.
+   * @see [S3524](https://sonarsource.github.io/rspec/#/rspec/S3524/javascript)
+   */
+  'sonarjs/S3524': S3524Option;
+
+  /**
+   * Class methods should be used instead of "prototype" assignments.
+   * @see [S3525](https://sonarsource.github.io/rspec/#/rspec/S3525/javascript)
+   */
+  'sonarjs/S3525': null;
+
+  /**
+   * Generators should explicitly "yield" a value.
+   * @see [S3531](https://sonarsource.github.io/rspec/#/rspec/S3531/javascript)
+   */
+  'sonarjs/S3531': null;
+
+  /**
+   * "import" should be used to include external code.
+   * @see [S3533](https://sonarsource.github.io/rspec/#/rspec/S3533/javascript)
+   */
+  'sonarjs/S3533': null;
+
+  /**
+   * Array indexes should be numeric.
+   * @see [S3579](https://sonarsource.github.io/rspec/#/rspec/S3579/javascript)
+   */
+  'sonarjs/S3579': null;
+
+  /**
+   * Comma and logical OR operators should not be used in switch cases.
+   * @see [S3616](https://sonarsource.github.io/rspec/#/rspec/S3616/javascript)
+   */
+  'sonarjs/S3616': null;
+
+  /**
+   * Jump statements should not be redundant.
+   * @see [S3626](https://sonarsource.github.io/rspec/#/rspec/S3626/javascript)
+   */
+  'sonarjs/S3626': null;
+
+  /**
+   * Functions should be called consistently with or without "new".
+   * @see [S3686](https://sonarsource.github.io/rspec/#/rspec/S3686/javascript)
+   */
+  'sonarjs/S3686': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Literals should not be thrown.
+   * @see [S3696](https://sonarsource.github.io/rspec/#/rspec/S3696/javascript)
+   */
+  'sonarjs/S3696': null;
+
+  /**
+   * The return value of void functions should not be used.
+   * @see [S3699](https://sonarsource.github.io/rspec/#/rspec/S3699/javascript)
+   */
+  'sonarjs/S3699': null;
+
+  /**
+   * Values not convertible to numbers should not be used in numeric comparisons.
+   * @see [S3758](https://sonarsource.github.io/rspec/#/rspec/S3758/javascript)
+   */
+  'sonarjs/S3758': null;
+
+  /**
+   * Trailing commas should be used.
+   * @deprecated
+   * @see [S3723](https://sonarsource.github.io/rspec/#/rspec/S3723/javascript)
+   */
+  'sonarjs/S3723': S3723.S3723RuleConfig;
+
+  /**
+   * "void" should not be used.
+   * @see [S3735](https://sonarsource.github.io/rspec/#/rspec/S3735/javascript)
+   */
+  'sonarjs/S3735': null;
+
+  /**
+   * Arithmetic operations should not result in "NaN".
+   * @see [S3757](https://sonarsource.github.io/rspec/#/rspec/S3757/javascript)
+   */
+  'sonarjs/S3757': null;
+
+  /**
+   * Arithmetic operators should only have numbers as operands.
+   * @see [S3760](https://sonarsource.github.io/rspec/#/rspec/S3760/javascript)
+   */
+  'sonarjs/S3760': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Cognitive Complexity of functions should not be too high.
+   * @see [S3776](https://sonarsource.github.io/rspec/#/rspec/S3776/javascript)
+   */
+  'sonarjs/S3776': S3776Option;
+
+  /**
+   * Arguments to built-in functions should match documented types.
+   * @see [S3782](https://sonarsource.github.io/rspec/#/rspec/S3782/javascript)
+   */
+  'sonarjs/S3782': null;
+
+  /**
+   * "in" should not be used with primitive types.
+   * @see [S3785](https://sonarsource.github.io/rspec/#/rspec/S3785/javascript)
+   */
+  'sonarjs/S3785': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disallow template literal placeholder syntax in regular strings.
+   * @see [S3786](https://eslint.org/docs/latest/rules/no-template-curly-in-string)
+   */
+  'sonarjs/S3786': null;
+
+  /**
+   * Callbacks of array methods should have return statements.
+   * @see [S3796](https://sonarsource.github.io/rspec/#/rspec/S3796/javascript)
+   */
+  'sonarjs/S3796': null;
+
+  /**
+   * Variables and functions should not be declared in the global scope.
+   * @see [S3798](https://sonarsource.github.io/rspec/#/rspec/S3798/javascript)
+   */
+  'sonarjs/S3798': null;
+
+  /**
+   * Disallow empty destructuring patterns.
+   * @see [S3799](https://eslint.org/docs/latest/rules/no-empty-pattern)
+   */
+  'sonarjs/S3799': [
+    {
+      allowObjectPatternsAsParameters?: boolean;
+    }?,
+  ];
+
+  /**
+   * Functions should always return the same type.
+   * @see [S3800](https://sonarsource.github.io/rspec/#/rspec/S3800/javascript)
+   */
+  'sonarjs/S3800': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Functions should use "return" consistently.
+   * @see [S3801](https://sonarsource.github.io/rspec/#/rspec/S3801/javascript)
+   */
+  'sonarjs/S3801': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disallow negating the left operand of relational operators.
+   * @see [S3812](https://eslint.org/docs/latest/rules/no-unsafe-negation)
+   */
+  'sonarjs/S3812': [
+    {
+      enforceForOrderingRelations?: boolean;
+    }?,
+  ];
+
+  /**
+   * Variables should be defined before being used.
+   * @see [S3827](https://sonarsource.github.io/rspec/#/rspec/S3827/javascript)
+   */
+  'sonarjs/S3827': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disallow `new` operators with global non-constructor functions.
+   * @see [S3834](https://eslint.org/docs/latest/rules/no-new-native-nonconstructor)
+   */
+  'sonarjs/S3834': null;
+
+  /**
+   * "super()" should be invoked appropriately.
+   * @see [S3854](https://sonarsource.github.io/rspec/#/rspec/S3854/javascript)
+   */
+  'sonarjs/S3854': null;
+
+  /**
+   * Forbid repeated import of the same module in multiple places.
+   * @see [S3863](https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-duplicates.md)
+   */
+  'sonarjs/S3863': [S3863Option?];
+
+  /**
+   * All branches in a conditional structure should not have exactly the same implementation.
+   * @see [S3923](https://sonarsource.github.io/rspec/#/rspec/S3923/javascript)
+   */
+  'sonarjs/S3923': null;
+
+  /**
+   * Conditionals should start on new lines.
+   * @see [S3972](https://sonarsource.github.io/rspec/#/rspec/S3972/javascript)
+   */
+  'sonarjs/S3972': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * A conditionally executed single line should be denoted by indentation.
+   * @deprecated
+   * @see [S3973](https://sonarsource.github.io/rspec/#/rspec/S3973/javascript)
+   */
+  'sonarjs/S3973': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Collection size and array length comparisons should make sense.
+   * @see [S3981](https://sonarsource.github.io/rspec/#/rspec/S3981/javascript)
+   */
+  'sonarjs/S3981': null;
+
+  /**
+   * Errors should not be created without being thrown.
+   * @see [S3984](https://sonarsource.github.io/rspec/#/rspec/S3984/javascript)
+   */
+  'sonarjs/S3984': null;
+
+  /**
+   * Interfaces should not be empty.
+   * @see [S4023](https://sonarsource.github.io/rspec/#/rspec/S4023/javascript)
+   */
+  'sonarjs/S4023': [
+    {
+      allowSingleExtends?: boolean;
+    }?,
+  ];
+
+  /**
+   * Collection contents should be used.
+   * @see [S4030](https://sonarsource.github.io/rspec/#/rspec/S4030/javascript)
+   */
+  'sonarjs/S4030': null;
+
+  /**
+   * Searching OS commands in PATH is security-sensitive.
+   * @see [S4036](https://sonarsource.github.io/rspec/#/rspec/S4036/javascript)
+   */
+  'sonarjs/S4036': null;
+
+  /**
+   * Array-mutating methods should not be used misleadingly.
+   * @see [S4043](https://sonarsource.github.io/rspec/#/rspec/S4043/javascript)
+   */
+  'sonarjs/S4043': null;
+
+  /**
+   * Media elements should have captions.
+   * @see [S4084](https://sonarsource.github.io/rspec/#/rspec/S4084/javascript)
+   */
+  'sonarjs/S4084': [S4084Option?];
+
+  /**
+   * "await" should only be used with promises.
+   * @see [S4123](https://sonarsource.github.io/rspec/#/rspec/S4123/javascript)
+   */
+  'sonarjs/S4123': null;
+
+  /**
+   * Enforce valid definition of `new` and `constructor`.
+   * @see [S4124](https://typescript-eslint.io/rules/no-misused-new)
+   */
+  'sonarjs/S4124': null;
+
+  /**
+   * Enforce comparing `typeof` expressions against valid strings.
+   * @see [S4125](https://eslint.org/docs/latest/rules/valid-typeof)
+   */
+  'sonarjs/S4125': [
+    {
+      requireStringLiterals?: boolean;
+    }?,
+  ];
+
+  /**
+   * Require that function overload signatures be consecutive.
+   * @see [S4136](https://typescript-eslint.io/rules/adjacent-overload-signatures)
+   */
+  'sonarjs/S4136': null;
+
+  /**
+   * Enforce consistent usage of type assertions.
+   * @see [S4137](https://typescript-eslint.io/rules/consistent-type-assertions)
+   */
+  'sonarjs/S4137': [S4137Option?];
+
+  /**
+   * "for of" should be used with Iterables.
+   * @see [S4138](https://sonarsource.github.io/rspec/#/rspec/S4138/javascript)
+   */
+  'sonarjs/S4138': null;
+
+  /**
+   * "for in" should not be used with iterables.
+   * @see [S4139](https://sonarsource.github.io/rspec/#/rspec/S4139/javascript)
+   */
+  'sonarjs/S4139': null;
+
+  /**
+   * Disallow sparse arrays.
+   * @see [S4140](https://eslint.org/docs/latest/rules/no-sparse-arrays)
+   */
+  'sonarjs/S4140': null;
+
+  /**
+   * Collection elements should not be replaced unconditionally.
+   * @see [S4143](https://sonarsource.github.io/rspec/#/rspec/S4143/javascript)
+   */
+  'sonarjs/S4143': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Functions should not have identical implementations.
+   * @see [S4144](https://sonarsource.github.io/rspec/#/rspec/S4144/javascript)
+   */
+  'sonarjs/S4144': S4144Option;
+
+  /**
+   * "module" should not be used.
+   * @see [S4156](https://sonarsource.github.io/rspec/#/rspec/S4156/javascript)
+   */
+  'sonarjs/S4156': null;
+
+  /**
+   * Disallow type arguments that are equal to the default.
+   * @see [S4157](https://typescript-eslint.io/rules/no-unnecessary-type-arguments)
+   */
+  'sonarjs/S4157': null;
+
+  /**
+   * Empty collections should not be accessed or iterated.
+   * @see [S4158](https://sonarsource.github.io/rspec/#/rspec/S4158/javascript)
+   */
+  'sonarjs/S4158': null;
+
+  /**
+   * Assignments should not be redundant.
+   * @see [S4165](https://sonarsource.github.io/rspec/#/rspec/S4165/javascript)
+   */
+  'sonarjs/S4165': null;
+
+  /**
+   * Disallow the `any` type.
+   * @see [S4204](https://typescript-eslint.io/rules/no-explicit-any)
+   */
+  'sonarjs/S4204': [S4204Option?];
+
+  /**
+   * Getters and setters should access the expected fields.
+   * @see [S4275](https://sonarsource.github.io/rspec/#/rspec/S4275/javascript)
+   */
+  'sonarjs/S4275': S4275RuleConfig;
+
+  /**
+   * Type predicates should be used.
+   * @see [S4322](https://sonarsource.github.io/rspec/#/rspec/S4322/javascript)
+   */
+  'sonarjs/S4322': null;
+
+  /**
+   * Type aliases should be used.
+   * @see [S4323](https://sonarsource.github.io/rspec/#/rspec/S4323/javascript)
+   */
+  'sonarjs/S4323': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Primitive return types should be used.
+   * @see [S4324](https://sonarsource.github.io/rspec/#/rspec/S4324/javascript)
+   */
+  'sonarjs/S4324': null;
+
+  /**
+   * Disallow type assertions that do not change the type of an expression.
+   * @see [S4325](https://typescript-eslint.io/rules/no-unnecessary-type-assertion)
+   */
+  'sonarjs/S4325': [S4325Option?];
+
+  /**
+   * Disallow unnecessary `return await`.
+   * @deprecated
+   * @see [S4326](https://eslint.org/docs/latest/rules/no-return-await)
+   */
+  'sonarjs/S4326': null;
+
+  /**
+   * "this" should not be assigned to variables.
+   * @see [S4327](https://sonarsource.github.io/rspec/#/rspec/S4327/javascript)
+   */
+  'sonarjs/S4327': [S4327Option?];
+
+  /**
+   * Dependencies should be explicit.
+   * @see [S4328](https://sonarsource.github.io/rspec/#/rspec/S4328/javascript)
+   */
+  'sonarjs/S4328': S4328Option;
+
+  /**
+   * Type intersections should use meaningful types.
+   * @see [S4335](https://sonarsource.github.io/rspec/#/rspec/S4335/javascript)
+   */
+  'sonarjs/S4335': null;
+
+  /**
+   * Weak SSL/TLS protocols should not be used.
+   * @see [S4423](https://sonarsource.github.io/rspec/#/rspec/S4423/javascript)
+   */
+  'sonarjs/S4423': null;
+
+  /**
+   * Cryptographic keys should be robust.
+   * @see [S4426](https://sonarsource.github.io/rspec/#/rspec/S4426/javascript)
+   */
+  'sonarjs/S4426': null;
+
+  /**
+   * Disabling CSRF protections is security-sensitive.
+   * @see [S4502](https://sonarsource.github.io/rspec/#/rspec/S4502/javascript)
+   */
+  'sonarjs/S4502': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Delivering code in production with debug features activated is security-sensitive.
+   * @see [S4507](https://sonarsource.github.io/rspec/#/rspec/S4507/javascript)
+   */
+  'sonarjs/S4507': null;
+
+  /**
+   * "default" clauses should be last.
+   * @see [S4524](https://sonarsource.github.io/rspec/#/rspec/S4524/javascript)
+   */
+  'sonarjs/S4524': null;
+
+  /**
+   * "in" should not be used on arrays.
+   * @see [S4619](https://sonarsource.github.io/rspec/#/rspec/S4619/javascript)
+   */
+  'sonarjs/S4619': null;
+
+  /**
+   * Union and intersection types should not include duplicated constituents.
+   * @see [S4621](https://sonarsource.github.io/rspec/#/rspec/S4621/javascript)
+   */
+  'sonarjs/S4621': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Union types should not have too many elements.
+   * @see [S4622](https://sonarsource.github.io/rspec/#/rspec/S4622/javascript)
+   */
+  'sonarjs/S4622': S4622Option;
+
+  /**
+   * "undefined" should not be passed as the value of optional parameters.
+   * @see [S4623](https://sonarsource.github.io/rspec/#/rspec/S4623/javascript)
+   */
+  'sonarjs/S4623': null;
+
+  /**
+   * Template literals should not be nested.
+   * @see [S4624](https://sonarsource.github.io/rspec/#/rspec/S4624/javascript)
+   */
+  'sonarjs/S4624': null;
+
+  /**
+   * Shorthand promises should be used.
+   * @see [S4634](https://sonarsource.github.io/rspec/#/rspec/S4634/javascript)
+   */
+  'sonarjs/S4634': null;
+
+  /**
+   * Using shell interpreter when executing OS commands is security-sensitive.
+   * @see [S4721](https://sonarsource.github.io/rspec/#/rspec/S4721/javascript)
+   */
+  'sonarjs/S4721': null;
+
+  /**
+   * Optional property declarations should not use both '?' and 'undefined' syntax.
+   * @see [S4782](https://sonarsource.github.io/rspec/#/rspec/S4782/javascript)
+   */
+  'sonarjs/S4782': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using regular expressions is security-sensitive.
+   * @deprecated
+   * @see [S4784](https://sonarsource.github.io/rspec/#/rspec/S4784/javascript)
+   */
+  'sonarjs/S4784': null;
+
+  /**
+   * Encrypting data is security-sensitive.
+   * @deprecated
+   * @see [S4787](https://sonarsource.github.io/rspec/#/rspec/S4787/javascript)
+   */
+  'sonarjs/S4787': null;
+
+  /**
+   * Using weak hashing algorithms is security-sensitive.
+   * @see [S4790](https://sonarsource.github.io/rspec/#/rspec/S4790/javascript)
+   */
+  'sonarjs/S4790': null;
+
+  /**
+   * Optional boolean parameters should have default value.
+   * @see [S4798](https://sonarsource.github.io/rspec/#/rspec/S4798/javascript)
+   */
+  'sonarjs/S4798': null;
+
+  /**
+   * Executing XPath expressions is security-sensitive.
+   * @deprecated
+   * @see [S4817](https://sonarsource.github.io/rspec/#/rspec/S4817/javascript)
+   */
+  'sonarjs/S4817': null;
+
+  /**
+   * Using Sockets is security-sensitive.
+   * @deprecated
+   * @see [S4818](https://sonarsource.github.io/rspec/#/rspec/S4818/javascript)
+   */
+  'sonarjs/S4818': null;
+
+  /**
+   * Promise rejections should not be caught by "try" blocks.
+   * @see [S4822](https://sonarsource.github.io/rspec/#/rspec/S4822/javascript)
+   */
+  'sonarjs/S4822': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using command line arguments is security-sensitive.
+   * @deprecated
+   * @see [S4823](https://sonarsource.github.io/rspec/#/rspec/S4823/javascript)
+   */
+  'sonarjs/S4823': null;
+
+  /**
+   * Reading the Standard Input is security-sensitive.
+   * @deprecated
+   * @see [S4829](https://sonarsource.github.io/rspec/#/rspec/S4829/javascript)
+   */
+  'sonarjs/S4829': null;
+
+  /**
+   * Server certificates should be verified during SSL/TLS connections.
+   * @see [S4830](https://sonarsource.github.io/rspec/#/rspec/S4830/javascript)
+   */
+  'sonarjs/S4830': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Expanding archive files without controlling resource consumption is security-sensitive.
+   * @see [S5042](https://sonarsource.github.io/rspec/#/rspec/S5042/javascript)
+   */
+  'sonarjs/S5042': null;
+
+  /**
+   * Having a permissive Cross-Origin Resource Sharing policy is security-sensitive.
+   * @see [S5122](https://sonarsource.github.io/rspec/#/rspec/S5122/javascript)
+   */
+  'sonarjs/S5122': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Authorizing an opened window to access back to the originating window is security-sensitive.
+   * @see [S5148](https://sonarsource.github.io/rspec/#/rspec/S5148/javascript)
+   */
+  'sonarjs/S5148': null;
+
+  /**
+   * Disabling auto-escaping in template engines is security-sensitive.
+   * @see [S5247](https://sonarsource.github.io/rspec/#/rspec/S5247/javascript)
+   */
+  'sonarjs/S5247': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * HTML elements should have a valid language attribute.
+   * @see [S5254](https://sonarsource.github.io/rspec/#/rspec/S5254/javascript)
+   */
+  'sonarjs/S5254': null;
+
+  /**
+   * Tables should have headers.
+   * @see [S5256](https://sonarsource.github.io/rspec/#/rspec/S5256/javascript)
+   */
+  'sonarjs/S5256': null;
+
+  /**
+   * HTML "<table>" should not be used for layout purposes.
+   * @see [S5257](https://sonarsource.github.io/rspec/#/rspec/S5257/javascript)
+   */
+  'sonarjs/S5257': null;
+
+  /**
+   * Table cells should reference their headers.
+   * @see [S5260](https://sonarsource.github.io/rspec/#/rspec/S5260/javascript)
+   */
+  'sonarjs/S5260': null;
+
+  /**
+   * "<object>" tags should provide an alternative content.
+   * @see [S5264](https://sonarsource.github.io/rspec/#/rspec/S5264/javascript)
+   */
+  'sonarjs/S5264': null;
+
+  /**
+   * Using clear-text protocols is security-sensitive.
+   * @see [S5332](https://sonarsource.github.io/rspec/#/rspec/S5332/javascript)
+   */
+  'sonarjs/S5332': null;
+
+  /**
+   * Using publicly writable directories is security-sensitive.
+   * @see [S5443](https://sonarsource.github.io/rspec/#/rspec/S5443/javascript)
+   */
+  'sonarjs/S5443': null;
+
+  /**
+   * Server hostnames should be verified during SSL/TLS connections.
+   * @see [S5527](https://sonarsource.github.io/rspec/#/rspec/S5527/javascript)
+   */
+  'sonarjs/S5527': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Encryption algorithms should be used with secure mode and padding scheme.
+   * @see [S5542](https://sonarsource.github.io/rspec/#/rspec/S5542/javascript)
+   */
+  'sonarjs/S5542': null;
+
+  /**
+   * Cipher algorithms should be robust.
+   * @see [S5547](https://sonarsource.github.io/rspec/#/rspec/S5547/javascript)
+   */
+  'sonarjs/S5547': null;
+
+  /**
+   * Using intrusive permissions is security-sensitive.
+   * @see [S5604](https://sonarsource.github.io/rspec/#/rspec/S5604/javascript)
+   */
+  'sonarjs/S5604': S5604Option;
+
+  /**
+   * JWT should be signed and verified with strong cipher algorithms.
+   * @see [S5659](https://sonarsource.github.io/rspec/#/rspec/S5659/javascript)
+   */
+  'sonarjs/S5659': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disclosing fingerprints from web application technologies is security-sensitive.
+   * @see [S5689](https://sonarsource.github.io/rspec/#/rspec/S5689/javascript)
+   */
+  'sonarjs/S5689': null;
+
+  /**
+   * Statically serving hidden files is security-sensitive.
+   * @see [S5691](https://sonarsource.github.io/rspec/#/rspec/S5691/javascript)
+   */
+  'sonarjs/S5691': null;
+
+  /**
+   * Allowing requests with excessive content length is security-sensitive.
+   * @see [S5693](https://sonarsource.github.io/rspec/#/rspec/S5693/javascript)
+   */
+  'sonarjs/S5693': S5693Option;
+
+  /**
+   * Using remote artifacts without integrity checks is security-sensitive.
+   * @see [S5725](https://sonarsource.github.io/rspec/#/rspec/S5725/javascript)
+   */
+  'sonarjs/S5725': null;
+
+  /**
+   * Disabling content security policy fetch directives is security-sensitive.
+   * @see [S5728](https://sonarsource.github.io/rspec/#/rspec/S5728/javascript)
+   */
+  'sonarjs/S5728': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Allowing mixed-content is security-sensitive.
+   * @see [S5730](https://sonarsource.github.io/rspec/#/rspec/S5730/javascript)
+   */
+  'sonarjs/S5730': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling content security policy frame-ancestors directive is security-sensitive.
+   * @see [S5732](https://sonarsource.github.io/rspec/#/rspec/S5732/javascript)
+   */
+  'sonarjs/S5732': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Allowing browsers to sniff MIME types is security-sensitive.
+   * @see [S5734](https://sonarsource.github.io/rspec/#/rspec/S5734/javascript)
+   */
+  'sonarjs/S5734': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling strict HTTP no-referrer policy is security-sensitive.
+   * @see [S5736](https://sonarsource.github.io/rspec/#/rspec/S5736/javascript)
+   */
+  'sonarjs/S5736': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling Strict-Transport-Security policy is security-sensitive.
+   * @see [S5739](https://sonarsource.github.io/rspec/#/rspec/S5739/javascript)
+   */
+  'sonarjs/S5739': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling Certificate Transparency monitoring is security-sensitive.
+   * @see [S5742](https://sonarsource.github.io/rspec/#/rspec/S5742/javascript)
+   */
+  'sonarjs/S5742': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Allowing browsers to perform DNS prefetching is security-sensitive.
+   * @deprecated
+   * @see [S5743](https://sonarsource.github.io/rspec/#/rspec/S5743/javascript)
+   */
+  'sonarjs/S5743': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Allowing confidential information to be logged is security-sensitive.
+   * @see [S5757](https://sonarsource.github.io/rspec/#/rspec/S5757/javascript)
+   */
+  'sonarjs/S5757': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Forwarding client IP address is security-sensitive.
+   * @see [S5759](https://sonarsource.github.io/rspec/#/rspec/S5759/javascript)
+   */
+  'sonarjs/S5759': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Repeated patterns in regular expressions should not match the empty string.
+   * @see [S5842](https://sonarsource.github.io/rspec/#/rspec/S5842/javascript)
+   */
+  'sonarjs/S5842': null;
+
+  /**
+   * Regular expressions should not be too complicated.
+   * @see [S5843](https://sonarsource.github.io/rspec/#/rspec/S5843/javascript)
+   */
+  'sonarjs/S5843': S5843Option;
+
+  /**
+   * Alternatives in regular expressions should be grouped when used with anchors.
+   * @see [S5850](https://sonarsource.github.io/rspec/#/rspec/S5850/javascript)
+   */
+  'sonarjs/S5850': null;
+
+  /**
+   * Using slow regular expressions is security-sensitive.
+   * @see [S5852](https://sonarsource.github.io/rspec/#/rspec/S5852/javascript)
+   */
+  'sonarjs/S5852': null;
+
+  /**
+   * Regular expressions should be syntactically valid.
+   * @see [S5856](https://sonarsource.github.io/rspec/#/rspec/S5856/javascript)
+   */
+  'sonarjs/S5856': null;
+
+  /**
+   * Names of regular expressions named groups should be used.
+   * @see [S5860](https://sonarsource.github.io/rspec/#/rspec/S5860/javascript)
+   */
+  'sonarjs/S5860': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Assertions should not be given twice the same argument.
+   * @see [S5863](https://sonarsource.github.io/rspec/#/rspec/S5863/javascript)
+   */
+  'sonarjs/S5863': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Regular expressions using Unicode character classes or property escapes should enable the unicode flag.
+   * @see [S5867](https://sonarsource.github.io/rspec/#/rspec/S5867/javascript)
+   */
+  'sonarjs/S5867': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Unicode Grapheme Clusters should be avoided inside regex character classes.
+   * @see [S5868](https://sonarsource.github.io/rspec/#/rspec/S5868/javascript)
+   */
+  'sonarjs/S5868': null;
+
+  /**
+   * Character classes in regular expressions should not contain the same character twice.
+   * @see [S5869](https://sonarsource.github.io/rspec/#/rspec/S5869/javascript)
+   */
+  'sonarjs/S5869': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * A new session should be created during user authentication.
+   * @see [S5876](https://sonarsource.github.io/rspec/#/rspec/S5876/javascript)
+   */
+  'sonarjs/S5876': null;
+
+  /**
+   * Tests should check which exception is thrown.
+   * @see [S5958](https://sonarsource.github.io/rspec/#/rspec/S5958/javascript)
+   */
+  'sonarjs/S5958': null;
+
+  /**
+   * Tests should be stable.
+   * @see [S5973](https://sonarsource.github.io/rspec/#/rspec/S5973/javascript)
+   */
+  'sonarjs/S5973': null;
+
+  /**
+   * Reluctant quantifiers in regular expressions should be followed by an expression that can't match the empty string.
+   * @see [S6019](https://sonarsource.github.io/rspec/#/rspec/S6019/javascript)
+   */
+  'sonarjs/S6019': null;
+
+  /**
+   * Single-character alternations in regular expressions should be replaced with character classes.
+   * @see [S6035](https://sonarsource.github.io/rspec/#/rspec/S6035/javascript)
+   */
+  'sonarjs/S6035': null;
+
+  /**
+   * Tests should not execute any code after "done()" is called.
+   * @see [S6079](https://sonarsource.github.io/rspec/#/rspec/S6079/javascript)
+   */
+  'sonarjs/S6079': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling Mocha timeouts should be explicit.
+   * @see [S6080](https://sonarsource.github.io/rspec/#/rspec/S6080/javascript)
+   */
+  'sonarjs/S6080': null;
+
+  /**
+   * Chai assertions should have only one reason to succeed.
+   * @see [S6092](https://sonarsource.github.io/rspec/#/rspec/S6092/javascript)
+   */
+  'sonarjs/S6092': null;
+
+  /**
+   * Disabling server-side encryption of S3 buckets is security-sensitive.
+   * @deprecated
+   * @see [S6245](https://sonarsource.github.io/rspec/#/rspec/S6245/javascript)
+   */
+  'sonarjs/S6245': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Authorizing HTTP communications with S3 buckets is security-sensitive.
+   * @see [S6249](https://sonarsource.github.io/rspec/#/rspec/S6249/javascript)
+   */
+  'sonarjs/S6249': null;
+
+  /**
+   * Disabling versioning of S3 buckets is security-sensitive.
+   * @see [S6252](https://sonarsource.github.io/rspec/#/rspec/S6252/javascript)
+   */
+  'sonarjs/S6252': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Granting access to S3 buckets to all or authenticated users is security-sensitive.
+   * @see [S6265](https://sonarsource.github.io/rspec/#/rspec/S6265/javascript)
+   */
+  'sonarjs/S6265': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling Angular built-in sanitization is security-sensitive.
+   * @see [S6268](https://sonarsource.github.io/rspec/#/rspec/S6268/javascript)
+   */
+  'sonarjs/S6268': null;
+
+  /**
+   * Policies authorizing public access to resources are security-sensitive.
+   * @see [S6270](https://sonarsource.github.io/rspec/#/rspec/S6270/javascript)
+   */
+  'sonarjs/S6270': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using unencrypted EBS volumes is security-sensitive.
+   * @see [S6275](https://sonarsource.github.io/rspec/#/rspec/S6275/javascript)
+   */
+  'sonarjs/S6275': null;
+
+  /**
+   * Allowing public ACLs or policies on a S3 bucket is security-sensitive.
+   * @see [S6281](https://sonarsource.github.io/rspec/#/rspec/S6281/javascript)
+   */
+  'sonarjs/S6281': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling Vue.js built-in escaping is security-sensitive.
+   * @see [S6299](https://sonarsource.github.io/rspec/#/rspec/S6299/javascript)
+   */
+  'sonarjs/S6299': null;
+
+  /**
+   * Policies granting all privileges are security-sensitive.
+   * @see [S6302](https://sonarsource.github.io/rspec/#/rspec/S6302/javascript)
+   */
+  'sonarjs/S6302': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using unencrypted RDS DB resources is security-sensitive.
+   * @see [S6303](https://sonarsource.github.io/rspec/#/rspec/S6303/javascript)
+   */
+  'sonarjs/S6303': null;
+
+  /**
+   * Policies granting access to all resources of an account are security-sensitive.
+   * @see [S6304](https://sonarsource.github.io/rspec/#/rspec/S6304/javascript)
+   */
+  'sonarjs/S6304': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using unencrypted Elasticsearch domains is security-sensitive.
+   * @see [S6308](https://sonarsource.github.io/rspec/#/rspec/S6308/javascript)
+   */
+  'sonarjs/S6308': null;
+
+  /**
+   * AWS IAM policies should limit the scope of permissions given.
+   * @see [S6317](https://sonarsource.github.io/rspec/#/rspec/S6317/javascript)
+   */
+  'sonarjs/S6317': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using unencrypted SageMaker notebook instances is security-sensitive.
+   * @see [S6319](https://sonarsource.github.io/rspec/#/rspec/S6319/javascript)
+   */
+  'sonarjs/S6319': null;
+
+  /**
+   * Administration services access should be restricted to specific IP addresses.
+   * @see [S6321](https://sonarsource.github.io/rspec/#/rspec/S6321/javascript)
+   */
+  'sonarjs/S6321': null;
+
+  /**
+   * Alternation in regular expressions should not contain empty alternatives.
+   * @see [S6323](https://sonarsource.github.io/rspec/#/rspec/S6323/javascript)
+   */
+  'sonarjs/S6323': null;
+
+  /**
+   * Regular expressions should not contain control characters.
+   * @see [S6324](https://sonarsource.github.io/rspec/#/rspec/S6324/javascript)
+   */
+  'sonarjs/S6324': null;
+
+  /**
+   * Disallow use of the `RegExp` constructor in favor of regular expression literals.
+   * @see [S6325](https://eslint.org/docs/latest/rules/prefer-regex-literals)
+   */
+  'sonarjs/S6325': [
+    {
+      disallowRedundantWrapping?: boolean;
+    }?,
+  ];
+
+  /**
+   * Regular expressions should not contain multiple spaces.
+   * @see [S6326](https://sonarsource.github.io/rspec/#/rspec/S6326/javascript)
+   */
+  'sonarjs/S6326': null;
+
+  /**
+   * Using unencrypted SNS topics is security-sensitive.
+   * @see [S6327](https://sonarsource.github.io/rspec/#/rspec/S6327/javascript)
+   */
+  'sonarjs/S6327': null;
+
+  /**
+   * Replacement strings should reference existing regular expression groups.
+   * @see [S6328](https://sonarsource.github.io/rspec/#/rspec/S6328/javascript)
+   */
+  'sonarjs/S6328': null;
+
+  /**
+   * Allowing public network access to cloud resources is security-sensitive.
+   * @see [S6329](https://sonarsource.github.io/rspec/#/rspec/S6329/javascript)
+   */
+  'sonarjs/S6329': null;
+
+  /**
+   * Using unencrypted SQS queues is security-sensitive.
+   * @see [S6330](https://sonarsource.github.io/rspec/#/rspec/S6330/javascript)
+   */
+  'sonarjs/S6330': null;
+
+  /**
+   * Regular expressions should not contain empty groups.
+   * @see [S6331](https://sonarsource.github.io/rspec/#/rspec/S6331/javascript)
+   */
+  'sonarjs/S6331': null;
+
+  /**
+   * Using unencrypted EFS file systems is security-sensitive.
+   * @see [S6332](https://sonarsource.github.io/rspec/#/rspec/S6332/javascript)
+   */
+  'sonarjs/S6332': null;
+
+  /**
+   * Creating public APIs is security-sensitive.
+   * @see [S6333](https://sonarsource.github.io/rspec/#/rspec/S6333/javascript)
+   */
+  'sonarjs/S6333': null;
+
+  /**
+   * Regular expressions with the global flag should be used with caution.
+   * @see [S6351](https://sonarsource.github.io/rspec/#/rspec/S6351/javascript)
+   */
+  'sonarjs/S6351': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Regular expression quantifiers and character classes should be used concisely.
+   * @see [S6353](https://sonarsource.github.io/rspec/#/rspec/S6353/javascript)
+   */
+  'sonarjs/S6353': null;
+
+  /**
+   * Character classes in regular expressions should not contain only one character.
+   * @see [S6397](https://sonarsource.github.io/rspec/#/rspec/S6397/javascript)
+   */
+  'sonarjs/S6397': null;
+
+  /**
+   * Exclusive tests should not be commited to version control.
+   * @see [S6426](https://sonarsource.github.io/rspec/#/rspec/S6426/javascript)
+   */
+  'sonarjs/S6426': null;
+
+  /**
+   * Enforce ES5 or ES6 class for returning value in render function.
+   * @see [S6435](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/require-render-return.md)
+   */
+  'sonarjs/S6435': null;
+
+  /**
+   * Disallow comments from being inserted as text nodes.
+   * @see [S6438](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-no-comment-textnodes.md)
+   */
+  'sonarjs/S6438': null;
+
+  /**
+   * React components should not render non-boolean condition values.
+   * @see [S6439](https://sonarsource.github.io/rspec/#/rspec/S6439/javascript)
+   */
+  'sonarjs/S6439': null;
+
+  /**
+   * React Hooks should be properly called.
+   * @see [S6440](https://sonarsource.github.io/rspec/#/rspec/S6440/javascript)
+   */
+  'sonarjs/S6440': null;
+
+  /**
+   * Unused methods of React components should be removed.
+   * @see [S6441](https://sonarsource.github.io/rspec/#/rspec/S6441/javascript)
+   */
+  'sonarjs/S6441': null;
+
+  /**
+   * React's useState hook should not be used directly in the render function or body of a component.
+   * @see [S6442](https://sonarsource.github.io/rspec/#/rspec/S6442/javascript)
+   */
+  'sonarjs/S6442': null;
+
+  /**
+   * React state setter function should not be called with its matching state variable.
+   * @see [S6443](https://sonarsource.github.io/rspec/#/rspec/S6443/javascript)
+   */
+  'sonarjs/S6443': null;
+
+  /**
+   * JSX list components should have a key property.
+   * @see [S6477](https://sonarsource.github.io/rspec/#/rspec/S6477/javascript)
+   */
+  'sonarjs/S6477': [
+    {
+      checkFragmentShorthand?: boolean;
+      checkKeyMustBeforeSpread?: boolean;
+      warnOnDuplicates?: boolean;
+    }?,
+  ];
+
+  /**
+   * React components should not be nested.
+   * @see [S6478](https://sonarsource.github.io/rspec/#/rspec/S6478/javascript)
+   */
+  'sonarjs/S6478': [
+    {
+      customValidators?: string[];
+      allowAsProps?: boolean;
+    }?,
+  ];
+
+  /**
+   * JSX list components should not use array indexes as key.
+   * @see [S6479](https://sonarsource.github.io/rspec/#/rspec/S6479/javascript)
+   */
+  'sonarjs/S6479': null;
+
+  /**
+   * Disallow `.bind()` or arrow functions in JSX props.
+   * @see [S6480](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-no-bind.md)
+   */
+  'sonarjs/S6480': [
+    {
+      allowArrowFunctions?: boolean;
+      allowBind?: boolean;
+      allowFunctions?: boolean;
+      ignoreRefs?: boolean;
+      ignoreDOMComponents?: boolean;
+    }?,
+  ];
+
+  /**
+   * React Context Provider values should have stable identities.
+   * @see [S6481](https://sonarsource.github.io/rspec/#/rspec/S6481/javascript)
+   */
+  'sonarjs/S6481': null;
+
+  /**
+   * JSX list components keys should match up between renders.
+   * @see [S6486](https://sonarsource.github.io/rspec/#/rspec/S6486/javascript)
+   */
+  'sonarjs/S6486': null;
+
+  /**
+   * Disallow unnecessary boolean casts.
+   * @see [S6509](https://eslint.org/docs/latest/rules/no-extra-boolean-cast)
+   */
+  'sonarjs/S6509': [
+    {
+      enforceForLogicalOperands?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow assigning to imported bindings.
+   * @see [S6522](https://eslint.org/docs/latest/rules/no-import-assign)
+   */
+  'sonarjs/S6522': null;
+
+  /**
+   * Disallow use of optional chaining in contexts where the `undefined` value is not allowed.
+   * @see [S6523](https://eslint.org/docs/latest/rules/no-unsafe-optional-chaining)
+   */
+  'sonarjs/S6523': [
+    {
+      disallowArithmeticOperators?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow literal numbers that lose precision.
+   * @see [S6534](https://eslint.org/docs/latest/rules/no-loss-of-precision)
+   */
+  'sonarjs/S6534': null;
+
+  /**
+   * Unnecessary character escapes should be removed.
+   * @see [S6535](https://sonarsource.github.io/rspec/#/rspec/S6535/javascript)
+   */
+  'sonarjs/S6535': null;
+
+  /**
+   * Promises should not be misused.
+   * @see [S6544](https://sonarsource.github.io/rspec/#/rspec/S6544/javascript)
+   */
+  'sonarjs/S6544': [S6544Option?];
+
+  /**
+   * Require all enum members to be literal values.
+   * @see [S6550](https://typescript-eslint.io/rules/prefer-literal-enum-member)
+   */
+  'sonarjs/S6550': [
+    {
+      allowBitwiseExpressions?: boolean;
+    }?,
+  ];
+
+  /**
+   * Objects and classes converted or coerced to strings should define a "toString()" method.
+   * @see [S6551](https://sonarsource.github.io/rspec/#/rspec/S6551/javascript)
+   */
+  'sonarjs/S6551': [
+    {
+      ignoredTypeNames?: string[];
+    }?,
+  ];
+
+  /**
+   * Ends of strings should be checked with "startsWith()" and "endsWith()".
+   * @see [S6557](https://sonarsource.github.io/rspec/#/rspec/S6557/javascript)
+   */
+  'sonarjs/S6557': [S6557Option?];
+
+  /**
+   * Redundant type aliases should not be used.
+   * @see [S6564](https://sonarsource.github.io/rspec/#/rspec/S6564/javascript)
+   */
+  'sonarjs/S6564': null;
+
+  /**
+   * Enforce that `this` is used when only `this` type is returned.
+   * @see [S6565](https://typescript-eslint.io/rules/prefer-return-this-type)
+   */
+  'sonarjs/S6565': null;
+
+  /**
+   * Disallow non-null assertion in locations that may be confusing.
+   * @see [S6568](https://typescript-eslint.io/rules/no-confusing-non-null-assertion)
+   */
+  'sonarjs/S6568': null;
+
+  /**
+   * Disallow unnecessary constraints on generic types.
+   * @see [S6569](https://typescript-eslint.io/rules/no-unnecessary-type-constraint)
+   */
+  'sonarjs/S6569': null;
+
+  /**
+   * Type constituents of unions and intersections should not be redundant.
+   * @see [S6571](https://sonarsource.github.io/rspec/#/rspec/S6571/javascript)
+   */
+  'sonarjs/S6571': null;
+
+  /**
+   * Enum member values should be either all initialized or none.
+   * @see [S6572](https://sonarsource.github.io/rspec/#/rspec/S6572/javascript)
+   */
+  'sonarjs/S6572': null;
+
+  /**
+   * Disallow duplicate enum member values.
+   * @see [S6578](https://typescript-eslint.io/rules/no-duplicate-enum-values)
+   */
+  'sonarjs/S6578': null;
+
+  /**
+   * Optional chaining should be preferred.
+   * @see [S6582](https://sonarsource.github.io/rspec/#/rspec/S6582/javascript)
+   */
+  'sonarjs/S6582': [S6582Option?];
+
+  /**
+   * Disallow enums from having both number and string members.
+   * @see [S6583](https://typescript-eslint.io/rules/no-mixed-enums)
+   */
+  'sonarjs/S6583': null;
+
+  /**
+   * Enforce the use of `as const` over literal type.
+   * @see [S6590](https://typescript-eslint.io/rules/prefer-as-const)
+   */
+  'sonarjs/S6590': null;
+
+  /**
+   * "RegExp.exec()" should be preferred over "String.match()".
+   * @see [S6594](https://sonarsource.github.io/rspec/#/rspec/S6594/javascript)
+   */
+  'sonarjs/S6594': null;
+
+  /**
+   * Function types should be preferred.
+   * @see [S6598](https://sonarsource.github.io/rspec/#/rspec/S6598/javascript)
+   */
+  'sonarjs/S6598': null;
+
+  /**
+   * Nullish coalescing should be preferred.
+   * @see [S6606](https://sonarsource.github.io/rspec/#/rspec/S6606/javascript)
+   */
+  'sonarjs/S6606': [S6606Option?];
+
+  /**
+   * Disallow returning value from constructor.
+   * @see [S6635](https://eslint.org/docs/latest/rules/no-constructor-return)
+   */
+  'sonarjs/S6635': S6635Option;
+
+  /**
+   * Disallow unnecessary calls to `.bind()`.
+   * @see [S6637](https://eslint.org/docs/latest/rules/no-extra-bind)
+   */
+  'sonarjs/S6637': null;
+
+  /**
+   * Disallow expressions where the operation doesn't affect the value.
+   * @see [S6638](https://eslint.org/docs/latest/rules/no-constant-binary-expression)
+   */
+  'sonarjs/S6638': null;
+
+  /**
+   * Prototypes of builtin objects should not be modified.
+   * @see [S6643](https://sonarsource.github.io/rspec/#/rspec/S6643/javascript)
+   */
+  'sonarjs/S6643': [
+    {
+      exceptions?: string[];
+    }?,
+  ];
+
+  /**
+   * Disallow ternary operators when simpler alternatives exist.
+   * @see [S6644](https://eslint.org/docs/latest/rules/no-unneeded-ternary)
+   */
+  'sonarjs/S6644': [
+    {
+      defaultAssignment?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow initializing variables to `undefined`.
+   * @see [S6645](https://eslint.org/docs/latest/rules/no-undef-init)
+   */
+  'sonarjs/S6645': null;
+
+  /**
+   * Unnecessary constructors should be removed.
+   * @see [S6647](https://sonarsource.github.io/rspec/#/rspec/S6647/javascript)
+   */
+  'sonarjs/S6647': null;
+
+  /**
+   * Disallow renaming import, export, and destructured assignments to the same name.
+   * @see [S6650](https://eslint.org/docs/latest/rules/no-useless-rename)
+   */
+  'sonarjs/S6650': [
+    {
+      ignoreDestructuring?: boolean;
+      ignoreImport?: boolean;
+      ignoreExport?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn()`.
+   * @see [S6653](https://eslint.org/docs/latest/rules/prefer-object-has-own)
+   */
+  'sonarjs/S6653': null;
+
+  /**
+   * Disallow the use of the `__proto__` property.
+   * @see [S6654](https://eslint.org/docs/latest/rules/no-proto)
+   */
+  'sonarjs/S6654': null;
+
+  /**
+   * Disallow octal escape sequences in string literals.
+   * @see [S6657](https://eslint.org/docs/latest/rules/no-octal-escape)
+   */
+  'sonarjs/S6657': null;
+
+  /**
+   * If statements should not be the only statement in else blocks.
+   * @see [S6660](https://sonarsource.github.io/rspec/#/rspec/S6660/javascript)
+   */
+  'sonarjs/S6660': null;
+
+  /**
+   * Object spread syntax should be used instead of "Object.assign".
+   * @see [S6661](https://sonarsource.github.io/rspec/#/rspec/S6661/javascript)
+   */
+  'sonarjs/S6661': null;
+
+  /**
+   * Spread syntax should be used instead of "apply()".
+   * @see [S6666](https://sonarsource.github.io/rspec/#/rspec/S6666/javascript)
+   */
+  'sonarjs/S6666': null;
+
+  /**
+   * Require using Error objects as Promise rejection reasons.
+   * @see [S6671](https://typescript-eslint.io/rules/prefer-promise-reject-errors)
+   */
+  'sonarjs/S6671': [
+    {
+      allowEmptyReject?: boolean;
+    }?,
+  ];
+
+  /**
+   * Calls to ".call()" and ".apply()" methods should not be redundant.
+   * @see [S6676](https://sonarsource.github.io/rspec/#/rspec/S6676/javascript)
+   */
+  'sonarjs/S6676': null;
+
+  /**
+   * "Number.isNaN()" should be used to check for "NaN" value.
+   * @see [S6679](https://sonarsource.github.io/rspec/#/rspec/S6679/javascript)
+   */
+  'sonarjs/S6679': null;
+
+  /**
+   * Disallow direct mutation of this.state.
+   * @see [S6746](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-direct-mutation-state.md)
+   */
+  'sonarjs/S6746': null;
+
+  /**
+   * JSX elements should not use unknown properties and attributes.
+   * @see [S6747](https://sonarsource.github.io/rspec/#/rspec/S6747/javascript)
+   */
+  'sonarjs/S6747': [S6747Option?];
+
+  /**
+   * Disallow passing of children as props.
+   * @see [S6748](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-children-prop.md)
+   */
+  'sonarjs/S6748': [
+    {
+      allowFunctions?: boolean;
+    }?,
+  ];
+
+  /**
+   * Redundant React fragments should be removed.
+   * @see [S6749](https://sonarsource.github.io/rspec/#/rspec/S6749/javascript)
+   */
+  'sonarjs/S6749': [S6749Option?];
+
+  /**
+   * Disallow usage of the return value of ReactDOM.render.
+   * @see [S6750](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-render-return-value.md)
+   */
+  'sonarjs/S6750': null;
+
+  /**
+   * The return value of "useState" should be destructured and named symmetrically.
+   * @see [S6754](https://sonarsource.github.io/rspec/#/rspec/S6754/javascript)
+   */
+  'sonarjs/S6754': [
+    {
+      allowDestructuredState?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow when this.state is accessed within setState.
+   * @see [S6756](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-access-state-in-setstate.md)
+   */
+  'sonarjs/S6756': null;
+
+  /**
+   * Disallow `this` from being used in stateless functional components.
+   * @see [S6757](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-this-in-sfc.md)
+   */
+  'sonarjs/S6757': null;
+
+  /**
+   * React props should be read-only.
+   * @see [S6759](https://sonarsource.github.io/rspec/#/rspec/S6759/javascript)
+   */
+  'sonarjs/S6759': null;
+
+  /**
+   * Disallow when a DOM element is using both children and dangerouslySetInnerHTML.
+   * @see [S6761](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-danger-with-children.md)
+   */
+  'sonarjs/S6761': null;
+
+  /**
+   * Disallow usage of shouldComponentUpdate when extending React.PureComponent.
+   * @see [S6763](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-redundant-should-component-update.md)
+   */
+  'sonarjs/S6763': null;
+
+  /**
+   * Disallow unescaped HTML entities from appearing in markup.
+   * @see [S6766](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-unescaped-entities.md)
+   */
+  'sonarjs/S6766': [S6766Option?];
+
+  /**
+   * Disallow definitions of unused propTypes.
+   * @see [S6767](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-unused-prop-types.md)
+   */
+  'sonarjs/S6767': [
+    {
+      ignore?: string[];
+      customValidators?: string[];
+      skipShapeProps?: boolean;
+    }?,
+  ];
+
+  /**
+   * Enforce PascalCase for user-defined JSX components.
+   * @see [S6770](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-pascal-case.md)
+   */
+  'sonarjs/S6770': [S6770Option?];
+
+  /**
+   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
+   * @see [S6772](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-child-element-spacing.md)
+   */
+  'sonarjs/S6772': null;
+
+  /**
+   * Disallow missing props validation in a React component definition.
+   * @see [S6774](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/prop-types.md)
+   */
+  'sonarjs/S6774': [
+    {
+      ignore?: string[];
+      customValidators?: string[];
+      skipUndeclared?: boolean;
+    }?,
+  ];
+
+  /**
+   * Enforce all defaultProps have a corresponding non-required PropType.
+   * @see [S6775](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/default-props-match-prop-types.md)
+   */
+  'sonarjs/S6775': [
+    {
+      allowRequiredDefaults?: boolean;
+    }?,
+  ];
+
+  /**
+   * React's "findDOMNode" should not be used.
+   * @see [S6788](https://sonarsource.github.io/rspec/#/rspec/S6788/javascript)
+   */
+  'sonarjs/S6788': null;
+
+  /**
+   * Disallow usage of isMounted.
+   * @see [S6789](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-is-mounted.md)
+   */
+  'sonarjs/S6789': null;
+
+  /**
+   * Disallow using string references.
+   * @see [S6790](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/no-string-refs.md)
+   */
+  'sonarjs/S6790': [
+    {
+      noTemplateLiterals?: boolean;
+    }?,
+  ];
+
+  /**
+   * React legacy lifecycle methods should not be used.
+   * @see [S6791](https://sonarsource.github.io/rspec/#/rspec/S6791/javascript)
+   */
+  'sonarjs/S6791': [
+    {
+      checkAliases?: boolean;
+    }?,
+  ];
+
+  /**
+   * Enforce ARIA state and property values are valid.
+   * @see [S6793](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-proptypes.md)
+   */
+  'sonarjs/S6793': [S6793Option?];
+
+  /**
+   * Enforce that elements with ARIA roles must have all required attributes for that role.
+   * @see [S6807](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/role-has-required-aria-props.md)
+   */
+  'sonarjs/S6807': [S6807Option?];
+
+  /**
+   * Enforce that elements with explicit or implicit roles defined contain only `aria-*` properties supported by that `role`.
+   * @see [S6811](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/role-supports-aria-props.md)
+   */
+  'sonarjs/S6811': [S6811Option?];
+
+  /**
+   * Enforces using semantic DOM elements over the ARIA `role` property.
+   * @see [S6819](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/prefer-tag-over-role.md)
+   */
+  'sonarjs/S6819': [S6819Option?];
+
+  /**
+   * Enforce that elements with ARIA roles must use a valid, non-abstract ARIA role.
+   * @see [S6821](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-role.md)
+   */
+  'sonarjs/S6821': [S6821Option?];
+
+  /**
+   * Enforce explicit role property is not the same as implicit/default role property on element.
+   * @see [S6822](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-redundant-roles.md)
+   */
+  'sonarjs/S6822': [S6822Option?];
+
+  /**
+   * Enforce elements with aria-activedescendant are tabbable.
+   * @see [S6823](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-activedescendant-has-tabindex.md)
+   */
+  'sonarjs/S6823': [S6823Option?];
+
+  /**
+   * Enforce that elements that do not support ARIA roles, states, and properties do not have those attributes.
+   * @see [S6824](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-unsupported-elements.md)
+   */
+  'sonarjs/S6824': [S6824Option?];
+
+  /**
+   * Disallow `aria-hidden="true"` from being set on focusable elements.
+   * @see [S6825](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-aria-hidden-on-focusable.md)
+   */
+  'sonarjs/S6825': [S6825Option?];
+
+  /**
+   * Anchors should contain accessible content.
+   * @see [S6827](https://sonarsource.github.io/rspec/#/rspec/S6827/javascript)
+   */
+  'sonarjs/S6827': [S6827Option?];
+
+  /**
+   * Disallow lexical declarations in case clauses.
+   * @see [S6836](https://eslint.org/docs/latest/rules/no-case-declarations)
+   */
+  'sonarjs/S6836': null;
+
+  /**
+   * Enforce that autocomplete attributes are used correctly.
+   * @see [S6840](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/autocomplete-valid.md)
+   */
+  'sonarjs/S6840': [S6840Option?];
+
+  /**
+   * Enforce `tabIndex` value is not greater than zero.
+   * @see [S6841](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/tabindex-no-positive.md)
+   */
+  'sonarjs/S6841': [S6841Option?];
+
+  /**
+   * Non-interactive elements should not be assigned interactive roles.
+   * @see [S6842](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-noninteractive-element-to-interactive-role.md)
+   */
+  'sonarjs/S6842': [S6842Option?];
+
+  /**
+   * Interactive elements should not be assigned non-interactive roles.
+   * @see [S6843](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-interactive-element-to-noninteractive-role.md)
+   */
+  'sonarjs/S6843': [S6843Option?];
+
+  /**
+   * Anchor tags should not be used as buttons.
+   * @see [S6844](https://sonarsource.github.io/rspec/#/rspec/S6844/javascript)
+   */
+  'sonarjs/S6844': [S6844Option?];
+
+  /**
+   * `tabIndex` should only be declared on interactive elements.
+   * @see [S6845](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-noninteractive-tabindex.md)
+   */
+  'sonarjs/S6845': [S6845Option?];
+
+  /**
+   * Enforce that the `accessKey` prop is not used on any element to avoid complications with keyboard commands used by a screenreader.
+   * @see [S6846](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-access-key.md)
+   */
+  'sonarjs/S6846': [S6846Option?];
+
+  /**
+   * Non-interactive elements should not be assigned mouse or keyboard event listeners.
+   * @see [S6847](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-noninteractive-element-interactions.md)
+   */
+  'sonarjs/S6847': [S6847Option?];
+
+  /**
+   * Enforce that non-interactive, visible elements (such as `<div>`) that have click handlers use the role attribute.
+   * @see [S6848](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-static-element-interactions.md)
+   */
+  'sonarjs/S6848': [S6848Option?];
+
+  /**
+   * Enforce heading (`h1`, `h2`, etc) elements contain accessible content.
+   * @see [S6850](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/heading-has-content.md)
+   */
+  'sonarjs/S6850': [S6850Option?];
+
+  /**
+   * Enforce `<img>` alt prop does not contain the word "image", "picture", or "photo".
+   * @see [S6851](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/img-redundant-alt.md)
+   */
+  'sonarjs/S6851': [S6851Option?];
+
+  /**
+   * Enforce that elements with interactive handlers like `onClick` must be focusable.
+   * @see [S6852](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/interactive-supports-focus.md)
+   */
+  'sonarjs/S6852': [S6852Option?];
+
+  /**
+   * Label elements should have a text label and an associated control.
+   * @see [S6853](https://sonarsource.github.io/rspec/#/rspec/S6853/javascript)
+   */
+  'sonarjs/S6853': [S6853Option?];
+
+  /**
+   * Forbid import of modules using absolute paths.
+   * @see [S6859](https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-absolute-path.md)
+   */
+  'sonarjs/S6859': [S6859Option?];
+
+  /**
+   * Forbid the use of mutable exports with `var` or `let`.
+   * @see [S6861](https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-mutable-exports.md)
+   */
+  'sonarjs/S6861': null;
+
+  /**
+   * Deprecated React APIs should not be used.
+   * @see [S6957](https://sonarsource.github.io/rspec/#/rspec/S6957/javascript)
+   */
+  'sonarjs/S6957': S6957Option;
+
+  /**
+   * Literals should not be used as functions.
+   * @see [S6958](https://sonarsource.github.io/rspec/#/rspec/S6958/javascript)
+   */
+  'sonarjs/S6958': null;
+
+  /**
+   * "Array.reduce()" calls should include an initial value.
+   * @see [S6959](https://sonarsource.github.io/rspec/#/rspec/S6959/javascript)
+   */
+  'sonarjs/S6959': null;
+
+  /**
+   * Disallow comma operators.
+   * @see [S878](https://eslint.org/docs/latest/rules/no-sequences)
+   */
+  'sonarjs/S878': [
+    {
+      allowInParentheses?: boolean;
+    }?,
+  ];
+
+  /**
+   * Increment (++) and decrement (--) operators should not be used in a method call or mixed with other operators in an expression.
+   * @see [S881](https://sonarsource.github.io/rspec/#/rspec/S881/javascript)
+   */
+  'sonarjs/S881': null;
+
+  /**
+   * Equality operators should not be used in "for" loop termination conditions.
+   * @see [S888](https://sonarsource.github.io/rspec/#/rspec/S888/javascript)
+   */
+  'sonarjs/S888': null;
+
+  /**
+   * Non-empty statements should change control flow or have at least one side-effect.
+   * @see [S905](https://sonarsource.github.io/rspec/#/rspec/S905/javascript)
+   */
+  'sonarjs/S905': [
+    {
+      allowShortCircuit?: boolean;
+      allowTernary?: boolean;
+      allowTaggedTemplates?: boolean;
+      enforceForJSX?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow `continue` statements.
+   * @see [S909](https://eslint.org/docs/latest/rules/no-continue)
+   */
+  'sonarjs/S909': null;
+
+  /**
+   * Function calls should not pass extra arguments.
+   * @see [S930](https://sonarsource.github.io/rspec/#/rspec/S930/javascript)
+   */
+  'sonarjs/S930': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Property getters and setters should come in pairs.
+   * @see [accessor-pairs](https://sonarsource.github.io/rspec/#/rspec/S2376/javascript)
+   */
+  'sonarjs/accessor-pairs': [
+    {
+      getWithoutSet?: boolean;
+      setWithoutGet?: boolean;
+      enforceForClassMembers?: boolean;
+    }?,
+  ];
+
+  /**
+   * Image, area, button with image and object elements should have an alternative text.
+   * @see [alt-text](https://sonarsource.github.io/rspec/#/rspec/S1077/javascript)
+   */
+  'sonarjs/alt-text': [AltTextOption?];
+
+  /**
+   * Anchors should contain accessible content.
+   * @see [anchor-has-content](https://sonarsource.github.io/rspec/#/rspec/S6827/javascript)
+   */
+  'sonarjs/anchor-has-content': [AnchorHasContentOption?];
+
+  /**
+   * Anchor tags should not be used as buttons.
+   * @see [anchor-is-valid](https://sonarsource.github.io/rspec/#/rspec/S6844/javascript)
+   */
+  'sonarjs/anchor-is-valid': [AnchorIsValidOption?];
+
+  /**
+   * Alternatives in regular expressions should be grouped when used with anchors.
+   * @see [anchor-precedence](https://sonarsource.github.io/rspec/#/rspec/S5850/javascript)
+   */
+  'sonarjs/anchor-precedence': null;
+
+  /**
+   * Arguments to built-in functions should match documented types.
+   * @see [argument-type](https://sonarsource.github.io/rspec/#/rspec/S3782/javascript)
+   */
+  'sonarjs/argument-type': null;
+
+  /**
+   * Parameters should be passed in the correct order.
+   * @see [arguments-order](https://sonarsource.github.io/rspec/#/rspec/S2234/javascript)
+   */
+  'sonarjs/arguments-order': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "arguments" should not be accessed directly.
+   * @see [arguments-usage](https://sonarsource.github.io/rspec/#/rspec/S3513/javascript)
+   */
+  'sonarjs/arguments-usage': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Callbacks of array methods should have return statements.
+   * @see [array-callback-without-return](https://sonarsource.github.io/rspec/#/rspec/S3796/javascript)
+   */
+  'sonarjs/array-callback-without-return': null;
+
+  /**
+   * Array constructors should not be used.
+   * @see [array-constructor](https://sonarsource.github.io/rspec/#/rspec/S1528/javascript)
+   */
+  'sonarjs/array-constructor': null;
+
+  /**
+   * Braces and parentheses should be used consistently with arrow functions.
+   * @see [arrow-function-convention](https://sonarsource.github.io/rspec/#/rspec/S3524/javascript)
+   */
+  'sonarjs/arrow-function-convention': ArrowFunctionConventionOption;
+
+  /**
+   * Tests should include assertions.
+   * @see [assertions-in-tests](https://sonarsource.github.io/rspec/#/rspec/S2699/javascript)
+   */
+  'sonarjs/assertions-in-tests': null;
+
+  /**
+   * Creating public APIs is security-sensitive.
+   * @see [aws-apigateway-public-api](https://sonarsource.github.io/rspec/#/rspec/S6333/javascript)
+   */
+  'sonarjs/aws-apigateway-public-api': null;
+
+  /**
+   * Allowing public network access to cloud resources is security-sensitive.
+   * @see [aws-ec2-rds-dms-public](https://sonarsource.github.io/rspec/#/rspec/S6329/javascript)
+   */
+  'sonarjs/aws-ec2-rds-dms-public': null;
+
+  /**
+   * Using unencrypted EBS volumes is security-sensitive.
+   * @see [aws-ec2-unencrypted-ebs-volume](https://sonarsource.github.io/rspec/#/rspec/S6275/javascript)
+   */
+  'sonarjs/aws-ec2-unencrypted-ebs-volume': null;
+
+  /**
+   * Using unencrypted EFS file systems is security-sensitive.
+   * @see [aws-efs-unencrypted](https://sonarsource.github.io/rspec/#/rspec/S6332/javascript)
+   */
+  'sonarjs/aws-efs-unencrypted': null;
+
+  /**
+   * Policies granting all privileges are security-sensitive.
+   * @see [aws-iam-all-privileges](https://sonarsource.github.io/rspec/#/rspec/S6302/javascript)
+   */
+  'sonarjs/aws-iam-all-privileges': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Policies granting access to all resources of an account are security-sensitive.
+   * @see [aws-iam-all-resources-accessible](https://sonarsource.github.io/rspec/#/rspec/S6304/javascript)
+   */
+  'sonarjs/aws-iam-all-resources-accessible': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * AWS IAM policies should limit the scope of permissions given.
+   * @see [aws-iam-privilege-escalation](https://sonarsource.github.io/rspec/#/rspec/S6317/javascript)
+   */
+  'sonarjs/aws-iam-privilege-escalation': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Policies authorizing public access to resources are security-sensitive.
+   * @see [aws-iam-public-access](https://sonarsource.github.io/rspec/#/rspec/S6270/javascript)
+   */
+  'sonarjs/aws-iam-public-access': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using unencrypted Elasticsearch domains is security-sensitive.
+   * @see [aws-opensearchservice-domain](https://sonarsource.github.io/rspec/#/rspec/S6308/javascript)
+   */
+  'sonarjs/aws-opensearchservice-domain': null;
+
+  /**
+   * Using unencrypted RDS DB resources is security-sensitive.
+   * @see [aws-rds-unencrypted-databases](https://sonarsource.github.io/rspec/#/rspec/S6303/javascript)
+   */
+  'sonarjs/aws-rds-unencrypted-databases': null;
+
+  /**
+   * Administration services access should be restricted to specific IP addresses.
+   * @see [aws-restricted-ip-admin-access](https://sonarsource.github.io/rspec/#/rspec/S6321/javascript)
+   */
+  'sonarjs/aws-restricted-ip-admin-access': null;
+
+  /**
+   * Granting access to S3 buckets to all or authenticated users is security-sensitive.
+   * @see [aws-s3-bucket-granted-access](https://sonarsource.github.io/rspec/#/rspec/S6265/javascript)
+   */
+  'sonarjs/aws-s3-bucket-granted-access': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Authorizing HTTP communications with S3 buckets is security-sensitive.
+   * @see [aws-s3-bucket-insecure-http](https://sonarsource.github.io/rspec/#/rspec/S6249/javascript)
+   */
+  'sonarjs/aws-s3-bucket-insecure-http': null;
+
+  /**
+   * Allowing public ACLs or policies on a S3 bucket is security-sensitive.
+   * @see [aws-s3-bucket-public-access](https://sonarsource.github.io/rspec/#/rspec/S6281/javascript)
+   */
+  'sonarjs/aws-s3-bucket-public-access': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling server-side encryption of S3 buckets is security-sensitive.
+   * @deprecated
+   * @see [aws-s3-bucket-server-encryption](https://sonarsource.github.io/rspec/#/rspec/S6245/javascript)
+   */
+  'sonarjs/aws-s3-bucket-server-encryption': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling versioning of S3 buckets is security-sensitive.
+   * @see [aws-s3-bucket-versioning](https://sonarsource.github.io/rspec/#/rspec/S6252/javascript)
+   */
+  'sonarjs/aws-s3-bucket-versioning': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using unencrypted SageMaker notebook instances is security-sensitive.
+   * @see [aws-sagemaker-unencrypted-notebook](https://sonarsource.github.io/rspec/#/rspec/S6319/javascript)
+   */
+  'sonarjs/aws-sagemaker-unencrypted-notebook': null;
+
+  /**
+   * Using unencrypted SNS topics is security-sensitive.
+   * @see [aws-sns-unencrypted-topics](https://sonarsource.github.io/rspec/#/rspec/S6327/javascript)
+   */
+  'sonarjs/aws-sns-unencrypted-topics': null;
+
+  /**
+   * Using unencrypted SQS queues is security-sensitive.
+   * @see [aws-sqs-unencrypted-queue](https://sonarsource.github.io/rspec/#/rspec/S6330/javascript)
+   */
+  'sonarjs/aws-sqs-unencrypted-queue': null;
+
+  /**
+   * Bitwise operators should not be used in boolean contexts.
+   * @see [bitwise-operators](https://sonarsource.github.io/rspec/#/rspec/S1529/javascript)
+   */
+  'sonarjs/bitwise-operators': null;
+
+  /**
+   * Optional boolean parameters should have default value.
+   * @see [bool-param-default](https://sonarsource.github.io/rspec/#/rspec/S4798/javascript)
+   */
+  'sonarjs/bool-param-default': null;
+
+  /**
+   * An open curly brace should be located at the end of a line.
+   * @deprecated
+   * @see [brace-style](https://sonarsource.github.io/rspec/#/rspec/S1105/javascript)
+   */
+  'sonarjs/brace-style': BraceStyleRuleConfig;
+
+  /**
+   * Function call arguments should not start on new lines.
+   * @see [call-argument-line](https://sonarsource.github.io/rspec/#/rspec/S1472/javascript)
+   */
+  'sonarjs/call-argument-line': null;
+
+  /**
+   * Disabling Certificate Transparency monitoring is security-sensitive.
+   * @see [certificate-transparency](https://sonarsource.github.io/rspec/#/rspec/S5742/javascript)
+   */
+  'sonarjs/certificate-transparency': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Chai assertions should have only one reason to succeed.
+   * @see [chai-determinate-assertion](https://sonarsource.github.io/rspec/#/rspec/S6092/javascript)
+   */
+  'sonarjs/chai-determinate-assertion': null;
+
+  /**
+   * Class names should comply with a naming convention.
+   * @see [class-name](https://sonarsource.github.io/rspec/#/rspec/S101/javascript)
+   */
+  'sonarjs/class-name': ClassNameOption;
+
+  /**
+   * Class methods should be used instead of "prototype" assignments.
+   * @see [class-prototype](https://sonarsource.github.io/rspec/#/rspec/S3525/javascript)
+   */
+  'sonarjs/class-prototype': null;
+
+  /**
+   * Dynamically executing code is security-sensitive.
+   * @see [code-eval](https://sonarsource.github.io/rspec/#/rspec/S1523/javascript)
+   */
+  'sonarjs/code-eval': null;
+
+  /**
+   * Cognitive Complexity of functions should not be too high.
+   * @see [cognitive-complexity](https://sonarsource.github.io/rspec/#/rspec/S3776/javascript)
+   */
+  'sonarjs/cognitive-complexity': CognitiveComplexityOption;
+
+  /**
+   * Comma and logical OR operators should not be used in switch cases.
+   * @see [comma-or-logical-or-case](https://sonarsource.github.io/rspec/#/rspec/S3616/javascript)
+   */
+  'sonarjs/comma-or-logical-or-case': null;
+
+  /**
+   * Track comments matching a regular expression.
+   * @see [comment-regex](https://sonarsource.github.io/rspec/#/rspec/S124/javascript)
+   */
+  'sonarjs/comment-regex': CommentRegexOption;
+
+  /**
+   * Regular expression quantifiers and character classes should be used concisely.
+   * @see [concise-regex](https://sonarsource.github.io/rspec/#/rspec/S6353/javascript)
+   */
+  'sonarjs/concise-regex': null;
+
+  /**
+   * A conditionally executed single line should be denoted by indentation.
+   * @deprecated
+   * @see [conditional-indentation](https://sonarsource.github.io/rspec/#/rspec/S3973/javascript)
+   */
+  'sonarjs/conditional-indentation': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Allowing confidential information to be logged is security-sensitive.
+   * @see [confidential-information-logging](https://sonarsource.github.io/rspec/#/rspec/S5757/javascript)
+   */
+  'sonarjs/confidential-information-logging': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Objects should not be created to be dropped immediately without being used.
+   * @see [constructor-for-side-effects](https://sonarsource.github.io/rspec/#/rspec/S1848/javascript)
+   */
+  'sonarjs/constructor-for-side-effects': null;
+
+  /**
+   * Allowing requests with excessive content length is security-sensitive.
+   * @see [content-length](https://sonarsource.github.io/rspec/#/rspec/S5693/javascript)
+   */
+  'sonarjs/content-length': ContentLengthOption;
+
+  /**
+   * Disabling content security policy fetch directives is security-sensitive.
+   * @see [content-security-policy](https://sonarsource.github.io/rspec/#/rspec/S5728/javascript)
+   */
+  'sonarjs/content-security-policy': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Creating cookies without the "HttpOnly" flag is security-sensitive.
+   * @see [cookie-no-httponly](https://sonarsource.github.io/rspec/#/rspec/S3330/javascript)
+   */
+  'sonarjs/cookie-no-httponly': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Writing cookies is security-sensitive.
+   * @deprecated
+   * @see [cookies](https://sonarsource.github.io/rspec/#/rspec/S2255/javascript)
+   */
+  'sonarjs/cookies': null;
+
+  /**
+   * Having a permissive Cross-Origin Resource Sharing policy is security-sensitive.
+   * @see [cors](https://sonarsource.github.io/rspec/#/rspec/S5122/javascript)
+   */
+  'sonarjs/cors': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling CSRF protections is security-sensitive.
+   * @see [csrf](https://sonarsource.github.io/rspec/#/rspec/S4502/javascript)
+   */
+  'sonarjs/csrf': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Cyclomatic Complexity of functions should not be too high.
+   * @see [cyclomatic-complexity](https://sonarsource.github.io/rspec/#/rspec/S1541/javascript)
+   */
+  'sonarjs/cyclomatic-complexity': CyclomaticComplexityOption;
+
+  /**
+   * Variables and functions should not be declared in the global scope.
+   * @see [declarations-in-global-scope](https://sonarsource.github.io/rspec/#/rspec/S3798/javascript)
+   */
+  'sonarjs/declarations-in-global-scope': null;
+
+  /**
+   * Function parameters with default values should be last.
+   * @see [default-param-last](https://sonarsource.github.io/rspec/#/rspec/S1788/javascript)
+   */
+  'sonarjs/default-param-last': null;
+
+  /**
+   * Deprecated APIs should not be used.
+   * @see [deprecation](https://sonarsource.github.io/rspec/#/rspec/S1874/javascript)
+   */
+  'sonarjs/deprecation': null;
+
+  /**
+   * Destructuring syntax should be used for assignments.
+   * @see [destructuring-assignment-syntax](https://sonarsource.github.io/rspec/#/rspec/S3514/javascript)
+   */
+  'sonarjs/destructuring-assignment-syntax': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Strict equality operators should not be used with dissimilar types.
+   * @see [different-types-comparison](https://sonarsource.github.io/rspec/#/rspec/S3403/javascript)
+   */
+  'sonarjs/different-types-comparison': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling auto-escaping in template engines is security-sensitive.
+   * @see [disabled-auto-escaping](https://sonarsource.github.io/rspec/#/rspec/S5247/javascript)
+   */
+  'sonarjs/disabled-auto-escaping': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Using remote artifacts without integrity checks is security-sensitive.
+   * @see [disabled-resource-integrity](https://sonarsource.github.io/rspec/#/rspec/S5725/javascript)
+   */
+  'sonarjs/disabled-resource-integrity': null;
+
+  /**
+   * Disabling Mocha timeouts should be explicit.
+   * @see [disabled-timeout](https://sonarsource.github.io/rspec/#/rspec/S6080/javascript)
+   */
+  'sonarjs/disabled-timeout': null;
+
+  /**
+   * Allowing browsers to perform DNS prefetching is security-sensitive.
+   * @deprecated
+   * @see [dns-prefetching](https://sonarsource.github.io/rspec/#/rspec/S5743/javascript)
+   */
+  'sonarjs/dns-prefetching': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Character classes in regular expressions should not contain the same character twice.
+   * @see [duplicates-in-character-class](https://sonarsource.github.io/rspec/#/rspec/S5869/javascript)
+   */
+  'sonarjs/duplicates-in-character-class': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "if ... else if" constructs should end with "else" clauses.
+   * @see [elseif-without-else](https://sonarsource.github.io/rspec/#/rspec/S126/javascript)
    */
   'sonarjs/elseif-without-else': null;
 
   /**
-   * "switch" statements should not have too many "case" clauses.
-   * @see [max-switch-cases](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/max-switch-cases.md)
+   * Repeated patterns in regular expressions should not match the empty string.
+   * @see [empty-string-repetition](https://sonarsource.github.io/rspec/#/rspec/S5842/javascript)
    */
-  'sonarjs/max-switch-cases': [MaxSwitchCasesOption?];
+  'sonarjs/empty-string-repetition': null;
+
+  /**
+   * Encrypting data is security-sensitive.
+   * @deprecated
+   * @see [encryption](https://sonarsource.github.io/rspec/#/rspec/S4787/javascript)
+   */
+  'sonarjs/encryption': null;
+
+  /**
+   * Encryption algorithms should be used with secure mode and padding scheme.
+   * @see [encryption-secure-mode](https://sonarsource.github.io/rspec/#/rspec/S5542/javascript)
+   */
+  'sonarjs/encryption-secure-mode': null;
+
+  /**
+   * Trailing commas should be used.
+   * @deprecated
+   * @see [enforce-trailing-comma](https://sonarsource.github.io/rspec/#/rspec/S3723/javascript)
+   */
+  'sonarjs/enforce-trailing-comma': EnforceTrailingComma.EnforceTrailingCommaRuleConfig;
+
+  /**
+   * Replacement strings should reference existing regular expression groups.
+   * @see [existing-groups](https://sonarsource.github.io/rspec/#/rspec/S6328/javascript)
+   */
+  'sonarjs/existing-groups': null;
+
+  /**
+   * Expressions should not be too complex.
+   * @see [expression-complexity](https://sonarsource.github.io/rspec/#/rspec/S1067/javascript)
+   */
+  'sonarjs/expression-complexity': ExpressionComplexityOption;
+
+  /**
+   * Track lack of copyright and license headers.
+   * @see [file-header](https://sonarsource.github.io/rspec/#/rspec/S1451/javascript)
+   */
+  'sonarjs/file-header': FileHeaderOption;
+
+  /**
+   * Default export names and file names should match.
+   * @see [file-name-differ-from-class](https://sonarsource.github.io/rspec/#/rspec/S3317/javascript)
+   */
+  'sonarjs/file-name-differ-from-class': null;
+
+  /**
+   * Setting loose POSIX file permissions is security-sensitive.
+   * @see [file-permissions](https://sonarsource.github.io/rspec/#/rspec/S2612/javascript)
+   */
+  'sonarjs/file-permissions': null;
+
+  /**
+   * File uploads should be restricted.
+   * @see [file-uploads](https://sonarsource.github.io/rspec/#/rspec/S2598/javascript)
+   */
+  'sonarjs/file-uploads': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Track uses of "FIXME" tags.
+   * @see [fixme-tag](https://sonarsource.github.io/rspec/#/rspec/S1134/javascript)
+   */
+  'sonarjs/fixme-tag': null;
+
+  /**
+   * "for...in" loops should filter properties before acting on them.
+   * @see [for-in](https://sonarsource.github.io/rspec/#/rspec/S1535/javascript)
+   */
+  'sonarjs/for-in': null;
+
+  /**
+   * A "for" loop update clause should move the counter in the right direction.
+   * @see [for-loop-increment-sign](https://sonarsource.github.io/rspec/#/rspec/S2251/javascript)
+   */
+  'sonarjs/for-loop-increment-sign': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling content security policy frame-ancestors directive is security-sensitive.
+   * @see [frame-ancestors](https://sonarsource.github.io/rspec/#/rspec/S5732/javascript)
+   */
+  'sonarjs/frame-ancestors': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Functions should not be defined inside loops.
+   * @see [function-inside-loop](https://sonarsource.github.io/rspec/#/rspec/S1515/javascript)
+   */
+  'sonarjs/function-inside-loop': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Function and method names should comply with a naming convention.
+   * @see [function-name](https://sonarsource.github.io/rspec/#/rspec/S100/javascript)
+   */
+  'sonarjs/function-name': FunctionNameOption;
+
+  /**
+   * Functions should always return the same type.
+   * @see [function-return-type](https://sonarsource.github.io/rspec/#/rspec/S3800/javascript)
+   */
+  'sonarjs/function-return-type': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Future reserved words should not be used as identifiers.
+   * @see [future-reserved-words](https://sonarsource.github.io/rspec/#/rspec/S1527/javascript)
+   */
+  'sonarjs/future-reserved-words': null;
+
+  /**
+   * Generators should explicitly "yield" a value.
+   * @see [generator-without-yield](https://sonarsource.github.io/rspec/#/rspec/S3531/javascript)
+   */
+  'sonarjs/generator-without-yield': null;
+
+  /**
+   * Using weak hashing algorithms is security-sensitive.
+   * @see [hashing](https://sonarsource.github.io/rspec/#/rspec/S4790/javascript)
+   */
+  'sonarjs/hashing': null;
+
+  /**
+   * Statically serving hidden files is security-sensitive.
+   * @see [hidden-files](https://sonarsource.github.io/rspec/#/rspec/S5691/javascript)
+   */
+  'sonarjs/hidden-files': null;
+
+  /**
+   * The return value of "useState" should be destructured and named symmetrically.
+   * @see [hook-use-state](https://sonarsource.github.io/rspec/#/rspec/S6754/javascript)
+   */
+  'sonarjs/hook-use-state': [
+    {
+      allowDestructuredState?: boolean;
+    }?,
+  ];
+
+  /**
+   * HTML elements should have a valid language attribute.
+   * @see [html-has-lang](https://sonarsource.github.io/rspec/#/rspec/S5254/javascript)
+   */
+  'sonarjs/html-has-lang': null;
+
+  /**
+   * "in" should not be used with primitive types.
+   * @see [in-operator-type-error](https://sonarsource.github.io/rspec/#/rspec/S3785/javascript)
+   */
+  'sonarjs/in-operator-type-error': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Functions should be called consistently with or without "new".
+   * @see [inconsistent-function-call](https://sonarsource.github.io/rspec/#/rspec/S3686/javascript)
+   */
+  'sonarjs/inconsistent-function-call': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "indexOf" checks should not be for positive numbers.
+   * @see [index-of-compare-to-positive-number](https://sonarsource.github.io/rspec/#/rspec/S2692/javascript)
+   */
+  'sonarjs/index-of-compare-to-positive-number': null;
+
+  /**
+   * Creating cookies without the "secure" flag is security-sensitive.
+   * @see [insecure-cookie](https://sonarsource.github.io/rspec/#/rspec/S2092/javascript)
+   */
+  'sonarjs/insecure-cookie': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * JWT should be signed and verified with strong cipher algorithms.
+   * @see [insecure-jwt-token](https://sonarsource.github.io/rspec/#/rspec/S5659/javascript)
+   */
+  'sonarjs/insecure-jwt-token': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Assertion arguments should be passed in the correct order.
+   * @see [inverted-assertion-arguments](https://sonarsource.github.io/rspec/#/rspec/S3415/javascript)
+   */
+  'sonarjs/inverted-assertion-arguments': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * JSX list components should have a key property.
+   * @see [jsx-key](https://sonarsource.github.io/rspec/#/rspec/S6477/javascript)
+   */
+  'sonarjs/jsx-key': [
+    {
+      checkFragmentShorthand?: boolean;
+      checkKeyMustBeforeSpread?: boolean;
+      warnOnDuplicates?: boolean;
+    }?,
+  ];
+
+  /**
+   * React Context Provider values should have stable identities.
+   * @see [jsx-no-constructed-context-values](https://sonarsource.github.io/rspec/#/rspec/S6481/javascript)
+   */
+  'sonarjs/jsx-no-constructed-context-values': null;
+
+  /**
+   * Redundant React fragments should be removed.
+   * @see [jsx-no-useless-fragment](https://sonarsource.github.io/rspec/#/rspec/S6749/javascript)
+   */
+  'sonarjs/jsx-no-useless-fragment': [JsxNoUselessFragmentOption?];
+
+  /**
+   * Label elements should have a text label and an associated control.
+   * @see [label-has-associated-control](https://sonarsource.github.io/rspec/#/rspec/S6853/javascript)
+   */
+  'sonarjs/label-has-associated-control': [LabelHasAssociatedControlOption?];
+
+  /**
+   * Only "while", "do", "for" and "switch" statements should be labelled.
+   * @see [label-position](https://sonarsource.github.io/rspec/#/rspec/S1439/javascript)
+   */
+  'sonarjs/label-position': null;
+
+  /**
+   * Authorizing an opened window to access back to the originating window is security-sensitive.
+   * @see [link-with-target-blank](https://sonarsource.github.io/rspec/#/rspec/S5148/javascript)
+   */
+  'sonarjs/link-with-target-blank': null;
+
+  /**
+   * "switch" statements should not have too many "case" clauses.
+   * @see [max-switch-cases](https://sonarsource.github.io/rspec/#/rspec/S1479/javascript)
+   */
+  'sonarjs/max-switch-cases': MaxSwitchCasesOption;
+
+  /**
+   * Union types should not have too many elements.
+   * @see [max-union-size](https://sonarsource.github.io/rspec/#/rspec/S4622/javascript)
+   */
+  'sonarjs/max-union-size': MaxUnionSizeOption;
+
+  /**
+   * Media elements should have captions.
+   * @see [media-has-caption](https://sonarsource.github.io/rspec/#/rspec/S4084/javascript)
+   */
+  'sonarjs/media-has-caption': [MediaHasCaptionOption?];
+
+  /**
+   * "for" loop increment clauses should modify the loops' counters.
+   * @see [misplaced-loop-counter](https://sonarsource.github.io/rspec/#/rspec/S1994/javascript)
+   */
+  'sonarjs/misplaced-loop-counter': null;
+
+  /**
+   * Mouse events should have corresponding keyboard events.
+   * @see [mouse-events-a11y](https://sonarsource.github.io/rspec/#/rspec/S1082/javascript)
+   */
+  'sonarjs/mouse-events-a11y': null;
+
+  /**
+   * Control flow statements "if", "for", "while", "switch" and "try" should not be nested too deeply.
+   * @see [nested-control-flow](https://sonarsource.github.io/rspec/#/rspec/S134/javascript)
+   */
+  'sonarjs/nested-control-flow': NestedControlFlowOption;
+
+  /**
+   * Constructor names should start with an upper case letter.
+   * @see [new-cap](https://sonarsource.github.io/rspec/#/rspec/S2430/javascript)
+   */
+  'sonarjs/new-cap': [
+    {
+      newIsCap?: boolean;
+      capIsNew?: boolean;
+      newIsCapExceptions?: string[];
+      newIsCapExceptionPattern?: string;
+      capIsNewExceptions?: string[];
+      capIsNewExceptionPattern?: string;
+      properties?: boolean;
+    }?,
+  ];
+
+  /**
+   * "new" should only be used with functions and classes.
+   * @see [new-operator-misuse](https://sonarsource.github.io/rspec/#/rspec/S2999/javascript)
+   */
+  'sonarjs/new-operator-misuse': NewOperatorMisuseOption;
+
+  /**
+   * Getters and setters should access the expected fields.
+   * @see [no-accessor-field-mismatch](https://sonarsource.github.io/rspec/#/rspec/S4275/javascript)
+   */
+  'sonarjs/no-accessor-field-mismatch': NoAccessorFieldMismatchRuleConfig;
 
   /**
    * All branches in a conditional structure should not have exactly the same implementation.
-   * @see [no-all-duplicated-branches](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-all-duplicated-branches.md)
+   * @see [no-all-duplicated-branches](https://sonarsource.github.io/rspec/#/rspec/S3923/javascript)
    */
   'sonarjs/no-all-duplicated-branches': null;
 
   /**
-   * Collapsible "if" statements should be merged.
-   * @see [no-collapsible-if](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-collapsible-if.md)
+   * "Array.prototype.sort()" and "Array.prototype.toSorted()" should use a compare function.
+   * @see [no-alphabetical-sort](https://sonarsource.github.io/rspec/#/rspec/S2871/javascript)
    */
-  'sonarjs/no-collapsible-if': ['sonar-runtime'?];
+  'sonarjs/no-alphabetical-sort': null;
 
   /**
-   * Collection sizes and array length comparisons should make sense.
-   * @see [no-collection-size-mischeck](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-collection-size-mischeck.md)
+   * Disabling Angular built-in sanitization is security-sensitive.
+   * @see [no-angular-bypass-sanitization](https://sonarsource.github.io/rspec/#/rspec/S6268/javascript)
+   */
+  'sonarjs/no-angular-bypass-sanitization': null;
+
+  /**
+   * "delete" should not be used on arrays.
+   * @see [no-array-delete](https://sonarsource.github.io/rspec/#/rspec/S2870/javascript)
+   */
+  'sonarjs/no-array-delete': null;
+
+  /**
+   * JSX list components should not use array indexes as key.
+   * @see [no-array-index-key](https://sonarsource.github.io/rspec/#/rspec/S6479/javascript)
+   */
+  'sonarjs/no-array-index-key': null;
+
+  /**
+   * Array indexes should be numeric.
+   * @see [no-associative-arrays](https://sonarsource.github.io/rspec/#/rspec/S3579/javascript)
+   */
+  'sonarjs/no-associative-arrays': null;
+
+  /**
+   * Objects and classes converted or coerced to strings should define a "toString()" method.
+   * @see [no-base-to-string](https://sonarsource.github.io/rspec/#/rspec/S6551/javascript)
+   */
+  'sonarjs/no-base-to-string': [
+    {
+      ignoredTypeNames?: string[];
+    }?,
+  ];
+
+  /**
+   * Built-in objects should not be overridden.
+   * @see [no-built-in-override](https://sonarsource.github.io/rspec/#/rspec/S2424/javascript)
+   */
+  'sonarjs/no-built-in-override': null;
+
+  /**
+   * "switch" statements should not contain non-case labels.
+   * @see [no-case-label-in-switch](https://sonarsource.github.io/rspec/#/rspec/S1219/javascript)
+   */
+  'sonarjs/no-case-label-in-switch': null;
+
+  /**
+   * Using clear-text protocols is security-sensitive.
+   * @see [no-clear-text-protocols](https://sonarsource.github.io/rspec/#/rspec/S5332/javascript)
+   */
+  'sonarjs/no-clear-text-protocols': null;
+
+  /**
+   * Tests should not execute any code after "done()" is called.
+   * @see [no-code-after-done](https://sonarsource.github.io/rspec/#/rspec/S6079/javascript)
+   */
+  'sonarjs/no-code-after-done': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Mergeable "if" statements should be combined.
+   * @see [no-collapsible-if](https://sonarsource.github.io/rspec/#/rspec/S1066/javascript)
+   */
+  'sonarjs/no-collapsible-if': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Collection size and array length comparisons should make sense.
+   * @see [no-collection-size-mischeck](https://sonarsource.github.io/rspec/#/rspec/S3981/javascript)
    */
   'sonarjs/no-collection-size-mischeck': null;
 
   /**
-   * String literals should not be duplicated.
-   * @see [no-duplicate-string](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-duplicate-string.md)
+   * Sections of code should not be commented out.
+   * @see [no-commented-code](https://sonarsource.github.io/rspec/#/rspec/S125/javascript)
    */
-  'sonarjs/no-duplicate-string': [NoDuplicateStringOption?, 'sonar-runtime'?];
+  'sonarjs/no-commented-code': null;
+
+  /**
+   * Unused assignments should be removed.
+   * @see [no-dead-store](https://sonarsource.github.io/rspec/#/rspec/S1854/javascript)
+   */
+  'sonarjs/no-dead-store': null;
+
+  /**
+   * "delete" should be used only with object properties.
+   * @see [no-delete-var](https://sonarsource.github.io/rspec/#/rspec/S3001/javascript)
+   */
+  'sonarjs/no-delete-var': null;
+
+  /**
+   * Deprecated React APIs should not be used.
+   * @see [no-deprecated-react](https://sonarsource.github.io/rspec/#/rspec/S6957/javascript)
+   */
+  'sonarjs/no-deprecated-react': NoDeprecatedReactOption;
+
+  /**
+   * Union and intersection types should not include duplicated constituents.
+   * @see [no-duplicate-in-composite](https://sonarsource.github.io/rspec/#/rspec/S4621/javascript)
+   */
+  'sonarjs/no-duplicate-in-composite': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * String literals should not be duplicated.
+   * @see [no-duplicate-string](https://sonarsource.github.io/rspec/#/rspec/S1192/javascript)
+   */
+  'sonarjs/no-duplicate-string': NoDuplicateStringOption;
 
   /**
    * Two branches in a conditional structure should not have exactly the same implementation.
-   * @see [no-duplicated-branches](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-duplicated-branches.md)
+   * @see [no-duplicated-branches](https://sonarsource.github.io/rspec/#/rspec/S1871/javascript)
    */
-  'sonarjs/no-duplicated-branches': ['sonar-runtime'?];
+  'sonarjs/no-duplicated-branches': [('sonar-runtime' | 'metric')?];
 
   /**
    * Collection elements should not be replaced unconditionally.
-   * @see [no-element-overwrite](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-element-overwrite.md)
+   * @see [no-element-overwrite](https://sonarsource.github.io/rspec/#/rspec/S4143/javascript)
    */
-  'sonarjs/no-element-overwrite': ['sonar-runtime'?];
+  'sonarjs/no-element-overwrite': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Reluctant quantifiers in regular expressions should be followed by an expression that can't match the empty string.
+   * @see [no-empty-after-reluctant](https://sonarsource.github.io/rspec/#/rspec/S6019/javascript)
+   */
+  'sonarjs/no-empty-after-reluctant': null;
+
+  /**
+   * Alternation in regular expressions should not contain empty alternatives.
+   * @see [no-empty-alternatives](https://sonarsource.github.io/rspec/#/rspec/S6323/javascript)
+   */
+  'sonarjs/no-empty-alternatives': null;
 
   /**
    * Empty collections should not be accessed or iterated.
-   * @see [no-empty-collection](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-empty-collection.md)
+   * @see [no-empty-collection](https://sonarsource.github.io/rspec/#/rspec/S4158/javascript)
    */
   'sonarjs/no-empty-collection': null;
 
   /**
-   * Function calls should not pass extra arguments.
-   * @see [no-extra-arguments](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-extra-arguments.md)
+   * Functions should not be empty.
+   * @see [no-empty-function](https://sonarsource.github.io/rspec/#/rspec/S1186/javascript)
    */
-  'sonarjs/no-extra-arguments': ['sonar-runtime'?];
+  'sonarjs/no-empty-function': [NoEmptyFunctionOption?];
 
   /**
-   * Boolean expressions should not be gratuitous.
-   * @see [no-gratuitous-expressions](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-gratuitous-expressions.md)
+   * Regular expressions should not contain empty groups.
+   * @see [no-empty-group](https://sonarsource.github.io/rspec/#/rspec/S6331/javascript)
    */
-  'sonarjs/no-gratuitous-expressions': ['sonar-runtime'?];
+  'sonarjs/no-empty-group': null;
 
   /**
-   * Related "if-else-if" and "switch-case" statements should not have the same condition.
-   * @see [no-identical-conditions](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-identical-conditions.md)
+   * Interfaces should not be empty.
+   * @see [no-empty-interface](https://sonarsource.github.io/rspec/#/rspec/S4023/javascript)
    */
-  'sonarjs/no-identical-conditions': ['sonar-runtime'?];
-
-  /**
-   * Identical expressions should not be used on both sides of a binary operator.
-   * @see [no-identical-expressions](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-identical-expressions.md)
-   */
-  'sonarjs/no-identical-expressions': ['sonar-runtime'?];
-
-  /**
-   * Functions should not have identical implementations.
-   * @see [no-identical-functions](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-identical-functions.md)
-   */
-  'sonarjs/no-identical-functions': [
-    NoIdenticalFunctionsOption?,
-    'sonar-runtime'?,
+  'sonarjs/no-empty-interface': [
+    {
+      allowSingleExtends?: boolean;
+    }?,
   ];
 
   /**
+   * Test files should contain at least one test case.
+   * @see [no-empty-test-file](https://sonarsource.github.io/rspec/#/rspec/S2187/javascript)
+   */
+  'sonarjs/no-empty-test-file': null;
+
+  /**
+   * Equality operators should not be used in "for" loop termination conditions.
+   * @see [no-equals-in-for-termination](https://sonarsource.github.io/rspec/#/rspec/S888/javascript)
+   */
+  'sonarjs/no-equals-in-for-termination': null;
+
+  /**
+   * Exclusive tests should not be commited to version control.
+   * @see [no-exclusive-tests](https://sonarsource.github.io/rspec/#/rspec/S6426/javascript)
+   */
+  'sonarjs/no-exclusive-tests': null;
+
+  /**
+   * Prototypes of builtin objects should not be modified.
+   * @see [no-extend-native](https://sonarsource.github.io/rspec/#/rspec/S6643/javascript)
+   */
+  'sonarjs/no-extend-native': [
+    {
+      exceptions?: string[];
+    }?,
+  ];
+
+  /**
+   * Function calls should not pass extra arguments.
+   * @see [no-extra-arguments](https://sonarsource.github.io/rspec/#/rspec/S930/javascript)
+   */
+  'sonarjs/no-extra-arguments': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Extra semicolons should be removed.
+   * @deprecated
+   * @see [no-extra-semi](https://sonarsource.github.io/rspec/#/rspec/S1116/javascript)
+   */
+  'sonarjs/no-extra-semi': null;
+
+  /**
+   * React's "findDOMNode" should not be used.
+   * @see [no-find-dom-node](https://sonarsource.github.io/rspec/#/rspec/S6788/javascript)
+   */
+  'sonarjs/no-find-dom-node': null;
+
+  /**
+   * "for in" should not be used with iterables.
+   * @see [no-for-in-iterable](https://sonarsource.github.io/rspec/#/rspec/S4139/javascript)
+   */
+  'sonarjs/no-for-in-iterable': null;
+
+  /**
+   * Function declarations should not be made within blocks.
+   * @see [no-function-declaration-in-block](https://sonarsource.github.io/rspec/#/rspec/S1530/javascript)
+   */
+  'sonarjs/no-function-declaration-in-block': null;
+
+  /**
+   * The global "this" object should not be used.
+   * @see [no-global-this](https://sonarsource.github.io/rspec/#/rspec/S2990/javascript)
+   */
+  'sonarjs/no-global-this': null;
+
+  /**
+   * Special identifiers should not be bound or assigned.
+   * @see [no-globals-shadowing](https://sonarsource.github.io/rspec/#/rspec/S2137/javascript)
+   */
+  'sonarjs/no-globals-shadowing': null;
+
+  /**
+   * Boolean expressions should not be gratuitous.
+   * @see [no-gratuitous-expressions](https://sonarsource.github.io/rspec/#/rspec/S2589/javascript)
+   */
+  'sonarjs/no-gratuitous-expressions': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Hard-coded credentials are security-sensitive.
+   * @see [no-hardcoded-credentials](https://sonarsource.github.io/rspec/#/rspec/S2068/javascript)
+   */
+  'sonarjs/no-hardcoded-credentials': NoHardcodedCredentialsOption;
+
+  /**
+   * Using hardcoded IP addresses is security-sensitive.
+   * @see [no-hardcoded-ip](https://sonarsource.github.io/rspec/#/rspec/S1313/javascript)
+   */
+  'sonarjs/no-hardcoded-ip': null;
+
+  /**
+   * React's useState hook should not be used directly in the render function or body of a component.
+   * @see [no-hook-setter-in-body](https://sonarsource.github.io/rspec/#/rspec/S6442/javascript)
+   */
+  'sonarjs/no-hook-setter-in-body': null;
+
+  /**
+   * "if/else if" chains and "switch" cases should not have the same condition.
+   * @see [no-identical-conditions](https://sonarsource.github.io/rspec/#/rspec/S1862/javascript)
+   */
+  'sonarjs/no-identical-conditions': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Identical expressions should not be used on both sides of a binary operator.
+   * @see [no-identical-expressions](https://sonarsource.github.io/rspec/#/rspec/S1764/javascript)
+   */
+  'sonarjs/no-identical-expressions': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Functions should not have identical implementations.
+   * @see [no-identical-functions](https://sonarsource.github.io/rspec/#/rspec/S4144/javascript)
+   */
+  'sonarjs/no-identical-functions': NoIdenticalFunctionsOption;
+
+  /**
+   * Exceptions should not be ignored.
+   * @see [no-ignored-exceptions](https://sonarsource.github.io/rspec/#/rspec/S2486/javascript)
+   */
+  'sonarjs/no-ignored-exceptions': null;
+
+  /**
    * Return values from functions without side effects should not be ignored.
-   * @see [no-ignored-return](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-ignored-return.md)
+   * @see [no-ignored-return](https://sonarsource.github.io/rspec/#/rspec/S2201/javascript)
    */
   'sonarjs/no-ignored-return': null;
 
   /**
+   * Dependencies should be explicit.
+   * @see [no-implicit-dependencies](https://sonarsource.github.io/rspec/#/rspec/S4328/javascript)
+   */
+  'sonarjs/no-implicit-dependencies': NoImplicitDependenciesOption;
+
+  /**
+   * Variables should be declared explicitly.
+   * @see [no-implicit-global](https://sonarsource.github.io/rspec/#/rspec/S2703/javascript)
+   */
+  'sonarjs/no-implicit-global': null;
+
+  /**
+   * "in" should not be used on arrays.
+   * @see [no-in-misuse](https://sonarsource.github.io/rspec/#/rspec/S4619/javascript)
+   */
+  'sonarjs/no-in-misuse': null;
+
+  /**
+   * Assertions should be complete.
+   * @see [no-incomplete-assertions](https://sonarsource.github.io/rspec/#/rspec/S2970/javascript)
+   */
+  'sonarjs/no-incomplete-assertions': null;
+
+  /**
+   * Functions should use "return" consistently.
+   * @see [no-inconsistent-returns](https://sonarsource.github.io/rspec/#/rspec/S3801/javascript)
+   */
+  'sonarjs/no-inconsistent-returns': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Strings and non-strings should not be added.
+   * @see [no-incorrect-string-concat](https://sonarsource.github.io/rspec/#/rspec/S3402/javascript)
+   */
+  'sonarjs/no-incorrect-string-concat': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Loops should not be infinite.
+   * @see [no-infinite-loop](https://sonarsource.github.io/rspec/#/rspec/S2189/javascript)
+   */
+  'sonarjs/no-infinite-loop': null;
+
+  /**
+   * Using intrusive permissions is security-sensitive.
+   * @see [no-intrusive-permissions](https://sonarsource.github.io/rspec/#/rspec/S5604/javascript)
+   */
+  'sonarjs/no-intrusive-permissions': NoIntrusivePermissionsOption;
+
+  /**
+   * "await" should only be used with promises.
+   * @see [no-invalid-await](https://sonarsource.github.io/rspec/#/rspec/S4123/javascript)
+   */
+  'sonarjs/no-invalid-await': null;
+
+  /**
+   * Function returns should not be invariant.
+   * @see [no-invariant-returns](https://sonarsource.github.io/rspec/#/rspec/S3516/javascript)
+   */
+  'sonarjs/no-invariant-returns': [('sonar-runtime' | 'metric')?];
+
+  /**
    * Boolean checks should not be inverted.
-   * @see [no-inverted-boolean-check](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-inverted-boolean-check.md)
+   * @see [no-inverted-boolean-check](https://sonarsource.github.io/rspec/#/rspec/S1940/javascript)
    */
   'sonarjs/no-inverted-boolean-check': null;
 
   /**
+   * Forwarding client IP address is security-sensitive.
+   * @see [no-ip-forward](https://sonarsource.github.io/rspec/#/rspec/S5759/javascript)
+   */
+  'sonarjs/no-ip-forward': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Labels should not be used.
+   * @see [no-labels](https://sonarsource.github.io/rspec/#/rspec/S1119/javascript)
+   */
+  'sonarjs/no-labels': null;
+
+  /**
+   * Literals should not be used as functions.
+   * @see [no-literal-call](https://sonarsource.github.io/rspec/#/rspec/S6958/javascript)
+   */
+  'sonarjs/no-literal-call': null;
+
+  /**
+   * If statements should not be the only statement in else blocks.
+   * @see [no-lonely-if](https://sonarsource.github.io/rspec/#/rspec/S6660/javascript)
+   */
+  'sonarjs/no-lonely-if': null;
+
+  /**
+   * Allowing browsers to sniff MIME types is security-sensitive.
+   * @see [no-mime-sniff](https://sonarsource.github.io/rspec/#/rspec/S5734/javascript)
+   */
+  'sonarjs/no-mime-sniff': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Array-mutating methods should not be used misleadingly.
+   * @see [no-misleading-array-reverse](https://sonarsource.github.io/rspec/#/rspec/S4043/javascript)
+   */
+  'sonarjs/no-misleading-array-reverse': null;
+
+  /**
+   * Promises should not be misused.
+   * @see [no-misused-promises](https://sonarsource.github.io/rspec/#/rspec/S6544/javascript)
+   */
+  'sonarjs/no-misused-promises': [NoMisusedPromisesOption?];
+
+  /**
+   * Allowing mixed-content is security-sensitive.
+   * @see [no-mixed-content](https://sonarsource.github.io/rspec/#/rspec/S5730/javascript)
+   */
+  'sonarjs/no-mixed-content': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Assignments should not be made from within sub-expressions.
+   * @see [no-nested-assignment](https://sonarsource.github.io/rspec/#/rspec/S1121/javascript)
+   */
+  'sonarjs/no-nested-assignment': null;
+
+  /**
+   * Ternary operators should not be nested.
+   * @see [no-nested-conditional](https://sonarsource.github.io/rspec/#/rspec/S3358/javascript)
+   */
+  'sonarjs/no-nested-conditional': null;
+
+  /**
+   * Functions should not be nested too deeply.
+   * @see [no-nested-functions](https://sonarsource.github.io/rspec/#/rspec/S2004/javascript)
+   */
+  'sonarjs/no-nested-functions': NoNestedFunctionsOption;
+
+  /**
+   * Increment (++) and decrement (--) operators should not be used in a method call or mixed with other operators in an expression.
+   * @see [no-nested-incdec](https://sonarsource.github.io/rspec/#/rspec/S881/javascript)
+   */
+  'sonarjs/no-nested-incdec': null;
+
+  /**
    * "switch" statements should not be nested.
-   * @see [no-nested-switch](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-nested-switch.md)
+   * @see [no-nested-switch](https://sonarsource.github.io/rspec/#/rspec/S1821/javascript)
    */
   'sonarjs/no-nested-switch': null;
 
   /**
    * Template literals should not be nested.
-   * @see [no-nested-template-literals](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-nested-template-literals.md)
+   * @see [no-nested-template-literals](https://sonarsource.github.io/rspec/#/rspec/S4624/javascript)
    */
   'sonarjs/no-nested-template-literals': null;
 
   /**
    * Loops with at most one iteration should be refactored.
-   * @see [no-one-iteration-loop](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-one-iteration-loop.md)
+   * @see [no-one-iteration-loop](https://sonarsource.github.io/rspec/#/rspec/S1751/javascript)
    */
   'sonarjs/no-one-iteration-loop': null;
 
   /**
-   * Boolean literals should not be redundant.
-   * @see [no-redundant-boolean](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-redundant-boolean.md)
+   * Searching OS commands in PATH is security-sensitive.
+   * @see [no-os-command-from-path](https://sonarsource.github.io/rspec/#/rspec/S4036/javascript)
+   */
+  'sonarjs/no-os-command-from-path': null;
+
+  /**
+   * Initial values of parameters, caught exceptions, and loop variables should not be ignored.
+   * @see [no-parameter-reassignment](https://sonarsource.github.io/rspec/#/rspec/S1226/javascript)
+   */
+  'sonarjs/no-parameter-reassignment': null;
+
+  /**
+   * Wrapper objects should not be used for primitive types.
+   * @see [no-primitive-wrappers](https://sonarsource.github.io/rspec/#/rspec/S1533/javascript)
+   */
+  'sonarjs/no-primitive-wrappers': null;
+
+  /**
+   * Variables and functions should not be redeclared.
+   * @see [no-redeclare](https://sonarsource.github.io/rspec/#/rspec/S2814/javascript)
+   */
+  'sonarjs/no-redeclare': [
+    {
+      builtinGlobals?: boolean;
+      ignoreDeclarationMerge?: boolean;
+    }?,
+  ];
+
+  /**
+   * Assignments should not be redundant.
+   * @see [no-redundant-assignments](https://sonarsource.github.io/rspec/#/rspec/S4165/javascript)
+   */
+  'sonarjs/no-redundant-assignments': null;
+
+  /**
+   * Boolean literals should not be used in comparisons.
+   * @see [no-redundant-boolean](https://sonarsource.github.io/rspec/#/rspec/S1125/javascript)
    */
   'sonarjs/no-redundant-boolean': null;
 
   /**
    * Jump statements should not be redundant.
-   * @see [no-redundant-jump](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-redundant-jump.md)
+   * @see [no-redundant-jump](https://sonarsource.github.io/rspec/#/rspec/S3626/javascript)
    */
   'sonarjs/no-redundant-jump': null;
 
   /**
-   * Conditionals should start on new lines.
-   * @see [no-same-line-conditional](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-same-line-conditional.md)
+   * Optional property declarations should not use both '?' and 'undefined' syntax.
+   * @see [no-redundant-optional](https://sonarsource.github.io/rspec/#/rspec/S4782/javascript)
    */
-  'sonarjs/no-same-line-conditional': ['sonar-runtime'?];
+  'sonarjs/no-redundant-optional': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Redundant pairs of parentheses should be removed.
+   * @deprecated
+   * @see [no-redundant-parentheses](https://sonarsource.github.io/rspec/#/rspec/S1110/javascript)
+   */
+  'sonarjs/no-redundant-parentheses': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Type constituents of unions and intersections should not be redundant.
+   * @see [no-redundant-type-constituents](https://sonarsource.github.io/rspec/#/rspec/S6571/javascript)
+   */
+  'sonarjs/no-redundant-type-constituents': null;
+
+  /**
+   * Variables should be defined before being used.
+   * @see [no-reference-error](https://sonarsource.github.io/rspec/#/rspec/S3827/javascript)
+   */
+  'sonarjs/no-reference-error': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling strict HTTP no-referrer policy is security-sensitive.
+   * @see [no-referrer-policy](https://sonarsource.github.io/rspec/#/rspec/S5736/javascript)
+   */
+  'sonarjs/no-referrer-policy': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "import" should be used to include external code.
+   * @see [no-require-or-define](https://sonarsource.github.io/rspec/#/rspec/S3533/javascript)
+   */
+  'sonarjs/no-require-or-define': null;
+
+  /**
+   * Primitive return types should be used.
+   * @see [no-return-type-any](https://sonarsource.github.io/rspec/#/rspec/S4324/javascript)
+   */
+  'sonarjs/no-return-type-any': null;
+
+  /**
+   * Assertions should not be given twice the same argument.
+   * @see [no-same-argument-assert](https://sonarsource.github.io/rspec/#/rspec/S5863/javascript)
+   */
+  'sonarjs/no-same-argument-assert': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Conditionals should start on new lines.
+   * @see [no-same-line-conditional](https://sonarsource.github.io/rspec/#/rspec/S3972/javascript)
+   */
+  'sonarjs/no-same-line-conditional': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "Number.isNaN()" should be used to check for "NaN" value.
+   * @see [no-self-compare](https://sonarsource.github.io/rspec/#/rspec/S6679/javascript)
+   */
+  'sonarjs/no-self-compare': null;
 
   /**
    * "switch" statements should have at least 3 "case" clauses.
-   * @see [no-small-switch](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-small-switch.md)
+   * @see [no-small-switch](https://sonarsource.github.io/rspec/#/rspec/S1301/javascript)
    */
   'sonarjs/no-small-switch': null;
 
   /**
-   * Collection and array contents should be used.
-   * @see [no-unused-collection](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-unused-collection.md)
+   * Tabulation characters should not be used.
+   * @deprecated
+   * @see [no-tab](https://sonarsource.github.io/rspec/#/rspec/S105/javascript)
+   */
+  'sonarjs/no-tab': null;
+
+  /**
+   * HTML "<table>" should not be used for layout purposes.
+   * @see [no-table-as-layout](https://sonarsource.github.io/rspec/#/rspec/S5257/javascript)
+   */
+  'sonarjs/no-table-as-layout': null;
+
+  /**
+   * "this" should not be assigned to variables.
+   * @see [no-this-alias](https://sonarsource.github.io/rspec/#/rspec/S4327/javascript)
+   */
+  'sonarjs/no-this-alias': [NoThisAliasOption?];
+
+  /**
+   * Literals should not be thrown.
+   * @see [no-throw-literal](https://sonarsource.github.io/rspec/#/rspec/S3696/javascript)
+   */
+  'sonarjs/no-throw-literal': null;
+
+  /**
+   * Promise rejections should not be caught by "try" blocks.
+   * @see [no-try-promise](https://sonarsource.github.io/rspec/#/rspec/S4822/javascript)
+   */
+  'sonarjs/no-try-promise': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "undefined" should not be passed as the value of optional parameters.
+   * @see [no-undefined-argument](https://sonarsource.github.io/rspec/#/rspec/S4623/javascript)
+   */
+  'sonarjs/no-undefined-argument': null;
+
+  /**
+   * "undefined" should not be assigned.
+   * @see [no-undefined-assignment](https://sonarsource.github.io/rspec/#/rspec/S2138/javascript)
+   */
+  'sonarjs/no-undefined-assignment': null;
+
+  /**
+   * Multiline blocks should be enclosed in curly braces.
+   * @see [no-unenclosed-multiline-block](https://sonarsource.github.io/rspec/#/rspec/S2681/javascript)
+   */
+  'sonarjs/no-unenclosed-multiline-block': null;
+
+  /**
+   * JSX list components keys should match up between renders.
+   * @see [no-uniq-key](https://sonarsource.github.io/rspec/#/rspec/S6486/javascript)
+   */
+  'sonarjs/no-uniq-key': null;
+
+  /**
+   * JSX elements should not use unknown properties and attributes.
+   * @see [no-unknown-property](https://sonarsource.github.io/rspec/#/rspec/S6747/javascript)
+   */
+  'sonarjs/no-unknown-property': [NoUnknownPropertyOption?];
+
+  /**
+   * All code should be reachable.
+   * @see [no-unreachable](https://sonarsource.github.io/rspec/#/rspec/S1763/javascript)
+   */
+  'sonarjs/no-unreachable': null;
+
+  /**
+   * React legacy lifecycle methods should not be used.
+   * @see [no-unsafe](https://sonarsource.github.io/rspec/#/rspec/S6791/javascript)
+   */
+  'sonarjs/no-unsafe': [
+    {
+      checkAliases?: boolean;
+    }?,
+  ];
+
+  /**
+   * Expanding archive files without controlling resource consumption is security-sensitive.
+   * @see [no-unsafe-unzip](https://sonarsource.github.io/rspec/#/rspec/S5042/javascript)
+   */
+  'sonarjs/no-unsafe-unzip': null;
+
+  /**
+   * React components should not be nested.
+   * @see [no-unstable-nested-components](https://sonarsource.github.io/rspec/#/rspec/S6478/javascript)
+   */
+  'sonarjs/no-unstable-nested-components': [
+    {
+      customValidators?: string[];
+      allowAsProps?: boolean;
+    }?,
+  ];
+
+  /**
+   * Errors should not be created without being thrown.
+   * @see [no-unthrown-error](https://sonarsource.github.io/rspec/#/rspec/S3984/javascript)
+   */
+  'sonarjs/no-unthrown-error': null;
+
+  /**
+   * Collection contents should be used.
+   * @see [no-unused-collection](https://sonarsource.github.io/rspec/#/rspec/S4030/javascript)
    */
   'sonarjs/no-unused-collection': null;
 
   /**
-   * The output of functions that don't return anything should not be used.
-   * @see [no-use-of-empty-return-value](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-use-of-empty-return-value.md)
+   * Non-empty statements should change control flow or have at least one side-effect.
+   * @see [no-unused-expressions](https://sonarsource.github.io/rspec/#/rspec/S905/javascript)
+   */
+  'sonarjs/no-unused-expressions': [
+    {
+      allowShortCircuit?: boolean;
+      allowTernary?: boolean;
+      allowTaggedTemplates?: boolean;
+      enforceForJSX?: boolean;
+    }?,
+  ];
+
+  /**
+   * Unused function parameters should be removed.
+   * @see [no-unused-function-argument](https://sonarsource.github.io/rspec/#/rspec/S1172/javascript)
+   */
+  'sonarjs/no-unused-function-argument': null;
+
+  /**
+   * Unused private class members should be removed.
+   * @see [no-unused-private-class-members](https://sonarsource.github.io/rspec/#/rspec/S1068/javascript)
+   */
+  'sonarjs/no-unused-private-class-members': null;
+
+  /**
+   * The return value of void functions should not be used.
+   * @see [no-use-of-empty-return-value](https://sonarsource.github.io/rspec/#/rspec/S3699/javascript)
    */
   'sonarjs/no-use-of-empty-return-value': null;
 
   /**
+   * Calls to ".call()" and ".apply()" methods should not be redundant.
+   * @see [no-useless-call](https://sonarsource.github.io/rspec/#/rspec/S6676/javascript)
+   */
+  'sonarjs/no-useless-call': null;
+
+  /**
    * "catch" clauses should do more than rethrow.
-   * @see [no-useless-catch](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/no-useless-catch.md)
+   * @see [no-useless-catch](https://sonarsource.github.io/rspec/#/rspec/S2737/javascript)
    */
   'sonarjs/no-useless-catch': null;
 
   /**
-   * Non-existent operators "=+", "=-" and "=!" should not be used.
-   * @see [non-existent-operator](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/non-existent-operator.md)
+   * Unnecessary constructors should be removed.
+   * @see [no-useless-constructor](https://sonarsource.github.io/rspec/#/rspec/S6647/javascript)
+   */
+  'sonarjs/no-useless-constructor': null;
+
+  /**
+   * Values should not be uselessly incremented.
+   * @see [no-useless-increment](https://sonarsource.github.io/rspec/#/rspec/S2123/javascript)
+   */
+  'sonarjs/no-useless-increment': null;
+
+  /**
+   * Type intersections should use meaningful types.
+   * @see [no-useless-intersection](https://sonarsource.github.io/rspec/#/rspec/S4335/javascript)
+   */
+  'sonarjs/no-useless-intersection': null;
+
+  /**
+   * React state setter function should not be called with its matching state variable.
+   * @see [no-useless-react-setstate](https://sonarsource.github.io/rspec/#/rspec/S6443/javascript)
+   */
+  'sonarjs/no-useless-react-setstate': null;
+
+  /**
+   * Variables should be declared with "let" or "const".
+   * @see [no-var](https://sonarsource.github.io/rspec/#/rspec/S3504/javascript)
+   */
+  'sonarjs/no-var': null;
+
+  /**
+   * Variables declared with "var" should be declared before they are used.
+   * @see [no-variable-usage-before-declaration](https://sonarsource.github.io/rspec/#/rspec/S1526/javascript)
+   */
+  'sonarjs/no-variable-usage-before-declaration': [
+    ('sonar-runtime' | 'metric')?,
+  ];
+
+  /**
+   * Disabling Vue.js built-in escaping is security-sensitive.
+   * @see [no-vue-bypass-sanitization](https://sonarsource.github.io/rspec/#/rspec/S6299/javascript)
+   */
+  'sonarjs/no-vue-bypass-sanitization': null;
+
+  /**
+   * Cipher algorithms should be robust.
+   * @see [no-weak-cipher](https://sonarsource.github.io/rspec/#/rspec/S5547/javascript)
+   */
+  'sonarjs/no-weak-cipher': null;
+
+  /**
+   * Cryptographic keys should be robust.
+   * @see [no-weak-keys](https://sonarsource.github.io/rspec/#/rspec/S4426/javascript)
+   */
+  'sonarjs/no-weak-keys': null;
+
+  /**
+   * Wildcard imports should not be used.
+   * @see [no-wildcard-import](https://sonarsource.github.io/rspec/#/rspec/S2208/javascript)
+   */
+  'sonarjs/no-wildcard-import': null;
+
+  /**
+   * Non-existent operators '=+', '=-' and '=!' should not be used.
+   * @see [non-existent-operator](https://sonarsource.github.io/rspec/#/rspec/S2757/javascript)
    */
   'sonarjs/non-existent-operator': null;
 
   /**
+   * Arithmetic operators should only have numbers as operands.
+   * @see [non-number-in-arithmetic-expression](https://sonarsource.github.io/rspec/#/rspec/S3760/javascript)
+   */
+  'sonarjs/non-number-in-arithmetic-expression': [
+    ('sonar-runtime' | 'metric')?,
+  ];
+
+  /**
+   * Properties of variables with "null" or "undefined" values should not be accessed.
+   * @see [null-dereference](https://sonarsource.github.io/rspec/#/rspec/S2259/javascript)
+   */
+  'sonarjs/null-dereference': null;
+
+  /**
+   * "<object>" tags should provide an alternative content.
+   * @see [object-alt-content](https://sonarsource.github.io/rspec/#/rspec/S5264/javascript)
+   */
+  'sonarjs/object-alt-content': null;
+
+  /**
+   * Object literal shorthand syntax should be used.
+   * @see [object-shorthand](https://sonarsource.github.io/rspec/#/rspec/S3498/javascript)
+   */
+  'sonarjs/object-shorthand': ObjectShorthandOption;
+
+  /**
+   * Arithmetic operations should not result in "NaN".
+   * @see [operation-returning-nan](https://sonarsource.github.io/rspec/#/rspec/S3757/javascript)
+   */
+  'sonarjs/operation-returning-nan': null;
+
+  /**
+   * Using shell interpreter when executing OS commands is security-sensitive.
+   * @see [os-command](https://sonarsource.github.io/rspec/#/rspec/S4721/javascript)
+   */
+  'sonarjs/os-command': null;
+
+  /**
+   * Origins should be verified during cross-origin communications.
+   * @see [post-message](https://sonarsource.github.io/rspec/#/rspec/S2819/javascript)
+   */
+  'sonarjs/post-message': null;
+
+  /**
+   * "default" clauses should be last.
+   * @see [prefer-default-last](https://sonarsource.github.io/rspec/#/rspec/S4524/javascript)
+   */
+  'sonarjs/prefer-default-last': null;
+
+  /**
+   * Enum member values should be either all initialized or none.
+   * @see [prefer-enum-initializers](https://sonarsource.github.io/rspec/#/rspec/S6572/javascript)
+   */
+  'sonarjs/prefer-enum-initializers': null;
+
+  /**
+   * "for of" should be used with Iterables.
+   * @see [prefer-for-of](https://sonarsource.github.io/rspec/#/rspec/S4138/javascript)
+   */
+  'sonarjs/prefer-for-of': null;
+
+  /**
+   * Function types should be preferred.
+   * @see [prefer-function-type](https://sonarsource.github.io/rspec/#/rspec/S6598/javascript)
+   */
+  'sonarjs/prefer-function-type': null;
+
+  /**
    * Local variables should not be declared and then immediately returned or thrown.
-   * @see [prefer-immediate-return](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/prefer-immediate-return.md)
+   * @see [prefer-immediate-return](https://sonarsource.github.io/rspec/#/rspec/S1488/javascript)
    */
   'sonarjs/prefer-immediate-return': null;
 
   /**
+   * "module" should not be used.
+   * @see [prefer-namespace-keyword](https://sonarsource.github.io/rspec/#/rspec/S4156/javascript)
+   */
+  'sonarjs/prefer-namespace-keyword': null;
+
+  /**
+   * Nullish coalescing should be preferred.
+   * @see [prefer-nullish-coalescing](https://sonarsource.github.io/rspec/#/rspec/S6606/javascript)
+   */
+  'sonarjs/prefer-nullish-coalescing': [PreferNullishCoalescingOption?];
+
+  /**
    * Object literal syntax should be used.
-   * @see [prefer-object-literal](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/prefer-object-literal.md)
+   * @see [prefer-object-literal](https://sonarsource.github.io/rspec/#/rspec/S2428/javascript)
    */
   'sonarjs/prefer-object-literal': null;
 
   /**
+   * Object spread syntax should be used instead of "Object.assign".
+   * @see [prefer-object-spread](https://sonarsource.github.io/rspec/#/rspec/S6661/javascript)
+   */
+  'sonarjs/prefer-object-spread': null;
+
+  /**
+   * Shorthand promises should be used.
+   * @see [prefer-promise-shorthand](https://sonarsource.github.io/rspec/#/rspec/S4634/javascript)
+   */
+  'sonarjs/prefer-promise-shorthand': null;
+
+  /**
    * Return of boolean expressions should not be wrapped into an "if-then-else" statement.
-   * @see [prefer-single-boolean-return](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/prefer-single-boolean-return.md)
+   * @see [prefer-single-boolean-return](https://sonarsource.github.io/rspec/#/rspec/S1126/javascript)
    */
   'sonarjs/prefer-single-boolean-return': null;
 
   /**
+   * Spread syntax should be used instead of "apply()".
+   * @see [prefer-spread](https://sonarsource.github.io/rspec/#/rspec/S6666/javascript)
+   */
+  'sonarjs/prefer-spread': null;
+
+  /**
+   * Ends of strings should be checked with "startsWith()" and "endsWith()".
+   * @see [prefer-string-starts-ends-with](https://sonarsource.github.io/rspec/#/rspec/S6557/javascript)
+   */
+  'sonarjs/prefer-string-starts-ends-with': [PreferStringStartsEndsWithOption?];
+
+  /**
+   * Template strings should be used instead of concatenation.
+   * @see [prefer-template](https://sonarsource.github.io/rspec/#/rspec/S3512/javascript)
+   */
+  'sonarjs/prefer-template': null;
+
+  /**
+   * Type predicates should be used.
+   * @see [prefer-type-guard](https://sonarsource.github.io/rspec/#/rspec/S4322/javascript)
+   */
+  'sonarjs/prefer-type-guard': null;
+
+  /**
    * A "while" loop should be used instead of a "for" loop.
-   * @see [prefer-while](https://github.com/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/prefer-while.md)
+   * @see [prefer-while](https://sonarsource.github.io/rspec/#/rspec/S1264/javascript)
    */
   'sonarjs/prefer-while': null;
+
+  /**
+   * Using command line arguments is security-sensitive.
+   * @deprecated
+   * @see [process-argv](https://sonarsource.github.io/rspec/#/rspec/S4823/javascript)
+   */
+  'sonarjs/process-argv': null;
+
+  /**
+   * Delivering code in production with debug features activated is security-sensitive.
+   * @see [production-debug](https://sonarsource.github.io/rspec/#/rspec/S4507/javascript)
+   */
+  'sonarjs/production-debug': null;
+
+  /**
+   * Using pseudorandom number generators (PRNGs) is security-sensitive.
+   * @see [pseudo-random](https://sonarsource.github.io/rspec/#/rspec/S2245/javascript)
+   */
+  'sonarjs/pseudo-random': null;
+
+  /**
+   * Public "static" fields should be read-only.
+   * @see [public-static-readonly](https://sonarsource.github.io/rspec/#/rspec/S1444/javascript)
+   */
+  'sonarjs/public-static-readonly': null;
+
+  /**
+   * Using publicly writable directories is security-sensitive.
+   * @see [publicly-writable-directories](https://sonarsource.github.io/rspec/#/rspec/S5443/javascript)
+   */
+  'sonarjs/publicly-writable-directories': null;
+
+  /**
+   * "Array.reduce()" calls should include an initial value.
+   * @see [reduce-initial-value](https://sonarsource.github.io/rspec/#/rspec/S6959/javascript)
+   */
+  'sonarjs/reduce-initial-value': null;
+
+  /**
+   * Redundant type aliases should not be used.
+   * @see [redundant-type-aliases](https://sonarsource.github.io/rspec/#/rspec/S6564/javascript)
+   */
+  'sonarjs/redundant-type-aliases': null;
+
+  /**
+   * Regular expressions should not be too complicated.
+   * @see [regex-complexity](https://sonarsource.github.io/rspec/#/rspec/S5843/javascript)
+   */
+  'sonarjs/regex-complexity': RegexComplexityOption;
+
+  /**
+   * Using regular expressions is security-sensitive.
+   * @deprecated
+   * @see [regular-expr](https://sonarsource.github.io/rspec/#/rspec/S4784/javascript)
+   */
+  'sonarjs/regular-expr': null;
+
+  /**
+   * React Hooks should be properly called.
+   * @see [pluginRules-of-hooks](https://sonarsource.github.io/rspec/#/rspec/S6440/javascript)
+   */
+  'sonarjs/pluginRules-of-hooks': null;
+
+  /**
+   * Statements should end with semicolons.
+   * @deprecated
+   * @see [semi](https://sonarsource.github.io/rspec/#/rspec/S1438/javascript)
+   */
+  'sonarjs/semi': SemiOption;
+
+  /**
+   * A new session should be created during user authentication.
+   * @see [session-regeneration](https://sonarsource.github.io/rspec/#/rspec/S5876/javascript)
+   */
+  'sonarjs/session-regeneration': null;
+
+  /**
+   * Shorthand object properties should be grouped at the beginning or end of an object declaration.
+   * @see [shorthand-property-grouping](https://sonarsource.github.io/rspec/#/rspec/S3499/javascript)
+   */
+  'sonarjs/shorthand-property-grouping': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Character classes in regular expressions should not contain only one character.
+   * @see [single-char-in-character-classes](https://sonarsource.github.io/rspec/#/rspec/S6397/javascript)
+   */
+  'sonarjs/single-char-in-character-classes': null;
+
+  /**
+   * Single-character alternations in regular expressions should be replaced with character classes.
+   * @see [single-character-alternation](https://sonarsource.github.io/rspec/#/rspec/S6035/javascript)
+   */
+  'sonarjs/single-character-alternation': null;
+
+  /**
+   * Using slow regular expressions is security-sensitive.
+   * @see [slow-regex](https://sonarsource.github.io/rspec/#/rspec/S5852/javascript)
+   */
+  'sonarjs/slow-regex': null;
+
+  /**
+   * Using Sockets is security-sensitive.
+   * @deprecated
+   * @see [sockets](https://sonarsource.github.io/rspec/#/rspec/S4818/javascript)
+   */
+  'sonarjs/sockets': null;
+
+  /**
+   * Variables should be used in the blocks where they are declared.
+   * @see [sonar-block-scoped-var](https://sonarsource.github.io/rspec/#/rspec/S2392/javascript)
+   */
+  'sonarjs/sonar-block-scoped-var': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * React components should not render non-boolean condition values.
+   * @see [sonar-jsx-no-leaked-render](https://sonarsource.github.io/rspec/#/rspec/S6439/javascript)
+   */
+  'sonarjs/sonar-jsx-no-leaked-render': null;
+
+  /**
+   * Files should not have too many lines of code.
+   * @see [sonar-max-lines](https://sonarsource.github.io/rspec/#/rspec/S104/javascript)
+   */
+  'sonarjs/sonar-max-lines': SonarMaxLinesOption;
+
+  /**
+   * Functions should not have too many lines of code.
+   * @see [sonar-max-lines-per-function](https://sonarsource.github.io/rspec/#/rspec/S138/javascript)
+   */
+  'sonarjs/sonar-max-lines-per-function': SonarMaxLinesPerFunctionOption;
+
+  /**
+   * Functions should not have too many parameters.
+   * @see [sonar-max-params](https://sonarsource.github.io/rspec/#/rspec/S107/javascript)
+   */
+  'sonarjs/sonar-max-params': SonarMaxParamsOption;
+
+  /**
+   * Regular expressions should not contain control characters.
+   * @see [sonar-no-control-regex](https://sonarsource.github.io/rspec/#/rspec/S6324/javascript)
+   */
+  'sonarjs/sonar-no-control-regex': null;
+
+  /**
+   * Member names should not be duplicated within a class or object literal.
+   * @see [sonar-no-dupe-keys](https://sonarsource.github.io/rspec/#/rspec/S1534/javascript)
+   */
+  'sonarjs/sonar-no-dupe-keys': null;
+
+  /**
+   * Empty character classes should not be used.
+   * @see [sonar-no-empty-character-class](https://sonarsource.github.io/rspec/#/rspec/S2639/javascript)
+   */
+  'sonarjs/sonar-no-empty-character-class': null;
+
+  /**
+   * Switch cases should end with an unconditional "break" statement.
+   * @see [sonar-no-fallthrough](https://sonarsource.github.io/rspec/#/rspec/S128/javascript)
+   */
+  'sonarjs/sonar-no-fallthrough': null;
+
+  /**
+   * Regular expressions should be syntactically valid.
+   * @see [sonar-no-invalid-regexp](https://sonarsource.github.io/rspec/#/rspec/S5856/javascript)
+   */
+  'sonarjs/sonar-no-invalid-regexp': null;
+
+  /**
+   * Magic numbers should not be used.
+   * @see [sonar-no-magic-numbers](https://sonarsource.github.io/rspec/#/rspec/S109/javascript)
+   */
+  'sonarjs/sonar-no-magic-numbers': [SonarNoMagicNumbersOption?];
+
+  /**
+   * Unicode Grapheme Clusters should be avoided inside regex character classes.
+   * @see [sonar-no-misleading-character-class](https://sonarsource.github.io/rspec/#/rspec/S5868/javascript)
+   */
+  'sonarjs/sonar-no-misleading-character-class': null;
+
+  /**
+   * Regular expressions should not contain multiple spaces.
+   * @see [sonar-no-regex-spaces](https://sonarsource.github.io/rspec/#/rspec/S6326/javascript)
+   */
+  'sonarjs/sonar-no-regex-spaces': null;
+
+  /**
+   * Unused methods of React components should be removed.
+   * @see [sonar-no-unused-class-component-methods](https://sonarsource.github.io/rspec/#/rspec/S6441/javascript)
+   */
+  'sonarjs/sonar-no-unused-class-component-methods': null;
+
+  /**
+   * Unused local variables and functions should be removed.
+   * @see [sonar-no-unused-vars](https://sonarsource.github.io/rspec/#/rspec/S1481/javascript)
+   */
+  'sonarjs/sonar-no-unused-vars': null;
+
+  /**
+   * Optional chaining should be preferred.
+   * @see [sonar-prefer-optional-chain](https://sonarsource.github.io/rspec/#/rspec/S6582/javascript)
+   */
+  'sonarjs/sonar-prefer-optional-chain': [SonarPreferOptionalChainOption?];
+
+  /**
+   * React props should be read-only.
+   * @see [sonar-prefer-read-only-props](https://sonarsource.github.io/rspec/#/rspec/S6759/javascript)
+   */
+  'sonarjs/sonar-prefer-read-only-props': null;
+
+  /**
+   * "RegExp.exec()" should be preferred over "String.match()".
+   * @see [sonar-prefer-regexp-exec](https://sonarsource.github.io/rspec/#/rspec/S6594/javascript)
+   */
+  'sonarjs/sonar-prefer-regexp-exec': null;
+
+  /**
+   * Formatting SQL queries is security-sensitive.
+   * @see [sql-queries](https://sonarsource.github.io/rspec/#/rspec/S2077/javascript)
+   */
+  'sonarjs/sql-queries': null;
+
+  /**
+   * Tests should be stable.
+   * @see [stable-tests](https://sonarsource.github.io/rspec/#/rspec/S5973/javascript)
+   */
+  'sonarjs/stable-tests': null;
+
+  /**
+   * Reading the Standard Input is security-sensitive.
+   * @deprecated
+   * @see [standard-input](https://sonarsource.github.io/rspec/#/rspec/S4829/javascript)
+   */
+  'sonarjs/standard-input': null;
+
+  /**
+   * Regular expressions with the global flag should be used with caution.
+   * @see [stateful-regex](https://sonarsource.github.io/rspec/#/rspec/S6351/javascript)
+   */
+  'sonarjs/stateful-regex': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Disabling Strict-Transport-Security policy is security-sensitive.
+   * @see [strict-transport-security](https://sonarsource.github.io/rspec/#/rspec/S5739/javascript)
+   */
+  'sonarjs/strict-transport-security': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Comparison operators should not be used with strings.
+   * @see [strings-comparison](https://sonarsource.github.io/rspec/#/rspec/S3003/javascript)
+   */
+  'sonarjs/strings-comparison': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "super()" should be invoked appropriately.
+   * @see [super-invocation](https://sonarsource.github.io/rspec/#/rspec/S3854/javascript)
+   */
+  'sonarjs/super-invocation': null;
+
+  /**
+   * "switch" statements should have "default" clauses.
+   * @see [switch-without-default](https://sonarsource.github.io/rspec/#/rspec/S131/javascript)
+   */
+  'sonarjs/switch-without-default': null;
+
+  /**
+   * Tables should have headers.
+   * @see [table-header](https://sonarsource.github.io/rspec/#/rspec/S5256/javascript)
+   */
+  'sonarjs/table-header': null;
+
+  /**
+   * Table cells should reference their headers.
+   * @see [table-header-reference](https://sonarsource.github.io/rspec/#/rspec/S5260/javascript)
+   */
+  'sonarjs/table-header-reference': null;
+
+  /**
+   * Tests should check which exception is thrown.
+   * @see [test-check-exception](https://sonarsource.github.io/rspec/#/rspec/S5958/javascript)
+   */
+  'sonarjs/test-check-exception': null;
+
+  /**
+   * Track uses of "TODO" tags.
+   * @see [todo-tag](https://sonarsource.github.io/rspec/#/rspec/S1135/javascript)
+   */
+  'sonarjs/todo-tag': null;
+
+  /**
+   * Loops should not contain more than a single "break" or "continue" statement.
+   * @see [too-many-break-or-continue-in-loop](https://sonarsource.github.io/rspec/#/rspec/S135/javascript)
+   */
+  'sonarjs/too-many-break-or-continue-in-loop': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Regular expressions using Unicode character classes or property escapes should enable the unicode flag.
+   * @see [unicode-aware-regex](https://sonarsource.github.io/rspec/#/rspec/S5867/javascript)
+   */
+  'sonarjs/unicode-aware-regex': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Unnecessary character escapes should be removed.
+   * @see [unnecessary-character-escapes](https://sonarsource.github.io/rspec/#/rspec/S6535/javascript)
+   */
+  'sonarjs/unnecessary-character-escapes': null;
+
+  /**
+   * Unnecessary imports should be removed.
+   * @see [unused-import](https://sonarsource.github.io/rspec/#/rspec/S1128/javascript)
+   */
+  'sonarjs/unused-import': null;
+
+  /**
+   * Names of regular expressions named groups should be used.
+   * @see [unused-named-groups](https://sonarsource.github.io/rspec/#/rspec/S5860/javascript)
+   */
+  'sonarjs/unused-named-groups': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Server certificates should be verified during SSL/TLS connections.
+   * @see [unverified-certificate](https://sonarsource.github.io/rspec/#/rspec/S4830/javascript)
+   */
+  'sonarjs/unverified-certificate': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Server hostnames should be verified during SSL/TLS connections.
+   * @see [unverified-hostname](https://sonarsource.github.io/rspec/#/rspec/S5527/javascript)
+   */
+  'sonarjs/unverified-hostname': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "const" variables should not be reassigned.
+   * @see [updated-const-var](https://sonarsource.github.io/rspec/#/rspec/S3500/javascript)
+   */
+  'sonarjs/updated-const-var': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Loop counters should not be assigned within the loop body.
+   * @see [updated-loop-counter](https://sonarsource.github.io/rspec/#/rspec/S2310/javascript)
+   */
+  'sonarjs/updated-loop-counter': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * "NaN" should not be used in comparisons.
+   * @see [use-isnan](https://sonarsource.github.io/rspec/#/rspec/S2688/javascript)
+   */
+  'sonarjs/use-isnan': [
+    {
+      enforceForSwitchCase?: boolean;
+      enforceForIndexOf?: boolean;
+    }?,
+  ];
+
+  /**
+   * Type aliases should be used.
+   * @see [use-type-alias](https://sonarsource.github.io/rspec/#/rspec/S4323/javascript)
+   */
+  'sonarjs/use-type-alias': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Results of operations on strings should not be ignored.
+   * @deprecated
+   * @see [useless-string-operation](https://sonarsource.github.io/rspec/#/rspec/S1154/javascript)
+   */
+  'sonarjs/useless-string-operation': null;
+
+  /**
+   * Values not convertible to numbers should not be used in numeric comparisons.
+   * @see [values-not-convertible-to-numbers](https://sonarsource.github.io/rspec/#/rspec/S3758/javascript)
+   */
+  'sonarjs/values-not-convertible-to-numbers': null;
+
+  /**
+   * Variable, property and parameter names should comply with a naming convention.
+   * @see [variable-name](https://sonarsource.github.io/rspec/#/rspec/S117/javascript)
+   */
+  'sonarjs/variable-name': VariableNameOption;
+
+  /**
+   * "void" should not be used.
+   * @see [void-use](https://sonarsource.github.io/rspec/#/rspec/S3735/javascript)
+   */
+  'sonarjs/void-use': null;
+
+  /**
+   * Weak SSL/TLS protocols should not be used.
+   * @see [weak-ssl](https://sonarsource.github.io/rspec/#/rspec/S4423/javascript)
+   */
+  'sonarjs/weak-ssl': null;
+
+  /**
+   * Web SQL databases should not be used.
+   * @deprecated
+   * @see [web-sql-database](https://sonarsource.github.io/rspec/#/rspec/S2817/javascript)
+   */
+  'sonarjs/web-sql-database': null;
+
+  /**
+   * Disclosing fingerprints from web application technologies is security-sensitive.
+   * @see [x-powered-by](https://sonarsource.github.io/rspec/#/rspec/S5689/javascript)
+   */
+  'sonarjs/x-powered-by': null;
+
+  /**
+   * XML parsers should not be vulnerable to XXE attacks.
+   * @see [xml-parser-xxe](https://sonarsource.github.io/rspec/#/rspec/S2755/javascript)
+   */
+  'sonarjs/xml-parser-xxe': [('sonar-runtime' | 'metric')?];
+
+  /**
+   * Executing XPath expressions is security-sensitive.
+   * @deprecated
+   * @see [xpath](https://sonarsource.github.io/rspec/#/rspec/S4817/javascript)
+   */
+  'sonarjs/xpath': null;
 }
 
 export type SonarJSRulesObject = RulesObject<SonarJSRules>;

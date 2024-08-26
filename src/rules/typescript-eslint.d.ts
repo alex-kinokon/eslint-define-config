@@ -30,44 +30,6 @@ export namespace BanTsComment {
   export type BanTsCommentRuleConfig = [BanTsCommentOption?];
 }
 
-export namespace BanTypes {
-  export type BanConfig =
-    | null
-    | false
-    | true
-    | string
-    | {
-        /**
-         * Custom error message
-         */
-        message?: string;
-        /**
-         * Type to autofix replace with. Note that autofixers can be applied automatically - so you need to be careful with this option.
-         */
-        fixWith?: string;
-        /**
-         * Types to suggest replacing with.
-         */
-        suggest?: string[];
-      };
-
-  export interface BanTypesOption {
-    types?: {
-      [k: string]: BanConfig;
-    };
-    extendDefaults?: boolean;
-  }
-
-  export type BanTypesRuleConfig = [BanTypesOption?];
-}
-
-export type BraceStyleRuleConfig = [
-  ('1tbs' | 'stroustrup' | 'allman')?,
-  {
-    allowSingleLine?: boolean;
-  }?,
-];
-
 export interface ClassMethodsUseThisOption {
   /**
    * Allows specified method names to be ignored with this rule
@@ -85,37 +47,6 @@ export interface ClassMethodsUseThisOption {
    * Ignore classes that specifically implement some interface
    */
   ignoreClassesThatImplementAnInterface?: boolean | 'public-fields';
-}
-
-export namespace CommaDangle {
-  export type CommaDangleOption =
-    | []
-    | [
-        | Value
-        | {
-            arrays?: ValueWithIgnore;
-            objects?: ValueWithIgnore;
-            imports?: ValueWithIgnore;
-            exports?: ValueWithIgnore;
-            functions?: ValueWithIgnore;
-            enums?: ValueWithIgnore;
-            generics?: ValueWithIgnore;
-            tuples?: ValueWithIgnore;
-          },
-      ];
-  export type Value =
-    | 'always-multiline'
-    | 'always'
-    | 'never'
-    | 'only-multiline';
-  export type ValueWithIgnore =
-    | 'always-multiline'
-    | 'always'
-    | 'never'
-    | 'only-multiline'
-    | 'ignore';
-
-  export type CommaDangleRuleConfig = CommaDangleOption;
 }
 
 export type ConsistentTypeAssertionsOption =
@@ -213,57 +144,6 @@ export interface ExplicitModuleBoundaryTypesOption {
   allowTypedFunctionExpressions?: boolean;
 }
 
-export type FuncCallSpacingOption =
-  | []
-  | ['never']
-  | ['always']
-  | [
-      'always',
-      {
-        allowNewlines?: boolean;
-      },
-    ];
-
-export namespace Indent {
-  export type IndentOption = 'tab' | number;
-
-  export interface IndentConfig {
-    SwitchCase?: number;
-    VariableDeclarator?:
-      | (number | ('first' | 'off'))
-      | {
-          var?: number | ('first' | 'off');
-          let?: number | ('first' | 'off');
-          const?: number | ('first' | 'off');
-        };
-    outerIIFEBody?: number | 'off';
-    MemberExpression?: number | 'off';
-    FunctionDeclaration?: {
-      parameters?: number | ('first' | 'off');
-      body?: number;
-    };
-    FunctionExpression?: {
-      parameters?: number | ('first' | 'off');
-      body?: number;
-    };
-    StaticBlock?: {
-      body?: number;
-    };
-    CallExpression?: {
-      arguments?: number | ('first' | 'off');
-    };
-    ArrayExpression?: number | ('first' | 'off');
-    ObjectExpression?: number | ('first' | 'off');
-    ImportDeclaration?: number | ('first' | 'off');
-    flatTernaryExpressions?: boolean;
-    offsetTernaryExpressions?: boolean;
-    ignoredNodes?: string[];
-    ignoreComments?: boolean;
-  }
-
-  export type IndentRuleConfig = [IndentOption?, IndentConfig?];
-}
-
 export type InitDeclarationsOption =
   | []
   | ['always']
@@ -275,406 +155,6 @@ export type InitDeclarationsOption =
       },
     ];
 
-export type KeySpacingOption =
-  | {
-      align?:
-        | ('colon' | 'value')
-        | {
-            mode?: 'strict' | 'minimum';
-            on?: 'colon' | 'value';
-            beforeColon?: boolean;
-            afterColon?: boolean;
-          };
-      mode?: 'strict' | 'minimum';
-      beforeColon?: boolean;
-      afterColon?: boolean;
-    }
-  | {
-      singleLine?: {
-        mode?: 'strict' | 'minimum';
-        beforeColon?: boolean;
-        afterColon?: boolean;
-      };
-      multiLine?: {
-        align?:
-          | ('colon' | 'value')
-          | {
-              mode?: 'strict' | 'minimum';
-              on?: 'colon' | 'value';
-              beforeColon?: boolean;
-              afterColon?: boolean;
-            };
-        mode?: 'strict' | 'minimum';
-        beforeColon?: boolean;
-        afterColon?: boolean;
-      };
-    }
-  | {
-      singleLine?: {
-        mode?: 'strict' | 'minimum';
-        beforeColon?: boolean;
-        afterColon?: boolean;
-      };
-      multiLine?: {
-        mode?: 'strict' | 'minimum';
-        beforeColon?: boolean;
-        afterColon?: boolean;
-      };
-      align?: {
-        mode?: 'strict' | 'minimum';
-        on?: 'colon' | 'value';
-        beforeColon?: boolean;
-        afterColon?: boolean;
-      };
-    };
-
-export namespace KeywordSpacing {
-  export interface KeywordSpacingOption {
-    before?: boolean;
-    after?: boolean;
-    overrides?: {
-      abstract?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      as?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      async?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      await?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      boolean?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      break?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      byte?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      case?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      catch?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      char?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      class?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      const?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      continue?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      debugger?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      default?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      delete?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      do?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      double?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      else?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      enum?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      export?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      extends?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      false?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      final?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      finally?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      float?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      for?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      from?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      function?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      get?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      goto?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      if?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      implements?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      import?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      in?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      instanceof?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      int?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      interface?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      let?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      long?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      native?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      new?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      null?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      of?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      package?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      private?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      protected?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      public?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      return?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      set?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      short?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      static?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      super?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      switch?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      synchronized?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      this?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      throw?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      throws?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      transient?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      true?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      try?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      typeof?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      var?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      void?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      volatile?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      while?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      with?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      yield?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      type?: {
-        before?: boolean;
-        after?: boolean;
-      };
-    };
-  }
-
-  export type KeywordSpacingRuleConfig = [KeywordSpacingOption?];
-}
-
-export type LinesBetweenClassMembersOption =
-  | {
-      /**
-       * @minItems 1
-       */
-      enforce: [
-        {
-          blankLine: 'always' | 'never';
-          prev: 'method' | 'field' | '*';
-          next: 'method' | 'field' | '*';
-        },
-        ...{
-          blankLine: 'always' | 'never';
-          prev: 'method' | 'field' | '*';
-          next: 'method' | 'field' | '*';
-        }[],
-      ];
-    }
-  | ('always' | 'never');
-
-export type LinesBetweenClassMembersRuleConfig = [
-  LinesBetweenClassMembersOption?,
-  {
-    exceptAfterSingleLine?: boolean;
-    exceptAfterOverload?: boolean;
-  }?,
-];
-
-export namespace MemberDelimiterStyle {
-  export type MultiLineOption = 'none' | 'semi' | 'comma';
-  export type SingleLineOption = 'semi' | 'comma';
-
-  export interface MemberDelimiterStyleOption {
-    multiline?: {
-      delimiter?: MultiLineOption;
-      requireLast?: boolean;
-    };
-    singleline?: {
-      delimiter?: SingleLineOption;
-      requireLast?: boolean;
-    };
-    overrides?: {
-      interface?: DelimiterConfig;
-      typeLiteral?: DelimiterConfig;
-    };
-    multilineDetection?: 'brackets' | 'last-member';
-  }
-  export interface DelimiterConfig {
-    multiline?: {
-      delimiter?: MultiLineOption;
-      requireLast?: boolean;
-    };
-    singleline?: {
-      delimiter?: SingleLineOption;
-      requireLast?: boolean;
-    };
-  }
-
-  export type MemberDelimiterStyleRuleConfig = [MemberDelimiterStyleOption?];
-}
 export namespace MemberOrdering {
   export type BaseConfig =
     | 'never'
@@ -1408,7 +888,7 @@ export interface NoEmptyFunctionOption {
 
 export interface NoEmptyObjectTypeOption {
   allowInterfaces?: 'always' | 'never' | 'with-single-extends';
-  allowObjectTypes?: 'always' | 'in-type-alias-with-name' | 'never';
+  allowObjectTypes?: 'always' | 'never';
   allowWithName?: string;
 }
 
@@ -1422,26 +902,6 @@ export interface NoExplicitAnyOption {
    */
   ignoreRestArgs?: boolean;
 }
-
-export type NoExtraParensOption =
-  | []
-  | ['functions']
-  | ['all']
-  | [
-      'all',
-      {
-        conditionalAssign?: boolean;
-        ternaryOperandBinaryExpressions?: boolean;
-        nestedBinaryExpressions?: boolean;
-        returnAssign?: boolean;
-        ignoreJSX?: 'none' | 'all' | 'single-line' | 'multi-line';
-        enforceForArrowConditionals?: boolean;
-        enforceForSequenceExpressions?: boolean;
-        enforceForNewInMemberExpressions?: boolean;
-        enforceForFunctionPrototypeMethods?: boolean;
-        allowParensAfterCommentPattern?: string;
-      },
-    ];
 
 export interface NoExtraneousClassOption {
   /**
@@ -1464,6 +924,23 @@ export interface NoExtraneousClassOption {
 
 export interface NoFloatingPromisesOption {
   allowForKnownSafePromises?: (
+    | string
+    | {
+        from: 'file';
+        name: string | [string, ...string[]];
+        path?: string;
+      }
+    | {
+        from: 'lib';
+        name: string | [string, ...string[]];
+      }
+    | {
+        from: 'package';
+        name: string | [string, ...string[]];
+        package: string;
+      }
+  )[];
+  allowForKnownSafeCalls?: (
     | string
     | {
         from: 'file';
@@ -1519,6 +996,7 @@ export interface NoMisusedPromisesOption {
     | {
         arguments?: boolean;
         attributes?: boolean;
+        inheritedMethods?: boolean;
         properties?: boolean;
         returns?: boolean;
         variables?: boolean;
@@ -1542,6 +1020,10 @@ export interface NoRequireImportsOption {
    * Patterns of import paths to allow requiring from.
    */
   allow?: string[];
+  /**
+   * Allows `require` statements in import declarations.
+   */
+  allowAsImport?: boolean;
 }
 
 export type NoRestrictedImportsOption =
@@ -1593,6 +1075,34 @@ export type NoRestrictedImportsOption =
             }[];
       },
     ];
+
+export namespace NoRestrictedTypes {
+  export type BanConfig =
+    | true
+    | string
+    | {
+        /**
+         * Custom error message
+         */
+        message?: string;
+        /**
+         * Type to autofix replace with. Note that autofixers can be applied automatically - so you need to be careful with this option.
+         */
+        fixWith?: string;
+        /**
+         * Types to suggest replacing with.
+         */
+        suggest?: string[];
+      };
+
+  export interface NoRestrictedTypesOption {
+    types?: {
+      [k: string]: BanConfig;
+    };
+  }
+
+  export type NoRestrictedTypesRuleConfig = [NoRestrictedTypesOption?];
+}
 
 export interface NoShadowOption {
   builtinGlobals?: boolean;
@@ -1709,6 +1219,8 @@ export type NoUnusedVarsOption =
       caughtErrors?: 'all' | 'none';
       caughtErrorsIgnorePattern?: string;
       destructuredArrayIgnorePattern?: string;
+      ignoreClassWithStaticInitBlock?: boolean;
+      reportUsedIgnorePattern?: boolean;
     };
 
 export type NoUseBeforeDefineOption =
@@ -1730,154 +1242,6 @@ export interface NoVarRequiresOption {
   allow?: string[];
 }
 
-export type ObjectCurlySpacingRuleConfig = [
-  ('always' | 'never')?,
-  {
-    arraysInObjects?: boolean;
-    objectsInObjects?: boolean;
-  }?,
-];
-
-export namespace PaddingLineBetweenStatements {
-  export type PaddingType = 'any' | 'never' | 'always';
-  export type StatementType =
-    | (
-        | '*'
-        | 'block-like'
-        | 'exports'
-        | 'require'
-        | 'directive'
-        | 'expression'
-        | 'iife'
-        | 'multiline-block-like'
-        | 'multiline-expression'
-        | 'multiline-const'
-        | 'multiline-let'
-        | 'multiline-var'
-        | 'singleline-const'
-        | 'singleline-let'
-        | 'singleline-var'
-        | 'block'
-        | 'empty'
-        | 'function'
-        | 'break'
-        | 'case'
-        | 'class'
-        | 'const'
-        | 'continue'
-        | 'debugger'
-        | 'default'
-        | 'do'
-        | 'export'
-        | 'for'
-        | 'if'
-        | 'import'
-        | 'let'
-        | 'return'
-        | 'switch'
-        | 'throw'
-        | 'try'
-        | 'var'
-        | 'while'
-        | 'with'
-        | 'interface'
-        | 'type'
-      )
-    | [
-        (
-          | '*'
-          | 'block-like'
-          | 'exports'
-          | 'require'
-          | 'directive'
-          | 'expression'
-          | 'iife'
-          | 'multiline-block-like'
-          | 'multiline-expression'
-          | 'multiline-const'
-          | 'multiline-let'
-          | 'multiline-var'
-          | 'singleline-const'
-          | 'singleline-let'
-          | 'singleline-var'
-          | 'block'
-          | 'empty'
-          | 'function'
-          | 'break'
-          | 'case'
-          | 'class'
-          | 'const'
-          | 'continue'
-          | 'debugger'
-          | 'default'
-          | 'do'
-          | 'export'
-          | 'for'
-          | 'if'
-          | 'import'
-          | 'let'
-          | 'return'
-          | 'switch'
-          | 'throw'
-          | 'try'
-          | 'var'
-          | 'while'
-          | 'with'
-          | 'interface'
-          | 'type'
-        ),
-        ...(
-          | '*'
-          | 'block-like'
-          | 'exports'
-          | 'require'
-          | 'directive'
-          | 'expression'
-          | 'iife'
-          | 'multiline-block-like'
-          | 'multiline-expression'
-          | 'multiline-const'
-          | 'multiline-let'
-          | 'multiline-var'
-          | 'singleline-const'
-          | 'singleline-let'
-          | 'singleline-var'
-          | 'block'
-          | 'empty'
-          | 'function'
-          | 'break'
-          | 'case'
-          | 'class'
-          | 'const'
-          | 'continue'
-          | 'debugger'
-          | 'default'
-          | 'do'
-          | 'export'
-          | 'for'
-          | 'if'
-          | 'import'
-          | 'let'
-          | 'return'
-          | 'switch'
-          | 'throw'
-          | 'try'
-          | 'var'
-          | 'while'
-          | 'with'
-          | 'interface'
-          | 'type'
-        )[],
-      ];
-  export type PaddingLineBetweenStatementsOption = {
-    blankLine: PaddingType;
-    prev: StatementType;
-    next: StatementType;
-  }[];
-
-  export type PaddingLineBetweenStatementsRuleConfig =
-    PaddingLineBetweenStatementsOption;
-}
 export namespace ParameterProperties {
   export type Modifier =
     | 'readonly'
@@ -2021,18 +1385,6 @@ export interface PromiseFunctionAsyncOption {
   checkMethodDeclarations?: boolean;
 }
 
-export type QuotesConfig =
-  | 'avoid-escape'
-  | {
-      avoidEscape?: boolean;
-      allowTemplateLiterals?: boolean;
-    };
-
-export type QuotesRuleConfig = [
-  ('single' | 'double' | 'backtick')?,
-  QuotesConfig?,
-];
-
 export interface RequireArraySortCompareOption {
   /**
    * Whether to ignore arrays in which all elements are strings.
@@ -2098,24 +1450,6 @@ export interface RestrictTemplateExpressionsOption {
   allowNever?: boolean;
 }
 
-export type SemiOption =
-  | []
-  | ['never']
-  | [
-      'never',
-      {
-        beforeStatementContinuationChars?: 'always' | 'any' | 'never';
-      },
-    ]
-  | ['always']
-  | [
-      'always',
-      {
-        omitLastInOneLineBlock?: boolean;
-        omitLastInOneLineClassBody?: boolean;
-      },
-    ];
-
 export interface SortTypeConstituentsOption {
   /**
    * Whether to check intersection types.
@@ -2148,22 +1482,6 @@ export interface SortTypeConstituentsOption {
   )[];
 }
 
-export type SpaceBeforeBlocksOption =
-  | ('always' | 'never')
-  | {
-      keywords?: 'always' | 'never' | 'off';
-      functions?: 'always' | 'never' | 'off';
-      classes?: 'always' | 'never' | 'off';
-    };
-
-export type SpaceBeforeFunctionParenOption =
-  | ('always' | 'never')
-  | {
-      anonymous?: 'always' | 'never' | 'ignore';
-      named?: 'always' | 'never' | 'ignore';
-      asyncArrow?: 'always' | 'never' | 'ignore';
-    };
-
 export interface SwitchExhaustivenessCheckOption {
   /**
    * If 'true', allow 'default' cases on switch statements with exhaustive cases.
@@ -2179,27 +1497,6 @@ export interface TripleSlashReferenceOption {
   lib?: 'always' | 'never';
   path?: 'always' | 'never';
   types?: 'always' | 'never' | 'prefer-import';
-}
-
-export namespace TypeAnnotationSpacing {
-  export interface TypeAnnotationSpacingOption {
-    before?: boolean;
-    after?: boolean;
-    overrides?: {
-      colon?: SpacingConfig;
-      arrow?: SpacingConfig;
-      variable?: SpacingConfig;
-      parameter?: SpacingConfig;
-      property?: SpacingConfig;
-      returnType?: SpacingConfig;
-    };
-  }
-  export interface SpacingConfig {
-    before?: boolean;
-    after?: boolean;
-  }
-
-  export type TypeAnnotationSpacingRuleConfig = [TypeAnnotationSpacingOption?];
 }
 
 export interface UnboundMethodOption {
@@ -2251,26 +1548,6 @@ export interface TypeScriptRules {
   '@typescript-eslint/ban-tslint-comment': null;
 
   /**
-   * Disallow certain types.
-   * @see [ban-types](https://typescript-eslint.io/rules/ban-types)
-   */
-  '@typescript-eslint/ban-types': BanTypes.BanTypesRuleConfig;
-
-  /**
-   * Disallow or enforce spaces inside of blocks after opening block and before closing block.
-   * @deprecated
-   * @see [block-spacing](https://typescript-eslint.io/rules/block-spacing)
-   */
-  '@typescript-eslint/block-spacing': [('always' | 'never')?];
-
-  /**
-   * Enforce consistent brace style for blocks.
-   * @deprecated
-   * @see [brace-style](https://typescript-eslint.io/rules/brace-style)
-   */
-  '@typescript-eslint/brace-style': BraceStyleRuleConfig;
-
-  /**
    * Enforce that literals on classes are exposed in a consistent style.
    * @see [class-literal-property-style](https://typescript-eslint.io/rules/class-literal-property-style)
    */
@@ -2281,25 +1558,6 @@ export interface TypeScriptRules {
    * @see [class-methods-use-this](https://typescript-eslint.io/rules/class-methods-use-this)
    */
   '@typescript-eslint/class-methods-use-this': [ClassMethodsUseThisOption?];
-
-  /**
-   * Require or disallow trailing commas.
-   * @deprecated
-   * @see [comma-dangle](https://typescript-eslint.io/rules/comma-dangle)
-   */
-  '@typescript-eslint/comma-dangle': CommaDangle.CommaDangleRuleConfig;
-
-  /**
-   * Enforce consistent spacing before and after commas.
-   * @deprecated
-   * @see [comma-spacing](https://typescript-eslint.io/rules/comma-spacing)
-   */
-  '@typescript-eslint/comma-spacing': [
-    {
-      before?: boolean;
-      after?: boolean;
-    }?,
-  ];
 
   /**
    * Enforce specifying generic type arguments on type annotation or constructor name of a constructor call.
@@ -2400,77 +1658,10 @@ export interface TypeScriptRules {
   ];
 
   /**
-   * Require or disallow spacing between function identifiers and their invocations.
-   * @deprecated
-   * @see [func-call-spacing](https://typescript-eslint.io/rules/func-call-spacing)
-   */
-  '@typescript-eslint/func-call-spacing': FuncCallSpacingOption;
-
-  /**
-   * Enforce consistent indentation.
-   * @deprecated
-   * @see [indent](https://typescript-eslint.io/rules/indent)
-   */
-  '@typescript-eslint/indent': Indent.IndentRuleConfig;
-
-  /**
    * Require or disallow initialization in variable declarations.
    * @see [init-declarations](https://typescript-eslint.io/rules/init-declarations)
    */
   '@typescript-eslint/init-declarations': InitDeclarationsOption;
-
-  /**
-   * Enforce consistent spacing between property names and type annotations in types and interfaces.
-   * @deprecated
-   * @see [key-spacing](https://typescript-eslint.io/rules/key-spacing)
-   */
-  '@typescript-eslint/key-spacing': [KeySpacingOption?];
-
-  /**
-   * Enforce consistent spacing before and after keywords.
-   * @deprecated
-   * @see [keyword-spacing](https://typescript-eslint.io/rules/keyword-spacing)
-   */
-  '@typescript-eslint/keyword-spacing': KeywordSpacing.KeywordSpacingRuleConfig;
-
-  /**
-   * Require empty lines around comments.
-   * @deprecated
-   * @see [lines-around-comment](https://typescript-eslint.io/rules/lines-around-comment)
-   */
-  '@typescript-eslint/lines-around-comment': [
-    {
-      beforeBlockComment?: boolean;
-      afterBlockComment?: boolean;
-      beforeLineComment?: boolean;
-      afterLineComment?: boolean;
-      allowBlockStart?: boolean;
-      allowBlockEnd?: boolean;
-      allowClassStart?: boolean;
-      allowClassEnd?: boolean;
-      allowObjectStart?: boolean;
-      allowObjectEnd?: boolean;
-      allowArrayStart?: boolean;
-      allowArrayEnd?: boolean;
-      allowInterfaceStart?: boolean;
-      allowInterfaceEnd?: boolean;
-      allowTypeStart?: boolean;
-      allowTypeEnd?: boolean;
-      allowEnumStart?: boolean;
-      allowEnumEnd?: boolean;
-      allowModuleStart?: boolean;
-      allowModuleEnd?: boolean;
-      ignorePattern?: string;
-      applyDefaultIgnorePatterns?: boolean;
-    }?,
-  ];
-
-  /**
-   * Require or disallow an empty line between class members.
-   * @deprecated
-   * @see [lines-between-class-members](https://typescript-eslint.io/rules/lines-between-class-members)
-   */
-  '@typescript-eslint/lines-between-class-members': LinesBetweenClassMembersRuleConfig;
 
   /**
    * Enforce a maximum number of parameters in function definitions.
@@ -2483,13 +1674,6 @@ export interface TypeScriptRules {
       countVoidThis?: boolean;
     }?,
   ];
-
-  /**
-   * Require a specific member delimiter style for interfaces and type literals.
-   * @deprecated
-   * @see [member-delimiter-style](https://typescript-eslint.io/rules/member-delimiter-style)
-   */
-  '@typescript-eslint/member-delimiter-style': MemberDelimiterStyle.MemberDelimiterStyleRuleConfig;
 
   /**
    * Require a consistent member declaration order.
@@ -2585,6 +1769,7 @@ export interface TypeScriptRules {
 
   /**
    * Disallow the declaration of empty interfaces.
+   * @deprecated
    * @see [no-empty-interface](https://typescript-eslint.io/rules/no-empty-interface)
    */
   '@typescript-eslint/no-empty-interface': [
@@ -2610,20 +1795,6 @@ export interface TypeScriptRules {
    * @see [no-extra-non-null-assertion](https://typescript-eslint.io/rules/no-extra-non-null-assertion)
    */
   '@typescript-eslint/no-extra-non-null-assertion': null;
-
-  /**
-   * Disallow unnecessary parentheses.
-   * @deprecated
-   * @see [no-extra-parens](https://typescript-eslint.io/rules/no-extra-parens)
-   */
-  '@typescript-eslint/no-extra-parens': NoExtraParensOption;
-
-  /**
-   * Disallow unnecessary semicolons.
-   * @deprecated
-   * @see [no-extra-semi](https://typescript-eslint.io/rules/no-extra-semi)
-   */
-  '@typescript-eslint/no-extra-semi': null;
 
   /**
    * Disallow classes used as namespaces.
@@ -2690,6 +1861,7 @@ export interface TypeScriptRules {
 
   /**
    * Disallow literal numbers that lose precision.
+   * @deprecated
    * @see [no-loss-of-precision](https://typescript-eslint.io/rules/no-loss-of-precision)
    */
   '@typescript-eslint/no-loss-of-precision': null;
@@ -2782,6 +1954,12 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-restricted-imports': NoRestrictedImportsOption;
 
   /**
+   * Disallow certain types.
+   * @see [no-restricted-types](https://typescript-eslint.io/rules/no-restricted-types)
+   */
+  '@typescript-eslint/no-restricted-types': NoRestrictedTypes.NoRestrictedTypesRuleConfig;
+
+  /**
    * Disallow variable declarations from shadowing variables declared in the outer scope.
    * @see [no-shadow](https://typescript-eslint.io/rules/no-shadow)
    */
@@ -2792,18 +1970,6 @@ export interface TypeScriptRules {
    * @see [no-this-alias](https://typescript-eslint.io/rules/no-this-alias)
    */
   '@typescript-eslint/no-this-alias': [NoThisAliasOption?];
-
-  /**
-   * Disallow throwing literals as exceptions.
-   * @deprecated
-   * @see [no-throw-literal](https://typescript-eslint.io/rules/no-throw-literal)
-   */
-  '@typescript-eslint/no-throw-literal': [
-    {
-      allowThrowingAny?: boolean;
-      allowThrowingUnknown?: boolean;
-    }?,
-  ];
 
   /**
    * Disallow type aliases.
@@ -2867,7 +2033,7 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-unnecessary-type-constraint': null;
 
   /**
-   * Disallow type parameters that only appear once.
+   * Disallow type parameters that aren't used multiple times.
    * @see [no-unnecessary-type-parameters](https://typescript-eslint.io/rules/no-unnecessary-type-parameters)
    */
   '@typescript-eslint/no-unnecessary-type-parameters': null;
@@ -2964,14 +2130,8 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-useless-empty-export': null;
 
   /**
-   * Disallow unnecessary template expressions.
-   * @deprecated
-   * @see [no-useless-template-literals](https://typescript-eslint.io/rules/no-useless-template-literals)
-   */
-  '@typescript-eslint/no-useless-template-literals': null;
-
-  /**
    * Disallow `require` statements except in import statements.
+   * @deprecated
    * @see [no-var-requires](https://typescript-eslint.io/rules/no-var-requires)
    */
   '@typescript-eslint/no-var-requires': [NoVarRequiresOption?];
@@ -2989,13 +2149,6 @@ export interface TypeScriptRules {
   '@typescript-eslint/non-nullable-type-assertion-style': null;
 
   /**
-   * Enforce consistent spacing inside braces.
-   * @deprecated
-   * @see [object-curly-spacing](https://typescript-eslint.io/rules/object-curly-spacing)
-   */
-  '@typescript-eslint/object-curly-spacing': ObjectCurlySpacingRuleConfig;
-
-  /**
    * Disallow throwing non-`Error` values as exceptions.
    * @see [only-throw-error](https://typescript-eslint.io/rules/only-throw-error)
    */
@@ -3005,13 +2158,6 @@ export interface TypeScriptRules {
       allowThrowingUnknown?: boolean;
     }?,
   ];
-
-  /**
-   * Require or disallow padding lines between statements.
-   * @deprecated
-   * @see [padding-line-between-statements](https://typescript-eslint.io/rules/padding-line-between-statements)
-   */
-  '@typescript-eslint/padding-line-between-statements': PaddingLineBetweenStatements.PaddingLineBetweenStatementsRuleConfig;
 
   /**
    * Require or disallow parameter properties in class constructors.
@@ -3159,13 +2305,6 @@ export interface TypeScriptRules {
   '@typescript-eslint/promise-function-async': [PromiseFunctionAsyncOption?];
 
   /**
-   * Enforce the consistent use of either backticks, double, or single quotes.
-   * @deprecated
-   * @see [quotes](https://typescript-eslint.io/rules/quotes)
-   */
-  '@typescript-eslint/quotes': QuotesRuleConfig;
-
-  /**
    * Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`.
    * @see [require-array-sort-compare](https://typescript-eslint.io/rules/require-array-sort-compare)
    */
@@ -3202,45 +2341,11 @@ export interface TypeScriptRules {
   ];
 
   /**
-   * Require or disallow semicolons instead of ASI.
-   * @deprecated
-   * @see [semi](https://typescript-eslint.io/rules/semi)
-   */
-  '@typescript-eslint/semi': SemiOption;
-
-  /**
    * Enforce constituents of a type union/intersection to be sorted alphabetically.
    * @deprecated
    * @see [sort-type-constituents](https://typescript-eslint.io/rules/sort-type-constituents)
    */
   '@typescript-eslint/sort-type-constituents': [SortTypeConstituentsOption?];
-
-  /**
-   * Enforce consistent spacing before blocks.
-   * @deprecated
-   * @see [space-before-blocks](https://typescript-eslint.io/rules/space-before-blocks)
-   */
-  '@typescript-eslint/space-before-blocks': [SpaceBeforeBlocksOption?];
-
-  /**
-   * Enforce consistent spacing before function parenthesis.
-   * @deprecated
-   * @see [space-before-function-paren](https://typescript-eslint.io/rules/space-before-function-paren)
-   */
-  '@typescript-eslint/space-before-function-paren': [
-    SpaceBeforeFunctionParenOption?,
-  ];
-
-  /**
-   * Require spacing around infix operators.
-   * @deprecated
-   * @see [space-infix-ops](https://typescript-eslint.io/rules/space-infix-ops)
-   */
-  '@typescript-eslint/space-infix-ops': [
-    {
-      int32Hint?: boolean;
-    }?,
-  ];
 
   /**
    * Disallow certain types in boolean expressions.
@@ -3275,13 +2380,6 @@ export interface TypeScriptRules {
   '@typescript-eslint/triple-slash-reference': [TripleSlashReferenceOption?];
 
   /**
-   * Require consistent spacing around type annotations.
-   * @deprecated
-   * @see [type-annotation-spacing](https://typescript-eslint.io/rules/type-annotation-spacing)
-   */
-  '@typescript-eslint/type-annotation-spacing': TypeAnnotationSpacing.TypeAnnotationSpacingRuleConfig;
-
-  /**
    * Require type annotations in certain places.
    * @see [typedef](https://typescript-eslint.io/rules/typedef)
    */
@@ -3311,7 +2409,7 @@ export interface TypeScriptRules {
   '@typescript-eslint/unified-signatures': [UnifiedSignaturesOption?];
 
   /**
-   * Enforce typing arguments in `.catch()` callbacks as `unknown`.
+   * Enforce typing arguments in Promise rejection callbacks as `unknown`.
    * @see [use-unknown-in-catch-callback-variable](https://typescript-eslint.io/rules/use-unknown-in-catch-callback-variable)
    */
   '@typescript-eslint/use-unknown-in-catch-callback-variable': null;

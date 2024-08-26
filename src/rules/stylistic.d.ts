@@ -889,6 +889,7 @@ export namespace PaddingLineBetweenStatements {
         | 'block'
         | 'empty'
         | 'function'
+        | 'ts-method'
         | 'break'
         | 'case'
         | 'class'
@@ -936,6 +937,7 @@ export namespace PaddingLineBetweenStatements {
           | 'block'
           | 'empty'
           | 'function'
+          | 'ts-method'
           | 'break'
           | 'case'
           | 'class'
@@ -982,6 +984,7 @@ export namespace PaddingLineBetweenStatements {
           | 'block'
           | 'empty'
           | 'function'
+          | 'ts-method'
           | 'break'
           | 'case'
           | 'class'
@@ -1324,31 +1327,31 @@ export interface StylisticRules {
    * Enforce linebreaks after opening and before closing array brackets.
    * @see [array-bracket-newline](https://eslint.style/rules/js/array-bracket-newline)
    */
-  'stylistic/array-bracket-newline': [ArrayBracketNewlineOption?];
+  '@stylistic/array-bracket-newline': [ArrayBracketNewlineOption?];
 
   /**
    * Enforce consistent spacing inside array brackets.
    * @see [array-bracket-spacing](https://eslint.style/rules/js/array-bracket-spacing)
    */
-  'stylistic/array-bracket-spacing': ArrayBracketSpacingRuleConfig;
+  '@stylistic/array-bracket-spacing': ArrayBracketSpacingRuleConfig;
 
   /**
    * Enforce line breaks after each array element.
    * @see [array-element-newline](https://eslint.style/rules/js/array-element-newline)
    */
-  'stylistic/array-element-newline': ArrayElementNewline.ArrayElementNewlineRuleConfig;
+  '@stylistic/array-element-newline': ArrayElementNewline.ArrayElementNewlineRuleConfig;
 
   /**
    * Require parentheses around arrow function arguments.
    * @see [arrow-parens](https://eslint.style/rules/js/arrow-parens)
    */
-  'stylistic/arrow-parens': ArrowParensRuleConfig;
+  '@stylistic/arrow-parens': ArrowParensRuleConfig;
 
   /**
    * Enforce consistent spacing before and after the arrow in arrow functions.
    * @see [arrow-spacing](https://eslint.style/rules/js/arrow-spacing)
    */
-  'stylistic/arrow-spacing': [
+  '@stylistic/arrow-spacing': [
     {
       before?: boolean;
       after?: boolean;
@@ -1359,25 +1362,25 @@ export interface StylisticRules {
    * Disallow or enforce spaces inside of blocks after opening block and before closing block.
    * @see [block-spacing](https://eslint.style/rules/ts/block-spacing)
    */
-  'stylistic/block-spacing': [('always' | 'never')?];
+  '@stylistic/block-spacing': [('always' | 'never')?];
 
   /**
    * Enforce consistent brace style for blocks.
    * @see [brace-style](https://eslint.style/rules/ts/brace-style)
    */
-  'stylistic/brace-style': BraceStyleRuleConfig;
+  '@stylistic/brace-style': BraceStyleRuleConfig;
 
   /**
    * Require or disallow trailing commas.
    * @see [comma-dangle](https://eslint.style/rules/ts/comma-dangle)
    */
-  'stylistic/comma-dangle': CommaDangle.CommaDangleRuleConfig;
+  '@stylistic/comma-dangle': CommaDangle.CommaDangleRuleConfig;
 
   /**
    * Enforce consistent spacing before and after commas.
    * @see [comma-spacing](https://eslint.style/rules/ts/comma-spacing)
    */
-  'stylistic/comma-spacing': [
+  '@stylistic/comma-spacing': [
     {
       before?: boolean;
       after?: boolean;
@@ -1388,37 +1391,37 @@ export interface StylisticRules {
    * Enforce consistent comma style.
    * @see [comma-style](https://eslint.style/rules/js/comma-style)
    */
-  'stylistic/comma-style': [('first' | 'last')?, CommaStyleConfig?];
+  '@stylistic/comma-style': [('first' | 'last')?, CommaStyleConfig?];
 
   /**
    * Enforce consistent spacing inside computed property brackets.
    * @see [computed-property-spacing](https://eslint.style/rules/js/computed-property-spacing)
    */
-  'stylistic/computed-property-spacing': ComputedPropertySpacingRuleConfig;
+  '@stylistic/computed-property-spacing': ComputedPropertySpacingRuleConfig;
 
   /**
    * Enforce consistent newlines before and after dots.
    * @see [dot-location](https://eslint.style/rules/js/dot-location)
    */
-  'stylistic/dot-location': [('object' | 'property')?];
+  '@stylistic/dot-location': [('object' | 'property')?];
 
   /**
    * Require or disallow newline at the end of files.
    * @see [eol-last](https://eslint.style/rules/js/eol-last)
    */
-  'stylistic/eol-last': [('always' | 'never' | 'unix' | 'windows')?];
+  '@stylistic/eol-last': [('always' | 'never' | 'unix' | 'windows')?];
 
   /**
    * Require or disallow spacing between function identifiers and their invocations.
    * @see [func-call-spacing](https://eslint.style/rules/ts/function-call-spacing)
    */
-  'stylistic/func-call-spacing': FuncCallSpacingOption;
+  '@stylistic/func-call-spacing': FuncCallSpacingOption;
 
   /**
    * Enforce line breaks between arguments of a function call.
    * @see [function-call-argument-newline](https://eslint.style/rules/js/function-call-argument-newline)
    */
-  'stylistic/function-call-argument-newline': [
+  '@stylistic/function-call-argument-newline': [
     ('always' | 'never' | 'consistent')?,
   ];
 
@@ -1426,67 +1429,67 @@ export interface StylisticRules {
    * Require or disallow spacing between function identifiers and their invocations.
    * @see [function-call-spacing](https://eslint.style/rules/ts/function-call-spacing)
    */
-  'stylistic/function-call-spacing': FunctionCallSpacingOption;
+  '@stylistic/function-call-spacing': FunctionCallSpacingOption;
 
   /**
    * Enforce consistent line breaks inside function parentheses.
    * @see [function-paren-newline](https://eslint.style/rules/js/function-paren-newline)
    */
-  'stylistic/function-paren-newline': [FunctionParenNewlineOption?];
+  '@stylistic/function-paren-newline': [FunctionParenNewlineOption?];
 
   /**
    * Enforce consistent spacing around `*` operators in generator functions.
    * @see [generator-star-spacing](https://eslint.style/rules/js/generator-star-spacing)
    */
-  'stylistic/generator-star-spacing': [GeneratorStarSpacingOption?];
+  '@stylistic/generator-star-spacing': [GeneratorStarSpacingOption?];
 
   /**
    * Enforce the location of arrow function bodies.
    * @see [implicit-arrow-linebreak](https://eslint.style/rules/js/implicit-arrow-linebreak)
    */
-  'stylistic/implicit-arrow-linebreak': [('beside' | 'below')?];
+  '@stylistic/implicit-arrow-linebreak': [('beside' | 'below')?];
 
   /**
    * Enforce consistent indentation.
    * @see [indent](https://eslint.style/rules/ts/indent)
    */
-  'stylistic/indent': Indent.IndentRuleConfig;
+  '@stylistic/indent': Indent.IndentRuleConfig;
 
   /**
    * Enforce the consistent use of either double or single quotes in JSX attributes.
    * @see [jsx-quotes](https://eslint.style/rules/js/jsx-quotes)
    */
-  'stylistic/jsx-quotes': [('prefer-single' | 'prefer-double')?];
+  '@stylistic/jsx-quotes': [('prefer-single' | 'prefer-double')?];
 
   /**
    * Enforce consistent spacing between property names and type annotations in types and interfaces.
    * @see [key-spacing](https://eslint.style/rules/ts/key-spacing)
    */
-  'stylistic/key-spacing': [KeySpacingOption?];
+  '@stylistic/key-spacing': [KeySpacingOption?];
 
   /**
    * Enforce consistent spacing before and after keywords.
    * @see [keyword-spacing](https://eslint.style/rules/ts/keyword-spacing)
    */
-  'stylistic/keyword-spacing': KeywordSpacing.KeywordSpacingRuleConfig;
+  '@stylistic/keyword-spacing': KeywordSpacing.KeywordSpacingRuleConfig;
 
   /**
    * Enforce position of line comments.
    * @see [line-comment-position](https://eslint.style/rules/js/line-comment-position)
    */
-  'stylistic/line-comment-position': [LineCommentPositionOption?];
+  '@stylistic/line-comment-position': [LineCommentPositionOption?];
 
   /**
    * Enforce consistent linebreak style.
    * @see [linebreak-style](https://eslint.style/rules/js/linebreak-style)
    */
-  'stylistic/linebreak-style': [('unix' | 'windows')?];
+  '@stylistic/linebreak-style': [('unix' | 'windows')?];
 
   /**
    * Require empty lines around comments.
    * @see [lines-around-comment](https://eslint.style/rules/ts/lines-around-comment)
    */
-  'stylistic/lines-around-comment': [
+  '@stylistic/lines-around-comment': [
     {
       beforeBlockComment?: boolean;
       afterBlockComment?: boolean;
@@ -1518,19 +1521,19 @@ export interface StylisticRules {
    * Require or disallow an empty line between class members.
    * @see [lines-between-class-members](https://eslint.style/rules/ts/lines-between-class-members)
    */
-  'stylistic/lines-between-class-members': LinesBetweenClassMembersRuleConfig;
+  '@stylistic/lines-between-class-members': LinesBetweenClassMembersRuleConfig;
 
   /**
    * Enforce a maximum line length.
    * @see [max-len](https://eslint.style/rules/js/max-len)
    */
-  'stylistic/max-len': MaxLen.MaxLenRuleConfig;
+  '@stylistic/max-len': MaxLen.MaxLenRuleConfig;
 
   /**
    * Enforce a maximum number of statements allowed per line.
    * @see [max-statements-per-line](https://eslint.style/rules/js/max-statements-per-line)
    */
-  'stylistic/max-statements-per-line': [
+  '@stylistic/max-statements-per-line': [
     {
       max?: number;
     }?,
@@ -1540,25 +1543,25 @@ export interface StylisticRules {
    * Enforce a particular style for multiline comments.
    * @see [multiline-comment-style](https://eslint.style/rules/js/multiline-comment-style)
    */
-  'stylistic/multiline-comment-style': MultilineCommentStyleOption;
+  '@stylistic/multiline-comment-style': MultilineCommentStyleOption;
 
   /**
    * Enforce newlines between operands of ternary expressions.
    * @see [multiline-ternary](https://eslint.style/rules/js/multiline-ternary)
    */
-  'stylistic/multiline-ternary': MultilineTernaryRuleConfig;
+  '@stylistic/multiline-ternary': MultilineTernaryRuleConfig;
 
   /**
    * Enforce or disallow parentheses when invoking a constructor with no arguments.
    * @see [new-parens](https://eslint.style/rules/js/new-parens)
    */
-  'stylistic/new-parens': [('always' | 'never')?];
+  '@stylistic/new-parens': [('always' | 'never')?];
 
   /**
    * Require a newline after each call in a method chain.
    * @see [newline-per-chained-call](https://eslint.style/rules/js/newline-per-chained-call)
    */
-  'stylistic/newline-per-chained-call': [
+  '@stylistic/newline-per-chained-call': [
     {
       ignoreChainWithDepth?: number;
     }?,
@@ -1568,7 +1571,7 @@ export interface StylisticRules {
    * Disallow arrow functions where they could be confused with comparisons.
    * @see [no-confusing-arrow](https://eslint.style/rules/js/no-confusing-arrow)
    */
-  'stylistic/no-confusing-arrow': [
+  '@stylistic/no-confusing-arrow': [
     {
       allowParens?: boolean;
       onlyOneSimpleParam?: boolean;
@@ -1579,43 +1582,43 @@ export interface StylisticRules {
    * Disallow unnecessary parentheses.
    * @see [no-extra-parens](https://eslint.style/rules/ts/no-extra-parens)
    */
-  'stylistic/no-extra-parens': NoExtraParensOption;
+  '@stylistic/no-extra-parens': NoExtraParensOption;
 
   /**
    * Disallow unnecessary semicolons.
    * @see [no-extra-semi](https://eslint.style/rules/ts/no-extra-semi)
    */
-  'stylistic/no-extra-semi': null;
+  '@stylistic/no-extra-semi': null;
 
   /**
    * Disallow leading or trailing decimal points in numeric literals.
    * @see [no-floating-decimal](https://eslint.style/rules/js/no-floating-decimal)
    */
-  'stylistic/no-floating-decimal': null;
+  '@stylistic/no-floating-decimal': null;
 
   /**
    * Disallow mixed binary operators.
    * @see [no-mixed-operators](https://eslint.style/rules/js/no-mixed-operators)
    */
-  'stylistic/no-mixed-operators': [NoMixedOperatorsOption?];
+  '@stylistic/no-mixed-operators': [NoMixedOperatorsOption?];
 
   /**
    * Disallow mixed spaces and tabs for indentation.
    * @see [no-mixed-spaces-and-tabs](https://eslint.style/rules/js/no-mixed-spaces-and-tabs)
    */
-  'stylistic/no-mixed-spaces-and-tabs': [NoMixedSpacesAndTabsOption?];
+  '@stylistic/no-mixed-spaces-and-tabs': [NoMixedSpacesAndTabsOption?];
 
   /**
    * Disallow multiple spaces.
    * @see [no-multi-spaces](https://eslint.style/rules/js/no-multi-spaces)
    */
-  'stylistic/no-multi-spaces': [NoMultiSpacesOption?];
+  '@stylistic/no-multi-spaces': [NoMultiSpacesOption?];
 
   /**
    * Disallow multiple empty lines.
    * @see [no-multiple-empty-lines](https://eslint.style/rules/js/no-multiple-empty-lines)
    */
-  'stylistic/no-multiple-empty-lines': [
+  '@stylistic/no-multiple-empty-lines': [
     {
       max: number;
       maxEOF?: number;
@@ -1627,7 +1630,7 @@ export interface StylisticRules {
    * Disallow all tabs.
    * @see [no-tabs](https://eslint.style/rules/js/no-tabs)
    */
-  'stylistic/no-tabs': [
+  '@stylistic/no-tabs': [
     {
       allowIndentationTabs?: boolean;
     }?,
@@ -1637,7 +1640,7 @@ export interface StylisticRules {
    * Disallow trailing whitespace at the end of lines.
    * @see [no-trailing-spaces](https://eslint.style/rules/js/no-trailing-spaces)
    */
-  'stylistic/no-trailing-spaces': [
+  '@stylistic/no-trailing-spaces': [
     {
       skipBlankLines?: boolean;
       ignoreComments?: boolean;
@@ -1648,31 +1651,31 @@ export interface StylisticRules {
    * Disallow whitespace before properties.
    * @see [no-whitespace-before-property](https://eslint.style/rules/js/no-whitespace-before-property)
    */
-  'stylistic/no-whitespace-before-property': null;
+  '@stylistic/no-whitespace-before-property': null;
 
   /**
    * Enforce the location of single-line statements.
    * @see [nonblock-statement-body-position](https://eslint.style/rules/js/nonblock-statement-body-position)
    */
-  'stylistic/nonblock-statement-body-position': NonblockStatementBodyPositionRuleConfig;
+  '@stylistic/nonblock-statement-body-position': NonblockStatementBodyPositionRuleConfig;
 
   /**
    * Enforce consistent line breaks after opening and before closing braces.
    * @see [object-curly-newline](https://eslint.style/rules/ts/object-curly-newline)
    */
-  'stylistic/object-curly-newline': [ObjectCurlyNewlineOption?];
+  '@stylistic/object-curly-newline': [ObjectCurlyNewlineOption?];
 
   /**
    * Enforce consistent spacing inside braces.
    * @see [object-curly-spacing](https://eslint.style/rules/ts/object-curly-spacing)
    */
-  'stylistic/object-curly-spacing': ObjectCurlySpacingRuleConfig;
+  '@stylistic/object-curly-spacing': ObjectCurlySpacingRuleConfig;
 
   /**
    * Enforce placing object properties on separate lines.
    * @see [object-property-newline](https://eslint.style/rules/ts/object-property-newline)
    */
-  'stylistic/object-property-newline': [
+  '@stylistic/object-property-newline': [
     {
       allowAllPropertiesOnSameLine?: boolean;
       allowMultiplePropertiesPerLine?: boolean;
@@ -1683,55 +1686,55 @@ export interface StylisticRules {
    * Require or disallow newlines around variable declarations.
    * @see [one-var-declaration-per-line](https://eslint.style/rules/js/one-var-declaration-per-line)
    */
-  'stylistic/one-var-declaration-per-line': [('always' | 'initializations')?];
+  '@stylistic/one-var-declaration-per-line': [('always' | 'initializations')?];
 
   /**
    * Enforce consistent linebreak style for operators.
    * @see [operator-linebreak](https://eslint.style/rules/js/operator-linebreak)
    */
-  'stylistic/operator-linebreak': OperatorLinebreak.OperatorLinebreakRuleConfig;
+  '@stylistic/operator-linebreak': OperatorLinebreak.OperatorLinebreakRuleConfig;
 
   /**
    * Require or disallow padding within blocks.
    * @see [padded-blocks](https://eslint.style/rules/js/padded-blocks)
    */
-  'stylistic/padded-blocks': PaddedBlocksRuleConfig;
+  '@stylistic/padded-blocks': PaddedBlocksRuleConfig;
 
   /**
    * Require or disallow padding lines between statements.
    * @see [padding-line-between-statements](https://eslint.style/rules/ts/padding-line-between-statements)
    */
-  'stylistic/padding-line-between-statements': PaddingLineBetweenStatements.PaddingLineBetweenStatementsRuleConfig;
+  '@stylistic/padding-line-between-statements': PaddingLineBetweenStatements.PaddingLineBetweenStatementsRuleConfig;
 
   /**
    * Require quotes around object literal, type literal, interfaces and enums property names.
    * @see [quote-props](https://eslint.style/rules/ts/quote-props)
    */
-  'stylistic/quote-props': QuotePropsOption;
+  '@stylistic/quote-props': QuotePropsOption;
 
   /**
    * Enforce the consistent use of either backticks, double, or single quotes.
    * @see [quotes](https://eslint.style/rules/ts/quotes)
    */
-  'stylistic/quotes': QuotesRuleConfig;
+  '@stylistic/quotes': QuotesRuleConfig;
 
   /**
    * Enforce spacing between rest and spread operators and their expressions.
    * @see [rest-spread-spacing](https://eslint.style/rules/js/rest-spread-spacing)
    */
-  'stylistic/rest-spread-spacing': [('always' | 'never')?];
+  '@stylistic/rest-spread-spacing': [('always' | 'never')?];
 
   /**
    * Require or disallow semicolons instead of ASI.
    * @see [semi](https://eslint.style/rules/ts/semi)
    */
-  'stylistic/semi': SemiOption;
+  '@stylistic/semi': SemiOption;
 
   /**
    * Enforce consistent spacing before and after semicolons.
    * @see [semi-spacing](https://eslint.style/rules/js/semi-spacing)
    */
-  'stylistic/semi-spacing': [
+  '@stylistic/semi-spacing': [
     {
       before?: boolean;
       after?: boolean;
@@ -1742,31 +1745,31 @@ export interface StylisticRules {
    * Enforce location of semicolons.
    * @see [semi-style](https://eslint.style/rules/js/semi-style)
    */
-  'stylistic/semi-style': [('last' | 'first')?];
+  '@stylistic/semi-style': [('last' | 'first')?];
 
   /**
    * Enforce consistent spacing before blocks.
    * @see [space-before-blocks](https://eslint.style/rules/ts/space-before-blocks)
    */
-  'stylistic/space-before-blocks': [SpaceBeforeBlocksOption?];
+  '@stylistic/space-before-blocks': [SpaceBeforeBlocksOption?];
 
   /**
    * Enforce consistent spacing before function parenthesis.
    * @see [space-before-function-paren](https://eslint.style/rules/ts/space-before-function-paren)
    */
-  'stylistic/space-before-function-paren': [SpaceBeforeFunctionParenOption?];
+  '@stylistic/space-before-function-paren': [SpaceBeforeFunctionParenOption?];
 
   /**
    * Enforce consistent spacing inside parentheses.
    * @see [space-in-parens](https://eslint.style/rules/js/space-in-parens)
    */
-  'stylistic/space-in-parens': [('always' | 'never')?, SpaceInParensConfig?];
+  '@stylistic/space-in-parens': [('always' | 'never')?, SpaceInParensConfig?];
 
   /**
    * Require spacing around infix operators.
    * @see [space-infix-ops](https://eslint.style/rules/ts/space-infix-ops)
    */
-  'stylistic/space-infix-ops': [
+  '@stylistic/space-infix-ops': [
     {
       int32Hint?: boolean;
     }?,
@@ -1776,19 +1779,19 @@ export interface StylisticRules {
    * Enforce consistent spacing before or after unary operators.
    * @see [space-unary-ops](https://eslint.style/rules/js/space-unary-ops)
    */
-  'stylistic/space-unary-ops': [SpaceUnaryOpsOption?];
+  '@stylistic/space-unary-ops': [SpaceUnaryOpsOption?];
 
   /**
    * Enforce consistent spacing after the `//` or `/*` in a comment.
    * @see [spaced-comment](https://eslint.style/rules/js/spaced-comment)
    */
-  'stylistic/spaced-comment': [('always' | 'never')?, SpacedCommentConfig?];
+  '@stylistic/spaced-comment': [('always' | 'never')?, SpacedCommentConfig?];
 
   /**
    * Enforce spacing around colons of switch statements.
    * @see [switch-colon-spacing](https://eslint.style/rules/js/switch-colon-spacing)
    */
-  'stylistic/switch-colon-spacing': [
+  '@stylistic/switch-colon-spacing': [
     {
       before?: boolean;
       after?: boolean;
@@ -1799,79 +1802,79 @@ export interface StylisticRules {
    * Require or disallow spacing around embedded expressions of template strings.
    * @see [template-curly-spacing](https://eslint.style/rules/js/template-curly-spacing)
    */
-  'stylistic/template-curly-spacing': [('always' | 'never')?];
+  '@stylistic/template-curly-spacing': [('always' | 'never')?];
 
   /**
    * Require or disallow spacing between template tags and their literals.
    * @see [template-tag-spacing](https://eslint.style/rules/js/template-tag-spacing)
    */
-  'stylistic/template-tag-spacing': [('always' | 'never')?];
+  '@stylistic/template-tag-spacing': [('always' | 'never')?];
 
   /**
    * Require parentheses around immediate `function` invocations.
    * @see [wrap-iife](https://eslint.style/rules/js/wrap-iife)
    */
-  'stylistic/wrap-iife': WrapIifeRuleConfig;
+  '@stylistic/wrap-iife': WrapIifeRuleConfig;
 
   /**
    * Require parenthesis around regex literals.
    * @see [wrap-regex](https://eslint.style/rules/js/wrap-regex)
    */
-  'stylistic/wrap-regex': null;
+  '@stylistic/wrap-regex': null;
 
   /**
    * Require or disallow spacing around the `*` in `yield*` expressions.
    * @see [yield-star-spacing](https://eslint.style/rules/js/yield-star-spacing)
    */
-  'stylistic/yield-star-spacing': [YieldStarSpacingOption?];
+  '@stylistic/yield-star-spacing': [YieldStarSpacingOption?];
 
   /**
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
    * @see [jsx-child-element-spacing](https://eslint.style/rules/jsx/jsx-child-element-spacing)
    */
-  'stylistic/jsx-child-element-spacing': null;
+  '@stylistic/jsx-child-element-spacing': null;
 
   /**
    * Enforce closing bracket location in JSX.
    * @see [jsx-closing-bracket-location](https://eslint.style/rules/jsx/jsx-closing-bracket-location)
    */
-  'stylistic/jsx-closing-bracket-location': [JsxClosingBracketLocationOption?];
+  '@stylistic/jsx-closing-bracket-location': [JsxClosingBracketLocationOption?];
 
   /**
    * Enforce closing tag location for multiline JSX.
    * @see [jsx-closing-tag-location](https://eslint.style/rules/jsx/jsx-closing-tag-location)
    */
-  'stylistic/jsx-closing-tag-location': null;
+  '@stylistic/jsx-closing-tag-location': null;
 
   /**
    * Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes.
    * @see [jsx-curly-brace-presence](https://eslint.style/rules/jsx/jsx-curly-brace-presence)
    */
-  'stylistic/jsx-curly-brace-presence': [JsxCurlyBracePresenceOption?];
+  '@stylistic/jsx-curly-brace-presence': [JsxCurlyBracePresenceOption?];
 
   /**
    * Enforce consistent linebreaks in curly braces in JSX attributes and expressions.
    * @see [jsx-curly-newline](https://eslint.style/rules/jsx/jsx-curly-newline)
    */
-  'stylistic/jsx-curly-newline': [JsxCurlyNewlineOption?];
+  '@stylistic/jsx-curly-newline': [JsxCurlyNewlineOption?];
 
   /**
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
    * @see [jsx-curly-spacing](https://eslint.style/rules/jsx/jsx-curly-spacing)
    */
-  'stylistic/jsx-curly-spacing': JsxCurlySpacing.JsxCurlySpacingRuleConfig;
+  '@stylistic/jsx-curly-spacing': JsxCurlySpacing.JsxCurlySpacingRuleConfig;
 
   /**
    * Enforce or disallow spaces around equal signs in JSX attributes.
    * @see [jsx-equals-spacing](https://eslint.style/rules/jsx/jsx-equals-spacing)
    */
-  'stylistic/jsx-equals-spacing': [('always' | 'never')?];
+  '@stylistic/jsx-equals-spacing': [('always' | 'never')?];
 
   /**
    * Enforce proper position of the first property in JSX.
    * @see [jsx-first-prop-new-line](https://eslint.style/rules/jsx/jsx-first-prop-new-line)
    */
-  'stylistic/jsx-first-prop-new-line': [
+  '@stylistic/jsx-first-prop-new-line': [
     ('always' | 'never' | 'multiline' | 'multiline-multiprop' | 'multiprop')?,
   ];
 
@@ -1879,32 +1882,32 @@ export interface StylisticRules {
    * Enforce line breaks before and after JSX elements when they are used as arguments to a function.
    * @see [jsx-function-call-newline](https://eslint.style/rules/jsx/jsx-function-call-newline)
    */
-  'stylistic/jsx-function-call-newline': [('always' | 'multiline')?];
+  '@stylistic/jsx-function-call-newline': [('always' | 'multiline')?];
 
   /**
    * Enforce JSX indentation. Deprecated, use `indent` rule instead.
    * @deprecated
    * @see [jsx-indent](https://eslint.style/rules/jsx/jsx-indent)
    */
-  'stylistic/jsx-indent': JsxIndentRuleConfig;
+  '@stylistic/jsx-indent': JsxIndentRuleConfig;
 
   /**
    * Enforce props indentation in JSX.
    * @see [jsx-indent-props](https://eslint.style/rules/jsx/jsx-indent-props)
    */
-  'stylistic/jsx-indent-props': [JsxIndentPropsOption?];
+  '@stylistic/jsx-indent-props': [JsxIndentPropsOption?];
 
   /**
    * Enforce maximum of props on a single line in JSX.
    * @see [jsx-max-props-per-line](https://eslint.style/rules/jsx/jsx-max-props-per-line)
    */
-  'stylistic/jsx-max-props-per-line': [JsxMaxPropsPerLineOption?];
+  '@stylistic/jsx-max-props-per-line': [JsxMaxPropsPerLineOption?];
 
   /**
    * Require or prevent a new line after jsx elements and expressions.
    * @see [jsx-newline](https://eslint.style/rules/jsx/jsx-newline)
    */
-  'stylistic/jsx-newline': [
+  '@stylistic/jsx-newline': [
     {
       prevent?: boolean;
       allowMultilines?: boolean;
@@ -1915,13 +1918,13 @@ export interface StylisticRules {
    * Require one JSX element per line.
    * @see [jsx-one-expression-per-line](https://eslint.style/rules/jsx/jsx-one-expression-per-line)
    */
-  'stylistic/jsx-one-expression-per-line': [JsxOneExpressionPerLineOption?];
+  '@stylistic/jsx-one-expression-per-line': [JsxOneExpressionPerLineOption?];
 
   /**
    * Enforce PascalCase for user-defined JSX components.
    * @see [jsx-pascal-case](https://eslint.style/rules/jsx/jsx-pascal-case)
    */
-  'stylistic/jsx-pascal-case': [
+  '@stylistic/jsx-pascal-case': [
     {
       allowAllCaps?: boolean;
       allowLeadingUnderscore?: boolean;
@@ -1934,13 +1937,13 @@ export interface StylisticRules {
    * Disallow multiple spaces between inline JSX props.
    * @see [jsx-props-no-multi-spaces](https://eslint.style/rules/jsx/jsx-props-no-multi-spaces)
    */
-  'stylistic/jsx-props-no-multi-spaces': null;
+  '@stylistic/jsx-props-no-multi-spaces': null;
 
   /**
    * Disallow extra closing tags for components without children.
    * @see [jsx-self-closing-comp](https://eslint.style/rules/jsx/jsx-self-closing-comp)
    */
-  'stylistic/jsx-self-closing-comp': [
+  '@stylistic/jsx-self-closing-comp': [
     {
       component?: boolean;
       html?: boolean;
@@ -1951,49 +1954,49 @@ export interface StylisticRules {
    * Enforce props alphabetical sorting.
    * @see [jsx-sort-props](https://eslint.style/rules/jsx/jsx-sort-props)
    */
-  'stylistic/jsx-sort-props': [JsxSortPropsOption?];
+  '@stylistic/jsx-sort-props': [JsxSortPropsOption?];
 
   /**
    * Enforce whitespace in and around the JSX opening and closing brackets.
    * @see [jsx-tag-spacing](https://eslint.style/rules/jsx/jsx-tag-spacing)
    */
-  'stylistic/jsx-tag-spacing': [JsxTagSpacingOption?];
+  '@stylistic/jsx-tag-spacing': [JsxTagSpacingOption?];
 
   /**
    * Disallow missing parentheses around multiline JSX.
    * @see [jsx-wrap-multilines](https://eslint.style/rules/jsx/jsx-wrap-multilines)
    */
-  'stylistic/jsx-wrap-multilines': [JsxWrapMultilinesOption?];
+  '@stylistic/jsx-wrap-multilines': [JsxWrapMultilinesOption?];
 
   /**
    * Require a specific member delimiter style for interfaces and type literals.
    * @see [member-delimiter-style](https://eslint.style/rules/ts/member-delimiter-style)
    */
-  'stylistic/member-delimiter-style': MemberDelimiterStyle.MemberDelimiterStyleRuleConfig;
+  '@stylistic/member-delimiter-style': MemberDelimiterStyle.MemberDelimiterStyleRuleConfig;
 
   /**
    * Require consistent spacing around type annotations.
    * @see [type-annotation-spacing](https://eslint.style/rules/ts/type-annotation-spacing)
    */
-  'stylistic/type-annotation-spacing': TypeAnnotationSpacing.TypeAnnotationSpacingRuleConfig;
+  '@stylistic/type-annotation-spacing': TypeAnnotationSpacing.TypeAnnotationSpacingRuleConfig;
 
   /**
    * Indentation for binary operators.
    * @see [indent-binary-ops](https://eslint.style/rules/plus/indent-binary-ops)
    */
-  'stylistic/indent-binary-ops': [IndentBinaryOpsOption?];
+  '@stylistic/indent-binary-ops': [IndentBinaryOpsOption?];
 
   /**
    * Enforces consistent spacing inside TypeScript type generics.
    * @see [type-generic-spacing](https://eslint.style/rules/plus/type-generic-spacing)
    */
-  'stylistic/type-generic-spacing': null;
+  '@stylistic/type-generic-spacing': null;
 
   /**
    * Expect space before the type declaration in the named tuple.
    * @see [type-named-tuple-spacing](https://eslint.style/rules/plus/type-named-tuple-spacing)
    */
-  'stylistic/type-named-tuple-spacing': null;
+  '@stylistic/type-named-tuple-spacing': null;
 }
 
 export type StylisticRulesObject = RulesObject<StylisticRules>;

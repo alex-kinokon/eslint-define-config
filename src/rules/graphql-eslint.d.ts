@@ -259,8 +259,7 @@ export namespace NamingConvention {
           VariableDefinition?: AsString | AsObject;
           allowLeadingUnderscore?: boolean;
           allowTrailingUnderscore?: boolean;
-          /**
-           */
+        } & {
           [k: string]: AsString | AsObject;
         },
       ];

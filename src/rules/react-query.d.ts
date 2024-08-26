@@ -21,6 +21,12 @@ export interface ReactQueryRules {
    * @see [no-rest-destructuring](https://tanstack.com/query/latest/docs/eslint/no-rest-destructuring)
    */
   '@tanstack/query/no-rest-destructuring': null;
+
+  /**
+   * Disallow putting the result of useMutation directly in a React hook dependency array.
+   * @see [no-unstable-deps](https://tanstack.com/query/latest/docs/eslint/no-unstable-deps)
+   */
+  '@tanstack/query/no-unstable-deps': null;
 }
 
 export type ReactQueryRulesObject = RulesObject<ReactQueryRules>;

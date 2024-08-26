@@ -2,6 +2,16 @@ import type { LiteralUnion } from '../utility-types';
 
 // #region extensions
 /**
+ * ESLint Astro extends.
+ */
+type AstroExtends =
+  | 'plugin:astro/all'
+  | 'plugin:astro/base'
+  | 'plugin:astro/jsx-a11y-recommended'
+  | 'plugin:astro/jsx-a11y-strict'
+  | 'plugin:astro/recommended';
+
+/**
  * ESLint Deprecation extends.
  */
 type DeprecationExtends = 'plugin:deprecation/recommended';
@@ -147,6 +157,8 @@ type ReactExtends =
   | 'plugin:@eslint-react/disable-dom-legacy'
   | 'plugin:@eslint-react/disable-type-checked'
   | 'plugin:@eslint-react/disable-type-checked-legacy'
+  | 'plugin:@eslint-react/disable-web-api'
+  | 'plugin:@eslint-react/disable-web-api-legacy'
   | 'plugin:@eslint-react/dom'
   | 'plugin:@eslint-react/dom-legacy'
   | 'plugin:@eslint-react/off'
@@ -205,11 +217,11 @@ type StorybookExtends =
  * ESLint Stylistic extends.
  */
 type StylisticExtends =
-  | 'plugin:stylistic/all-extends'
-  | 'plugin:stylistic/customize'
-  | 'plugin:stylistic/disable-legacy'
-  | 'plugin:stylistic/recommended-extends'
-  | 'plugin:stylistic/recommended-legacy';
+  | 'plugin:@stylistic/all-extends'
+  | 'plugin:@stylistic/customize'
+  | 'plugin:@stylistic/disable-legacy'
+  | 'plugin:@stylistic/recommended-extends'
+  | 'plugin:@stylistic/recommended-legacy';
 
 /**
  * ESLint Tailwind extends.
@@ -344,6 +356,7 @@ export interface CustomExtends {}
  */
 export type KnownExtends = LiteralUnion<
   // #region union
+  | AstroExtends
   | DeprecationExtends
   | EslintExtends
   | EslintCommentsExtends

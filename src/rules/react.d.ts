@@ -3,6 +3,9 @@ import type { RulesObject } from '../rule-config';
 export type NamingConventionComponentNameOption =
   | ('PascalCase' | 'CONSTANT_CASE')
   | {
+      allowAllCaps?: boolean;
+      allowLeadingUnderscore?: boolean;
+      allowNamespace?: boolean;
       excepts?: string[];
       rule?: 'PascalCase' | 'CONSTANT_CASE';
     };
@@ -27,13 +30,13 @@ export type NamingConventionFilenameExtensionOption =
  */
 export interface ReactRules {
   /**
-   * Avoid using shorthand boolean attribute.
+   * Disallow using shorthand boolean attributes.
    * @see [avoid-shorthand-boolean](https://eslint-react.xyz/docs/rules/avoid-shorthand-boolean)
    */
   '@eslint-react/avoid-shorthand-boolean': null;
 
   /**
-   * Avoid using shorthand fragment syntax.
+   * Disallow using shorthand fragment syntax.
    * @see [avoid-shorthand-fragment](https://eslint-react.xyz/docs/rules/avoid-shorthand-fragment)
    */
   '@eslint-react/avoid-shorthand-fragment': null;
@@ -367,6 +370,24 @@ export interface ReactRules {
    * @see [dom/no-unsafe-target-blank](https://eslint-react.xyz/docs/rules/dom-no-unsafe-target-blank)
    */
   '@eslint-react/dom/no-unsafe-target-blank': null;
+
+  /**
+   * Enforce that every 'addEventListener' in a component or custom hook has a corresponding 'removeEventListener'.
+   * @see [web-api/no-leaked-event-listener](https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener)
+   */
+  '@eslint-react/web-api/no-leaked-event-listener': null;
+
+  /**
+   * Enforce that every 'setInterval' in a component or custom hook has a corresponding 'clearInterval'.
+   * @see [web-api/no-leaked-interval](https://eslint-react.xyz/docs/rules/web-api-no-leaked-interval)
+   */
+  '@eslint-react/web-api/no-leaked-interval': null;
+
+  /**
+   * Enforce that every 'setTimeout' in a component or custom hook has a corresponding 'clearTimeout'.
+   * @see [web-api/no-leaked-timeout](https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout)
+   */
+  '@eslint-react/web-api/no-leaked-timeout': null;
 
   /**
    * Enforce custom hooks using other hooks.

@@ -33,6 +33,7 @@ const config = {
     'no-case-declarations': 'warn',
     quotes: ['error', 'single', { avoidEscape: true }],
     semi: ['error', 'always'],
+    'object-shorthand': ['error', 'always'],
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/array-type': [
       'error',

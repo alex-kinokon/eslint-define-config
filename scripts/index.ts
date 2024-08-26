@@ -3,9 +3,8 @@ import { pascalCase } from 'change-case';
 import type { Rule } from 'eslint';
 import type { JSONSchema4 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
-import { execSync } from 'node:child_process';
-import { existsSync, promises as fs } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { promises as fs } from 'node:fs';
+import { join } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 import colors from 'picocolors';
 import { ExtendsCollector } from './extends.ts';
@@ -114,6 +113,7 @@ async function generateRule(
   let settingText = '';
 
   const pascalName = pascalCase(ruleName);
+  const pascal = (name: string) => pascalName + pascalCase(name);
 
   const schema = rule.meta?.schema;
   const isArray = Array.isArray(schema);
@@ -173,8 +173,6 @@ async function generateRule(
 
     return `${rulePrefix}${ruleName}`;
   }
-
-  const pascal = (name: string) => pascalName + pascalCase(name);
 
   function writeMember(
     name: 'option' | 'config' | 'setting',
@@ -280,6 +278,7 @@ async function generateRule(
   return {
     content: [prefix, content, suffix].join('\n'),
     property,
+    meta: rule.meta,
   };
 }
 
@@ -333,22 +332,6 @@ async function generateRuleFile(
   } catch (e) {
     console.error(e);
     await fs.writeFile(rulePath, fileContent);
-  }
-
-  /**
-   * Apply a patch to the generated content if a diff file exists for it.
-   *
-   * Must be called after `generate()`.
-   */
-  const diffFile = resolve(__dirname, 'diffs', `${filename}.diff`);
-  if (existsSync(diffFile)) {
-    logger.logUpdate(colors.yellow(`  🧹 Adjusting ${name}`));
-    logger.logUpdatePersist();
-    try {
-      execSync(`git apply ${diffFile}`);
-    } catch {
-      console.error(`Failed to apply diff file for ${name}`);
-    }
   }
 }
 
@@ -439,9 +422,15 @@ async function generateRuleIndex(file: string, plugins: PluginEntry[]) {
 
 const mkdirpSync = (dir: string) => fs.mkdir(dir, { recursive: true });
 
+export type RuleData = Array<{
+  plugin: PluginEntry;
+  ruleDetails: Array<Pick<RuleDetail, 'meta'> & { name: string }>;
+}>;
+
 export async function run(): Promise<void> {
   const rulesDir = join(__dirname, '../src/rules');
   await mkdirpSync(rulesDir);
+  const programmaticData: RuleData = [];
 
   const extendsCollector = new ExtendsCollector();
 
@@ -451,12 +440,22 @@ export async function run(): Promise<void> {
     const loadedPlugin = await loadPlugin(plugin);
     extendsCollector.add(loadedPlugin);
 
+    const rulesFile = await generateRulesFile(loadedPlugin);
     await generateRuleFile(
       rulesDir,
       `${plugin.id}.d.ts`,
       loadedPlugin,
-      await generateRulesFile(loadedPlugin),
+      rulesFile,
     );
+
+    const ruleDetails = Array.from(rulesFile.ruleDetails).flatMap(
+      ([name, { meta }]) => ({ name, meta }),
+    );
+
+    programmaticData.push({
+      plugin: loadedPlugin.entry,
+      ruleDetails,
+    });
   }
 
   await generateRuleIndex(
@@ -464,4 +463,9 @@ export async function run(): Promise<void> {
     PLUGIN_REGISTRY,
   );
   await extendsCollector.write();
+
+  await fs.writeFile(
+    join(__dirname, '../src/data.json'),
+    JSON.stringify(programmaticData),
+  );
 }

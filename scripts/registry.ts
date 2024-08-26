@@ -14,12 +14,13 @@ export interface LoadedPlugin {
  * Map of plugins for which the script will generate rule files.
  */
 export const PLUGIN_REGISTRY: PluginEntry[] = [
+  include('astro', {
+    import: () => import('eslint-plugin-astro'),
+  }),
   include('deprecation', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-deprecation'),
   }),
   include('eslint', {
-    // @ts-expect-error different types
     import: () => import('eslint'),
   }),
   include('eslint-comments', {
@@ -46,20 +47,17 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     },
   }),
   include('import-x', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-import-x'),
   }),
   include('jsdoc', {
     name: 'JSDoc',
     prefix: 'jsdoc',
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-jsdoc'),
     docs: {
       extends: 'https://github.com/gajus/eslint-plugin-jsdoc#configuration',
     },
   }),
   include('jsonc', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-jsonc'),
     docs: {
       extends: 'https://github.com/ota-meshi/eslint-plugin-jsonc#configuration',
@@ -104,7 +102,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
   }),
   include('react', {
     prefix: '@eslint-react',
-    // @ts-expect-error no types
     import: () => import('@eslint-react/eslint-plugin'),
     docs: {
       extends: 'https://eslint-react.xyz/docs/installation',
@@ -119,7 +116,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
   }),
   include('react-query', {
     prefix: '@tanstack/query',
-    // @ts-expect-error no types
     import: () => import('@tanstack/eslint-plugin-query'),
     docs: {
       extends:
@@ -133,7 +129,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
   include('sonarjs', {
     name: 'SonarJS',
     prefix: 'sonarjs',
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-sonarjs'),
     docs: {
       extends:
@@ -152,6 +147,7 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     import: () => import('eslint-plugin-storybook'),
   }),
   include('stylistic', {
+    prefix: '@stylistic',
     import: () => import('@stylistic/eslint-plugin'),
   }),
   include('tailwind', {
@@ -179,8 +175,7 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     },
   }),
   include('vitest', {
-    // @ts-expect-error no types
-    import: () => import('eslint-plugin-vitest'),
+    import: () => import('@vitest/eslint-plugin'),
     docs: {
       home: 'https://github.com/veritem/eslint-plugin-vitest',
     },
@@ -209,7 +204,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     },
   }),
   include('yml', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-yml'),
   }),
 ];
@@ -229,7 +223,8 @@ export interface PluginEntry {
 
 function include(
   id: string,
-  entry: Pick<PluginEntry, 'import' | 'docs'> & {
+  entry: Pick<PluginEntry, 'docs'> & {
+    import: () => any;
     prefix?: string;
     name?: string;
   },
