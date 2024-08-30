@@ -412,10 +412,52 @@ export interface VitestRules {
   ];
 
   /**
-   * Enforce padding around afterAll blocks.
-   * @see [index](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/index.md)
+   * Enforce padding around `afterAll` blocks.
+   * @see [padding-around-after-all-blocks](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/padding-around-after-all-blocks.md)
    */
-  'vitest/index': null;
+  'vitest/padding-around-after-all-blocks': null;
+
+  /**
+   * Enforce padding around `afterEach` blocks.
+   * @see [padding-around-after-each-blocks](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/padding-around-after-each-blocks.md)
+   */
+  'vitest/padding-around-after-each-blocks': null;
+
+  /**
+   * Enforce padding around vitest functions.
+   * @see [padding-around-all](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/padding-around-all.md)
+   */
+  'vitest/padding-around-all': null;
+
+  /**
+   * Enforce padding around `beforeAll` blocks.
+   * @see [padding-around-before-all-blocks](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/padding-around-before-all-blocks.md)
+   */
+  'vitest/padding-around-before-all-blocks': null;
+
+  /**
+   * Enforce padding around `beforeEach` blocks.
+   * @see [padding-around-before-each-blocks](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/padding-around-before-each-blocks.md)
+   */
+  'vitest/padding-around-before-each-blocks': null;
+
+  /**
+   * Enforce padding around `describe` blocks.
+   * @see [padding-around-describe-blocks](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/padding-around-describe-blocks.md)
+   */
+  'vitest/padding-around-describe-blocks': null;
+
+  /**
+   * Enforce padding around `expect` groups.
+   * @see [padding-around-expect-groups](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/padding-around-expect-groups.md)
+   */
+  'vitest/padding-around-expect-groups': null;
+
+  /**
+   * Enforce padding around afterAll blocks.
+   * @see [padding-around-test-blocks](https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/padding-around-test-blocks.md)
+   */
+  'vitest/padding-around-test-blocks': null;
 }
 
 export type VitestRulesObject = RulesObject<VitestRules>;

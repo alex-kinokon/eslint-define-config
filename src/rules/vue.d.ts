@@ -1546,7 +1546,7 @@ export interface VueRules {
   'vue/jsx-uses-vars': null;
 
   /**
-   * Enforce consistent spacing between keys and values in object literal properties in `<template>`.
+   * Enforce consistent spacing between property names and type annotations in types and interfaces in `<template>`.
    * @see [key-spacing](https://eslint.vuejs.org/rules/key-spacing.html)
    */
   'vue/key-spacing': [KeySpacingOption?];
@@ -2496,7 +2496,7 @@ export interface VueRules {
   'vue/prop-name-casing': [('camelCase' | 'snake_case')?];
 
   /**
-   * Require quotes around object literal property names in `<template>`.
+   * Require quotes around object literal, type literal, interfaces and enums property names in `<template>`.
    * @see [quote-props](https://eslint.vuejs.org/rules/quote-props.html)
    */
   'vue/quote-props': QuotePropsOption;

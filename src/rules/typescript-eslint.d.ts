@@ -1733,6 +1733,12 @@ export interface TypeScriptRules {
   ];
 
   /**
+   * Disallow using code marked as `@deprecated`.
+   * @see [no-deprecated](https://typescript-eslint.io/rules/no-deprecated)
+   */
+  '@typescript-eslint/no-deprecated': null;
+
+  /**
    * Disallow duplicate class members.
    * @see [no-dupe-class-members](https://typescript-eslint.io/rules/no-dupe-class-members)
    */

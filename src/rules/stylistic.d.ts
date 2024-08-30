@@ -188,6 +188,149 @@ export namespace Indent {
   export type IndentRuleConfig = [IndentOption?, IndentConfig?];
 }
 
+export type IndentBinaryOpsOption = number | 'tab';
+
+export type JsxClosingBracketLocationOption =
+  | ('after-props' | 'props-aligned' | 'tag-aligned' | 'line-aligned')
+  | {
+      location?:
+        | 'after-props'
+        | 'props-aligned'
+        | 'tag-aligned'
+        | 'line-aligned';
+    }
+  | {
+      nonEmpty?:
+        | ('after-props' | 'props-aligned' | 'tag-aligned' | 'line-aligned')
+        | false;
+      selfClosing?:
+        | ('after-props' | 'props-aligned' | 'tag-aligned' | 'line-aligned')
+        | false;
+    };
+
+export type JsxCurlyBracePresenceOption =
+  | {
+      props?: 'always' | 'never' | 'ignore';
+      children?: 'always' | 'never' | 'ignore';
+      propElementValues?: 'always' | 'never' | 'ignore';
+    }
+  | ('always' | 'never' | 'ignore');
+
+export type JsxCurlyNewlineOption =
+  | ('consistent' | 'never')
+  | {
+      singleline?: 'consistent' | 'require' | 'forbid';
+      multiline?: 'consistent' | 'require' | 'forbid';
+    };
+
+export namespace JsxCurlySpacing {
+  export type JsxCurlySpacingOption =
+    | []
+    | [
+        | (BasicConfig & {
+            attributes?: BasicConfigOrBoolean;
+            children?: BasicConfigOrBoolean;
+            [k: string]: any;
+          })
+        | ('always' | 'never'),
+      ]
+    | [
+        (
+          | (BasicConfig & {
+              attributes?: BasicConfigOrBoolean;
+              children?: BasicConfigOrBoolean;
+              [k: string]: any;
+            })
+          | ('always' | 'never')
+        ),
+        {
+          allowMultiline?: boolean;
+          spacing?: {
+            objectLiterals?: 'always' | 'never';
+            [k: string]: any;
+          };
+        },
+      ];
+  export type BasicConfigOrBoolean = BasicConfig | boolean;
+
+  export interface BasicConfig {
+    when?: 'always' | 'never';
+    allowMultiline?: boolean;
+    spacing?: {
+      objectLiterals?: 'always' | 'never';
+      [k: string]: any;
+    };
+    [k: string]: any;
+  }
+
+  export type JsxCurlySpacingRuleConfig = JsxCurlySpacingOption;
+}
+
+export type JsxIndentOption = 'tab' | number;
+
+export type JsxIndentRuleConfig = [
+  JsxIndentOption?,
+  {
+    checkAttributes?: boolean;
+    indentLogicalExpressions?: boolean;
+  }?,
+];
+
+export type JsxIndentPropsOption =
+  | ('tab' | 'first')
+  | number
+  | {
+      indentMode?: ('tab' | 'first') | number;
+      ignoreTernaryOperator?: boolean;
+      [k: string]: any;
+    };
+
+export type JsxMaxPropsPerLineOption =
+  | {
+      maximum?: {
+        single?: number;
+        multi?: number;
+        [k: string]: any;
+      };
+    }
+  | {
+      maximum?: number;
+      when?: 'always' | 'multiline';
+    };
+
+export interface JsxOneExpressionPerLineOption {
+  allow?: 'none' | 'literal' | 'single-child' | 'single-line' | 'non-jsx';
+}
+
+export interface JsxSortPropsOption {
+  callbacksLast?: boolean;
+  shorthandFirst?: boolean;
+  shorthandLast?: boolean;
+  multiline?: 'ignore' | 'first' | 'last';
+  ignoreCase?: boolean;
+  noSortAlphabetically?: boolean;
+  reservedFirst?: any[] | boolean;
+  locale?: string;
+}
+
+export interface JsxTagSpacingOption {
+  closingSlash?: 'always' | 'never' | 'allow';
+  beforeSelfClosing?: 'always' | 'proportional-always' | 'never' | 'allow';
+  afterOpening?: 'always' | 'allow-multiline' | 'never' | 'allow';
+  beforeClosing?: 'always' | 'proportional-always' | 'never' | 'allow';
+}
+
+export interface JsxWrapMultilinesOption {
+  declaration?: true | false | 'ignore' | 'parens' | 'parens-new-line';
+  assignment?: true | false | 'ignore' | 'parens' | 'parens-new-line';
+  return?: true | false | 'ignore' | 'parens' | 'parens-new-line';
+  arrow?: true | false | 'ignore' | 'parens' | 'parens-new-line';
+  condition?: true | false | 'ignore' | 'parens' | 'parens-new-line';
+  logical?: true | false | 'ignore' | 'parens' | 'parens-new-line';
+  prop?: true | false | 'ignore' | 'parens' | 'parens-new-line';
+  propertyValue?: true | false | 'ignore' | 'parens' | 'parens-new-line';
+}
+
 export type KeySpacingOption =
   | {
       align?:
@@ -612,6 +755,39 @@ export namespace MaxLen {
       ignoreTrailingComments?: boolean;
     }?,
   ];
+}
+
+export namespace MemberDelimiterStyle {
+  export type MultiLineOption = 'none' | 'semi' | 'comma';
+  export type SingleLineOption = 'semi' | 'comma';
+
+  export interface MemberDelimiterStyleOption {
+    multiline?: {
+      delimiter?: MultiLineOption;
+      requireLast?: boolean;
+    };
+    singleline?: {
+      delimiter?: SingleLineOption;
+      requireLast?: boolean;
+    };
+    overrides?: {
+      interface?: DelimiterConfig;
+      typeLiteral?: DelimiterConfig;
+    };
+    multilineDetection?: 'brackets' | 'last-member';
+  }
+  export interface DelimiterConfig {
+    multiline?: {
+      delimiter?: MultiLineOption;
+      requireLast?: boolean;
+    };
+    singleline?: {
+      delimiter?: SingleLineOption;
+      requireLast?: boolean;
+    };
+  }
+
+  export type MemberDelimiterStyleRuleConfig = [MemberDelimiterStyleOption?];
 }
 
 export type MultilineCommentStyleOption =
@@ -1109,6 +1285,28 @@ export interface SpacedCommentConfig {
   };
 }
 
+export namespace TypeAnnotationSpacing {
+  export interface TypeAnnotationSpacingOption {
+    before?: boolean;
+    after?: boolean;
+    overrides?: {
+      colon?: SpacingConfig;
+      arrow?: SpacingConfig;
+      variable?: SpacingConfig;
+      parameter?: SpacingConfig;
+      property?: SpacingConfig;
+      returnType?: SpacingConfig;
+      operator?: SpacingConfig;
+    };
+  }
+  export interface SpacingConfig {
+    before?: boolean;
+    after?: boolean;
+  }
+
+  export type TypeAnnotationSpacingRuleConfig = [TypeAnnotationSpacingOption?];
+}
+
 export type WrapIifeRuleConfig = [
   ('outside' | 'inside' | 'any')?,
   {
@@ -1122,202 +1320,6 @@ export type YieldStarSpacingOption =
       before?: boolean;
       after?: boolean;
     };
-
-export type JsxClosingBracketLocationOption =
-  | ('after-props' | 'props-aligned' | 'tag-aligned' | 'line-aligned')
-  | {
-      location?:
-        | 'after-props'
-        | 'props-aligned'
-        | 'tag-aligned'
-        | 'line-aligned';
-    }
-  | {
-      nonEmpty?:
-        | ('after-props' | 'props-aligned' | 'tag-aligned' | 'line-aligned')
-        | false;
-      selfClosing?:
-        | ('after-props' | 'props-aligned' | 'tag-aligned' | 'line-aligned')
-        | false;
-    };
-
-export type JsxCurlyBracePresenceOption =
-  | {
-      props?: 'always' | 'never' | 'ignore';
-      children?: 'always' | 'never' | 'ignore';
-      propElementValues?: 'always' | 'never' | 'ignore';
-    }
-  | ('always' | 'never' | 'ignore');
-
-export type JsxCurlyNewlineOption =
-  | ('consistent' | 'never')
-  | {
-      singleline?: 'consistent' | 'require' | 'forbid';
-      multiline?: 'consistent' | 'require' | 'forbid';
-    };
-
-export namespace JsxCurlySpacing {
-  export type JsxCurlySpacingOption =
-    | []
-    | [
-        | (BasicConfig & {
-            attributes?: BasicConfigOrBoolean;
-            children?: BasicConfigOrBoolean;
-            [k: string]: any;
-          })
-        | ('always' | 'never'),
-      ]
-    | [
-        (
-          | (BasicConfig & {
-              attributes?: BasicConfigOrBoolean;
-              children?: BasicConfigOrBoolean;
-              [k: string]: any;
-            })
-          | ('always' | 'never')
-        ),
-        {
-          allowMultiline?: boolean;
-          spacing?: {
-            objectLiterals?: 'always' | 'never';
-            [k: string]: any;
-          };
-        },
-      ];
-  export type BasicConfigOrBoolean = BasicConfig | boolean;
-
-  export interface BasicConfig {
-    when?: 'always' | 'never';
-    allowMultiline?: boolean;
-    spacing?: {
-      objectLiterals?: 'always' | 'never';
-      [k: string]: any;
-    };
-    [k: string]: any;
-  }
-
-  export type JsxCurlySpacingRuleConfig = JsxCurlySpacingOption;
-}
-
-export type JsxIndentOption = 'tab' | number;
-
-export type JsxIndentRuleConfig = [
-  JsxIndentOption?,
-  {
-    checkAttributes?: boolean;
-    indentLogicalExpressions?: boolean;
-  }?,
-];
-
-export type JsxIndentPropsOption =
-  | ('tab' | 'first')
-  | number
-  | {
-      indentMode?: ('tab' | 'first') | number;
-      ignoreTernaryOperator?: boolean;
-      [k: string]: any;
-    };
-
-export type JsxMaxPropsPerLineOption =
-  | {
-      maximum?: {
-        single?: number;
-        multi?: number;
-        [k: string]: any;
-      };
-    }
-  | {
-      maximum?: number;
-      when?: 'always' | 'multiline';
-    };
-
-export interface JsxOneExpressionPerLineOption {
-  allow?: 'none' | 'literal' | 'single-child' | 'single-line' | 'non-jsx';
-}
-
-export interface JsxSortPropsOption {
-  callbacksLast?: boolean;
-  shorthandFirst?: boolean;
-  shorthandLast?: boolean;
-  multiline?: 'ignore' | 'first' | 'last';
-  ignoreCase?: boolean;
-  noSortAlphabetically?: boolean;
-  reservedFirst?: any[] | boolean;
-  locale?: string;
-}
-
-export interface JsxTagSpacingOption {
-  closingSlash?: 'always' | 'never' | 'allow';
-  beforeSelfClosing?: 'always' | 'proportional-always' | 'never' | 'allow';
-  afterOpening?: 'always' | 'allow-multiline' | 'never' | 'allow';
-  beforeClosing?: 'always' | 'proportional-always' | 'never' | 'allow';
-}
-
-export interface JsxWrapMultilinesOption {
-  declaration?: true | false | 'ignore' | 'parens' | 'parens-new-line';
-  assignment?: true | false | 'ignore' | 'parens' | 'parens-new-line';
-  return?: true | false | 'ignore' | 'parens' | 'parens-new-line';
-  arrow?: true | false | 'ignore' | 'parens' | 'parens-new-line';
-  condition?: true | false | 'ignore' | 'parens' | 'parens-new-line';
-  logical?: true | false | 'ignore' | 'parens' | 'parens-new-line';
-  prop?: true | false | 'ignore' | 'parens' | 'parens-new-line';
-  propertyValue?: true | false | 'ignore' | 'parens' | 'parens-new-line';
-}
-
-export namespace MemberDelimiterStyle {
-  export type MultiLineOption = 'none' | 'semi' | 'comma';
-  export type SingleLineOption = 'semi' | 'comma';
-
-  export interface MemberDelimiterStyleOption {
-    multiline?: {
-      delimiter?: MultiLineOption;
-      requireLast?: boolean;
-    };
-    singleline?: {
-      delimiter?: SingleLineOption;
-      requireLast?: boolean;
-    };
-    overrides?: {
-      interface?: DelimiterConfig;
-      typeLiteral?: DelimiterConfig;
-    };
-    multilineDetection?: 'brackets' | 'last-member';
-  }
-  export interface DelimiterConfig {
-    multiline?: {
-      delimiter?: MultiLineOption;
-      requireLast?: boolean;
-    };
-    singleline?: {
-      delimiter?: SingleLineOption;
-      requireLast?: boolean;
-    };
-  }
-
-  export type MemberDelimiterStyleRuleConfig = [MemberDelimiterStyleOption?];
-}
-export namespace TypeAnnotationSpacing {
-  export interface TypeAnnotationSpacingOption {
-    before?: boolean;
-    after?: boolean;
-    overrides?: {
-      colon?: SpacingConfig;
-      arrow?: SpacingConfig;
-      variable?: SpacingConfig;
-      parameter?: SpacingConfig;
-      property?: SpacingConfig;
-      returnType?: SpacingConfig;
-    };
-  }
-  export interface SpacingConfig {
-    before?: boolean;
-    after?: boolean;
-  }
-
-  export type TypeAnnotationSpacingRuleConfig = [TypeAnnotationSpacingOption?];
-}
-
-export type IndentBinaryOpsOption = number | 'tab';
 
 /**
  * All Stylistic rules.
@@ -1456,10 +1458,156 @@ export interface StylisticRules {
   '@stylistic/indent': Indent.IndentRuleConfig;
 
   /**
+   * Indentation for binary operators.
+   * @see [indent-binary-ops](https://eslint.style/rules/plus/indent-binary-ops)
+   */
+  '@stylistic/indent-binary-ops': [IndentBinaryOpsOption?];
+
+  /**
+   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
+   * @see [jsx-child-element-spacing](https://eslint.style/rules/jsx/jsx-child-element-spacing)
+   */
+  '@stylistic/jsx-child-element-spacing': null;
+
+  /**
+   * Enforce closing bracket location in JSX.
+   * @see [jsx-closing-bracket-location](https://eslint.style/rules/jsx/jsx-closing-bracket-location)
+   */
+  '@stylistic/jsx-closing-bracket-location': [JsxClosingBracketLocationOption?];
+
+  /**
+   * Enforce closing tag location for multiline JSX.
+   * @see [jsx-closing-tag-location](https://eslint.style/rules/jsx/jsx-closing-tag-location)
+   */
+  '@stylistic/jsx-closing-tag-location': null;
+
+  /**
+   * Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes.
+   * @see [jsx-curly-brace-presence](https://eslint.style/rules/jsx/jsx-curly-brace-presence)
+   */
+  '@stylistic/jsx-curly-brace-presence': [JsxCurlyBracePresenceOption?];
+
+  /**
+   * Enforce consistent linebreaks in curly braces in JSX attributes and expressions.
+   * @see [jsx-curly-newline](https://eslint.style/rules/jsx/jsx-curly-newline)
+   */
+  '@stylistic/jsx-curly-newline': [JsxCurlyNewlineOption?];
+
+  /**
+   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
+   * @see [jsx-curly-spacing](https://eslint.style/rules/jsx/jsx-curly-spacing)
+   */
+  '@stylistic/jsx-curly-spacing': JsxCurlySpacing.JsxCurlySpacingRuleConfig;
+
+  /**
+   * Enforce or disallow spaces around equal signs in JSX attributes.
+   * @see [jsx-equals-spacing](https://eslint.style/rules/jsx/jsx-equals-spacing)
+   */
+  '@stylistic/jsx-equals-spacing': [('always' | 'never')?];
+
+  /**
+   * Enforce proper position of the first property in JSX.
+   * @see [jsx-first-prop-new-line](https://eslint.style/rules/jsx/jsx-first-prop-new-line)
+   */
+  '@stylistic/jsx-first-prop-new-line': [
+    ('always' | 'never' | 'multiline' | 'multiline-multiprop' | 'multiprop')?,
+  ];
+
+  /**
+   * Enforce line breaks before and after JSX elements when they are used as arguments to a function.
+   * @see [jsx-function-call-newline](https://eslint.style/rules/jsx/jsx-function-call-newline)
+   */
+  '@stylistic/jsx-function-call-newline': [('always' | 'multiline')?];
+
+  /**
+   * Enforce JSX indentation. Deprecated, use `indent` rule instead.
+   * @deprecated
+   * @see [jsx-indent](https://eslint.style/rules/jsx/jsx-indent)
+   */
+  '@stylistic/jsx-indent': JsxIndentRuleConfig;
+
+  /**
+   * Enforce props indentation in JSX.
+   * @see [jsx-indent-props](https://eslint.style/rules/jsx/jsx-indent-props)
+   */
+  '@stylistic/jsx-indent-props': [JsxIndentPropsOption?];
+
+  /**
+   * Enforce maximum of props on a single line in JSX.
+   * @see [jsx-max-props-per-line](https://eslint.style/rules/jsx/jsx-max-props-per-line)
+   */
+  '@stylistic/jsx-max-props-per-line': [JsxMaxPropsPerLineOption?];
+
+  /**
+   * Require or prevent a new line after jsx elements and expressions.
+   * @see [jsx-newline](https://eslint.style/rules/jsx/jsx-newline)
+   */
+  '@stylistic/jsx-newline': [
+    {
+      prevent?: boolean;
+      allowMultilines?: boolean;
+    }?,
+  ];
+
+  /**
+   * Require one JSX element per line.
+   * @see [jsx-one-expression-per-line](https://eslint.style/rules/jsx/jsx-one-expression-per-line)
+   */
+  '@stylistic/jsx-one-expression-per-line': [JsxOneExpressionPerLineOption?];
+
+  /**
+   * Enforce PascalCase for user-defined JSX components.
+   * @see [jsx-pascal-case](https://eslint.style/rules/jsx/jsx-pascal-case)
+   */
+  '@stylistic/jsx-pascal-case': [
+    {
+      allowAllCaps?: boolean;
+      allowLeadingUnderscore?: boolean;
+      allowNamespace?: boolean;
+      ignore?: string[];
+    }?,
+  ];
+
+  /**
+   * Disallow multiple spaces between inline JSX props.
+   * @see [jsx-props-no-multi-spaces](https://eslint.style/rules/jsx/jsx-props-no-multi-spaces)
+   */
+  '@stylistic/jsx-props-no-multi-spaces': null;
+
+  /**
    * Enforce the consistent use of either double or single quotes in JSX attributes.
    * @see [jsx-quotes](https://eslint.style/rules/js/jsx-quotes)
    */
   '@stylistic/jsx-quotes': [('prefer-single' | 'prefer-double')?];
+
+  /**
+   * Disallow extra closing tags for components without children.
+   * @see [jsx-self-closing-comp](https://eslint.style/rules/jsx/jsx-self-closing-comp)
+   */
+  '@stylistic/jsx-self-closing-comp': [
+    {
+      component?: boolean;
+      html?: boolean;
+    }?,
+  ];
+
+  /**
+   * Enforce props alphabetical sorting.
+   * @see [jsx-sort-props](https://eslint.style/rules/jsx/jsx-sort-props)
+   */
+  '@stylistic/jsx-sort-props': [JsxSortPropsOption?];
+
+  /**
+   * Enforce whitespace in and around the JSX opening and closing brackets.
+   * @see [jsx-tag-spacing](https://eslint.style/rules/jsx/jsx-tag-spacing)
+   */
+  '@stylistic/jsx-tag-spacing': [JsxTagSpacingOption?];
+
+  /**
+   * Disallow missing parentheses around multiline JSX.
+   * @see [jsx-wrap-multilines](https://eslint.style/rules/jsx/jsx-wrap-multilines)
+   */
+  '@stylistic/jsx-wrap-multilines': [JsxWrapMultilinesOption?];
 
   /**
    * Enforce consistent spacing between property names and type annotations in types and interfaces.
@@ -1538,6 +1686,12 @@ export interface StylisticRules {
       max?: number;
     }?,
   ];
+
+  /**
+   * Require a specific member delimiter style for interfaces and type literals.
+   * @see [member-delimiter-style](https://eslint.style/rules/ts/member-delimiter-style)
+   */
+  '@stylistic/member-delimiter-style': MemberDelimiterStyle.MemberDelimiterStyleRuleConfig;
 
   /**
    * Enforce a particular style for multiline comments.
@@ -1811,6 +1965,24 @@ export interface StylisticRules {
   '@stylistic/template-tag-spacing': [('always' | 'never')?];
 
   /**
+   * Require consistent spacing around type annotations.
+   * @see [type-annotation-spacing](https://eslint.style/rules/ts/type-annotation-spacing)
+   */
+  '@stylistic/type-annotation-spacing': TypeAnnotationSpacing.TypeAnnotationSpacingRuleConfig;
+
+  /**
+   * Enforces consistent spacing inside TypeScript type generics.
+   * @see [type-generic-spacing](https://eslint.style/rules/plus/type-generic-spacing)
+   */
+  '@stylistic/type-generic-spacing': null;
+
+  /**
+   * Expect space before the type declaration in the named tuple.
+   * @see [type-named-tuple-spacing](https://eslint.style/rules/plus/type-named-tuple-spacing)
+   */
+  '@stylistic/type-named-tuple-spacing': null;
+
+  /**
    * Require parentheses around immediate `function` invocations.
    * @see [wrap-iife](https://eslint.style/rules/js/wrap-iife)
    */
@@ -1827,176 +1999,6 @@ export interface StylisticRules {
    * @see [yield-star-spacing](https://eslint.style/rules/js/yield-star-spacing)
    */
   '@stylistic/yield-star-spacing': [YieldStarSpacingOption?];
-
-  /**
-   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
-   * @see [jsx-child-element-spacing](https://eslint.style/rules/jsx/jsx-child-element-spacing)
-   */
-  '@stylistic/jsx-child-element-spacing': null;
-
-  /**
-   * Enforce closing bracket location in JSX.
-   * @see [jsx-closing-bracket-location](https://eslint.style/rules/jsx/jsx-closing-bracket-location)
-   */
-  '@stylistic/jsx-closing-bracket-location': [JsxClosingBracketLocationOption?];
-
-  /**
-   * Enforce closing tag location for multiline JSX.
-   * @see [jsx-closing-tag-location](https://eslint.style/rules/jsx/jsx-closing-tag-location)
-   */
-  '@stylistic/jsx-closing-tag-location': null;
-
-  /**
-   * Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes.
-   * @see [jsx-curly-brace-presence](https://eslint.style/rules/jsx/jsx-curly-brace-presence)
-   */
-  '@stylistic/jsx-curly-brace-presence': [JsxCurlyBracePresenceOption?];
-
-  /**
-   * Enforce consistent linebreaks in curly braces in JSX attributes and expressions.
-   * @see [jsx-curly-newline](https://eslint.style/rules/jsx/jsx-curly-newline)
-   */
-  '@stylistic/jsx-curly-newline': [JsxCurlyNewlineOption?];
-
-  /**
-   * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
-   * @see [jsx-curly-spacing](https://eslint.style/rules/jsx/jsx-curly-spacing)
-   */
-  '@stylistic/jsx-curly-spacing': JsxCurlySpacing.JsxCurlySpacingRuleConfig;
-
-  /**
-   * Enforce or disallow spaces around equal signs in JSX attributes.
-   * @see [jsx-equals-spacing](https://eslint.style/rules/jsx/jsx-equals-spacing)
-   */
-  '@stylistic/jsx-equals-spacing': [('always' | 'never')?];
-
-  /**
-   * Enforce proper position of the first property in JSX.
-   * @see [jsx-first-prop-new-line](https://eslint.style/rules/jsx/jsx-first-prop-new-line)
-   */
-  '@stylistic/jsx-first-prop-new-line': [
-    ('always' | 'never' | 'multiline' | 'multiline-multiprop' | 'multiprop')?,
-  ];
-
-  /**
-   * Enforce line breaks before and after JSX elements when they are used as arguments to a function.
-   * @see [jsx-function-call-newline](https://eslint.style/rules/jsx/jsx-function-call-newline)
-   */
-  '@stylistic/jsx-function-call-newline': [('always' | 'multiline')?];
-
-  /**
-   * Enforce JSX indentation. Deprecated, use `indent` rule instead.
-   * @deprecated
-   * @see [jsx-indent](https://eslint.style/rules/jsx/jsx-indent)
-   */
-  '@stylistic/jsx-indent': JsxIndentRuleConfig;
-
-  /**
-   * Enforce props indentation in JSX.
-   * @see [jsx-indent-props](https://eslint.style/rules/jsx/jsx-indent-props)
-   */
-  '@stylistic/jsx-indent-props': [JsxIndentPropsOption?];
-
-  /**
-   * Enforce maximum of props on a single line in JSX.
-   * @see [jsx-max-props-per-line](https://eslint.style/rules/jsx/jsx-max-props-per-line)
-   */
-  '@stylistic/jsx-max-props-per-line': [JsxMaxPropsPerLineOption?];
-
-  /**
-   * Require or prevent a new line after jsx elements and expressions.
-   * @see [jsx-newline](https://eslint.style/rules/jsx/jsx-newline)
-   */
-  '@stylistic/jsx-newline': [
-    {
-      prevent?: boolean;
-      allowMultilines?: boolean;
-    }?,
-  ];
-
-  /**
-   * Require one JSX element per line.
-   * @see [jsx-one-expression-per-line](https://eslint.style/rules/jsx/jsx-one-expression-per-line)
-   */
-  '@stylistic/jsx-one-expression-per-line': [JsxOneExpressionPerLineOption?];
-
-  /**
-   * Enforce PascalCase for user-defined JSX components.
-   * @see [jsx-pascal-case](https://eslint.style/rules/jsx/jsx-pascal-case)
-   */
-  '@stylistic/jsx-pascal-case': [
-    {
-      allowAllCaps?: boolean;
-      allowLeadingUnderscore?: boolean;
-      allowNamespace?: boolean;
-      ignore?: string[];
-    }?,
-  ];
-
-  /**
-   * Disallow multiple spaces between inline JSX props.
-   * @see [jsx-props-no-multi-spaces](https://eslint.style/rules/jsx/jsx-props-no-multi-spaces)
-   */
-  '@stylistic/jsx-props-no-multi-spaces': null;
-
-  /**
-   * Disallow extra closing tags for components without children.
-   * @see [jsx-self-closing-comp](https://eslint.style/rules/jsx/jsx-self-closing-comp)
-   */
-  '@stylistic/jsx-self-closing-comp': [
-    {
-      component?: boolean;
-      html?: boolean;
-    }?,
-  ];
-
-  /**
-   * Enforce props alphabetical sorting.
-   * @see [jsx-sort-props](https://eslint.style/rules/jsx/jsx-sort-props)
-   */
-  '@stylistic/jsx-sort-props': [JsxSortPropsOption?];
-
-  /**
-   * Enforce whitespace in and around the JSX opening and closing brackets.
-   * @see [jsx-tag-spacing](https://eslint.style/rules/jsx/jsx-tag-spacing)
-   */
-  '@stylistic/jsx-tag-spacing': [JsxTagSpacingOption?];
-
-  /**
-   * Disallow missing parentheses around multiline JSX.
-   * @see [jsx-wrap-multilines](https://eslint.style/rules/jsx/jsx-wrap-multilines)
-   */
-  '@stylistic/jsx-wrap-multilines': [JsxWrapMultilinesOption?];
-
-  /**
-   * Require a specific member delimiter style for interfaces and type literals.
-   * @see [member-delimiter-style](https://eslint.style/rules/ts/member-delimiter-style)
-   */
-  '@stylistic/member-delimiter-style': MemberDelimiterStyle.MemberDelimiterStyleRuleConfig;
-
-  /**
-   * Require consistent spacing around type annotations.
-   * @see [type-annotation-spacing](https://eslint.style/rules/ts/type-annotation-spacing)
-   */
-  '@stylistic/type-annotation-spacing': TypeAnnotationSpacing.TypeAnnotationSpacingRuleConfig;
-
-  /**
-   * Indentation for binary operators.
-   * @see [indent-binary-ops](https://eslint.style/rules/plus/indent-binary-ops)
-   */
-  '@stylistic/indent-binary-ops': [IndentBinaryOpsOption?];
-
-  /**
-   * Enforces consistent spacing inside TypeScript type generics.
-   * @see [type-generic-spacing](https://eslint.style/rules/plus/type-generic-spacing)
-   */
-  '@stylistic/type-generic-spacing': null;
-
-  /**
-   * Expect space before the type declaration in the named tuple.
-   * @see [type-named-tuple-spacing](https://eslint.style/rules/plus/type-named-tuple-spacing)
-   */
-  '@stylistic/type-named-tuple-spacing': null;
 }
 
 export type StylisticRulesObject = RulesObject<StylisticRules>;

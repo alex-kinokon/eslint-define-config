@@ -6,14 +6,8 @@ import type {
 } from '../parser-options';
 
 export type ParserModule =
-  | {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      parse(text: string, options?: any): any;
-    }
-  | {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      parseForESLint(text: string, options?: any): any;
-    };
+  | { parse(text: string, options?: any): any }
+  | { parseForESLint(text: string, options?: any): any };
 
 /**
  * An object containing settings related to how JavaScript is configured for linting
