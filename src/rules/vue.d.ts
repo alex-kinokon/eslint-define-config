@@ -120,7 +120,7 @@ export interface CamelcaseOption {
   /**
    * @minItems 0
    */
-  allow?: [] | [string];
+  allow?: string[];
 }
 
 export namespace CommaDangle {
@@ -195,17 +195,6 @@ export type CustomEventNameCasingOption =
         ignores?: string[];
       },
     ];
-
-export interface DefineMacrosOrderOption {
-  order?: (
-    | 'defineEmits'
-    | 'defineProps'
-    | 'defineOptions'
-    | 'defineSlots'
-    | 'defineModel'
-  )[];
-  defineExposeLast?: boolean;
-}
 
 export interface EnforceStyleAttributeOption {
   /**
@@ -583,6 +572,10 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      satisfies?: {
+        before?: boolean;
+        after?: boolean;
+      };
       set?: {
         before?: boolean;
         after?: boolean;
@@ -772,6 +765,10 @@ export interface NoConsoleOption {
    * @minItems 1
    */
   allow?: [string, ...string[]];
+}
+
+export interface NoConstantConditionOption {
+  checkLoops?: 'all' | 'allExceptWhileTrue' | 'none' | true | false;
 }
 
 export interface NoDeprecatedRouterLinkTagPropOption {
@@ -1421,10 +1418,15 @@ export interface VueRules {
   ];
 
   /**
-   * Enforce order of `defineEmits` and `defineProps` compiler macros.
+   * Enforce order of compiler macros (`defineProps`, `defineEmits`, etc.).
    * @see [define-macros-order](https://eslint.vuejs.org/rules/define-macros-order.html)
    */
-  'vue/define-macros-order': [DefineMacrosOrderOption?];
+  'vue/define-macros-order': [
+    {
+      order?: string[];
+      defineExposeLast?: boolean;
+    }?,
+  ];
 
   /**
    * Enforce declaration style of `defineProps`.
@@ -1600,6 +1602,26 @@ export interface VueRules {
   ];
 
   /**
+   * Enforce maximum number of props in Vue component.
+   * @see [max-props](https://eslint.vuejs.org/rules/max-props.html)
+   */
+  'vue/max-props': [
+    {
+      maxProps?: number;
+    }?,
+  ];
+
+  /**
+   * Enforce maximum depth of template.
+   * @see [max-template-depth](https://eslint.vuejs.org/rules/max-template-depth.html)
+   */
+  'vue/max-template-depth': [
+    {
+      maxDepth?: number;
+    }?,
+  ];
+
+  /**
    * Require component names to be always multi-word.
    * @see [multi-word-component-names](https://eslint.vuejs.org/rules/multi-word-component-names.html)
    */
@@ -1695,11 +1717,7 @@ export interface VueRules {
    * Disallow constant expressions in conditions in `<template>`.
    * @see [no-constant-condition](https://eslint.vuejs.org/rules/no-constant-condition.html)
    */
-  'vue/no-constant-condition': [
-    {
-      checkLoops?: boolean;
-    }?,
-  ];
+  'vue/no-constant-condition': [NoConstantConditionOption?];
 
   /**
    * Disallow custom modifiers on v-model used on the component.
@@ -1712,6 +1730,12 @@ export interface VueRules {
    * @see [no-deprecated-data-object-declaration](https://eslint.vuejs.org/rules/no-deprecated-data-object-declaration.html)
    */
   'vue/no-deprecated-data-object-declaration': null;
+
+  /**
+   * Disallow using deprecated `$delete` and `$set` (in Vue.js 3.0.0+).
+   * @see [no-deprecated-delete-set](https://eslint.vuejs.org/rules/no-deprecated-delete-set.html)
+   */
+  'vue/no-deprecated-delete-set': null;
 
   /**
    * Disallow using deprecated `destroyed` and `beforeDestroy` lifecycle hooks (in Vue.js 3.0.0+).
@@ -2508,6 +2532,12 @@ export interface VueRules {
   'vue/require-component-is': null;
 
   /**
+   * Require components to be the default export.
+   * @see [require-default-export](https://eslint.vuejs.org/rules/require-default-export.html)
+   */
+  'vue/require-default-export': null;
+
+  /**
    * Require default value for props.
    * @see [require-default-prop](https://eslint.vuejs.org/rules/require-default-prop.html)
    */
@@ -2605,7 +2635,11 @@ export interface VueRules {
    * Require control the display of the content inside `<transition>`.
    * @see [require-toggle-inside-transition](https://eslint.vuejs.org/rules/require-toggle-inside-transition.html)
    */
-  'vue/require-toggle-inside-transition': null;
+  'vue/require-toggle-inside-transition': [
+    {
+      additionalDirectives?: string[];
+    }?,
+  ];
 
   /**
    * Enforce adding type declarations to object props.

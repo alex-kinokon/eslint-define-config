@@ -1,4 +1,4 @@
-import type { RuleLevel } from './rule-severity';
+import type { Linter } from 'eslint';
 
 // Synced to https://github.com/DefinitelyTyped/DefinitelyTyped/blob/042141ce5f77f36df01c344ad09f32feda26c4fd/types/eslint/helpers.d.ts#L1-L3
 
@@ -16,11 +16,11 @@ export type Prepend<Tuple extends any[], Addend> = ((
  */
 export type RuleLevelAndOptions<Options extends any[] = any[]> = Prepend<
   Partial<Options>,
-  RuleLevel
+  Linter.RuleSeverity
 >;
 
 export type RuleEntry<Options extends any[] = any[]> =
-  | RuleLevel
+  | Linter.RuleSeverity
   | RuleLevelAndOptions<Options>;
 
 /**
@@ -35,4 +35,4 @@ export type RulesObject<T> = {
   [key in keyof T]: T[key] extends null ? EmptyRuleConfig : RuleEntry<T[key]>;
 };
 
-export type EmptyRuleConfig = RuleLevel | [RuleLevel];
+export type EmptyRuleConfig = Linter.RuleSeverity | [Linter.RuleSeverity];

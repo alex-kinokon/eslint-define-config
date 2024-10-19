@@ -1,12 +1,15 @@
-import { Logger } from '@poppinss/cliui';
-import { pascalCase } from 'change-case';
-import type { Rule } from 'eslint';
-import type { JSONSchema4 } from 'json-schema';
-import { compile } from 'json-schema-to-typescript';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
+
+import { Logger } from '@poppinss/cliui';
+import { pascalCase } from 'change-case';
+import type * as ESLint from 'eslint';
+import type { Rule } from 'eslint';
+import type { JSONSchema4 } from 'json-schema';
+import { compile } from 'json-schema-to-typescript';
 import colors from 'picocolors';
+
 import { ExtendsCollector } from './extends.ts';
 import {
   PLUGIN_REGISTRY,
@@ -24,8 +27,9 @@ async function loadPlugin(entry: PluginEntry): Promise<LoadedPlugin> {
 
   if (entry.id === 'eslint') {
     const rules = Object.fromEntries(
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      new mod.Linter().getRules().entries(),
+      new (mod as typeof ESLint).Linter({ configType: 'eslintrc' })
+        .getRules()
+        .entries(),
     );
     return {
       entry,
@@ -59,19 +63,16 @@ function cleanJsDoc(content: string): string {
  */
 function patchTypes(content: string): string {
   const replacements: Array<[pattern: RegExp, replacement: string]> = [
-    [
-      /\(string & \{\s*\[k: string\]: any\s*\} & \{\s*\[k: string\]: any\s*\}\)\[\]/,
-      'string[]',
-    ],
-    [/\(string & \{\s*\[k: string\]: any\s*\}\)\[\]/, 'string[]'],
-    [/;\n\s*\[k: string\]: any;/, '; & {\n  [k: string]: any;'],
+    [/\(string(?: & {\s*\[k: string]: any\s*}){2}\)\[]/, 'string[]'],
+    [/\(string & {\s*\[k: string]: any\s*}\)\[]/, 'string[]'],
+    [/;\n\s*\[k: string]: any;/, '; & {\n  [k: string]: any;'],
   ];
 
   for (const [pattern, replacement] of replacements) {
     content = content.replace(pattern, replacement);
   }
 
-  if (/^export type \w+Option = \(\[\]\|/.test(content)) {
+  if (/^export type \w+Option = \(\[]\|/.test(content)) {
     content = content.replaceAll('| []|', '|');
   }
 
@@ -86,7 +87,7 @@ async function generateTypeFromSchema(
   typeName: string,
 ): Promise<string> {
   schema = JSON.parse(
-    JSON.stringify(schema).replace(/#\/items\/0\/\$defs\//g, '#/$defs/'),
+    JSON.stringify(schema).replaceAll('#/items/0/$defs/', '#/$defs/'),
   );
   let result = await compile(schema, typeName, {
     format: false,
@@ -134,7 +135,7 @@ async function generateRule(
      */
     let description = rule.meta?.docs?.description ?? '';
     description = description.charAt(0).toUpperCase() + description.slice(1);
-    if (description.length && !description.endsWith('.')) {
+    if (description.length > 0 && !description.endsWith('.')) {
       description += '.';
     }
 
@@ -165,13 +166,7 @@ async function generateRule(
    */
   function prefixedRuleName(): string {
     const { prefix, name } = entry;
-    let rulePrefix = prefix + '/';
-
-    if (name === 'Eslint') {
-      rulePrefix = '';
-    }
-
-    return `${rulePrefix}${ruleName}`;
+    return name === 'Eslint' ? ruleName : `${prefix}/${ruleName}`;
   }
 
   function writeMember(
@@ -308,9 +303,7 @@ async function generateRuleFile(
   const fileContent = `
     import type { RuleConfig, RulesObject } from '../rule-config';
 
-    ${Array.from(ruleDetails.values())
-      .map((r) => r.content)
-      .join('\n')}
+    ${[...ruleDetails.values()].map((r) => r.content).join('\n')}
 
     ${concatDoc([`All ${name} rules.`])}
     export interface ${name}Rules {
@@ -329,8 +322,8 @@ async function generateRuleFile(
   const rulePath = join(outDir, filename);
   try {
     await fs.writeFile(rulePath, await format(fileContent));
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     await fs.writeFile(rulePath, fileContent);
   }
 }
@@ -346,11 +339,11 @@ function printGenerationReport(
   logger.logUpdate(colors.green(msg));
   logger.logUpdatePersist();
 
-  if (failedRules.length) {
+  if (failedRules.length > 0) {
     logger.log(colors.red(`  ❌ Failed ${failedRules.length} rules`));
-    failedRules.forEach(({ ruleName, err }) => {
+    for (const { ruleName, err } of failedRules) {
       logger.log(colors.red(`    - ${ruleName}: ${String(err)}`));
-    });
+    }
   }
 
   logger.log('');
@@ -368,7 +361,7 @@ function occurrences(source: string, find: string) {
 
 const isSimpleType = (type: string) =>
   /^("[^"]+" \| )*"[^"]+"$/.test(type) ||
-  /^\{(\s*\w+\??: [\w[\]]+\n)+\s*\}$/.test(type);
+  /^{(\s*\w+\??: [\w[\]]+\n)+\s*}$/.test(type);
 
 const arr = (...members: Array<{ text: string }>): string =>
   `[${members.map((x) => x.text).join(', ')}]`;
@@ -396,8 +389,8 @@ async function generateRulesFile({ plugin, entry }: LoadedPlugin) {
 
     try {
       ruleDetails.set(ruleName, await generateRule(entry, ruleName, rule));
-    } catch (err) {
-      failedRules.push({ ruleName, err });
+    } catch (error) {
+      failedRules.push({ ruleName, err: error });
     }
   }
 
@@ -407,7 +400,7 @@ async function generateRulesFile({ plugin, entry }: LoadedPlugin) {
 }
 
 async function generateRuleIndex(file: string, plugins: PluginEntry[]) {
-  const source = await fs.readFile(file, 'utf-8');
+  const source = await fs.readFile(file, 'utf8');
   const replaced = new RegionReplacer(source)
     .replace(
       'imports',
@@ -448,7 +441,7 @@ export async function run(): Promise<void> {
       rulesFile,
     );
 
-    const ruleDetails = Array.from(rulesFile.ruleDetails).flatMap(
+    const ruleDetails = [...rulesFile.ruleDetails].flatMap(
       ([name, { meta }]) => ({ name, meta }),
     );
 
@@ -464,8 +457,8 @@ export async function run(): Promise<void> {
   );
   await extendsCollector.write();
 
-  await fs.writeFile(
-    join(__dirname, '../src/data.json'),
-    JSON.stringify(programmaticData),
-  );
+  // await fs.writeFile(
+  //   join(__dirname, '../src/data.json'),
+  //   JSON.stringify(programmaticData),
+  // );
 }

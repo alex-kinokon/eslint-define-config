@@ -71,7 +71,7 @@ export interface CamelcaseOption {
   /**
    * @minItems 0
    */
-  allow?: [] | [string];
+  allow?: string[];
 }
 
 export type CapitalizedCommentsConfig =
@@ -137,6 +137,7 @@ export type ComplexityOption =
   | {
       maximum?: number;
       max?: number;
+      variant?: 'classic' | 'modified';
     };
 
 export type ComputedPropertySpacingRuleConfig = [
@@ -208,11 +209,16 @@ export namespace FuncNames {
   export type FuncNamesRuleConfig = FuncNamesOption;
 }
 
+export interface FuncStyleConfig {
+  allowArrowFunctions?: boolean;
+  overrides?: {
+    namedExports?: 'declaration' | 'expression' | 'ignore';
+  };
+}
+
 export type FuncStyleRuleConfig = [
   ('declaration' | 'expression')?,
-  {
-    allowArrowFunctions?: boolean;
-  }?,
+  FuncStyleConfig?,
 ];
 
 export type FunctionParenNewlineOption =
@@ -898,6 +904,10 @@ export interface NoConsoleOption {
   allow?: [string, ...string[]];
 }
 
+export interface NoConstantConditionOption {
+  checkLoops?: 'all' | 'allExceptWhileTrue' | 'none' | true | false;
+}
+
 export interface NoEmptyFunctionOption {
   allow?: (
     | 'functions'
@@ -912,6 +922,14 @@ export interface NoEmptyFunctionOption {
     | 'asyncMethods'
   )[];
 }
+
+export type NoExtraBooleanCastOption =
+  | {
+      enforceForInnerExpressions?: boolean;
+    }
+  | {
+      enforceForLogicalOperands?: boolean;
+    };
 
 export type NoExtraParensOption =
   | []
@@ -938,8 +956,17 @@ export interface NoImplicitCoercionOption {
   number?: boolean;
   string?: boolean;
   disallowTemplateShorthand?: boolean;
-  allow?: ('~' | '!!' | '+' | '*')[];
+  allow?: ('~' | '!!' | '+' | '- -' | '-' | '*')[];
 }
+
+export interface NoInnerDeclarationsConfig {
+  blockScopedFunctions?: 'allow' | 'disallow';
+}
+
+export type NoInnerDeclarationsRuleConfig = [
+  ('functions' | 'both')?,
+  NoInnerDeclarationsConfig?,
+];
 
 export interface NoMagicNumbersOption {
   detectObjects?: boolean;
@@ -1074,9 +1101,11 @@ export type NoParamReassignOption =
 export type NoRestrictedExportsOption =
   | {
       restrictedNamedExports?: string[];
+      restrictedNamedExportsPattern?: string;
     }
   | {
       restrictedNamedExports?: string[];
+      restrictedNamedExportsPattern?: string;
       restrictDefaultExports?: {
         direct?: boolean;
         named?: boolean;
@@ -1104,6 +1133,7 @@ export type NoRestrictedImportsOption =
           name: string;
           message?: string;
           importNames?: string[];
+          allowImportNames?: string[];
         }
     )[]
   | []
@@ -1115,23 +1145,19 @@ export type NoRestrictedImportsOption =
               name: string;
               message?: string;
               importNames?: string[];
+              allowImportNames?: string[];
             }
         )[];
         patterns?:
           | string[]
-          | {
-              /**
-               * @minItems 1
-               */
-              importNames?: [string, ...string[]];
-              /**
-               * @minItems 1
-               */
-              group: [string, ...string[]];
-              importNamePattern?: string;
-              message?: string;
-              caseSensitive?: boolean;
-            }[];
+          | (
+              | {
+                  [k: string]: any;
+                }
+              | {
+                  [k: string]: any;
+                }
+            )[];
       },
     ];
 
@@ -1206,6 +1232,8 @@ export type NoUnusedVarsOption =
       caughtErrors?: 'all' | 'none';
       caughtErrorsIgnorePattern?: string;
       destructuredArrayIgnorePattern?: string;
+      ignoreClassWithStaticInitBlock?: boolean;
+      reportUsedIgnorePattern?: boolean;
     };
 
 export type NoUseBeforeDefineOption =
@@ -1563,14 +1591,8 @@ export type QuotesRuleConfig = [
   QuotesConfig?,
 ];
 
-export interface RequireJsdocOption {
-  require?: {
-    ClassDeclaration?: boolean;
-    MethodDefinition?: boolean;
-    FunctionDeclaration?: boolean;
-    ArrowFunctionExpression?: boolean;
-    FunctionExpression?: boolean;
-  };
+export interface RequireUnicodeRegexpOption {
+  requireFlag?: 'u' | 'v';
 }
 
 export type SemiOption =
@@ -1658,21 +1680,6 @@ export interface SpacedCommentConfig {
     markers?: string[];
     balanced?: boolean;
   };
-}
-
-export interface ValidJsdocOption {
-  prefer?: {
-    [k: string]: string;
-  };
-  preferType?: {
-    [k: string]: string;
-  };
-  requireReturn?: boolean;
-  requireParamDescription?: boolean;
-  requireReturnDescription?: boolean;
-  matchDescription?: string;
-  requireReturnType?: boolean;
-  requireParamType?: boolean;
 }
 
 export type WrapIifeRuleConfig = [
@@ -1967,7 +1974,7 @@ export interface EslintRules {
   'func-names': FuncNames.FuncNamesRuleConfig;
 
   /**
-   * Enforce the consistent use of either `function` declarations or expressions.
+   * Enforce the consistent use of either `function` declarations or expressions assigned to variables.
    * @see [func-style](https://eslint.org/docs/latest/rules/func-style)
    */
   'func-style': FuncStyleRuleConfig;
@@ -2104,6 +2111,7 @@ export interface EslintRules {
 
   /**
    * Enforce position of line comments.
+   * @deprecated
    * @see [line-comment-position](https://eslint.org/docs/latest/rules/line-comment-position)
    */
   'line-comment-position': [LineCommentPositionOption?];
@@ -2222,6 +2230,7 @@ export interface EslintRules {
 
   /**
    * Enforce a particular style for multiline comments.
+   * @deprecated
    * @see [multiline-comment-style](https://eslint.org/docs/latest/rules/multiline-comment-style)
    */
   'multiline-comment-style': MultilineCommentStyleOption;
@@ -2389,11 +2398,7 @@ export interface EslintRules {
    * Disallow constant expressions in conditions.
    * @see [no-constant-condition](https://eslint.org/docs/latest/rules/no-constant-condition)
    */
-  'no-constant-condition': [
-    {
-      checkLoops?: boolean;
-    }?,
-  ];
+  'no-constant-condition': [NoConstantConditionOption?];
 
   /**
    * Disallow returning value from constructor.
@@ -2561,11 +2566,7 @@ export interface EslintRules {
    * Disallow unnecessary boolean casts.
    * @see [no-extra-boolean-cast](https://eslint.org/docs/latest/rules/no-extra-boolean-cast)
    */
-  'no-extra-boolean-cast': [
-    {
-      enforceForLogicalOperands?: boolean;
-    }?,
-  ];
+  'no-extra-boolean-cast': [NoExtraBooleanCastOption?];
 
   /**
    * Disallow unnecessary labels.
@@ -2595,6 +2596,7 @@ export interface EslintRules {
     {
       commentPattern?: string;
       allowEmptyCase?: boolean;
+      reportUnusedFallthroughComment?: boolean;
     }?,
   ];
 
@@ -2663,7 +2665,7 @@ export interface EslintRules {
    * Disallow variable or `function` declarations in nested blocks.
    * @see [no-inner-declarations](https://eslint.org/docs/latest/rules/no-inner-declarations)
    */
-  'no-inner-declarations': [('functions' | 'both')?];
+  'no-inner-declarations': NoInnerDeclarationsRuleConfig;
 
   /**
    * Disallow invalid regular expression strings in `RegExp` constructors.
@@ -2756,7 +2758,11 @@ export interface EslintRules {
    * Disallow characters which are made with multiple code points in character class syntax.
    * @see [no-misleading-character-class](https://eslint.org/docs/latest/rules/no-misleading-character-class)
    */
-  'no-misleading-character-class': null;
+  'no-misleading-character-class': [
+    {
+      allowEscape?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow mixed binary operators.
@@ -2879,6 +2885,7 @@ export interface EslintRules {
 
   /**
    * Disallow `new` operators with the `Symbol` object.
+   * @deprecated
    * @see [no-new-symbol](https://eslint.org/docs/latest/rules/no-new-symbol)
    */
   'no-new-symbol': null;
@@ -3303,6 +3310,12 @@ export interface EslintRules {
   'no-use-before-define': [NoUseBeforeDefineOption?];
 
   /**
+   * Disallow variable assignments when the value is not used.
+   * @see [no-useless-assignment](https://eslint.org/docs/latest/rules/no-useless-assignment)
+   */
+  'no-useless-assignment': null;
+
+  /**
    * Disallow useless backreferences in regular expressions.
    * @see [no-useless-backreference](https://eslint.org/docs/latest/rules/no-useless-backreference)
    */
@@ -3615,17 +3628,10 @@ export interface EslintRules {
   'require-await': null;
 
   /**
-   * Require JSDoc comments.
-   * @deprecated
-   * @see [require-jsdoc](https://eslint.org/docs/latest/rules/require-jsdoc)
-   */
-  'require-jsdoc': [RequireJsdocOption?];
-
-  /**
    * Enforce the use of `u` or `v` flag on RegExp.
    * @see [require-unicode-regexp](https://eslint.org/docs/latest/rules/require-unicode-regexp)
    */
-  'require-unicode-regexp': null;
+  'require-unicode-regexp': [RequireUnicodeRegexpOption?];
 
   /**
    * Require generator functions to contain `yield`.
@@ -3788,13 +3794,6 @@ export interface EslintRules {
       enforceForIndexOf?: boolean;
     }?,
   ];
-
-  /**
-   * Enforce valid JSDoc comments.
-   * @deprecated
-   * @see [valid-jsdoc](https://eslint.org/docs/latest/rules/valid-jsdoc)
-   */
-  'valid-jsdoc': [ValidJsdocOption?];
 
   /**
    * Enforce comparing `typeof` expressions against valid strings.

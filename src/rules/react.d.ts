@@ -120,12 +120,6 @@ export interface ReactRules {
   '@eslint-react/no-complex-conditional-rendering': null;
 
   /**
-   * Disallow complex conditional rendering.
-   * @see [no-complicated-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
-   */
-  '@eslint-react/no-complicated-conditional-rendering': null;
-
-  /**
    * Disallow using 'componentWillMount'.
    * @see [no-component-will-mount](https://eslint-react.xyz/docs/rules/no-component-will-mount)
    */
@@ -279,13 +273,23 @@ export interface ReactRules {
    * Disallow unnecessary fragments.
    * @see [no-useless-fragment](https://eslint-react.xyz/docs/rules/no-useless-fragment)
    */
-  '@eslint-react/no-useless-fragment': null;
+  '@eslint-react/no-useless-fragment': [
+    {
+      allowExpressions?: boolean;
+    }?,
+  ];
 
   /**
    * Enforce using destructuring assignment in component props and context.
    * @see [prefer-destructuring-assignment](https://eslint-react.xyz/docs/rules/prefer-destructuring-assignment)
    */
   '@eslint-react/prefer-destructuring-assignment': null;
+
+  /**
+   * Enforce React is imported via a namespace import.
+   * @see [prefer-react-namespace-import](https://eslint-react.xyz/docs/rules/prefer-react-namespace-import)
+   */
+  '@eslint-react/prefer-react-namespace-import': null;
 
   /**
    * Enforce read-only props in components.
@@ -304,6 +308,12 @@ export interface ReactRules {
    * @see [prefer-shorthand-fragment](https://eslint-react.xyz/docs/rules/prefer-shorthand-fragment)
    */
   '@eslint-react/prefer-shorthand-fragment': null;
+
+  /**
+   * Disallow complex conditional rendering.
+   * @see [no-complicated-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
+   */
+  '@eslint-react/no-complicated-conditional-rendering': null;
 
   /**
    * Disallow passing 'children' to void DOM elements.
@@ -384,28 +394,16 @@ export interface ReactRules {
   '@eslint-react/web-api/no-leaked-interval': null;
 
   /**
+   * Enforce cleanup of 'ResizeObserver' instances in components and custom hooks.
+   * @see [web-api/no-leaked-resize-observer](https://eslint-react.xyz/docs/rules/web-api-no-leaked-resize-observer)
+   */
+  '@eslint-react/web-api/no-leaked-resize-observer': null;
+
+  /**
    * Enforce that every 'setTimeout' in a component or custom hook has a corresponding 'clearTimeout'.
    * @see [web-api/no-leaked-timeout](https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout)
    */
   '@eslint-react/web-api/no-leaked-timeout': null;
-
-  /**
-   * Enforce custom hooks using other hooks.
-   * @see [hooks-extra/ensure-custom-hooks-using-other-hooks](https://eslint-react.xyz/docs/rules/hooks-extra-ensure-custom-hooks-using-other-hooks)
-   */
-  '@eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks': null;
-
-  /**
-   * Enforce 'useCallback' has non-empty dependencies array.
-   * @see [hooks-extra/ensure-use-callback-has-non-empty-deps](https://eslint-react.xyz/docs/rules/hooks-extra-ensure-use-callback-has-non-empty-deps)
-   */
-  '@eslint-react/hooks-extra/ensure-use-callback-has-non-empty-deps': null;
-
-  /**
-   * Enforce 'useMemo' has non-empty dependencies array.
-   * @see [hooks-extra/ensure-use-memo-has-non-empty-deps](https://eslint-react.xyz/docs/rules/hooks-extra-ensure-use-memo-has-non-empty-deps)
-   */
-  '@eslint-react/hooks-extra/ensure-use-memo-has-non-empty-deps': null;
 
   /**
    * Disallow direct calls to the 'set' function of 'useState' in 'useEffect'.
@@ -420,10 +418,40 @@ export interface ReactRules {
   '@eslint-react/hooks-extra/no-direct-set-state-in-use-layout-effect': null;
 
   /**
+   * Enforce custom hooks to use at least one other hook inside.
+   * @see [hooks-extra/no-redundant-custom-hook](https://eslint-react.xyz/docs/rules/hooks-extra-no-redundant-custom-hook)
+   */
+  '@eslint-react/hooks-extra/no-redundant-custom-hook': null;
+
+  /**
+   * Disallow unnecessary usage of 'useCallback'.
+   * @see [hooks-extra/no-unnecessary-use-callback](https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-callback)
+   */
+  '@eslint-react/hooks-extra/no-unnecessary-use-callback': null;
+
+  /**
+   * Disallow unnecessary usage of 'useMemo'.
+   * @see [hooks-extra/no-unnecessary-use-memo](https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-memo)
+   */
+  '@eslint-react/hooks-extra/no-unnecessary-use-memo': null;
+
+  /**
    * Disallow function calls in 'useState' that aren't wrapped in an initializer function.
    * @see [hooks-extra/prefer-use-state-lazy-initialization](https://eslint-react.xyz/docs/rules/hooks-extra-prefer-use-state-lazy-initialization)
    */
   '@eslint-react/hooks-extra/prefer-use-state-lazy-initialization': null;
+
+  /**
+   * Enforce custom hooks to use at least one other hook inside.
+   * @see [hooks-extra/ensure-custom-hooks-using-other-hooks](https://eslint-react.xyz/docs/rules/hooks-extra-no-redundant-custom-hook)
+   */
+  '@eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks': null;
+
+  /**
+   * Disallow unnecessary usage of 'useMemo'.
+   * @see [hooks-extra/ensure-use-memo-has-non-empty-deps](https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-memo)
+   */
+  '@eslint-react/hooks-extra/ensure-use-memo-has-non-empty-deps': null;
 
   /**
    * Enforce component naming convention to 'PascalCase' or 'CONSTANT_CASE'.
@@ -466,6 +494,12 @@ export interface ReactRules {
   '@eslint-react/debug/function-component': null;
 
   /**
+   * Report all React Hooks.
+   * @see [debug/hook](https://eslint-react.xyz/docs/rules/debug-hook)
+   */
+  '@eslint-react/debug/hook': null;
+
+  /**
    * Report all identifiers that are initialized from React.
    * @see [debug/is-from-react](https://eslint-react.xyz/docs/rules/debug-is-from-react)
    */
@@ -473,7 +507,7 @@ export interface ReactRules {
 
   /**
    * Report all React Hooks.
-   * @see [debug/react-hooks](https://eslint-react.xyz/docs/rules/debug-react-hooks)
+   * @see [debug/react-hooks](https://eslint-react.xyz/docs/rules/debug-hook)
    */
   '@eslint-react/debug/react-hooks': null;
 }

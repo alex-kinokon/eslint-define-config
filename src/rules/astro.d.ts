@@ -18,6 +18,12 @@ export type SemiOption =
       },
     ];
 
+export interface SortAttributesOption {
+  type?: 'alphabetical' | 'line-length';
+  ignoreCase?: boolean;
+  order?: 'asc' | 'desc';
+}
+
 export interface JsxA11YAltTextOption {
   elements?: string[];
   img?: string[];
@@ -377,6 +383,12 @@ export interface AstroRules {
    * @see [semi](https://ota-meshi.github.io/eslint-plugin-astro/rules/semi/)
    */
   'astro/semi': SemiOption;
+
+  /**
+   * Enforce sorting of attributes.
+   * @see [sort-attributes](https://ota-meshi.github.io/eslint-plugin-astro/rules/sort-attributes/)
+   */
+  'astro/sort-attributes': [SortAttributesOption?];
 
   /**
    * Disallow warnings when compiling.

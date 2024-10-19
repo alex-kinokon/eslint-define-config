@@ -330,6 +330,7 @@ export interface RequireParamOption {
   enableRestElementFixer?: boolean;
   enableRootFixer?: boolean;
   exemptedBy?: string[];
+  ignoreWhenAllParamsMissing?: boolean;
   unnamedRootBase?: string[];
   useDefaultObjectProperties?: boolean;
 }

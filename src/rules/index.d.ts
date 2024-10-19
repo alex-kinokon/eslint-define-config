@@ -1,4 +1,5 @@
 import type { RuleConfig, RulesObject } from '../rule-config';
+
 // #region imports
 import type { AstroRulesObject } from './astro';
 import type { DeprecationRulesObject } from './deprecation';

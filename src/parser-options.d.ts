@@ -1,66 +1,8 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+import type { Linter } from 'eslint';
 import type { LiteralUnion } from './utility-types';
 
 // Some types copied from `@types/eslint` `Linter.ParserOptions`
-
-/**
- * Any valid ECMAScript version number or 'latest':
- *
- * - A version: es3, es5, es6, es7, es8, es9, es10, es11, es12, es13, es14, ...
- * - A year: es2015, es2016, es2017, es2018, es2019, es2020, es2021, es2022, es2023, ...
- * - 'latest'
- *
- * @see https://typescript-eslint.io/architecture/parser/#ecmaversion
- */
-export type EcmaVersion =
-  | 3
-  | 5
-  | 6
-  | 7
-  | 8
-  | 9
-  | 10
-  | 11
-  | 12
-  | 13
-  | 14
-  | 2015
-  | 2016
-  | 2017
-  | 2018
-  | 2019
-  | 2020
-  | 2021
-  | 2022
-  | 2023
-  | 'latest';
-
-/**
- * Set to "script" (default) or "module" if your code is in ECMAScript modules.
- */
-export type SourceType = 'script' | 'module';
-
-/**
- * An object indicating which additional language features you'd like to use.
- *
- * @see https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options
- * @see https://typescript-eslint.io/architecture/parser#ecmafeatures
- */
-export interface EcmaFeatures extends Partial<Record<string, boolean>> {
-  /**
-   * Allow `return` statements in the global scope.
-   */
-  globalReturn?: boolean;
-
-  /**
-   * Enable global [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) (if `ecmaVersion` is 5 or greater).
-   */
-  impliedStrict?: boolean;
-
-  /**
-   * Enable [JSX](https://facebook.github.io/jsx).
-   */
-  jsx?: boolean;
-}
 
 /** Lib. */
 export type Lib = LiteralUnion<
@@ -205,41 +147,7 @@ export interface CustomParserOptions {}
  */
 export interface ParserOptions
   extends Partial<CustomParserOptions>,
-    Partial<Record<string, unknown>> {
-  /**
-   * Accepts any valid ECMAScript version number or `'latest'`:
-   *
-   * - A version: es3, es5, es6, es7, es8, es9, es10, es11, es12, es13, es14, ..., or
-   * - A year: es2015, es2016, es2017, es2018, es2019, es2020, es2021, es2022, es2023, ..., or
-   * - `'latest'`
-   *
-   * When it's a version or a year, the value must be a number - so do not include the `es` prefix.
-   *
-   * Specifies the version of ECMAScript syntax you want to use. This is used by the parser to determine how to perform scope analysis, and it affects the default
-   *
-   * @default 2018
-   *
-   * @see https://typescript-eslint.io/architecture/parser/#ecmaversion
-   */
-  ecmaVersion?: EcmaVersion;
-
-  /**
-   * Set to "script" (default) or "module" if your code is in ECMAScript modules.
-   *
-   * @default 'script'
-   *
-   * @see https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options
-   */
-  sourceType?: SourceType;
-
-  /**
-   * An object indicating which additional language features you'd like to use.
-   *
-   * @see https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options
-   * @see https://typescript-eslint.io/architecture/parser#ecmafeatures
-   */
-  ecmaFeatures?: EcmaFeatures;
-
+    Linter.ParserOptions {
   /**
    * The identifier that's used for JSX Elements creation (after transpilation).
    * If you're using a library other than React (like `preact`), then you should change this value.

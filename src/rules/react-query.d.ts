@@ -23,10 +23,16 @@ export interface ReactQueryRules {
   '@tanstack/query/no-rest-destructuring': null;
 
   /**
-   * Disallow putting the result of useMutation directly in a React hook dependency array.
+   * Disallow putting the result of query hooks directly in a React hook dependency array.
    * @see [no-unstable-deps](https://tanstack.com/query/latest/docs/eslint/no-unstable-deps)
    */
   '@tanstack/query/no-unstable-deps': null;
+
+  /**
+   * Ensure correct order of inference sensitive properties for infinite queries.
+   * @see [infinite-query-property-order](https://tanstack.com/query/latest/docs/eslint/infinite-query-property-order)
+   */
+  '@tanstack/query/infinite-query-property-order': null;
 }
 
 export type ReactQueryRulesObject = RulesObject<ReactQueryRules>;

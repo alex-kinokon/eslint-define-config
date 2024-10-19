@@ -147,12 +147,11 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     import: () => import('eslint-plugin-storybook'),
   }),
   include('stylistic', {
-    prefix: '@stylistic',
+    prefix: 'stylistic',
     import: () => import('@stylistic/eslint-plugin'),
   }),
   include('tailwind', {
     prefix: 'tailwindcss',
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-tailwindcss'),
   }),
   include('testing-library', {
@@ -181,7 +180,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     },
   }),
   include('vue', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-vue'),
     docs: {
       extends: 'https://eslint.vuejs.org/user-guide/#usage',

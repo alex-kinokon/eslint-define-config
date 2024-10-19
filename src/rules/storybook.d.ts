@@ -87,7 +87,7 @@ export interface StorybookRules {
   'storybook/story-exports': null;
 
   /**
-   * Use expect from `@storybook/jest`.
+   * Use expect from `@storybook/test` or `@storybook/jest`.
    * @see [use-storybook-expect](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/use-storybook-expect.md)
    */
   'storybook/use-storybook-expect': null;

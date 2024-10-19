@@ -217,11 +217,11 @@ type StorybookExtends =
  * ESLint Stylistic extends.
  */
 type StylisticExtends =
-  | 'plugin:@stylistic/all-extends'
-  | 'plugin:@stylistic/customize'
-  | 'plugin:@stylistic/disable-legacy'
-  | 'plugin:@stylistic/recommended-extends'
-  | 'plugin:@stylistic/recommended-legacy';
+  | 'plugin:stylistic/all-extends'
+  | 'plugin:stylistic/customize'
+  | 'plugin:stylistic/disable-legacy'
+  | 'plugin:stylistic/recommended-extends'
+  | 'plugin:stylistic/recommended-legacy';
 
 /**
  * ESLint Tailwind extends.

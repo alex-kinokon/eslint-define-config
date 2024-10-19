@@ -20,48 +20,125 @@ export namespace BanTsComment {
       };
 
   export interface BanTsCommentOption {
+    /**
+     * A minimum character length for descriptions when `allow-with-description` is enabled.
+     */
+    minimumDescriptionLength?: number;
+    'ts-check'?: DirectiveConfigSchema;
     'ts-expect-error'?: DirectiveConfigSchema;
     'ts-ignore'?: DirectiveConfigSchema;
     'ts-nocheck'?: DirectiveConfigSchema;
-    'ts-check'?: DirectiveConfigSchema;
-    minimumDescriptionLength?: number;
   }
 
   export type BanTsCommentRuleConfig = [BanTsCommentOption?];
 }
 
+/**
+ * Which literal class member syntax to prefer.
+ */
+export type ClassLiteralPropertyStyleOption = 'fields' | 'getters';
+
 export interface ClassMethodsUseThisOption {
   /**
-   * Allows specified method names to be ignored with this rule
+   * Enforces that functions used as instance field initializers utilize `this`.
+   */
+  enforceForClassFields?: boolean;
+  /**
+   * Allows specified method names to be ignored with this rule.
    */
   exceptMethods?: string[];
   /**
-   * Enforces that functions used as instance field initializers utilize `this`
+   * Makes the rule ignore class members that are defined within a class that `implements` a type
    */
-  enforceForClassFields?: boolean;
+  ignoreClassesThatImplementAnInterface?: boolean | 'public-fields';
   /**
    * Ignore members marked with the `override` modifier
    */
   ignoreOverrideMethods?: boolean;
-  /**
-   * Ignore classes that specifically implement some interface
-   */
-  ignoreClassesThatImplementAnInterface?: boolean | 'public-fields';
 }
+
+/**
+ * Which constructor call syntax to prefer.
+ */
+export type ConsistentGenericConstructorsOption =
+  | 'type-annotation'
+  | 'constructor';
+
+/**
+ * Which indexed object syntax to prefer.
+ */
+export type ConsistentIndexedObjectStyleOption = 'record' | 'index-signature';
 
 export type ConsistentTypeAssertionsOption =
   | {
+      /**
+       * The expected assertion style to enforce.
+       */
       assertionStyle: 'never';
     }
   | {
+      /**
+       * The expected assertion style to enforce.
+       */
       assertionStyle: 'as' | 'angle-bracket';
+      /**
+       * Whether to always prefer type declarations for object literals used as variable initializers, rather than type assertions.
+       */
       objectLiteralTypeAssertions?: 'allow' | 'allow-as-parameter' | 'never';
     };
 
+/**
+ * Which type definition syntax to prefer.
+ */
+export type ConsistentTypeDefinitionsOption = 'interface' | 'type';
+
+export namespace ConsistentTypeExports {
+  export interface ConsistentTypeExportsOption {
+    /**
+     * Whether the rule will autofix "mixed" export cases using TS inline type specifiers.
+     */
+    fixMixedExportsWithInlineTypeSpecifier?: boolean;
+  }
+
+  export type ConsistentTypeExportsRuleConfig = [ConsistentTypeExportsOption?];
+}
+
 export interface ConsistentTypeImportsOption {
+  /**
+   * Whether to disallow type imports in type annotations (`import()`).
+   */
   disallowTypeAnnotations?: boolean;
+  /**
+   * The expected type modifier to be added when an import is detected as used only in the type position.
+   */
   fixStyle?: 'separate-type-imports' | 'inline-type-imports';
+  /**
+   * The expected import kind for type-only imports.
+   */
   prefer?: 'type-imports' | 'no-type-imports';
+}
+
+export interface DotNotationOption {
+  /**
+   * Whether to allow accessing properties matching an index signature with array notation.
+   */
+  allowIndexSignaturePropertyAccess?: boolean;
+  /**
+   * Whether to allow keywords such as ["class"]`.
+   */
+  allowKeywords?: boolean;
+  /**
+   * Regular expression of names to allow.
+   */
+  allowPattern?: string;
+  /**
+   * Whether to allow accessing class members marked as `private` with array notation.
+   */
+  allowPrivateClassPropertyAccess?: boolean;
+  /**
+   * Whether to allow accessing class members marked as `protected` with array notation.
+   */
+  allowProtectedClassPropertyAccess?: boolean;
 }
 
 export interface ExplicitFunctionReturnTypeOption {
@@ -70,48 +147,57 @@ export interface ExplicitFunctionReturnTypeOption {
    */
   allowConciseArrowFunctionExpressionsStartingWithVoid?: boolean;
   /**
-   * Whether to ignore function expressions (functions which are not part of a declaration).
-   */
-  allowExpressions?: boolean;
-  /**
-   * Whether to ignore functions immediately returning another function expression.
-   */
-  allowHigherOrderFunctions?: boolean;
-  /**
-   * Whether to ignore type annotations on the variable of function expressions.
-   */
-  allowTypedFunctionExpressions?: boolean;
-  /**
    * Whether to ignore arrow functions immediately returning a `as const` value.
    */
   allowDirectConstAssertionInArrowFunctions?: boolean;
-  /**
-   * Whether to ignore functions that don't have generic type parameters.
-   */
-  allowFunctionsWithoutTypeParameters?: boolean;
   /**
    * An array of function/method names that will not have their arguments or return values checked.
    */
   allowedNames?: string[];
   /**
+   * Whether to ignore function expressions (functions which are not part of a declaration).
+   */
+  allowExpressions?: boolean;
+  /**
+   * Whether to ignore functions that don't have generic type parameters.
+   */
+  allowFunctionsWithoutTypeParameters?: boolean;
+  /**
+   * Whether to ignore functions immediately returning another function expression.
+   */
+  allowHigherOrderFunctions?: boolean;
+  /**
    * Whether to ignore immediately invoked function expressions (IIFEs).
    */
   allowIIFEs?: boolean;
+  /**
+   * Whether to ignore type annotations on the variable of function expressions.
+   */
+  allowTypedFunctionExpressions?: boolean;
 }
 
 export namespace ExplicitMemberAccessibility {
   export type AccessibilityLevel = 'explicit' | 'no-public' | 'off';
 
   export interface ExplicitMemberAccessibilityOption {
-    accessibility?: AccessibilityLevel;
+    /**
+     * Which accessibility modifier is required to exist or not exist.
+     */
+    accessibility?: 'explicit' | 'no-public' | 'off';
+    /**
+     * Specific method names that may be ignored.
+     */
+    ignoredMethodNames?: string[];
+    /**
+     * Changes to required accessibility modifiers for specific kinds of class members.
+     */
     overrides?: {
       accessors?: AccessibilityLevel;
       constructors?: AccessibilityLevel;
       methods?: AccessibilityLevel;
-      properties?: AccessibilityLevel;
       parameterProperties?: AccessibilityLevel;
+      properties?: AccessibilityLevel;
     };
-    ignoredMethodNames?: string[];
   }
 
   export type ExplicitMemberAccessibilityRuleConfig = [
@@ -155,14 +241,29 @@ export type InitDeclarationsOption =
       },
     ];
 
+export interface MaxParamsOption {
+  /**
+   * Whether to count a `this` declaration when the type is `void`.
+   */
+  countVoidThis?: boolean;
+  /**
+   * A maximum number of parameters in function definitions.
+   */
+  max?: number;
+  /**
+   * (deprecated) A maximum number of parameters in function definitions.
+   */
+  maximum?: number;
+}
+
 export namespace MemberOrdering {
   export type BaseConfig =
     | 'never'
     | (AllItems | AllItems[])[]
     | {
         memberTypes?: (AllItems | AllItems[])[] | 'never';
-        order?: OrderOptions;
         optionalityOrder?: OptionalityOrderOptions;
+        order?: OrderOptions;
       };
   export type AllItems =
     | 'readonly-signature'
@@ -318,20 +419,20 @@ export namespace MemberOrdering {
     | 'private-instance-static-initialization'
     | '#private-static-static-initialization'
     | '#private-instance-static-initialization';
+  export type OptionalityOrderOptions = 'optional-first' | 'required-first';
   export type OrderOptions =
     | 'alphabetically'
     | 'alphabetically-case-insensitive'
     | 'as-written'
     | 'natural'
     | 'natural-case-insensitive';
-  export type OptionalityOrderOptions = 'optional-first' | 'required-first';
   export type TypesConfig =
     | 'never'
     | (TypeItems | TypeItems[])[]
     | {
         memberTypes?: (TypeItems | TypeItems[])[] | 'never';
-        order?: OrderOptions;
         optionalityOrder?: OptionalityOrderOptions;
+        order?: OrderOptions;
       };
   export type TypeItems =
     | 'readonly-signature'
@@ -342,9 +443,9 @@ export namespace MemberOrdering {
     | 'constructor';
 
   export interface MemberOrderingOption {
-    default?: BaseConfig;
     classes?: BaseConfig;
     classExpressions?: BaseConfig;
+    default?: BaseConfig;
     interfaces?: TypesConfig;
     typeLiterals?: TypesConfig;
   }
@@ -377,14 +478,33 @@ export namespace NamingConvention {
     | 'array';
   export type NamingConventionOption = (
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
+        modifiers?: (
+          | 'const'
+          | 'readonly'
+          | 'static'
+          | 'public'
+          | 'protected'
+          | 'private'
+          | '#private'
+          | 'abstract'
+          | 'destructured'
+          | 'global'
+          | 'exported'
+          | 'unused'
+          | 'requiresQuotes'
+          | 'override'
+          | 'async'
+          | 'default'
+          | 'namespace'
+        )[];
         selector: (
           | 'default'
           | 'variableLike'
@@ -413,35 +533,16 @@ export namespace NamingConvention {
           | 'typeParameter'
           | 'import'
         )[];
-        modifiers?: (
-          | 'const'
-          | 'readonly'
-          | 'static'
-          | 'public'
-          | 'protected'
-          | 'private'
-          | '#private'
-          | 'abstract'
-          | 'destructured'
-          | 'global'
-          | 'exported'
-          | 'unused'
-          | 'requiresQuotes'
-          | 'override'
-          | 'async'
-          | 'default'
-          | 'namespace'
-        )[];
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'default';
         modifiers?: (
@@ -465,25 +566,25 @@ export namespace NamingConvention {
         )[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'variableLike';
         modifiers?: ('unused' | 'async')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'variable';
         modifiers?: (
@@ -497,38 +598,38 @@ export namespace NamingConvention {
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'function';
         modifiers?: ('exported' | 'global' | 'unused' | 'async')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'parameter';
         modifiers?: ('destructured' | 'unused')[];
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'memberLike';
         modifiers?: (
@@ -545,13 +646,13 @@ export namespace NamingConvention {
         )[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'classProperty';
         modifiers?: (
@@ -568,52 +669,52 @@ export namespace NamingConvention {
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'objectLiteralProperty';
         modifiers?: ('public' | 'requiresQuotes')[];
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'typeProperty';
         modifiers?: ('public' | 'readonly' | 'requiresQuotes')[];
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'parameterProperty';
         modifiers?: ('private' | 'protected' | 'public' | 'readonly')[];
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'property';
         modifiers?: (
@@ -631,13 +732,13 @@ export namespace NamingConvention {
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'classMethod';
         modifiers?: (
@@ -653,37 +754,37 @@ export namespace NamingConvention {
         )[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'objectLiteralMethod';
         modifiers?: ('public' | 'requiresQuotes' | 'async')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'typeMethod';
         modifiers?: ('public' | 'requiresQuotes')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'method';
         modifiers?: (
@@ -699,13 +800,13 @@ export namespace NamingConvention {
         )[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'classicAccessor';
         modifiers?: (
@@ -720,13 +821,13 @@ export namespace NamingConvention {
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'autoAccessor';
         modifiers?: (
@@ -741,13 +842,13 @@ export namespace NamingConvention {
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'accessor';
         modifiers?: (
@@ -762,97 +863,97 @@ export namespace NamingConvention {
         types?: TypeModifiers[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'enumMember';
         modifiers?: 'requiresQuotes'[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'typeLike';
         modifiers?: ('abstract' | 'exported' | 'unused')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'class';
         modifiers?: ('abstract' | 'exported' | 'unused')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'interface';
         modifiers?: ('exported' | 'unused')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'typeAlias';
         modifiers?: ('exported' | 'unused')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'enum';
         modifiers?: ('exported' | 'unused')[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'typeParameter';
         modifiers?: 'unused'[];
       }
     | {
-        format: FormatOptionsConfig;
         custom?: MatchRegexConfig;
+        failureMessage?: string;
+        format: FormatOptionsConfig;
         leadingUnderscore?: UnderscoreOptions;
-        trailingUnderscore?: UnderscoreOptions;
         prefix?: PrefixSuffixConfig;
         suffix?: PrefixSuffixConfig;
-        failureMessage?: string;
+        trailingUnderscore?: UnderscoreOptions;
         filter?: string | MatchRegexConfig;
         selector: 'import';
         modifiers?: ('default' | 'namespace')[];
@@ -867,7 +968,39 @@ export namespace NamingConvention {
   export type NamingConventionRuleConfig = NamingConventionOption;
 }
 
+export interface NoBaseToStringOption {
+  /**
+   * Stringified regular expressions of type names to ignore.
+   */
+  ignoredTypeNames?: string[];
+}
+
+export interface NoConfusingVoidExpressionOption {
+  /**
+   * Whether to ignore "shorthand" `() =>` arrow functions: those without `{ ... }` braces.
+   */
+  ignoreArrowShorthand?: boolean;
+  /**
+   * Whether to ignore returns that start with the `void` operator.
+   */
+  ignoreVoidOperator?: boolean;
+}
+
+export interface NoDuplicateTypeConstituentsOption {
+  /**
+   * Whether to ignore `&` intersections.
+   */
+  ignoreIntersections?: boolean;
+  /**
+   * Whether to ignore `|` unions.
+   */
+  ignoreUnions?: boolean;
+}
+
 export interface NoEmptyFunctionOption {
+  /**
+   * Locations and kinds of functions that are allowed to be empty.
+   */
   allow?: (
     | 'functions'
     | 'arrowFunctions'
@@ -886,9 +1019,25 @@ export interface NoEmptyFunctionOption {
   )[];
 }
 
+export interface NoEmptyInterfaceOption {
+  /**
+   * Whether to allow empty interfaces that extend a single other interface.
+   */
+  allowSingleExtends?: boolean;
+}
+
 export interface NoEmptyObjectTypeOption {
+  /**
+   * Whether to allow empty interfaces.
+   */
   allowInterfaces?: 'always' | 'never' | 'with-single-extends';
+  /**
+   * Whether to allow empty object type literals.
+   */
   allowObjectTypes?: 'always' | 'never';
+  /**
+   * A stringified regular expression to allow interfaces and object type aliases with the configured name.
+   */
   allowWithName?: string;
 }
 
@@ -923,7 +1072,10 @@ export interface NoExtraneousClassOption {
 }
 
 export interface NoFloatingPromisesOption {
-  allowForKnownSafePromises?: (
+  /**
+   * Type specifiers of functions whose calls are safe to float.
+   */
+  allowForKnownSafeCalls?: (
     | string
     | {
         from: 'file';
@@ -940,7 +1092,10 @@ export interface NoFloatingPromisesOption {
         package: string;
       }
   )[];
-  allowForKnownSafeCalls?: (
+  /**
+   * Type specifiers that are known to be safe to float.
+   */
+  allowForKnownSafePromises?: (
     | string
     | {
         from: 'file';
@@ -962,18 +1117,35 @@ export interface NoFloatingPromisesOption {
    */
   checkThenables?: boolean;
   /**
-   * Whether to ignore `void` expressions.
-   */
-  ignoreVoid?: boolean;
-  /**
    * Whether to ignore async IIFEs (Immediately Invoked Function Expressions).
    */
   ignoreIIFE?: boolean;
+  /**
+   * Whether to ignore `void` expressions.
+   */
+  ignoreVoid?: boolean;
+}
+
+export interface NoInferrableTypesOption {
+  /**
+   * Whether to ignore function parameters.
+   */
+  ignoreParameters?: boolean;
+  /**
+   * Whether to ignore class properties.
+   */
+  ignoreProperties?: boolean;
 }
 
 export interface NoInvalidVoidTypeOption {
-  allowInGenericTypeArguments?: boolean | [string, ...string[]];
+  /**
+   * Whether a `this` parameter of a function may be `void`.
+   */
   allowAsThisParameter?: boolean;
+  /**
+   * Whether `void` can be used as a valid value for generic type parameters.
+   */
+  allowInGenericTypeArguments?: boolean | [string, ...string[]];
 }
 
 export interface NoMagicNumbersOption {
@@ -983,25 +1155,71 @@ export interface NoMagicNumbersOption {
   ignoreArrayIndexes?: boolean;
   ignoreDefaultValues?: boolean;
   ignoreClassFieldInitialValues?: boolean;
-  ignoreNumericLiteralTypes?: boolean;
+  /**
+   * Whether enums used in TypeScript are considered okay.
+   */
   ignoreEnums?: boolean;
+  /**
+   * Whether numbers used in TypeScript numeric literal types are considered okay.
+   */
+  ignoreNumericLiteralTypes?: boolean;
+  /**
+   * Whether `readonly` class properties are considered okay.
+   */
   ignoreReadonlyClassProperties?: boolean;
+  /**
+   * Whether numbers used to index types are okay.
+   */
   ignoreTypeIndexes?: boolean;
 }
 
+export interface NoMeaninglessVoidOperatorOption {
+  /**
+   * Whether to suggest removing `void` when the argument has type `never`.
+   */
+  checkNever?: boolean;
+}
+
 export interface NoMisusedPromisesOption {
+  /**
+   * Whether to warn when a Promise is provided to conditional statements.
+   */
   checksConditionals?: boolean;
+  /**
+   * Whether to warn when `...` spreading a `Promise`.
+   */
+  checksSpreads?: boolean;
+  /**
+   * Whether to warn when a Promise is returned from a function typed as returning `void`.
+   */
   checksVoidReturn?:
     | boolean
     | {
+        /**
+         * Disables checking an asynchronous function passed as argument where the parameter type expects a function that returns `void`.
+         */
         arguments?: boolean;
+        /**
+         * Disables checking an asynchronous function passed as a JSX attribute expected to be a function that returns `void`.
+         */
         attributes?: boolean;
+        /**
+         * Disables checking an asynchronous method in a type that extends or implements another type expecting that method to return `void`.
+         */
         inheritedMethods?: boolean;
+        /**
+         * Disables checking an asynchronous function passed as an object property expected to be a function that returns `void`.
+         */
         properties?: boolean;
+        /**
+         * Disables checking an asynchronous function returned in a function whose return type is a function that returns `void`.
+         */
         returns?: boolean;
+        /**
+         * Disables checking an asynchronous function used as a variable whose return type is a function that returns `void`.
+         */
         variables?: boolean;
       };
-  checksSpreads?: boolean;
 }
 
 export interface NoNamespaceOption {
@@ -1013,6 +1231,17 @@ export interface NoNamespaceOption {
    * Whether to allow `declare` with custom TypeScript namespaces inside definition files.
    */
   allowDefinitionFiles?: boolean;
+}
+
+export interface NoRedeclareOption {
+  /**
+   * Whether to report shadowing of built-in global variables.
+   */
+  builtinGlobals?: boolean;
+  /**
+   * Whether to ignore declaration merges between certain TypeScript declaration types.
+   */
+  ignoreDeclarationMerge?: boolean;
 }
 
 export interface NoRequireImportsOption {
@@ -1033,8 +1262,9 @@ export type NoRestrictedImportsOption =
           name: string;
           message?: string;
           importNames?: string[];
+          allowImportNames?: string[];
           /**
-           * Disallow value imports, but allow type-only imports.
+           * Whether to allow type-only imports for a path.
            */
           allowTypeImports?: boolean;
         }
@@ -1048,8 +1278,9 @@ export type NoRestrictedImportsOption =
               name: string;
               message?: string;
               importNames?: string[];
+              allowImportNames?: string[];
               /**
-               * Disallow value imports, but allow type-only imports.
+               * Whether to allow type-only imports for a path.
                */
               allowTypeImports?: boolean;
             }
@@ -1064,12 +1295,18 @@ export type NoRestrictedImportsOption =
               /**
                * @minItems 1
                */
-              group: [string, ...string[]];
+              allowImportNames?: [string, ...string[]];
+              /**
+               * @minItems 1
+               */
+              group?: [string, ...string[]];
+              regex?: string;
               importNamePattern?: string;
+              allowImportNamePattern?: string;
               message?: string;
               caseSensitive?: boolean;
               /**
-               * Disallow value imports, but allow type-only imports.
+               * Whether to allow type-only imports for a path.
                */
               allowTypeImports?: boolean;
             }[];
@@ -1082,13 +1319,13 @@ export namespace NoRestrictedTypes {
     | string
     | {
         /**
-         * Custom error message
-         */
-        message?: string;
-        /**
          * Type to autofix replace with. Note that autofixers can be applied automatically - so you need to be careful with this option.
          */
         fixWith?: string;
+        /**
+         * Custom error message.
+         */
+        message?: string;
         /**
          * Types to suggest replacing with.
          */
@@ -1096,6 +1333,9 @@ export namespace NoRestrictedTypes {
       };
 
   export interface NoRestrictedTypesOption {
+    /**
+     * An object whose keys are the types you want to ban, and the values are error messages.
+     */
     types?: {
       [k: string]: BanConfig;
     };
@@ -1105,12 +1345,30 @@ export namespace NoRestrictedTypes {
 }
 
 export interface NoShadowOption {
-  builtinGlobals?: boolean;
-  hoist?: 'all' | 'functions' | 'never';
+  /**
+   * Identifier names for which shadowing is allowed.
+   */
   allow?: string[];
-  ignoreOnInitialization?: boolean;
-  ignoreTypeValueShadow?: boolean;
+  /**
+   * Whether to report shadowing of built-in global variables.
+   */
+  builtinGlobals?: boolean;
+  /**
+   * Whether to report shadowing before outer functions or variables are defined.
+   */
+  hoist?: 'all' | 'functions' | 'never';
+  /**
+   * Whether to ignore function parameters named the same as a variable.
+   */
   ignoreFunctionTypeParameterNameValueShadow?: boolean;
+  /**
+   * Whether to ignore the variable initializers when the shadowed variable is presumably still unitialized.
+   */
+  ignoreOnInitialization?: boolean;
+  /**
+   * Whether to ignore types named the same as a variable.
+   */
+  ignoreTypeValueShadow?: boolean;
 }
 
 export interface NoThisAliasOption {
@@ -1147,6 +1405,10 @@ export interface NoTypeAliasOption {
    */
   allowConstructors?: 'always' | 'never';
   /**
+   * Whether to allow type aliases with generic types.
+   */
+  allowGenerics?: 'always' | 'never';
+  /**
    * Whether to allow type aliases with object literal types.
    */
   allowLiterals?:
@@ -1173,21 +1435,17 @@ export interface NoTypeAliasOption {
     | 'in-unions'
     | 'in-intersections'
     | 'in-unions-and-intersections';
-  /**
-   * Whether to allow type aliases with generic types.
-   */
-  allowGenerics?: 'always' | 'never';
 }
 
 export interface NoUnnecessaryBooleanLiteralCompareOption {
   /**
-   * Whether to allow comparisons between nullable boolean variables and `true`.
-   */
-  allowComparingNullableBooleansToTrue?: boolean;
-  /**
    * Whether to allow comparisons between nullable boolean variables and `false`.
    */
   allowComparingNullableBooleansToFalse?: boolean;
+  /**
+   * Whether to allow comparisons between nullable boolean variables and `true`.
+   */
+  allowComparingNullableBooleansToTrue?: boolean;
 }
 
 export interface NoUnnecessaryConditionOption {
@@ -1199,6 +1457,10 @@ export interface NoUnnecessaryConditionOption {
    * Whether to not error when running with a tsconfig that has strictNullChecks turned.
    */
   allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  /**
+   * Whether to check the asserted argument of a type predicate function for unnecessary conditions
+   */
+  checkTypePredicates?: boolean;
 }
 
 export interface NoUnnecessaryTypeAssertionOption {
@@ -1211,35 +1473,101 @@ export interface NoUnnecessaryTypeAssertionOption {
 export type NoUnusedVarsOption =
   | ('all' | 'local')
   | {
-      vars?: 'all' | 'local';
-      varsIgnorePattern?: string;
+      /**
+       * Whether to check all, some, or no arguments.
+       */
       args?: 'all' | 'after-used' | 'none';
-      ignoreRestSiblings?: boolean;
+      /**
+       * Regular expressions of argument names to not check for usage.
+       */
       argsIgnorePattern?: string;
+      /**
+       * Whether to check catch block arguments.
+       */
       caughtErrors?: 'all' | 'none';
+      /**
+       * Regular expressions of catch block argument names to not check for usage.
+       */
       caughtErrorsIgnorePattern?: string;
+      /**
+       * Regular expressions of destructured array variable names to not check for usage.
+       */
       destructuredArrayIgnorePattern?: string;
+      /**
+       * Whether to ignore classes with at least one static initialization block.
+       */
       ignoreClassWithStaticInitBlock?: boolean;
+      /**
+       * Whether to ignore sibling properties in `...` destructurings.
+       */
+      ignoreRestSiblings?: boolean;
+      /**
+       * Whether to report variables that match any of the valid ignore pattern options if they have been used.
+       */
       reportUsedIgnorePattern?: boolean;
+      /**
+       * Whether to check all variables or only locally-declared variables.
+       */
+      vars?: 'all' | 'local';
+      /**
+       * Regular expressions of variable names to not check for usage.
+       */
+      varsIgnorePattern?: string;
     };
 
-export type NoUseBeforeDefineOption =
-  | 'nofunc'
-  | {
-      functions?: boolean;
-      classes?: boolean;
-      enums?: boolean;
-      variables?: boolean;
-      typedefs?: boolean;
-      ignoreTypeReferences?: boolean;
-      allowNamedExports?: boolean;
-    };
+export namespace NoUseBeforeDefine {
+  export type NoUseBeforeDefineOption =
+    | 'nofunc'
+    | {
+        /**
+         * Whether to ignore named exports.
+         */
+        allowNamedExports?: boolean;
+        /**
+         * Whether to ignore references to class declarations.
+         */
+        classes?: boolean;
+        /**
+         * Whether to check references to enums.
+         */
+        enums?: boolean;
+        /**
+         * Whether to ignore references to function declarations.
+         */
+        functions?: boolean;
+        /**
+         * Whether to ignore type references, such as in type annotations and assertions.
+         */
+        ignoreTypeReferences?: boolean;
+        /**
+         * Whether to check references to types.
+         */
+        typedefs?: boolean;
+        /**
+         * Whether to ignore references to variables.
+         */
+        variables?: boolean;
+      };
+
+  export type NoUseBeforeDefineRuleConfig = [NoUseBeforeDefineOption?];
+}
 
 export interface NoVarRequiresOption {
   /**
    * Patterns of import paths to allow requiring from.
    */
   allow?: string[];
+}
+
+export interface OnlyThrowErrorOption {
+  /**
+   * Whether to always allow throwing values typed as `any`.
+   */
+  allowThrowingAny?: boolean;
+  /**
+   * Whether to always allow throwing values typed as `unknown`.
+   */
+  allowThrowingUnknown?: boolean;
 }
 
 export namespace ParameterProperties {
@@ -1253,7 +1581,13 @@ export namespace ParameterProperties {
     | 'public readonly';
 
   export interface ParameterPropertiesOption {
+    /**
+     * Whether to allow certain kinds of properties to be ignored.
+     */
     allow?: Modifier[];
+    /**
+     * Whether to prefer class properties or parameter properties.
+     */
     prefer?: 'class-property' | 'parameter-property';
   }
 
@@ -1263,11 +1597,11 @@ export namespace ParameterProperties {
 export namespace PreferDestructuring {
   export type PreferDestructuringOption =
     | {
-        VariableDeclarator?: {
+        AssignmentExpression?: {
           array?: boolean;
           object?: boolean;
         };
-        AssignmentExpression?: {
+        VariableDeclarator?: {
           array?: boolean;
           object?: boolean;
         };
@@ -1278,8 +1612,14 @@ export namespace PreferDestructuring {
       };
 
   export interface PreferDestructuringConfig {
-    enforceForRenamedProperties?: boolean;
+    /**
+     * Whether to enforce destructuring on variable declarations with type annotations.
+     */
     enforceForDeclarationWithTypeAnnotation?: boolean;
+    /**
+     * Whether to enforce destructuring that use a different variable name than the property name.
+     */
+    enforceForRenamedProperties?: boolean;
     [k: string]: any;
   }
 
@@ -1289,58 +1629,109 @@ export namespace PreferDestructuring {
   ];
 }
 
+export interface PreferLiteralEnumMemberOption {
+  /**
+   * Whether to allow using bitwise expressions in enum initializers.
+   */
+  allowBitwiseExpressions?: boolean;
+}
+
 export interface PreferNullishCoalescingOption {
+  /**
+   * Unless this is set to `true`, the rule will error on every file whose `tsconfig.json` does _not_ have the `strictNullChecks` compiler option (or `strict`) set to `true`.
+   */
   allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  /**
+   * Whether to ignore cases that are located within a conditional test.
+   */
   ignoreConditionalTests?: boolean;
+  /**
+   * Whether to ignore any logical or expressions that are part of a mixed logical expression (with `&&`).
+   */
   ignoreMixedLogicalExpressions?: boolean;
+  /**
+   * Whether to ignore all (`true`) or some (an object with properties) primitive types.
+   */
   ignorePrimitives?:
     | {
+        /**
+         * Ignore bigint primitive types.
+         */
         bigint?: boolean;
+        /**
+         * Ignore boolean primitive types.
+         */
         boolean?: boolean;
+        /**
+         * Ignore number primitive types.
+         */
         number?: boolean;
+        /**
+         * Ignore string primitive types.
+         */
         string?: boolean;
         [k: string]: any;
       }
     | true;
+  /**
+   * Whether to ignore any ternary expressions that could be simplified by using the nullish coalescing operator.
+   */
   ignoreTernaryTests?: boolean;
 }
 
 export interface PreferOptionalChainOption {
   /**
+   * Allow autofixers that will change the return type of the expression. This option is considered unsafe as it may break the build.
+   */
+  allowPotentiallyUnsafeFixesThatModifyTheReturnTypeIKnowWhatImDoing?: boolean;
+  /**
    * Check operands that are typed as `any` when inspecting "loose boolean" operands.
    */
   checkAny?: boolean;
-  /**
-   * Check operands that are typed as `unknown` when inspecting "loose boolean" operands.
-   */
-  checkUnknown?: boolean;
-  /**
-   * Check operands that are typed as `string` when inspecting "loose boolean" operands.
-   */
-  checkString?: boolean;
-  /**
-   * Check operands that are typed as `number` when inspecting "loose boolean" operands.
-   */
-  checkNumber?: boolean;
-  /**
-   * Check operands that are typed as `boolean` when inspecting "loose boolean" operands.
-   */
-  checkBoolean?: boolean;
   /**
    * Check operands that are typed as `bigint` when inspecting "loose boolean" operands.
    */
   checkBigInt?: boolean;
   /**
+   * Check operands that are typed as `boolean` when inspecting "loose boolean" operands.
+   */
+  checkBoolean?: boolean;
+  /**
+   * Check operands that are typed as `number` when inspecting "loose boolean" operands.
+   */
+  checkNumber?: boolean;
+  /**
+   * Check operands that are typed as `string` when inspecting "loose boolean" operands.
+   */
+  checkString?: boolean;
+  /**
+   * Check operands that are typed as `unknown` when inspecting "loose boolean" operands.
+   */
+  checkUnknown?: boolean;
+  /**
    * Skip operands that are not typed with `null` and/or `undefined` when inspecting "loose boolean" operands.
    */
   requireNullish?: boolean;
+}
+
+export interface PreferPromiseRejectErrorsOption {
   /**
-   * Allow autofixers that will change the return type of the expression. This option is considered unsafe as it may break the build.
+   * Whether to allow calls to `Promise.reject()` with no arguments.
    */
-  allowPotentiallyUnsafeFixesThatModifyTheReturnTypeIKnowWhatImDoing?: boolean;
+  allowEmptyReject?: boolean;
+}
+
+export interface PreferReadonlyOption {
+  /**
+   * Whether to restrict checking only to members immediately assigned a lambda value.
+   */
+  onlyInlineLambdas?: boolean;
 }
 
 export interface PreferReadonlyParameterTypesOption {
+  /**
+   * An array of type specifiers to ignore.
+   */
   allow?: (
     | string
     | {
@@ -1358,8 +1749,17 @@ export interface PreferReadonlyParameterTypesOption {
         package: string;
       }
   )[];
+  /**
+   * Whether to check class parameter properties.
+   */
   checkParameterProperties?: boolean;
+  /**
+   * Whether to ignore parameters which don't explicitly specify a type.
+   */
   ignoreInferredTypes?: boolean;
+  /**
+   * Whether to treat all mutable methods as though they are readonly.
+   */
   treatMethodsAsReadonly?: boolean;
 }
 
@@ -1379,9 +1779,21 @@ export interface PromiseFunctionAsyncOption {
    * Any extra names of classes or interfaces to be considered Promises.
    */
   allowedPromiseNames?: string[];
+  /**
+   * Whether to check arrow functions.
+   */
   checkArrowFunctions?: boolean;
+  /**
+   * Whether to check standalone function declarations.
+   */
   checkFunctionDeclarations?: boolean;
+  /**
+   * Whether to check inline function expressions
+   */
   checkFunctionExpressions?: boolean;
+  /**
+   * Whether to check methods on classes and object literals.
+   */
   checkMethodDeclarations?: boolean;
 }
 
@@ -1448,21 +1860,49 @@ export interface RestrictTemplateExpressionsOption {
    * Whether to allow `never` typed values in template expressions.
    */
   allowNever?: boolean;
+  /**
+   * Types to allow in template expressions.
+   */
+  allow?: (
+    | string
+    | {
+        from: 'file';
+        name: string | [string, ...string[]];
+        path?: string;
+      }
+    | {
+        from: 'lib';
+        name: string | [string, ...string[]];
+      }
+    | {
+        from: 'package';
+        name: string | [string, ...string[]];
+        package: string;
+      }
+  )[];
 }
+
+export type ReturnAwaitOption = (
+  | 'always'
+  | 'error-handling-correctness-only'
+  | 'in-try-catch'
+  | 'never'
+) &
+  string;
 
 export interface SortTypeConstituentsOption {
   /**
-   * Whether to check intersection types.
+   * Whether to sort using case sensitive string comparisons.
+   */
+  caseSensitive?: boolean;
+  /**
+   * Whether to check intersection types (`&`).
    */
   checkIntersections?: boolean;
   /**
-   * Whether to check union types.
+   * Whether to check union types (`|`).
    */
   checkUnions?: boolean;
-  /**
-   * Whether to sort using case sensitive sorting.
-   */
-  caseSensitive?: boolean;
   /**
    * Ordering of the groups.
    */
@@ -1482,6 +1922,45 @@ export interface SortTypeConstituentsOption {
   )[];
 }
 
+export interface StrictBooleanExpressionsOption {
+  /**
+   * Whether to allow `any`s in a boolean context.
+   */
+  allowAny?: boolean;
+  /**
+   * Whether to allow nullable `boolean`s in a boolean context.
+   */
+  allowNullableBoolean?: boolean;
+  /**
+   * Whether to allow nullable `enum`s in a boolean context.
+   */
+  allowNullableEnum?: boolean;
+  /**
+   * Whether to allow nullable `number`s in a boolean context.
+   */
+  allowNullableNumber?: boolean;
+  /**
+   * Whether to allow nullable `object`s, `symbol`s, and functions in a boolean context.
+   */
+  allowNullableObject?: boolean;
+  /**
+   * Whether to allow nullable `string`s in a boolean context.
+   */
+  allowNullableString?: boolean;
+  /**
+   * Whether to allow `number`s in a boolean context.
+   */
+  allowNumber?: boolean;
+  /**
+   * Unless this is set to `true`, the rule will error on every file whose `tsconfig.json` does _not_ have the `strictNullChecks` compiler option (or `strict`) set to `true`.
+   */
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  /**
+   * Whether to allow `string`s in a boolean context.
+   */
+  allowString?: boolean;
+}
+
 export interface SwitchExhaustivenessCheckOption {
   /**
    * If 'true', allow 'default' cases on switch statements with exhaustive cases.
@@ -1494,9 +1973,53 @@ export interface SwitchExhaustivenessCheckOption {
 }
 
 export interface TripleSlashReferenceOption {
+  /**
+   * What to enforce for `/// <reference lib="..." />` references.
+   */
   lib?: 'always' | 'never';
+  /**
+   * What to enforce for `/// <reference path="..." />` references.
+   */
   path?: 'always' | 'never';
+  /**
+   * What to enforce for `/// <reference types="..." />` references.
+   */
   types?: 'always' | 'never' | 'prefer-import';
+}
+
+export interface TypedefOption {
+  /**
+   * Whether to enforce type annotations on variables declared using array destructuring.
+   */
+  arrayDestructuring?: boolean;
+  /**
+   * Whether to enforce type annotations for parameters of arrow functions.
+   */
+  arrowParameter?: boolean;
+  /**
+   * Whether to enforce type annotations on member variables of classes.
+   */
+  memberVariableDeclaration?: boolean;
+  /**
+   * Whether to enforce type annotations on variables declared using object destructuring.
+   */
+  objectDestructuring?: boolean;
+  /**
+   * Whether to enforce type annotations for parameters of functions and methods.
+   */
+  parameter?: boolean;
+  /**
+   * Whether to enforce type annotations for properties of interfaces and types.
+   */
+  propertyDeclaration?: boolean;
+  /**
+   * Whether to enforce type annotations for variable declarations, excluding array and object destructuring.
+   */
+  variableDeclaration?: boolean;
+  /**
+   * Whether to ignore variable declarations for non-arrow and arrow functions.
+   */
+  variableDeclarationIgnoreFunction?: boolean;
 }
 
 export interface UnboundMethodOption {
@@ -1551,7 +2074,9 @@ export interface TypeScriptRules {
    * Enforce that literals on classes are exposed in a consistent style.
    * @see [class-literal-property-style](https://typescript-eslint.io/rules/class-literal-property-style)
    */
-  '@typescript-eslint/class-literal-property-style': [('fields' | 'getters')?];
+  '@typescript-eslint/class-literal-property-style': [
+    ClassLiteralPropertyStyleOption?,
+  ];
 
   /**
    * Enforce that class methods utilize `this`.
@@ -1564,7 +2089,7 @@ export interface TypeScriptRules {
    * @see [consistent-generic-constructors](https://typescript-eslint.io/rules/consistent-generic-constructors)
    */
   '@typescript-eslint/consistent-generic-constructors': [
-    ('type-annotation' | 'constructor')?,
+    ConsistentGenericConstructorsOption?,
   ];
 
   /**
@@ -1572,7 +2097,7 @@ export interface TypeScriptRules {
    * @see [consistent-indexed-object-style](https://typescript-eslint.io/rules/consistent-indexed-object-style)
    */
   '@typescript-eslint/consistent-indexed-object-style': [
-    ('record' | 'index-signature')?,
+    ConsistentIndexedObjectStyleOption?,
   ];
 
   /**
@@ -1597,17 +2122,15 @@ export interface TypeScriptRules {
    * Enforce type definitions to consistently use either `interface` or `type`.
    * @see [consistent-type-definitions](https://typescript-eslint.io/rules/consistent-type-definitions)
    */
-  '@typescript-eslint/consistent-type-definitions': [('interface' | 'type')?];
+  '@typescript-eslint/consistent-type-definitions': [
+    ConsistentTypeDefinitionsOption?,
+  ];
 
   /**
    * Enforce consistent usage of type exports.
    * @see [consistent-type-exports](https://typescript-eslint.io/rules/consistent-type-exports)
    */
-  '@typescript-eslint/consistent-type-exports': [
-    {
-      fixMixedExportsWithInlineTypeSpecifier?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/consistent-type-exports': ConsistentTypeExports.ConsistentTypeExportsRuleConfig;
 
   /**
    * Enforce consistent usage of type imports.
@@ -1625,15 +2148,7 @@ export interface TypeScriptRules {
    * Enforce dot notation whenever possible.
    * @see [dot-notation](https://typescript-eslint.io/rules/dot-notation)
    */
-  '@typescript-eslint/dot-notation': [
-    {
-      allowKeywords?: boolean;
-      allowPattern?: string;
-      allowPrivateClassPropertyAccess?: boolean;
-      allowProtectedClassPropertyAccess?: boolean;
-      allowIndexSignaturePropertyAccess?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/dot-notation': [DotNotationOption?];
 
   /**
    * Require explicit return types on functions and class methods.
@@ -1667,13 +2182,7 @@ export interface TypeScriptRules {
    * Enforce a maximum number of parameters in function definitions.
    * @see [max-params](https://typescript-eslint.io/rules/max-params)
    */
-  '@typescript-eslint/max-params': [
-    {
-      maximum?: number;
-      max?: number;
-      countVoidThis?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/max-params': [MaxParamsOption?];
 
   /**
    * Require a consistent member declaration order.
@@ -1709,11 +2218,7 @@ export interface TypeScriptRules {
    * Require `.toString()` to only be called on objects which provide useful information when stringified.
    * @see [no-base-to-string](https://typescript-eslint.io/rules/no-base-to-string)
    */
-  '@typescript-eslint/no-base-to-string': [
-    {
-      ignoredTypeNames?: string[];
-    }?,
-  ];
+  '@typescript-eslint/no-base-to-string': [NoBaseToStringOption?];
 
   /**
    * Disallow non-null assertion in locations that may be confusing.
@@ -1726,10 +2231,7 @@ export interface TypeScriptRules {
    * @see [no-confusing-void-expression](https://typescript-eslint.io/rules/no-confusing-void-expression)
    */
   '@typescript-eslint/no-confusing-void-expression': [
-    {
-      ignoreArrowShorthand?: boolean;
-      ignoreVoidOperator?: boolean;
-    }?,
+    NoConfusingVoidExpressionOption?,
   ];
 
   /**
@@ -1755,10 +2257,7 @@ export interface TypeScriptRules {
    * @see [no-duplicate-type-constituents](https://typescript-eslint.io/rules/no-duplicate-type-constituents)
    */
   '@typescript-eslint/no-duplicate-type-constituents': [
-    {
-      ignoreIntersections?: boolean;
-      ignoreUnions?: boolean;
-    }?,
+    NoDuplicateTypeConstituentsOption?,
   ];
 
   /**
@@ -1778,11 +2277,7 @@ export interface TypeScriptRules {
    * @deprecated
    * @see [no-empty-interface](https://typescript-eslint.io/rules/no-empty-interface)
    */
-  '@typescript-eslint/no-empty-interface': [
-    {
-      allowSingleExtends?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/no-empty-interface': [NoEmptyInterfaceOption?];
 
   /**
    * Disallow accidentally using the "empty object" type.
@@ -1836,12 +2331,7 @@ export interface TypeScriptRules {
    * Disallow explicit type declarations for variables or parameters initialized to a number, string, or boolean.
    * @see [no-inferrable-types](https://typescript-eslint.io/rules/no-inferrable-types)
    */
-  '@typescript-eslint/no-inferrable-types': [
-    {
-      ignoreParameters?: boolean;
-      ignoreProperties?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/no-inferrable-types': [NoInferrableTypesOption?];
 
   /**
    * Disallow `this` keywords outside of classes or class-like objects.
@@ -1883,9 +2373,7 @@ export interface TypeScriptRules {
    * @see [no-meaningless-void-operator](https://typescript-eslint.io/rules/no-meaningless-void-operator)
    */
   '@typescript-eslint/no-meaningless-void-operator': [
-    {
-      checkNever?: boolean;
-    }?,
+    NoMeaninglessVoidOperatorOption?,
   ];
 
   /**
@@ -1934,12 +2422,7 @@ export interface TypeScriptRules {
    * Disallow variable redeclaration.
    * @see [no-redeclare](https://typescript-eslint.io/rules/no-redeclare)
    */
-  '@typescript-eslint/no-redeclare': [
-    {
-      builtinGlobals?: boolean;
-      ignoreDeclarationMerge?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/no-redeclare': [NoRedeclareOption?];
 
   /**
    * Disallow members of unions and intersections that do nothing or override type information.
@@ -2121,7 +2604,7 @@ export interface TypeScriptRules {
    * Disallow the use of variables before they are defined.
    * @see [no-use-before-define](https://typescript-eslint.io/rules/no-use-before-define)
    */
-  '@typescript-eslint/no-use-before-define': [NoUseBeforeDefineOption?];
+  '@typescript-eslint/no-use-before-define': NoUseBeforeDefine.NoUseBeforeDefineRuleConfig;
 
   /**
    * Disallow unnecessary constructors.
@@ -2158,12 +2641,7 @@ export interface TypeScriptRules {
    * Disallow throwing non-`Error` values as exceptions.
    * @see [only-throw-error](https://typescript-eslint.io/rules/only-throw-error)
    */
-  '@typescript-eslint/only-throw-error': [
-    {
-      allowThrowingAny?: boolean;
-      allowThrowingUnknown?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/only-throw-error': [OnlyThrowErrorOption?];
 
   /**
    * Require or disallow parameter properties in class constructors.
@@ -2218,9 +2696,7 @@ export interface TypeScriptRules {
    * @see [prefer-literal-enum-member](https://typescript-eslint.io/rules/prefer-literal-enum-member)
    */
   '@typescript-eslint/prefer-literal-enum-member': [
-    {
-      allowBitwiseExpressions?: boolean;
-    }?,
+    PreferLiteralEnumMemberOption?,
   ];
 
   /**
@@ -2248,20 +2724,14 @@ export interface TypeScriptRules {
    * @see [prefer-promise-reject-errors](https://typescript-eslint.io/rules/prefer-promise-reject-errors)
    */
   '@typescript-eslint/prefer-promise-reject-errors': [
-    {
-      allowEmptyReject?: boolean;
-    }?,
+    PreferPromiseRejectErrorsOption?,
   ];
 
   /**
    * Require private members to be marked as `readonly` if they're never modified outside of the constructor.
    * @see [prefer-readonly](https://typescript-eslint.io/rules/prefer-readonly)
    */
-  '@typescript-eslint/prefer-readonly': [
-    {
-      onlyInlineLambdas?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/prefer-readonly': [PreferReadonlyOption?];
 
   /**
    * Require function parameters to be typed as `readonly` to prevent accidental mutation of inputs.
@@ -2342,9 +2812,7 @@ export interface TypeScriptRules {
    * Enforce consistent awaiting of returned promises.
    * @see [return-await](https://typescript-eslint.io/rules/return-await)
    */
-  '@typescript-eslint/return-await': [
-    ('in-try-catch' | 'always' | 'never' | 'error-handling-correctness-only')?,
-  ];
+  '@typescript-eslint/return-await': [ReturnAwaitOption?];
 
   /**
    * Enforce constituents of a type union/intersection to be sorted alphabetically.
@@ -2358,17 +2826,7 @@ export interface TypeScriptRules {
    * @see [strict-boolean-expressions](https://typescript-eslint.io/rules/strict-boolean-expressions)
    */
   '@typescript-eslint/strict-boolean-expressions': [
-    {
-      allowString?: boolean;
-      allowNumber?: boolean;
-      allowNullableObject?: boolean;
-      allowNullableBoolean?: boolean;
-      allowNullableString?: boolean;
-      allowNullableNumber?: boolean;
-      allowNullableEnum?: boolean;
-      allowAny?: boolean;
-      allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
-    }?,
+    StrictBooleanExpressionsOption?,
   ];
 
   /**
@@ -2389,18 +2847,7 @@ export interface TypeScriptRules {
    * Require type annotations in certain places.
    * @see [typedef](https://typescript-eslint.io/rules/typedef)
    */
-  '@typescript-eslint/typedef': [
-    {
-      arrayDestructuring?: boolean;
-      arrowParameter?: boolean;
-      memberVariableDeclaration?: boolean;
-      objectDestructuring?: boolean;
-      parameter?: boolean;
-      propertyDeclaration?: boolean;
-      variableDeclaration?: boolean;
-      variableDeclarationIgnoreFunction?: boolean;
-    }?,
-  ];
+  '@typescript-eslint/typedef': [TypedefOption?];
 
   /**
    * Enforce unbound methods are called with their expected scope.

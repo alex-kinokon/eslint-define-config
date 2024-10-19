@@ -1,5 +1,7 @@
 import type { ESLintMdxSettings as MdxSettings } from 'eslint-plugin-mdx';
+
 import type { ImportSettings } from './import';
+import type { ImportXSettings } from './import-x';
 import type { JSDocSettings } from './jsdoc';
 import type { JsxA11ySettings } from './jsx-a11y';
 import type { NodeSettings } from './node';
@@ -28,6 +30,7 @@ export interface CustomSettings {}
  */
 export interface Settings
   extends ImportSettings,
+    ImportXSettings,
     JSDocSettings,
     JsxA11ySettings,
     MdxSettings,

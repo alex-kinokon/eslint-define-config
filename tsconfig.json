@@ -11,7 +11,8 @@
     "declaration": true,
     "noImplicitOverride": true,
     "noUncheckedIndexedAccess": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": false
   },
   "exclude": ["node_modules", "dist"]
 }
