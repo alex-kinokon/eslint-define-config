@@ -1,11 +1,11 @@
 import type { ESLintMdxSettings as MdxSettings } from 'eslint-plugin-mdx';
 
-import type { ImportSettings } from './import';
 import type { ImportXSettings } from './import-x';
 import type { JSDocSettings } from './jsdoc';
 import type { JsxA11ySettings } from './jsx-a11y';
 import type { NodeSettings } from './node';
 import type { ReactSettings } from './react';
+import type { TailwindSettings } from './tailwind';
 
 /**
  * This is a special exported interface for other packages to declare
@@ -29,12 +29,12 @@ export interface CustomSettings {}
  * Settings.
  */
 export interface Settings
-  extends ImportSettings,
-    ImportXSettings,
+  extends ImportXSettings,
     JSDocSettings,
     JsxA11ySettings,
     MdxSettings,
     NodeSettings,
     ReactSettings,
+    TailwindSettings,
     Partial<CustomSettings>,
     Partial<Record<string, unknown>> {}

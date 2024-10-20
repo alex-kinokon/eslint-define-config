@@ -1,6 +1,6 @@
 {
   "name": "@aet/eslint-define-config",
-  "version": "0.1.0-beta.29",
+  "version": "0.1.0-beta.30",
   "description": "Provide a defineConfig function for .eslintrc.js files",
   "type": "module",
   "scripts": {
