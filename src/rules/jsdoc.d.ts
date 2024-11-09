@@ -686,6 +686,7 @@ export interface JSDocRules {
   'jsdoc/no-missing-syntax': [NoMissingSyntaxOption?];
 
   /**
+   * Prevents use of multiple asterisks at the beginning of lines.
    * @see [no-multi-asterisks](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/no-multi-asterisks.md#repos-sticky-header)
    */
   'jsdoc/no-multi-asterisks': [
@@ -887,6 +888,7 @@ export interface JSDocRules {
   'jsdoc/tag-lines': [('always' | 'any' | 'never')?, TagLinesConfig?];
 
   /**
+   * Auto-escape certain characters that are input within block and tag descriptions.
    * @see [text-escaping](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/text-escaping.md#repos-sticky-header)
    */
   'jsdoc/text-escaping': [

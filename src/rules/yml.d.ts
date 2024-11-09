@@ -133,12 +133,12 @@ export type KeySpacingOption =
       };
     };
 
-export type PlainScalarRuleConfig = [
-  ('always' | 'never')?,
-  {
-    ignorePatterns?: string[];
-  }?,
-];
+export interface PlainScalarConfig {
+  ignorePatterns?: string[];
+  overrides?: {
+    mappingKey?: 'always' | 'never' | null;
+  };
+}
 
 export interface QuotesOption {
   prefer?: 'double' | 'single';
@@ -407,7 +407,7 @@ export interface YmlRules {
    * Require or disallow plain style scalar.
    * @see [plain-scalar](https://ota-meshi.github.io/eslint-plugin-yml/rules/plain-scalar.html)
    */
-  'yml/plain-scalar': PlainScalarRuleConfig;
+  'yml/plain-scalar': [('always' | 'never')?, PlainScalarConfig?];
 
   /**
    * Enforce the consistent use of either double, or single quotes.

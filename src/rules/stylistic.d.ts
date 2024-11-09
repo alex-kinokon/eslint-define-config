@@ -931,6 +931,35 @@ export namespace MaxLen {
   ];
 }
 
+export interface MaxStatementsPerLineOption {
+  max?: number;
+  ignoredNodes?: (
+    | 'BreakStatement'
+    | 'ClassDeclaration'
+    | 'ContinueStatement'
+    | 'DebuggerStatement'
+    | 'DoWhileStatement'
+    | 'ExpressionStatement'
+    | 'ForInStatement'
+    | 'ForOfStatement'
+    | 'ForStatement'
+    | 'FunctionDeclaration'
+    | 'IfStatement'
+    | 'ImportDeclaration'
+    | 'LabeledStatement'
+    | 'ReturnStatement'
+    | 'SwitchStatement'
+    | 'ThrowStatement'
+    | 'TryStatement'
+    | 'VariableDeclaration'
+    | 'WhileStatement'
+    | 'WithStatement'
+    | 'ExportNamedDeclaration'
+    | 'ExportDefaultDeclaration'
+    | 'ExportAllDeclaration'
+  )[];
+}
+
 export namespace MemberDelimiterStyle {
   export type MultiLineOption = 'none' | 'semi' | 'comma';
   export type SingleLineOption = 'semi' | 'comma';
@@ -1231,9 +1260,11 @@ export namespace PaddingLineBetweenStatements {
         | 'multiline-block-like'
         | 'multiline-expression'
         | 'multiline-const'
+        | 'multiline-export'
         | 'multiline-let'
         | 'multiline-var'
         | 'singleline-const'
+        | 'singleline-export'
         | 'singleline-let'
         | 'singleline-var'
         | 'block'
@@ -1279,9 +1310,11 @@ export namespace PaddingLineBetweenStatements {
           | 'multiline-block-like'
           | 'multiline-expression'
           | 'multiline-const'
+          | 'multiline-export'
           | 'multiline-let'
           | 'multiline-var'
           | 'singleline-const'
+          | 'singleline-export'
           | 'singleline-let'
           | 'singleline-var'
           | 'block'
@@ -1326,9 +1359,11 @@ export namespace PaddingLineBetweenStatements {
           | 'multiline-block-like'
           | 'multiline-expression'
           | 'multiline-const'
+          | 'multiline-export'
           | 'multiline-let'
           | 'multiline-var'
           | 'singleline-const'
+          | 'singleline-export'
           | 'singleline-let'
           | 'singleline-var'
           | 'block'
@@ -1860,11 +1895,7 @@ export interface StylisticRules {
    * Enforce a maximum number of statements allowed per line.
    * @see [max-statements-per-line](https://eslint.style/rules/js/max-statements-per-line)
    */
-  'stylistic/max-statements-per-line': [
-    {
-      max?: number;
-    }?,
-  ];
+  'stylistic/max-statements-per-line': [MaxStatementsPerLineOption?];
 
   /**
    * Require a specific member delimiter style for interfaces and type literals.

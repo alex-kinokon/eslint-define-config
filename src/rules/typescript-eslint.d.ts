@@ -1561,6 +1561,26 @@ export interface NoVarRequiresOption {
 
 export interface OnlyThrowErrorOption {
   /**
+   * Type specifiers that can be thrown.
+   */
+  allow?: (
+    | string
+    | {
+        from: 'file';
+        name: string | [string, ...string[]];
+        path?: string;
+      }
+    | {
+        from: 'lib';
+        name: string | [string, ...string[]];
+      }
+    | {
+        from: 'package';
+        name: string | [string, ...string[]];
+        package: string;
+      }
+  )[];
+  /**
    * Whether to always allow throwing values typed as `any`.
    */
   allowThrowingAny?: boolean;
@@ -1641,6 +1661,10 @@ export interface PreferNullishCoalescingOption {
    * Unless this is set to `true`, the rule will error on every file whose `tsconfig.json` does _not_ have the `strictNullChecks` compiler option (or `strict`) set to `true`.
    */
   allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
+  /**
+   * Whether to ignore arguments to the `Boolean` constructor
+   */
+  ignoreBooleanCoercion?: boolean;
   /**
    * Whether to ignore cases that are located within a conditional test.
    */
@@ -1967,6 +1991,10 @@ export interface SwitchExhaustivenessCheckOption {
    */
   allowDefaultCaseForExhaustiveSwitch?: boolean;
   /**
+   * If 'true', the 'default' clause is used to determine whether the switch statement is exhaustive for union type
+   */
+  considerDefaultExhaustiveForUnions?: boolean;
+  /**
    * If 'true', require a 'default' clause for switches on non-union types.
    */
   requireDefaultForNonUnion?: boolean;
@@ -2215,7 +2243,7 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-array-delete': null;
 
   /**
-   * Require `.toString()` to only be called on objects which provide useful information when stringified.
+   * Require `.toString()` and `.toLocaleString()` to only be called on objects which provide useful information when stringified.
    * @see [no-base-to-string](https://typescript-eslint.io/rules/no-base-to-string)
    */
   '@typescript-eslint/no-base-to-string': [NoBaseToStringOption?];

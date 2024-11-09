@@ -1,5 +1,12 @@
 import type { RulesObject } from '../rule-config';
 
+export interface NoUselessFragmentOption {
+  /**
+   * Allow fragments with a single expression child
+   */
+  allowExpressions?: boolean;
+}
+
 export type NamingConventionComponentNameOption =
   | ('PascalCase' | 'CONSTANT_CASE')
   | {
@@ -273,11 +280,7 @@ export interface ReactRules {
    * Disallow unnecessary fragments.
    * @see [no-useless-fragment](https://eslint-react.xyz/docs/rules/no-useless-fragment)
    */
-  '@eslint-react/no-useless-fragment': [
-    {
-      allowExpressions?: boolean;
-    }?,
-  ];
+  '@eslint-react/no-useless-fragment': [NoUselessFragmentOption?];
 
   /**
    * Enforce using destructuring assignment in component props and context.

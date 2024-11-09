@@ -8,7 +8,7 @@ export interface PreferLowercaseTitleOption {
 }
 
 export interface ExpectExpectOption {
-  assertFunctionNames?: [] | [string];
+  assertFunctionNames?: string[];
   additionalTestBlockFunctions?: string[];
 }
 
