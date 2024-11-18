@@ -7,11 +7,6 @@ export interface PreferLowercaseTitleOption {
   lowercaseFirstCharacterOnly?: boolean;
 }
 
-export interface ExpectExpectOption {
-  assertFunctionNames?: string[];
-  additionalTestBlockFunctions?: string[];
-}
-
 export interface ConsistentTestItOption {
   fn?: 'test' | 'it';
   withinDescribe?: 'test' | 'it';
@@ -98,7 +93,12 @@ export interface VitestRules {
    * Enforce having expectation in test body.
    * @see [expect-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md)
    */
-  'vitest/expect-expect': [ExpectExpectOption?];
+  'vitest/expect-expect': [
+    {
+      assertFunctionNames?: string[];
+      additionalTestBlockFunctions?: string[];
+    }?,
+  ];
 
   /**
    * Enforce using test or it but not both.
@@ -464,6 +464,12 @@ export interface VitestRules {
    * @see [padding-around-test-blocks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-test-blocks.md)
    */
   'vitest/padding-around-test-blocks': null;
+
+  /**
+   * Require promises that have expectations in their chain to be valid.
+   * @see [valid-expect-in-promise](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/valid-expect-in-promise.md)
+   */
+  'vitest/valid-expect-in-promise': null;
 }
 
 export type VitestRulesObject = RulesObject<VitestRules>;

@@ -55,6 +55,18 @@ export interface ReactRules {
   '@eslint-react/ensure-forward-ref-using-ref': null;
 
   /**
+   * Disallow duplicate props.
+   * @see [jsx-no-duplicate-props](https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props)
+   */
+  '@eslint-react/jsx-no-duplicate-props': null;
+
+  /**
+   * A helper rule to mark variables as used.
+   * @see [jsx-uses-vars](https://eslint-react.xyz/docs/rules/jsx-uses-vars)
+   */
+  '@eslint-react/jsx-uses-vars': null;
+
+  /**
    * Disallow accessing 'this.state' within 'setState'.
    * @see [no-access-state-in-setstate](https://eslint-react.xyz/docs/rules/no-access-state-in-setstate)
    */
@@ -371,6 +383,17 @@ export interface ReactRules {
    * @see [dom/no-script-url](https://eslint-react.xyz/docs/rules/dom-no-script-url)
    */
   '@eslint-react/dom/no-script-url': null;
+
+  /**
+   * Disallow usage of unknown DOM property.
+   * @see [dom/no-unknown-property](https://eslint-react.xyz/docs/rules/dom-no-unknown-property)
+   */
+  '@eslint-react/dom/no-unknown-property': [
+    {
+      ignore?: string[];
+      requireDataLowercase?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow unsafe iframe 'sandbox' attribute combinations.

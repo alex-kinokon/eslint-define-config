@@ -984,6 +984,10 @@ export interface NoConfusingVoidExpressionOption {
    * Whether to ignore returns that start with the `void` operator.
    */
   ignoreVoidOperator?: boolean;
+  /**
+   * Whether to ignore returns from functions with explicit `void` return types and functions with contextual `void` return types.
+   */
+  ignoreVoidReturningFunctions?: boolean;
 }
 
 export interface NoDuplicateTypeConstituentsOption {

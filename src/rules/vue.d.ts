@@ -2061,6 +2061,7 @@ export interface VueRules {
     {
       disallowVueBuiltInComponents?: boolean;
       disallowVue3BuiltInComponents?: boolean;
+      htmlElementCaseSensitive?: boolean;
     }?,
   ];
 
@@ -2512,6 +2513,12 @@ export interface VueRules {
    * @see [prefer-true-attribute-shorthand](https://eslint.vuejs.org/rules/prefer-true-attribute-shorthand.html)
    */
   'vue/prefer-true-attribute-shorthand': [('always' | 'never')?];
+
+  /**
+   * Require using `useTemplateRef` instead of `ref` for template refs.
+   * @see [prefer-use-template-ref](https://eslint.vuejs.org/rules/prefer-use-template-ref.html)
+   */
+  'vue/prefer-use-template-ref': null;
 
   /**
    * Enforce specific casing for the Prop name in Vue components.
