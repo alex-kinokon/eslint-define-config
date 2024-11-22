@@ -62,6 +62,8 @@ export namespace CommaDangle {
             imports?: ValueWithIgnore;
             exports?: ValueWithIgnore;
             functions?: ValueWithIgnore;
+            importAttributes?: ValueWithIgnore;
+            dynamicImports?: ValueWithIgnore;
             enums?: ValueWithIgnore;
             generics?: ValueWithIgnore;
             tuples?: ValueWithIgnore;
@@ -272,6 +274,10 @@ export type FuncCallSpacingOption =
       'always',
       {
         allowNewlines?: boolean;
+        optionalChain?: {
+          before?: boolean;
+          after?: boolean;
+        };
       },
     ];
 
@@ -283,6 +289,10 @@ export type FunctionCallSpacingOption =
       'always',
       {
         allowNewlines?: boolean;
+        optionalChain?: {
+          before?: boolean;
+          after?: boolean;
+        };
       },
     ];
 

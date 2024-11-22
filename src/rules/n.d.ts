@@ -1466,6 +1466,7 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'process.ppid'
       | 'process.release'
       | 'process.report'
+      | 'process.report.excludeEnv'
       | 'process.sourceMapsEnabled'
       | 'process.stdin'
       | 'process.stdin.isRaw'
@@ -2122,10 +2123,12 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'module.createRequire'
       | 'module.createRequireFromPath'
       | 'module.enableCompileCache'
+      | 'module.findPackageJSON'
       | 'module.flushCompileCache'
       | 'module.getCompileCacheDir'
       | 'module.isBuiltin'
       | 'module.register'
+      | 'module.stripTypeScriptTypes'
       | 'module.syncBuiltinESMExports'
       | 'module.findSourceMap'
       | 'module.SourceMap'
@@ -2133,10 +2136,12 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'module.Module.createRequire'
       | 'module.Module.createRequireFromPath'
       | 'module.Module.enableCompileCache'
+      | 'module.Module.findPackageJSON'
       | 'module.Module.flushCompileCache'
       | 'module.Module.getCompileCacheDir'
       | 'module.Module.isBuiltin'
       | 'module.Module.register'
+      | 'module.Module.stripTypeScriptTypes'
       | 'module.Module.syncBuiltinESMExports'
       | 'module.Module.findSourceMap'
       | 'module.Module.SourceMap'
@@ -2503,6 +2508,7 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'util.format'
       | 'util.formatWithOptions'
       | 'util.getCallSite'
+      | 'util.getCallSites'
       | 'util.getSystemErrorName'
       | 'util.getSystemErrorMap'
       | 'util.getSystemErrorMessage'
@@ -3005,6 +3011,7 @@ export interface NRules {
   'n/no-sync': [
     {
       allowAtRootLevel?: boolean;
+      ignores?: string[];
     }?,
   ];
 

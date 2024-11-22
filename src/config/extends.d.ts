@@ -153,6 +153,8 @@ type ReactExtends =
   | 'plugin:@eslint-react/core-legacy'
   | 'plugin:@eslint-react/debug'
   | 'plugin:@eslint-react/debug-legacy'
+  | 'plugin:@eslint-react/disable-debug'
+  | 'plugin:@eslint-react/disable-debug-legacy'
   | 'plugin:@eslint-react/disable-dom'
   | 'plugin:@eslint-react/disable-dom-legacy'
   | 'plugin:@eslint-react/disable-type-checked'

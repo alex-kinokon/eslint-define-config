@@ -2608,6 +2608,12 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-unsafe-return': null;
 
   /**
+   * Disallow type assertions that narrow a type.
+   * @see [no-unsafe-type-assertion](https://typescript-eslint.io/rules/no-unsafe-type-assertion)
+   */
+  '@typescript-eslint/no-unsafe-type-assertion': null;
+
+  /**
    * Require unary negation to take a number.
    * @see [no-unsafe-unary-minus](https://typescript-eslint.io/rules/no-unsafe-unary-minus)
    */
@@ -2811,6 +2817,12 @@ export interface TypeScriptRules {
    * @see [promise-function-async](https://typescript-eslint.io/rules/promise-function-async)
    */
   '@typescript-eslint/promise-function-async': [PromiseFunctionAsyncOption?];
+
+  /**
+   * Enforce that `get()` types should be assignable to their equivalent `set()` type.
+   * @see [related-getter-setter-pairs](https://typescript-eslint.io/rules/related-getter-setter-pairs)
+   */
+  '@typescript-eslint/related-getter-setter-pairs': null;
 
   /**
    * Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`.

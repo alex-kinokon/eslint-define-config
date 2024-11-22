@@ -30,6 +30,7 @@ export type NamingConventionFilenameExtensionOption =
   | {
       allow?: 'always' | 'as-needed';
       extensions?: string[];
+      ignoreFilesWithoutCode?: boolean;
     };
 
 /**
