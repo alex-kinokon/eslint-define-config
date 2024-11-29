@@ -36,9 +36,9 @@ type EslintCommentsExtends = 'plugin:eslint-comments/recommended';
 type GraphQlExtends =
   | 'plugin:@graphql-eslint/operations-all'
   | 'plugin:@graphql-eslint/operations-recommended'
-  | 'plugin:@graphql-eslint/relay'
   | 'plugin:@graphql-eslint/schema-all'
-  | 'plugin:@graphql-eslint/schema-recommended';
+  | 'plugin:@graphql-eslint/schema-recommended'
+  | 'plugin:@graphql-eslint/schema-relay';
 
 /**
  * ESLint Import extends.

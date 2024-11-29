@@ -3,6 +3,7 @@ import type { RulesObject } from '../rule-config';
 export interface CatchOrReturnOption {
   allowFinally?: boolean;
   allowThen?: boolean;
+  allowThenStrict?: boolean;
   terminationMethod?: string | string[];
 }
 
@@ -43,6 +44,7 @@ export interface PromiseRules {
   'promise/always-return': [
     {
       ignoreLastCallback?: boolean;
+      ignoreAssignmentVariable?: string[];
     }?,
   ];
 
@@ -65,6 +67,12 @@ export interface PromiseRules {
   'promise/prefer-await-to-then': [PreferAwaitToThenOption?];
 
   /**
+   * Prefer `catch` to `then(a, b)`/`then(null, b)` for handling errors.
+   * @see [prefer-catch](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/prefer-catch.md)
+   */
+  'promise/prefer-catch': null;
+
+  /**
    * Require creating a `Promise` constructor before using it in an ES5 environment.
    * @see [no-native](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-native.md)
    */
@@ -77,6 +85,7 @@ export interface PromiseRules {
   'promise/no-callback-in-promise': [
     {
       exceptions?: string[];
+      timeoutsErr?: boolean;
     }?,
   ];
 
@@ -114,7 +123,11 @@ export interface PromiseRules {
    * Enforces the proper number of arguments are passed to Promise functions.
    * @see [valid-params](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/valid-params.md)
    */
-  'promise/valid-params': null;
+  'promise/valid-params': [
+    {
+      exclude?: string[];
+    }?,
+  ];
 
   /**
    * Disallow creating new promises with paths that resolve multiple times.

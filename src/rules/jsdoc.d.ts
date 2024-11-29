@@ -622,6 +622,7 @@ export interface JSDocRules {
    */
   'jsdoc/lines-before-block': [
     {
+      checkBlockStarts?: boolean;
       excludedTags?: string[];
       ignoreSameLine?: boolean;
       lines?: number;

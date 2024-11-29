@@ -39,10 +39,8 @@ export type AlphabetizeOption = [
     ];
     /**
      * Values of `enum`.
-     *
-     * @minItems 1
      */
-    values?: ['EnumTypeDefinition', ...'EnumTypeDefinition'[]];
+    values?: boolean;
     /**
      * Selections of `fragment` and operations `query`, `mutation` and `subscription`.
      *
@@ -54,10 +52,8 @@ export type AlphabetizeOption = [
     ];
     /**
      * Variables of operations `query`, `mutation` and `subscription`.
-     *
-     * @minItems 1
      */
-    variables?: ['OperationDefinition', ...'OperationDefinition'[]];
+    variables?: boolean;
     /**
      * Arguments of fields and directives.
      *
@@ -72,7 +68,11 @@ export type AlphabetizeOption = [
      */
     definitions?: boolean;
     /**
-     * Custom order group. Example: `['id', '*', 'createdAt', 'updatedAt']` where `*` says for everything else.
+     * Order group. Example: `['...', 'id', '*', '{']` where:
+     * - `...` stands for fragment spreads
+     * - `id` stands for field with name `id`
+     * - `*` stands for everything else
+     * - `{` stands for fields `selection set`
      *
      * @minItems 2
      */
@@ -317,6 +317,34 @@ export type NoRootTypeOption = [
 /**
  * @maxItems 1
  */
+export type NoUnusedFieldsOption =
+  | []
+  | [
+      {
+        /**
+         * Fields that will be ignored and are allowed to be unused.
+         *
+         * E.g. The following selector will ignore all the relay pagination fields for every connection exposed in the schema:
+         * ```json
+         * [
+         *   "[parent.name.value=PageInfo][name.value=/(endCursor|startCursor|hasNextPage|hasPreviousPage)/]",
+         *   "[parent.name.value=/Edge$/][name.value=cursor]",
+         *   "[parent.name.value=/Connection$/][name.value=pageInfo]"
+         * ]
+         * ```
+         *
+         * > These fields are defined by ESLint [`selectors`](https://eslint.org/docs/developer-guide/selectors).
+         * > Paste or drop code into the editor in [ASTExplorer](https://astexplorer.net) and inspect the generated AST to compose your selector.
+         *
+         * @minItems 1
+         */
+        ignoredFieldSelectors?: [string, ...string[]];
+      },
+    ];
+
+/**
+ * @maxItems 1
+ */
 export type RelayArgumentsOption =
   | []
   | [
@@ -429,11 +457,11 @@ export type RequireDescriptionOption = [
   },
 ];
 
-export namespace RequireIdWhenAvailable {
+export namespace RequireSelections {
   /**
    * @maxItems 1
    */
-  export type RequireIdWhenAvailableOption =
+  export type RequireSelectionsOption =
     | []
     | [
         {
@@ -446,7 +474,7 @@ export namespace RequireIdWhenAvailable {
    */
   export type AsArray = [string, ...string[]];
 
-  export type RequireIdWhenAvailableRuleConfig = RequireIdWhenAvailableOption;
+  export type RequireSelectionsRuleConfig = RequireSelectionsOption;
 }
 
 /**
@@ -654,13 +682,6 @@ export interface GraphQLRules {
   '@graphql-eslint/unique-directive-names-per-location': null;
 
   /**
- * A GraphQL enum type is only valid if all its values are uniquely named.
-> This rule is a wrapper around a `graphql-js` validation function.
- * @see [unique-enum-value-names](https://the-guild.dev/graphql/eslint/rules/unique-enum-value-names)
- */
-  '@graphql-eslint/unique-enum-value-names': null;
-
-  /**
  * A GraphQL complex type is only valid if all its fields are uniquely named.
 > This rule is a wrapper around a `graphql-js` validation function.
  * @see [unique-field-definition-names](https://the-guild.dev/graphql/eslint/rules/unique-field-definition-names)
@@ -760,12 +781,6 @@ Using the same name for all input parameters will make your schemas easier to co
   '@graphql-eslint/no-anonymous-operations': null;
 
   /**
-   * Disallow case-insensitive enum values duplicates.
-   * @see [no-case-insensitive-enum-values-duplicates](https://the-guild.dev/graphql/eslint/rules/no-case-insensitive-enum-values-duplicates)
-   */
-  '@graphql-eslint/no-case-insensitive-enum-values-duplicates': null;
-
-  /**
    * Enforce that deprecated fields or enum values are not in use by operations.
    * @see [no-deprecated](https://the-guild.dev/graphql/eslint/rules/no-deprecated)
    */
@@ -818,7 +833,7 @@ Allows to use hashtag for comments, as long as it's not attached to an AST defin
    * Requires all fields to be used at some level by siblings operations.
    * @see [no-unused-fields](https://the-guild.dev/graphql/eslint/rules/no-unused-fields)
    */
-  '@graphql-eslint/no-unused-fields': null;
+  '@graphql-eslint/no-unused-fields': NoUnusedFieldsOption;
 
   /**
  * Set of rules to follow Relay specification for Arguments.
@@ -899,12 +914,6 @@ Backward pagination arguments
   '@graphql-eslint/require-field-of-type-query-in-mutation-result': null;
 
   /**
-   * Enforce selecting specific fields when they are available on the GraphQL type.
-   * @see [require-id-when-available](https://the-guild.dev/graphql/eslint/rules/require-id-when-available)
-   */
-  '@graphql-eslint/require-id-when-available': RequireIdWhenAvailable.RequireIdWhenAvailableRuleConfig;
-
-  /**
    * Require fragments to be imported via an import expression.
    * @see [require-import-fragment](https://the-guild.dev/graphql/eslint/rules/require-import-fragment)
    */
@@ -923,6 +932,12 @@ Backward pagination arguments
   '@graphql-eslint/require-nullable-result-in-root': null;
 
   /**
+   * Enforce selecting specific fields when they are available on the GraphQL type.
+   * @see [require-selections](https://the-guild.dev/graphql/eslint/rules/require-selections)
+   */
+  '@graphql-eslint/require-selections': RequireSelections.RequireSelectionsRuleConfig;
+
+  /**
    * Enforce types with `@oneOf` directive have `error` and `ok` fields.
    * @see [require-type-pattern-with-oneof](https://the-guild.dev/graphql/eslint/rules/require-type-pattern-with-oneof)
    */
@@ -939,6 +954,13 @@ Backward pagination arguments
    * @see [strict-id-in-types](https://the-guild.dev/graphql/eslint/rules/strict-id-in-types)
    */
   '@graphql-eslint/strict-id-in-types': StrictIdInTypesOption;
+
+  /**
+ * A GraphQL enum type is only valid if all its values are uniquely named.
+> This rule disallows case-insensitive enum values duplicates too.
+ * @see [unique-enum-value-names](https://the-guild.dev/graphql/eslint/rules/unique-enum-value-names)
+ */
+  '@graphql-eslint/unique-enum-value-names': null;
 
   /**
    * Enforce unique fragment names across your project.
