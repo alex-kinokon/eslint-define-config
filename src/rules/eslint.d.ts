@@ -1637,6 +1637,7 @@ export type SortKeysRuleConfig = [
     natural?: boolean;
     minKeys?: number;
     allowLineSeparatedGroups?: boolean;
+    ignoreComputedKeys?: boolean;
   }?,
 ];
 
@@ -2353,7 +2354,7 @@ export interface EslintRules {
   'no-class-assign': null;
 
   /**
-   * Disallow comparing against -0.
+   * Disallow comparing against `-0`.
    * @see [no-compare-neg-zero](https://eslint.org/docs/latest/rules/no-compare-neg-zero)
    */
   'no-compare-neg-zero': null;

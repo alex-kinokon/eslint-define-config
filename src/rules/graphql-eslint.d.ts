@@ -202,59 +202,87 @@ export namespace NamingConvention {
            */
           types?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#Argument).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#Argument).
            */
           Argument?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#DirectiveDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#DirectiveDefinition).
            */
           DirectiveDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#EnumTypeDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#EnumTypeDefinition).
            */
           EnumTypeDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#EnumValueDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#EnumValueDefinition).
            */
           EnumValueDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#FieldDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#FieldDefinition).
            */
           FieldDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#FragmentDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#FragmentDefinition).
            */
           FragmentDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InputObjectTypeDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InputObjectTypeDefinition).
            */
           InputObjectTypeDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InputValueDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InputValueDefinition).
            */
           InputValueDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InterfaceTypeDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InterfaceTypeDefinition).
            */
           InterfaceTypeDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#ObjectTypeDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#ObjectTypeDefinition).
            */
           ObjectTypeDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#OperationDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#OperationDefinition).
            */
           OperationDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#ScalarTypeDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#ScalarTypeDefinition).
            */
           ScalarTypeDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#UnionTypeDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#UnionTypeDefinition).
            */
           UnionTypeDefinition?: AsString | AsObject;
           /**
-           * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#VariableDefinition).
+           * > [!NOTE]
+           * >
+           * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#VariableDefinition).
            */
           VariableDefinition?: AsString | AsObject;
           allowLeadingUnderscore?: boolean;
@@ -277,18 +305,60 @@ export namespace NamingConvention {
     prefix?: string;
     suffix?: string;
     /**
+     * Should be of instance of `RegEx`
+     *
+     * @minItems 1
+     */
+    forbiddenPatterns?: [
+      {
+        [k: string]: any;
+      },
+      ...{
+        [k: string]: any;
+      }[],
+    ];
+    /**
+     * Should be of instance of `RegEx`
+     *
+     * @minItems 1
+     */
+    requiredPatterns?: [
+      {
+        [k: string]: any;
+      },
+      ...{
+        [k: string]: any;
+      }[],
+    ];
+    /**
+     * > [!WARNING]
+     * >
+     * > This option is deprecated and will be removed in the next major release. Use [`forbiddenPatterns`](#forbiddenpatterns-array) instead.
+     *
      * @minItems 1
      */
     forbiddenPrefixes?: [string, ...string[]];
     /**
+     * > [!WARNING]
+     * >
+     * > This option is deprecated and will be removed in the next major release. Use [`forbiddenPatterns`](#forbiddenpatterns-array) instead.
+     *
      * @minItems 1
      */
     forbiddenSuffixes?: [string, ...string[]];
     /**
+     * > [!WARNING]
+     * >
+     * > This option is deprecated and will be removed in the next major release. Use [`requiredPatterns`](#requiredpatterns-array) instead.
+     *
      * @minItems 1
      */
     requiredPrefixes?: [string, ...string[]];
     /**
+     * > [!WARNING]
+     * >
+     * > This option is deprecated and will be removed in the next major release. Use [`requiredPatterns`](#requiredpatterns-array) instead.
+     *
      * @minItems 1
      */
     requiredSuffixes?: [string, ...string[]];
@@ -332,7 +402,8 @@ export type NoUnusedFieldsOption =
          *   "[parent.name.value=/Connection$/][name.value=pageInfo]"
          * ]
          * ```
-         *
+         * > [!TIP]
+         * >
          * > These fields are defined by ESLint [`selectors`](https://eslint.org/docs/developer-guide/selectors).
          * > Paste or drop code into the editor in [ASTExplorer](https://astexplorer.net) and inspect the generated AST to compose your selector.
          *
@@ -404,54 +475,89 @@ export type RequireDescriptionOption = [
      * - `InputObjectTypeDefinition`
      * - `UnionTypeDefinition`
      */
-    types?: boolean;
+    types?: true;
     /**
      * Definitions within `Query`, `Mutation`, and `Subscription` root types.
      */
-    rootField?: boolean;
+    rootField?: true;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#DirectiveDefinition).
+     * Ignore specific selectors
+     * > [!TIP]
+     * >
+     * > These fields are defined by ESLint [`selectors`](https://eslint.org/docs/developer-guide/selectors).
+     * > Paste or drop code into the editor in [ASTExplorer](https://astexplorer.net) and inspect the generated AST to compose your selector.
+     *
+     * @minItems 1
+     */
+    ignoredSelectors?: [string, ...string[]];
+    /**
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#DirectiveDefinition).
      */
     DirectiveDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#EnumTypeDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#EnumTypeDefinition).
      */
     EnumTypeDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#EnumValueDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#EnumValueDefinition).
      */
     EnumValueDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#FieldDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#FieldDefinition).
      */
     FieldDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InputObjectTypeDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InputObjectTypeDefinition).
      */
     InputObjectTypeDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InputValueDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InputValueDefinition).
      */
     InputValueDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InterfaceTypeDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#InterfaceTypeDefinition).
      */
     InterfaceTypeDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#ObjectTypeDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#ObjectTypeDefinition).
      */
     ObjectTypeDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#OperationDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#OperationDefinition).
+     *
+     * > [!WARNING]
+     * >
      * > You must use only comment syntax `#` and not description syntax `"""` or `"`.
      */
     OperationDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#ScalarTypeDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#ScalarTypeDefinition).
      */
     ScalarTypeDefinition?: boolean;
     /**
-     * Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#UnionTypeDefinition).
+     * > [!NOTE]
+     * >
+     * > Read more about this kind on [spec.graphql.org](https://spec.graphql.org/October2021/#UnionTypeDefinition).
      */
     UnionTypeDefinition?: boolean;
   },
@@ -466,6 +572,10 @@ export namespace RequireSelections {
     | [
         {
           fieldName?: AsString | AsArray;
+          /**
+           * Whether all fields of `fieldName` option must be included.
+           */
+          requireAllFields?: boolean;
         },
       ];
   export type AsString = string;

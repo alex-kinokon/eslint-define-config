@@ -37,6 +37,14 @@ export namespace ArrayElementNewline {
   export type ArrayElementNewlineRuleConfig = ArrayElementNewlineOption;
 }
 
+export type AttributeHyphenationRuleConfig = [
+  ('always' | 'never')?,
+  {
+    ignore?: string[];
+    ignoreTags?: string[];
+  }?,
+];
+
 export interface AttributesOrderOption {
   order?: (
     | (
@@ -1228,6 +1236,7 @@ export type VOnEventHyphenationRuleConfig = [
   {
     autofix?: boolean;
     ignore?: string[];
+    ignoreTags?: string[];
   }?,
 ];
 
@@ -1294,12 +1303,7 @@ export interface VueRules {
    * Enforce attribute naming style on custom components in template.
    * @see [attribute-hyphenation](https://eslint.vuejs.org/rules/attribute-hyphenation.html)
    */
-  'vue/attribute-hyphenation': [
-    ('always' | 'never')?,
-    {
-      ignore?: string[];
-    }?,
-  ];
+  'vue/attribute-hyphenation': AttributeHyphenationRuleConfig;
 
   /**
    * Enforce order of attributes.
@@ -1887,7 +1891,11 @@ export interface VueRules {
    * Enforce `inheritAttrs` to be set to `false` when using `v-bind="$attrs"`.
    * @see [no-duplicate-attr-inheritance](https://eslint.vuejs.org/rules/no-duplicate-attr-inheritance.html)
    */
-  'vue/no-duplicate-attr-inheritance': null;
+  'vue/no-duplicate-attr-inheritance': [
+    {
+      checkMultiRootNodes?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow duplication of attributes.
@@ -2398,6 +2406,7 @@ export interface VueRules {
   'vue/no-v-text-v-html-on-component': [
     {
       allow?: string[];
+      ignoreElementNamespaces?: boolean;
     }?,
   ];
 
@@ -2521,7 +2530,7 @@ export interface VueRules {
   'vue/prefer-true-attribute-shorthand': [('always' | 'never')?];
 
   /**
-   * Require using `useTemplateRef` instead of `ref` for template refs.
+   * Require using `useTemplateRef` instead of `ref`/`shallowRef` for template refs.
    * @see [prefer-use-template-ref](https://eslint.vuejs.org/rules/prefer-use-template-ref.html)
    */
   'vue/prefer-use-template-ref': null;
@@ -2679,6 +2688,16 @@ export interface VueRules {
   'vue/require-valid-default-prop': null;
 
   /**
+   * Enforce using only specific component names.
+   * @see [restricted-component-names](https://eslint.vuejs.org/rules/restricted-component-names.html)
+   */
+  'vue/restricted-component-names': [
+    {
+      allow?: string[];
+    }?,
+  ];
+
+  /**
    * Enforce that a return statement is present in computed property.
    * @see [return-in-computed-property](https://eslint.vuejs.org/rules/return-in-computed-property.html)
    */
@@ -2719,6 +2738,12 @@ export interface VueRules {
       externalIgnores?: string[];
     }?,
   ];
+
+  /**
+   * Enforce specific casing for slot names.
+   * @see [slot-name-casing](https://eslint.vuejs.org/rules/slot-name-casing.html)
+   */
+  'vue/slot-name-casing': [('camelCase' | 'kebab-case' | 'singleword')?];
 
   /**
    * Enforce sort-keys in a manner that is compatible with order-in-components.
