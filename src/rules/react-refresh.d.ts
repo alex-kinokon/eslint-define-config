@@ -6,9 +6,10 @@ import type { RulesObject } from '../rule-config';
 export interface ReactRefreshRules {
   'react-refresh/only-export-components': [
     {
-      allowConstantExport?: boolean;
-      checkJS?: boolean;
       allowExportNames?: string[];
+      allowConstantExport?: boolean;
+      customHOCs?: string[];
+      checkJS?: boolean;
     }?,
   ];
 }

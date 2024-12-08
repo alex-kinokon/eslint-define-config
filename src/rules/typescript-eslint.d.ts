@@ -1747,6 +1747,14 @@ export interface PreferPromiseRejectErrorsOption {
    * Whether to allow calls to `Promise.reject()` with no arguments.
    */
   allowEmptyReject?: boolean;
+  /**
+   * Whether to always allow throwing values typed as `any`.
+   */
+  allowThrowingAny?: boolean;
+  /**
+   * Whether to always allow throwing values typed as `unknown`.
+   */
+  allowThrowingUnknown?: boolean;
 }
 
 export interface PreferReadonlyOption {

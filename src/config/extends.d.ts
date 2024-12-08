@@ -189,6 +189,13 @@ type ReactHooksExtends = 'plugin:react-hooks/recommended';
 type ReactQueryExtends = 'plugin:@tanstack/query/recommended';
 
 /**
+ * ESLint ReactRefresh extends.
+ */
+type ReactRefreshExtends =
+  | 'plugin:react-refresh/recommended'
+  | 'plugin:react-refresh/vite';
+
+/**
  * ESLint SonarJS extends.
  *
  * @see [SonarJS extends](https://github.com/SonarSource/eslint-plugin-sonarjs#available-configurations)
@@ -242,6 +249,7 @@ type TestingLibraryExtends =
   | 'plugin:testing-library/dom'
   | 'plugin:testing-library/marko'
   | 'plugin:testing-library/react'
+  | 'plugin:testing-library/svelte'
   | 'plugin:testing-library/vue';
 
 /**
@@ -377,6 +385,7 @@ export type KnownExtends = LiteralUnion<
   | ReactExtends
   | ReactHooksExtends
   | ReactQueryExtends
+  | ReactRefreshExtends
   | SonarJsExtends
   | SpellcheckExtends
   | StorybookExtends

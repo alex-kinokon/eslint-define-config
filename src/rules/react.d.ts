@@ -182,6 +182,12 @@ export interface ReactRules {
   '@eslint-react/no-duplicate-key': null;
 
   /**
+   * Disallow the use of 'forwardRef'.
+   * @see [no-forward-ref](https://eslint-react.xyz/docs/rules/no-forward-ref)
+   */
+  '@eslint-react/no-forward-ref': null;
+
+  /**
    * Disallow implicit 'key' props.
    * @see [no-implicit-key](https://eslint-react.xyz/docs/rules/no-implicit-key)
    */
