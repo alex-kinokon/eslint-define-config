@@ -158,6 +158,12 @@ export interface ReactRules {
   '@eslint-react/no-component-will-update': null;
 
   /**
+   * Disallow the use of '<Context.Provider>'.
+   * @see [no-context-provider](https://eslint-react.xyz/docs/rules/no-context-provider)
+   */
+  '@eslint-react/no-context-provider': null;
+
+  /**
    * Disallow using 'createRef' in function components.
    * @see [no-create-ref](https://eslint-react.xyz/docs/rules/no-create-ref)
    */

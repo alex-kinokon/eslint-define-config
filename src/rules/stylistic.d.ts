@@ -360,6 +360,7 @@ export namespace Indent {
     ImportDeclaration?: number | ('first' | 'off');
     flatTernaryExpressions?: boolean;
     offsetTernaryExpressions?: boolean;
+    offsetTernaryExpressionsOffsetCallExpressions?: boolean;
     ignoredNodes?: string[];
     ignoreComments?: boolean;
     tabLength?: number;

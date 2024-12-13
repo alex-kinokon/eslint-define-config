@@ -181,6 +181,9 @@ export interface NoExtraneousImportOption {
         }[],
       ];
   resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: any;
+  };
 }
 
 export interface NoExtraneousRequireOption {
@@ -221,12 +224,18 @@ export interface NoExtraneousRequireOption {
         }[],
       ];
   resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: any;
+  };
   tryExtensions?: string[];
 }
 
 export interface NoMissingImportOption {
   allowModules?: string[];
   resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: any;
+  };
   tryExtensions?: string[];
   ignoreTypeImport?: boolean;
   tsconfigPath?: string;
@@ -239,6 +248,9 @@ export interface NoMissingRequireOption {
   allowModules?: string[];
   tryExtensions?: string[];
   resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: any;
+  };
   typescriptExtensionMap?:
     | any[][]
     | ('react' | 'react-jsx' | 'react-jsxdev' | 'react-native' | 'preserve');
@@ -345,6 +357,9 @@ export interface NoUnpublishedImportOption {
         }[],
       ];
   resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: any;
+  };
   ignoreTypeImport?: boolean;
   ignorePrivate?: boolean;
 }
@@ -387,6 +402,9 @@ export interface NoUnpublishedRequireOption {
         }[],
       ];
   resolvePaths?: string[];
+  resolverConfig?: {
+    [k: string]: any;
+  };
   tryExtensions?: string[];
   ignorePrivate?: boolean;
 }
@@ -2113,6 +2131,10 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'inspector.waitForDebugger'
       | 'inspector/promises'
       | 'inspector/promises.Session'
+      | 'inspector/promises.Network.loadingFailed'
+      | 'inspector/promises.Network.loadingFinished'
+      | 'inspector/promises.Network.requestWillBeSent'
+      | 'inspector/promises.Network.responseReceived'
       | 'inspector/promises.console'
       | 'inspector/promises.close'
       | 'inspector/promises.open'
@@ -2462,6 +2484,8 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'timers/promises.setTimeout'
       | 'timers/promises.setImmediate'
       | 'timers/promises.setInterval'
+      | 'timers/promises.scheduler.wait'
+      | 'timers/promises.scheduler.yield'
       | 'tls'
       | 'tls.rootCertificates'
       | 'tls.DEFAULT_ECDH_CURVE'

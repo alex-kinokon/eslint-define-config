@@ -2007,6 +2007,10 @@ export interface SwitchExhaustivenessCheckOption {
    */
   considerDefaultExhaustiveForUnions?: boolean;
   /**
+   * Regular expression for a comment that can indicate an intentionally omitted default case.
+   */
+  defaultCaseCommentPattern?: string;
+  /**
    * If 'true', require a 'default' clause for switches on non-union types.
    */
   requireDefaultForNonUnion?: boolean;

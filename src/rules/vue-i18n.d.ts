@@ -67,6 +67,12 @@ export interface VueI18nRules {
   '@intlify/vue-i18n/no-deprecated-tc': null;
 
   /**
+   * Disallow using deprecated `v-t` custom directive (Deprecated in Vue I18n 11.0.0, removed fully in Vue I18n 12.0.0).
+   * @see [no-deprecated-v-t](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-deprecated-v-t.html)
+   */
+  '@intlify/vue-i18n/no-deprecated-v-t': null;
+
+  /**
    * Disallow duplicate localization keys within the same locale.
    * @see [no-duplicate-keys-in-locale](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-duplicate-keys-in-locale.html)
    */
