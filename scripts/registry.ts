@@ -17,6 +17,9 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
   include('astro', {
     import: () => import('eslint-plugin-astro'),
   }),
+  include('cspell', {
+    import: () => import('@cspell/eslint-plugin'),
+  }),
   include('deprecation', {
     import: () => import('eslint-plugin-deprecation'),
   }),
@@ -123,7 +126,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     },
   }),
   include('react-refresh', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-react-refresh'),
   }),
   include('sonarjs', {
@@ -143,7 +145,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     },
   }),
   include('storybook', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-storybook'),
   }),
   include('stylistic', {
@@ -155,7 +156,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     import: () => import('eslint-plugin-tailwindcss'),
   }),
   include('testing-library', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-testing-library'),
     docs: {
       home: 'https://github.com/testing-library/eslint-plugin-testing-library',

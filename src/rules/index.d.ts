@@ -2,6 +2,7 @@ import type { RuleConfig, RulesObject } from '../rule-config';
 
 // #region imports
 import type { AstroRulesObject } from './astro';
+import type { CspellRulesObject } from './cspell';
 import type { DeprecationRulesObject } from './deprecation';
 import type { EslintRulesObject } from './eslint';
 import type { EslintCommentsRulesObject } from './eslint-comments';
@@ -77,6 +78,7 @@ export interface Rules
   extends RulesObject<CustomRules>,
     // #region union
     AstroRulesObject,
+    CspellRulesObject,
     DeprecationRulesObject,
     EslintRulesObject,
     EslintCommentsRulesObject,

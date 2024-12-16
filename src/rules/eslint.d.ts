@@ -1907,7 +1907,7 @@ export interface EslintRules {
   ];
 
   /**
-   * Enforce default clauses in switch statements to be last.
+   * Enforce `default` clauses in switch statements to be last.
    * @see [default-case-last](https://eslint.org/docs/latest/rules/default-case-last)
    */
   'default-case-last': null;
@@ -1950,7 +1950,7 @@ export interface EslintRules {
   eqeqeq: EqeqeqOption;
 
   /**
-   * Enforce "for" loop update clause moving the counter in the right direction.
+   * Enforce `for` loop update clause moving the counter in the right direction.
    * @see [for-direction](https://eslint.org/docs/latest/rules/for-direction)
    */
   'for-direction': null;
@@ -2928,7 +2928,7 @@ export interface EslintRules {
   'no-octal-escape': null;
 
   /**
-   * Disallow reassigning `function` parameters.
+   * Disallow reassigning function parameters.
    * @see [no-param-reassign](https://eslint.org/docs/latest/rules/no-param-reassign)
    */
   'no-param-reassign': [NoParamReassignOption?];
@@ -3053,7 +3053,7 @@ export interface EslintRules {
   'no-return-await': null;
 
   /**
-   * Disallow `javascript:` urls.
+   * Disallow `javascript:` URLs.
    * @see [no-script-url](https://eslint.org/docs/latest/rules/no-script-url)
    */
   'no-script-url': null;
@@ -3542,7 +3542,7 @@ export interface EslintRules {
   'prefer-object-has-own': null;
 
   /**
-   * Disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead.
+   * Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead.
    * @see [prefer-object-spread](https://eslint.org/docs/latest/rules/prefer-object-spread)
    */
   'prefer-object-spread': null;
@@ -3629,7 +3629,7 @@ export interface EslintRules {
   'require-await': null;
 
   /**
-   * Enforce the use of `u` or `v` flag on RegExp.
+   * Enforce the use of `u` or `v` flag on regular expressions.
    * @see [require-unicode-regexp](https://eslint.org/docs/latest/rules/require-unicode-regexp)
    */
   'require-unicode-regexp': [RequireUnicodeRegexpOption?];

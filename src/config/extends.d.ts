@@ -12,6 +12,15 @@ type AstroExtends =
   | 'plugin:astro/recommended';
 
 /**
+ * ESLint Cspell extends.
+ */
+type CspellExtends =
+  | 'plugin:cspell/debug'
+  | 'plugin:cspell/debug-legacy'
+  | 'plugin:cspell/recommended'
+  | 'plugin:cspell/recommended-legacy';
+
+/**
  * ESLint Deprecation extends.
  */
 type DeprecationExtends = 'plugin:deprecation/recommended';
@@ -369,6 +378,7 @@ export interface CustomExtends {}
 export type KnownExtends = LiteralUnion<
   // #region union
   | AstroExtends
+  | CspellExtends
   | DeprecationExtends
   | EslintExtends
   | EslintCommentsExtends
