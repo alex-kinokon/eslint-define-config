@@ -80,7 +80,7 @@ export type ConsistentTypeAssertionsOption =
       /**
        * The expected assertion style to enforce.
        */
-      assertionStyle: 'as' | 'angle-bracket';
+      assertionStyle?: 'as' | 'angle-bracket';
       /**
        * Whether to always prefer type declarations for object literals used as variable initializers, rather than type assertions.
        */
@@ -2682,7 +2682,7 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-wrapper-object-types': null;
 
   /**
-   * Enforce non-null assertions over explicit type casts.
+   * Enforce non-null assertions over explicit type assertions.
    * @see [non-nullable-type-assertion-style](https://typescript-eslint.io/rules/non-nullable-type-assertion-style)
    */
   '@typescript-eslint/non-nullable-type-assertion-style': null;
@@ -2792,7 +2792,7 @@ export interface TypeScriptRules {
   ];
 
   /**
-   * Enforce using type parameter when calling `Array#reduce` instead of casting.
+   * Enforce using type parameter when calling `Array#reduce` instead of using a type assertion.
    * @see [prefer-reduce-type-parameter](https://typescript-eslint.io/rules/prefer-reduce-type-parameter)
    */
   '@typescript-eslint/prefer-reduce-type-parameter': null;

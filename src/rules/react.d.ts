@@ -56,18 +56,6 @@ export interface ReactRules {
   '@eslint-react/ensure-forward-ref-using-ref': null;
 
   /**
-   * Disallow duplicate props.
-   * @see [jsx-no-duplicate-props](https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props)
-   */
-  '@eslint-react/jsx-no-duplicate-props': null;
-
-  /**
-   * A helper rule to mark variables as used.
-   * @see [jsx-uses-vars](https://eslint-react.xyz/docs/rules/jsx-uses-vars)
-   */
-  '@eslint-react/jsx-uses-vars': null;
-
-  /**
    * Disallow accessing 'this.state' within 'setState'.
    * @see [no-access-state-in-setstate](https://eslint-react.xyz/docs/rules/no-access-state-in-setstate)
    */
@@ -180,6 +168,12 @@ export interface ReactRules {
    * @see [no-direct-mutation-state](https://eslint-react.xyz/docs/rules/no-direct-mutation-state)
    */
   '@eslint-react/no-direct-mutation-state': null;
+
+  /**
+   * Disallow duplicate props.
+   * @see [no-duplicate-jsx-props](https://eslint-react.xyz/docs/rules/no-duplicate-jsx-props)
+   */
+  '@eslint-react/no-duplicate-jsx-props': null;
 
   /**
    * Disallow duplicate keys when rendering list.
@@ -338,16 +332,28 @@ export interface ReactRules {
   '@eslint-react/prefer-shorthand-fragment': null;
 
   /**
+   * Helpes `eslint/no-unused-vars` to correctly mark JSX variables as used.
+   * @see [use-jsx-vars](https://eslint-react.xyz/docs/rules/use-jsx-vars)
+   */
+  '@eslint-react/use-jsx-vars': null;
+
+  /**
+   * Disallow duplicate props.
+   * @see [jsx-no-duplicate-props](https://eslint-react.xyz/docs/rules/no-duplicate-jsx-props)
+   */
+  '@eslint-react/jsx-no-duplicate-props': null;
+
+  /**
+   * Helpes `eslint/no-unused-vars` to correctly mark JSX variables as used.
+   * @see [jsx-uses-vars](https://eslint-react.xyz/docs/rules/use-jsx-vars)
+   */
+  '@eslint-react/jsx-uses-vars': null;
+
+  /**
    * Disallow complex conditional rendering.
    * @see [no-complicated-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
    */
   '@eslint-react/no-complicated-conditional-rendering': null;
-
-  /**
-   * Disallow passing 'children' to void DOM elements.
-   * @see [dom/no-children-in-void-dom-elements](https://eslint-react.xyz/docs/rules/dom-no-children-in-void-dom-elements)
-   */
-  '@eslint-react/dom/no-children-in-void-dom-elements': null;
 
   /**
    * Disallow when a DOM component is using 'dangerouslySetInnerHTML'.
@@ -421,25 +427,37 @@ export interface ReactRules {
   '@eslint-react/dom/no-unsafe-target-blank': null;
 
   /**
-   * Enforce that every 'addEventListener' in a component or custom hook has a corresponding 'removeEventListener'.
+   * Disallow void elements (AKA self-closing elements) from having children.
+   * @see [dom/no-void-elements-with-children](https://eslint-react.xyz/docs/rules/dom-no-void-elements-with-children)
+   */
+  '@eslint-react/dom/no-void-elements-with-children': null;
+
+  /**
+   * Disallow void elements (AKA self-closing elements) from having children.
+   * @see [dom/no-children-in-void-dom-elements](https://eslint-react.xyz/docs/rules/dom-no-void-elements-with-children)
+   */
+  '@eslint-react/dom/no-children-in-void-dom-elements': null;
+
+  /**
+   * Enforce that every 'addEventListener' in a component or custom Hook has a corresponding 'removeEventListener'.
    * @see [web-api/no-leaked-event-listener](https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener)
    */
   '@eslint-react/web-api/no-leaked-event-listener': null;
 
   /**
-   * Enforce that every 'setInterval' in a component or custom hook has a corresponding 'clearInterval'.
+   * Enforce that every 'setInterval' in a component or custom Hook has a corresponding 'clearInterval'.
    * @see [web-api/no-leaked-interval](https://eslint-react.xyz/docs/rules/web-api-no-leaked-interval)
    */
   '@eslint-react/web-api/no-leaked-interval': null;
 
   /**
-   * Enforce cleanup of 'ResizeObserver' instances in components and custom hooks.
+   * Enforce cleanup of 'ResizeObserver' instances in components and custom Hooks.
    * @see [web-api/no-leaked-resize-observer](https://eslint-react.xyz/docs/rules/web-api-no-leaked-resize-observer)
    */
   '@eslint-react/web-api/no-leaked-resize-observer': null;
 
   /**
-   * Enforce that every 'setTimeout' in a component or custom hook has a corresponding 'clearTimeout'.
+   * Enforce that every 'setTimeout' in a component or custom Hook has a corresponding 'clearTimeout'.
    * @see [web-api/no-leaked-timeout](https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout)
    */
   '@eslint-react/web-api/no-leaked-timeout': null;
@@ -457,12 +475,6 @@ export interface ReactRules {
   '@eslint-react/hooks-extra/no-direct-set-state-in-use-layout-effect': null;
 
   /**
-   * Enforce custom hooks to use at least one other hook inside.
-   * @see [hooks-extra/no-redundant-custom-hook](https://eslint-react.xyz/docs/rules/hooks-extra-no-redundant-custom-hook)
-   */
-  '@eslint-react/hooks-extra/no-redundant-custom-hook': null;
-
-  /**
    * Disallow unnecessary usage of 'useCallback'.
    * @see [hooks-extra/no-unnecessary-use-callback](https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-callback)
    */
@@ -475,22 +487,40 @@ export interface ReactRules {
   '@eslint-react/hooks-extra/no-unnecessary-use-memo': null;
 
   /**
+   * Enforce custom Hooks to use at least one other hook inside.
+   * @see [hooks-extra/no-useless-custom-hooks](https://eslint-react.xyz/docs/rules/hooks-extra-no-useless-custom-hooks)
+   */
+  '@eslint-react/hooks-extra/no-useless-custom-hooks': null;
+
+  /**
    * Disallow function calls in 'useState' that aren't wrapped in an initializer function.
    * @see [hooks-extra/prefer-use-state-lazy-initialization](https://eslint-react.xyz/docs/rules/hooks-extra-prefer-use-state-lazy-initialization)
    */
   '@eslint-react/hooks-extra/prefer-use-state-lazy-initialization': null;
 
   /**
-   * Enforce custom hooks to use at least one other hook inside.
-   * @see [hooks-extra/ensure-custom-hooks-using-other-hooks](https://eslint-react.xyz/docs/rules/hooks-extra-no-redundant-custom-hook)
+   * Enforce custom Hooks to use at least one other hook inside.
+   * @see [hooks-extra/ensure-custom-hooks-using-other-hooks](https://eslint-react.xyz/docs/rules/hooks-extra-no-useless-custom-hooks)
    */
   '@eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks': null;
+
+  /**
+   * Disallow unnecessary usage of 'useCallback'.
+   * @see [hooks-extra/ensure-use-callback-has-non-empty-deps](https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-callback)
+   */
+  '@eslint-react/hooks-extra/ensure-use-callback-has-non-empty-deps': null;
 
   /**
    * Disallow unnecessary usage of 'useMemo'.
    * @see [hooks-extra/ensure-use-memo-has-non-empty-deps](https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-memo)
    */
   '@eslint-react/hooks-extra/ensure-use-memo-has-non-empty-deps': null;
+
+  /**
+   * Enforce custom Hooks to use at least one other hook inside.
+   * @see [hooks-extra/no-redundant-custom-hook](https://eslint-react.xyz/docs/rules/hooks-extra-no-useless-custom-hooks)
+   */
+  '@eslint-react/hooks-extra/no-redundant-custom-hook': null;
 
   /**
    * Enforce component naming convention to 'PascalCase' or 'CONSTANT_CASE'.

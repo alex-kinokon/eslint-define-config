@@ -338,7 +338,7 @@ export interface VitestRules {
   'vitest/prefer-mock-promise-shorthand': null;
 
   /**
-   * Prefer `vi.mocked()` over `fn as Mock`.
+   * Require `vi.mocked()` over `fn as Mock`.
    * @see [prefer-vi-mocked](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-vi-mocked.md)
    */
   'vitest/prefer-vi-mocked': null;
