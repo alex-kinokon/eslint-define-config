@@ -1,9 +1,9 @@
 diff --git a/src/rules/vitest.d.ts b/src/rules/vitest.d.ts
-index 9c5015f..3864fd9 100644
+index 09b9fa7..85f2dec 100644
 --- a/src/rules/vitest.d.ts
 +++ b/src/rules/vitest.d.ts
-@@ -38,12 +38,11 @@ export interface NoStandaloneExpectOption {
-   [k: string]: any;
+@@ -28,10 +28,11 @@ export interface NoRestrictedMatchersOption {
+   [k: string]: string | null;
  }
  
 -export interface ValidTitleOption {
@@ -11,13 +11,11 @@ index 9c5015f..3864fd9 100644
    ignoreTypeOfDescribeName?: boolean;
    allowArguments?: boolean;
    disallowedWords?: string[];
--  /**
--   */
 +} & {
+   /**
+    */
    [k: string]:
-     | string
-     | [string]
-@@ -51,7 +50,7 @@ export interface ValidTitleOption {
+@@ -41,7 +42,7 @@ export interface ValidTitleOption {
      | {
          [k: string]: string | [string] | [string, string];
        };

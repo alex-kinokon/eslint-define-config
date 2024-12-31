@@ -28,16 +28,13 @@ export interface NoRestrictedMatchersOption {
   [k: string]: string | null;
 }
 
-export interface NoStandaloneExpectOption {
-  additionaltestblockfunctions?: string[];
-  [k: string]: any;
-}
-
 export type ValidTitleOption = {
   ignoreTypeOfDescribeName?: boolean;
   allowArguments?: boolean;
   disallowedWords?: string[];
 } & {
+  /**
+   */
   [k: string]:
     | string
     | [string]
@@ -220,7 +217,11 @@ export interface VitestRules {
    * Disallow using `expect` outside of `it` or `test` blocks.
    * @see [no-standalone-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-standalone-expect.md)
    */
-  'vitest/no-standalone-expect': [NoStandaloneExpectOption?];
+  'vitest/no-standalone-expect': [
+    {
+      additionalTestBlockFunctions?: string[];
+    }?,
+  ];
 
   /**
    * Disallow using `test` as a prefix.
@@ -460,7 +461,7 @@ export interface VitestRules {
   'vitest/padding-around-expect-groups': null;
 
   /**
-   * Enforce padding around afterAll blocks.
+   * Enforce padding around `test` blocks.
    * @see [padding-around-test-blocks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-test-blocks.md)
    */
   'vitest/padding-around-test-blocks': null;
