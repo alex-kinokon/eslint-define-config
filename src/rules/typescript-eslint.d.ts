@@ -78,6 +78,10 @@ export type ConsistentTypeAssertionsOption =
     }
   | {
       /**
+       * Whether to always prefer type declarations for array literals used as variable initializers, rather than type assertions.
+       */
+      arrayLiteralTypeAssertions?: 'allow' | 'allow-as-parameter' | 'never';
+      /**
        * The expected assertion style to enforce.
        */
       assertionStyle?: 'as' | 'angle-bracket';
@@ -990,6 +994,29 @@ export interface NoConfusingVoidExpressionOption {
   ignoreVoidReturningFunctions?: boolean;
 }
 
+export interface NoDeprecatedOption {
+  /**
+   * Type specifiers that can be allowed.
+   */
+  allow?: (
+    | string
+    | {
+        from: 'file';
+        name: string | [string, ...string[]];
+        path?: string;
+      }
+    | {
+        from: 'lib';
+        name: string | [string, ...string[]];
+      }
+    | {
+        from: 'package';
+        name: string | [string, ...string[]];
+        package: string;
+      }
+  )[];
+}
+
 export interface NoDuplicateTypeConstituentsOption {
   /**
    * Whether to ignore `&` intersections.
@@ -1226,6 +1253,29 @@ export interface NoMisusedPromisesOption {
       };
 }
 
+export interface NoMisusedSpreadOption {
+  /**
+   * An array of type specifiers that are known to be safe to spread.
+   */
+  allow?: (
+    | string
+    | {
+        from: 'file';
+        name: string | [string, ...string[]];
+        path?: string;
+      }
+    | {
+        from: 'lib';
+        name: string | [string, ...string[]];
+      }
+    | {
+        from: 'package';
+        name: string | [string, ...string[]];
+        package: string;
+      }
+  )[];
+}
+
 export interface NoNamespaceOption {
   /**
    * Whether to allow `declare` with custom TypeScript namespaces.
@@ -1360,7 +1410,7 @@ export interface NoShadowOption {
   /**
    * Whether to report shadowing before outer functions or variables are defined.
    */
-  hoist?: 'all' | 'functions' | 'never';
+  hoist?: 'all' | 'functions' | 'functions-and-types' | 'never' | 'types';
   /**
    * Whether to ignore function parameters named the same as a variable.
    */
@@ -2282,7 +2332,7 @@ export interface TypeScriptRules {
    * Disallow using code marked as `@deprecated`.
    * @see [no-deprecated](https://typescript-eslint.io/rules/no-deprecated)
    */
-  '@typescript-eslint/no-deprecated': null;
+  '@typescript-eslint/no-deprecated': [NoDeprecatedOption?];
 
   /**
    * Disallow duplicate class members.
@@ -2431,6 +2481,12 @@ export interface TypeScriptRules {
    * @see [no-misused-promises](https://typescript-eslint.io/rules/no-misused-promises)
    */
   '@typescript-eslint/no-misused-promises': [NoMisusedPromisesOption?];
+
+  /**
+   * Disallow using the spread operator when it might cause unexpected behavior.
+   * @see [no-misused-spread](https://typescript-eslint.io/rules/no-misused-spread)
+   */
+  '@typescript-eslint/no-misused-spread': [NoMisusedSpreadOption?];
 
   /**
    * Disallow enums from having both number and string members.

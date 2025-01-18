@@ -1907,7 +1907,7 @@ export interface EslintRules {
   ];
 
   /**
-   * Enforce `default` clauses in switch statements to be last.
+   * Enforce `default` clauses in `switch` statements to be last.
    * @see [default-case-last](https://eslint.org/docs/latest/rules/default-case-last)
    */
   'default-case-last': null;
@@ -3674,7 +3674,7 @@ export interface EslintRules {
   'semi-style': [('last' | 'first')?];
 
   /**
-   * Enforce sorted import declarations within modules.
+   * Enforce sorted `import` declarations within modules.
    * @see [sort-imports](https://eslint.org/docs/latest/rules/sort-imports)
    */
   'sort-imports': [SortImportsOption?];

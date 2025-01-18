@@ -525,6 +525,16 @@ export type KeySpacingOption =
       mode?: 'strict' | 'minimum';
       beforeColon?: boolean;
       afterColon?: boolean;
+      ignoredNodes?: (
+        | 'ObjectExpression'
+        | 'ObjectPattern'
+        | 'ImportDeclaration'
+        | 'ExportNamedDeclaration'
+        | 'ExportAllDeclaration'
+        | 'TSTypeLiteral'
+        | 'TSInterfaceBody'
+        | 'ClassBody'
+      )[];
     }
   | {
       singleLine?: {
@@ -1042,6 +1052,7 @@ export type NoExtraParensOption =
         enforceForNewInMemberExpressions?: boolean;
         enforceForFunctionPrototypeMethods?: boolean;
         allowParensAfterCommentPattern?: string;
+        nestedConditionalExpressions?: boolean;
       },
     ];
 
@@ -1243,11 +1254,11 @@ export namespace OperatorLinebreak {
 }
 
 export type PaddedBlocksOption =
-  | ('always' | 'never')
+  | ('always' | 'never' | 'start' | 'end')
   | {
-      blocks?: 'always' | 'never';
-      switches?: 'always' | 'never';
-      classes?: 'always' | 'never';
+      blocks?: 'always' | 'never' | 'start' | 'end';
+      switches?: 'always' | 'never' | 'start' | 'end';
+      classes?: 'always' | 'never' | 'start' | 'end';
     };
 
 export type PaddedBlocksRuleConfig = [

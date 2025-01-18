@@ -345,6 +345,16 @@ export type KeySpacingOption =
       mode?: 'strict' | 'minimum';
       beforeColon?: boolean;
       afterColon?: boolean;
+      ignoredNodes?: (
+        | 'ObjectExpression'
+        | 'ObjectPattern'
+        | 'ImportDeclaration'
+        | 'ExportNamedDeclaration'
+        | 'ExportAllDeclaration'
+        | 'TSTypeLiteral'
+        | 'TSInterfaceBody'
+        | 'ClassBody'
+      )[];
     }
   | {
       singleLine?: {
@@ -809,6 +819,7 @@ export type NoExtraParensOption =
         enforceForNewInMemberExpressions?: boolean;
         enforceForFunctionPrototypeMethods?: boolean;
         allowParensAfterCommentPattern?: string;
+        nestedConditionalExpressions?: boolean;
       },
     ];
 
