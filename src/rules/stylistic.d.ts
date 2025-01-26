@@ -1447,7 +1447,7 @@ export type QuotesConfig =
   | 'avoid-escape'
   | {
       avoidEscape?: boolean;
-      allowTemplateLiterals?: boolean;
+      allowTemplateLiterals?: boolean | ('never' | 'avoidEscape' | 'always');
       ignoreStringLiterals?: boolean;
     };
 
