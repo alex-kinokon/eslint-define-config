@@ -48,11 +48,11 @@ export interface ClassMethodsUseThisOption {
    */
   exceptMethods?: string[];
   /**
-   * Makes the rule ignore class members that are defined within a class that `implements` a type
+   * Whether to ignore class members that are defined within a class that `implements` a type.
    */
   ignoreClassesThatImplementAnInterface?: boolean | 'public-fields';
   /**
-   * Ignore members marked with the `override` modifier
+   * Whether to ignore members marked with the `override` modifier.
    */
   ignoreOverrideMethods?: boolean;
 }
@@ -1500,6 +1500,10 @@ export interface NoUnnecessaryBooleanLiteralCompareOption {
    * Whether to allow comparisons between nullable boolean variables and `true`.
    */
   allowComparingNullableBooleansToTrue?: boolean;
+  /**
+   * Unless this is set to `true`, the rule will error on every file whose `tsconfig.json` does _not_ have the `strictNullChecks` compiler option (or `strict`) set to `true`.
+   */
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
 }
 
 export interface NoUnnecessaryConditionOption {

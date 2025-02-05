@@ -296,6 +296,12 @@ export interface ReactRules {
   '@eslint-react/no-unused-state': null;
 
   /**
+   * Disallow the use of 'useContext'.
+   * @see [no-use-context](https://eslint-react.xyz/docs/rules/no-use-context)
+   */
+  '@eslint-react/no-use-context': null;
+
+  /**
    * Disallow unnecessary fragments.
    * @see [no-useless-fragment](https://eslint-react.xyz/docs/rules/no-useless-fragment)
    */
