@@ -471,6 +471,22 @@ export interface VitestRules {
    * @see [valid-expect-in-promise](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/valid-expect-in-promise.md)
    */
   'vitest/valid-expect-in-promise': null;
+
+  /**
+   * Enforce using `toBe(true)` and `toBe(false)` over matchers that coerce types to boolean.
+   * @see [prefer-strict-boolean-matchers](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-strict-boolean-matchers.md)
+   */
+  'vitest/prefer-strict-boolean-matchers': null;
+
+  /**
+   * Enforce using type parameters with vitest mock functions.
+   * @see [require-mock-type-parameters](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-mock-type-parameters.md)
+   */
+  'vitest/require-mock-type-parameters': [
+    {
+      checkImportFunctions?: boolean;
+    }?,
+  ];
 }
 
 export type VitestRulesObject = RulesObject<VitestRules>;

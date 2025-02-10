@@ -1510,7 +1510,9 @@ export interface NoUnnecessaryConditionOption {
   /**
    * Whether to ignore constant loop conditions, such as `while (true)`.
    */
-  allowConstantLoopConditions?: boolean;
+  allowConstantLoopConditions?:
+    | boolean
+    | ('always' | 'never' | 'only-allowed-literals');
   /**
    * Whether to not error when running with a tsconfig that has strictNullChecks turned.
    */
