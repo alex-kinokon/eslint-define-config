@@ -128,6 +128,13 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
   include('react-refresh', {
     import: () => import('eslint-plugin-react-refresh'),
   }),
+  include('regexp', {
+    name: 'RegExp',
+    import: () => import('eslint-plugin-regexp'),
+    docs: {
+      extends: 'https://ota-meshi.github.io/eslint-plugin-regexp/rules/',
+    },
+  }),
   include('sonarjs', {
     name: 'SonarJS',
     prefix: 'sonarjs',
@@ -135,6 +142,13 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     docs: {
       extends:
         'https://github.com/SonarSource/eslint-plugin-sonarjs#available-configurations',
+    },
+  }),
+  include('solid', {
+    import: () => import('eslint-plugin-solid'),
+    docs: {
+      extends:
+        'https://github.com/solidjs-community/eslint-plugin-solid#configuration',
     },
   }),
   include('spellcheck', {
@@ -256,7 +270,9 @@ const order = [
   'react-hooks',
   'react-query',
   'react-refresh',
+  'regexp',
   'sonarjs',
+  'solid',
   'spellcheck',
   'storybook',
   'stylistic',

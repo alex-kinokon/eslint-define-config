@@ -20,6 +20,8 @@ import type { ReactRulesObject } from './react';
 import type { ReactHooksRulesObject } from './react-hooks';
 import type { ReactQueryRulesObject } from './react-query';
 import type { ReactRefreshRulesObject } from './react-refresh';
+import type { RegExpRulesObject } from './regexp';
+import type { SolidRulesObject } from './solid';
 import type { SonarJSRulesObject } from './sonarjs';
 import type { SpellcheckRulesObject } from './spellcheck';
 import type { StorybookRulesObject } from './storybook';
@@ -96,7 +98,9 @@ export interface Rules
     ReactHooksRulesObject,
     ReactQueryRulesObject,
     ReactRefreshRulesObject,
+    RegExpRulesObject,
     SonarJSRulesObject,
+    SolidRulesObject,
     SpellcheckRulesObject,
     StorybookRulesObject,
     StylisticRulesObject,

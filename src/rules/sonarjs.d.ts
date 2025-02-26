@@ -262,8 +262,8 @@ export namespace EnforceTrailingComma {
  */
 export type CognitiveComplexityOption =
   | []
-  | [number]
-  | [number, 'sonar-runtime' | 'metric'];
+  | [number | string]
+  | [number | string, string];
 
 /**
  * @minItems 0
@@ -1601,6 +1601,7 @@ export interface SonarJSRules {
 
   /**
    * Disabling Certificate Transparency monitoring is security-sensitive.
+   * @deprecated
    * @see [certificate-transparency](https://sonarsource.github.io/rspec/#/rspec/S5742/javascript)
    */
   'sonarjs/certificate-transparency': [('sonar-runtime' | 'metric')?];

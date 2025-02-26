@@ -206,6 +206,12 @@ export interface ReactRules {
   '@eslint-react/no-missing-component-display-name': null;
 
   /**
+   * Require 'displayName' for contexts.
+   * @see [no-missing-context-display-name](https://eslint-react.xyz/docs/rules/no-missing-context-display-name)
+   */
+  '@eslint-react/no-missing-context-display-name': null;
+
+  /**
    * Require 'key' when rendering list.
    * @see [no-missing-key](https://eslint-react.xyz/docs/rules/no-missing-key)
    */
@@ -302,7 +308,7 @@ export interface ReactRules {
   '@eslint-react/no-use-context': null;
 
   /**
-   * Disallow unnecessary fragments.
+   * Disallow useless fragments.
    * @see [no-useless-fragment](https://eslint-react.xyz/docs/rules/no-useless-fragment)
    */
   '@eslint-react/no-useless-fragment': [NoUselessFragmentOption?];
@@ -338,7 +344,7 @@ export interface ReactRules {
   '@eslint-react/prefer-shorthand-fragment': null;
 
   /**
-   * Helpes `eslint/no-unused-vars` to correctly mark JSX variables as used.
+   * Marks variables used in JSX as used.
    * @see [use-jsx-vars](https://eslint-react.xyz/docs/rules/use-jsx-vars)
    */
   '@eslint-react/use-jsx-vars': null;
@@ -350,7 +356,7 @@ export interface ReactRules {
   '@eslint-react/jsx-no-duplicate-props': null;
 
   /**
-   * Helpes `eslint/no-unused-vars` to correctly mark JSX variables as used.
+   * Marks variables used in JSX as used.
    * @see [jsx-uses-vars](https://eslint-react.xyz/docs/rules/use-jsx-vars)
    */
   '@eslint-react/jsx-uses-vars': null;
@@ -378,6 +384,12 @@ export interface ReactRules {
    * @see [dom/no-find-dom-node](https://eslint-react.xyz/docs/rules/dom-no-find-dom-node)
    */
   '@eslint-react/dom/no-find-dom-node': null;
+
+  /**
+   * Warns against using `flushSync`.
+   * @see [dom/no-flush-sync](https://eslint-react.xyz/docs/rules/dom-no-flush-sync)
+   */
+  '@eslint-react/dom/no-flush-sync': null;
 
   /**
    * Enforce that button component have an explicit 'type' attribute.
@@ -551,7 +563,7 @@ export interface ReactRules {
   ];
 
   /**
-   * Enforce destructuring and symmetric naming of 'useState' hook value and setter variables.
+   * Enforce destructuring and symmetric naming of 'useState' hook value and setter.
    * @see [naming-convention/use-state](https://eslint-react.xyz/docs/rules/naming-convention-use-state)
    */
   '@eslint-react/naming-convention/use-state': null;

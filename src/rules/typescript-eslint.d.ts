@@ -2416,7 +2416,7 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-for-in-array': null;
 
   /**
-   * Disallow the use of `eval()`-like methods.
+   * Disallow the use of `eval()`-like functions.
    * @see [no-implied-eval](https://typescript-eslint.io/rules/no-implied-eval)
    */
   '@typescript-eslint/no-implied-eval': null;

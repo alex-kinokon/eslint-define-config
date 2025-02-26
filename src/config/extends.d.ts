@@ -205,6 +205,13 @@ type ReactRefreshExtends =
   | 'plugin:react-refresh/vite';
 
 /**
+ * ESLint RegExp extends.
+ *
+ * @see [RegExp extends](https://ota-meshi.github.io/eslint-plugin-regexp/rules/)
+ */
+type RegExpExtends = 'plugin:regexp/all' | 'plugin:regexp/recommended';
+
+/**
  * ESLint SonarJS extends.
  *
  * @see [SonarJS extends](https://github.com/SonarSource/eslint-plugin-sonarjs#available-configurations)
@@ -212,6 +219,13 @@ type ReactRefreshExtends =
 type SonarJsExtends =
   | 'plugin:sonarjs/recommended'
   | 'plugin:sonarjs/recommended-legacy';
+
+/**
+ * ESLint Solid extends.
+ *
+ * @see [Solid extends](https://github.com/solidjs-community/eslint-plugin-solid#configuration)
+ */
+type SolidExtends = 'plugin:solid/recommended' | 'plugin:solid/typescript';
 
 /**
  * ESLint Spellcheck extends.
@@ -237,11 +251,10 @@ type StorybookExtends =
  * ESLint Stylistic extends.
  */
 type StylisticExtends =
-  | 'plugin:stylistic/all-extends'
+  | 'plugin:stylistic/all'
   | 'plugin:stylistic/customize'
   | 'plugin:stylistic/disable-legacy'
-  | 'plugin:stylistic/recommended-extends'
-  | 'plugin:stylistic/recommended-legacy';
+  | 'plugin:stylistic/recommended';
 
 /**
  * ESLint Tailwind extends.
@@ -396,7 +409,9 @@ export type KnownExtends = LiteralUnion<
   | ReactHooksExtends
   | ReactQueryExtends
   | ReactRefreshExtends
+  | RegExpExtends
   | SonarJsExtends
+  | SolidExtends
   | SpellcheckExtends
   | StorybookExtends
   | StylisticExtends

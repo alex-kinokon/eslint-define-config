@@ -2118,7 +2118,7 @@ export interface StylisticRules {
 
   /**
    * Enforce consistent spacing before and after semicolons.
-   * @see [semi-spacing](https://eslint.style/rules/js/semi-spacing)
+   * @see [semi-spacing](https://eslint.style/rules/ts/semi-spacing)
    */
   'stylistic/semi-spacing': [
     {
@@ -2158,6 +2158,7 @@ export interface StylisticRules {
   'stylistic/space-infix-ops': [
     {
       int32Hint?: boolean;
+      ignoreTypes?: boolean;
     }?,
   ];
 

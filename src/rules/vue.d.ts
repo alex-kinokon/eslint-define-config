@@ -2775,6 +2775,7 @@ export interface VueRules {
   'vue/space-infix-ops': [
     {
       int32Hint?: boolean;
+      ignoreTypes?: boolean;
     }?,
   ];
 
