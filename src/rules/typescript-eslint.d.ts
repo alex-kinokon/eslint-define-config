@@ -229,6 +229,10 @@ export interface ExplicitModuleBoundaryTypesOption {
    */
   allowHigherOrderFunctions?: boolean;
   /**
+   * Whether to ignore return type annotations on functions with overload signatures.
+   */
+  allowOverloadFunctions?: boolean;
+  /**
    * Whether to ignore type annotations on the variable of a function expression.
    */
   allowTypedFunctionExpressions?: boolean;
@@ -2134,6 +2138,10 @@ export interface UnifiedSignaturesOption {
    * Whether two parameters with different names at the same index should be considered different even if their types are the same.
    */
   ignoreDifferentlyNamedParameters?: boolean;
+  /**
+   * Whether two overloads with different JSDoc comments should be considered different even if their parameter and return types are the same.
+   */
+  ignoreOverloadsWithDifferentJSDoc?: boolean;
 }
 
 /**

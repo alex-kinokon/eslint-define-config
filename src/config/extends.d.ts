@@ -188,7 +188,10 @@ type ReactExtends =
  *
  * @see [ReactHooks extends](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
  */
-type ReactHooksExtends = 'plugin:react-hooks/recommended';
+type ReactHooksExtends =
+  | 'plugin:react-hooks/recommended'
+  | 'plugin:react-hooks/recommended-latest'
+  | 'plugin:react-hooks/recommended-legacy';
 
 /**
  * ESLint ReactQuery extends.
@@ -323,9 +326,9 @@ type VueExtends =
   | 'plugin:vue/no-layout-rules'
   | 'plugin:vue/recommended'
   | 'plugin:vue/strongly-recommended'
-  | 'plugin:vue/vue3-essential'
-  | 'plugin:vue/vue3-recommended'
-  | 'plugin:vue/vue3-strongly-recommended';
+  | 'plugin:vue/vue2-essential'
+  | 'plugin:vue/vue2-recommended'
+  | 'plugin:vue/vue2-strongly-recommended';
 
 /**
  * ESLint VueI18n extends.
@@ -334,7 +337,9 @@ type VueExtends =
  */
 type VueI18nExtends =
   | 'plugin:@intlify/vue-i18n/base'
-  | 'plugin:@intlify/vue-i18n/recommended';
+  | 'plugin:@intlify/vue-i18n/base-legacy'
+  | 'plugin:@intlify/vue-i18n/recommended'
+  | 'plugin:@intlify/vue-i18n/recommended-legacy';
 
 /**
  * ESLint VuePug extends.

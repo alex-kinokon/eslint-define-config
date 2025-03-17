@@ -187,24 +187,12 @@ export type ComponentNameInTemplateCasingRuleConfig = [
   }?,
 ];
 
-export interface ComponentTagsOrderOption {
-  order?: (string | string[])[];
-}
-
-export type CustomEventNameCasingOption =
-  | []
-  | ['kebab-case' | 'camelCase']
-  | [
-      'kebab-case' | 'camelCase',
-      {
-        ignores?: string[];
-      },
-    ]
-  | [
-      {
-        ignores?: string[];
-      },
-    ];
+export type CustomEventNameCasingRuleConfig = [
+  ('kebab-case' | 'camelCase')?,
+  {
+    ignores?: string[];
+  }?,
+];
 
 export interface EnforceStyleAttributeOption {
   /**
@@ -823,6 +811,14 @@ export type NoExtraParensOption =
       },
     ];
 
+export interface NoImplicitCoercionOption {
+  boolean?: boolean;
+  number?: boolean;
+  string?: boolean;
+  disallowTemplateShorthand?: boolean;
+  allow?: ('~' | '!!' | '+' | '- -' | '-' | '*')[];
+}
+
 export interface NoParsingErrorOption {
   'abrupt-closing-of-empty-comment'?: boolean;
   'absence-of-digits-in-numeric-character-reference'?: boolean;
@@ -1186,6 +1182,13 @@ export type PaddingLinesInComponentDefinitionOption =
       groupSingleLineProperties?: boolean;
     };
 
+export type PropNameCasingRuleConfig = [
+  ('camelCase' | 'snake_case')?,
+  {
+    ignoreProps?: string[];
+  }?,
+];
+
 export type QuotePropsOption =
   | []
   | ['always' | 'as-needed' | 'consistent' | 'consistent-as-needed']
@@ -1222,7 +1225,6 @@ export type SortKeysRuleConfig = [
     ignoreGrandchildrenOf?: any[];
     minKeys?: number;
     natural?: boolean;
-    runOutsideVue?: boolean;
   }?,
 ];
 
@@ -1248,13 +1250,6 @@ export type VOnEventHyphenationRuleConfig = [
     autofix?: boolean;
     ignore?: string[];
     ignoreTags?: string[];
-  }?,
-];
-
-export type VOnFunctionCallRuleConfig = [
-  ('always' | 'never')?,
-  {
-    ignoreIncludesComment?: boolean;
   }?,
 ];
 
@@ -1418,17 +1413,10 @@ export interface VueRules {
   ];
 
   /**
-   * Enforce order of component top-level elements.
-   * @deprecated
-   * @see [component-tags-order](https://eslint.vuejs.org/rules/component-tags-order.html)
-   */
-  'vue/component-tags-order': [ComponentTagsOrderOption?];
-
-  /**
    * Enforce specific casing for custom event name.
    * @see [custom-event-name-casing](https://eslint.vuejs.org/rules/custom-event-name-casing.html)
    */
-  'vue/custom-event-name-casing': CustomEventNameCasingOption;
+  'vue/custom-event-name-casing': CustomEventNameCasingRuleConfig;
 
   /**
    * Enforce declaration style of `defineEmits`.
@@ -1521,7 +1509,7 @@ export interface VueRules {
   'vue/html-closing-bracket-spacing': [HtmlClosingBracketSpacingOption?];
 
   /**
-   * Enforce unified line brake in HTML comments.
+   * Enforce unified line break in HTML comments.
    * @see [html-comment-content-newline](https://eslint.vuejs.org/rules/html-comment-content-newline.html)
    */
   'vue/html-comment-content-newline': HtmlCommentContentNewlineRuleConfig;
@@ -1954,11 +1942,16 @@ export interface VueRules {
   'vue/no-extra-parens': NoExtraParensOption;
 
   /**
-   * Require valid keys in model option.
-   * @deprecated
-   * @see [no-invalid-model-keys](https://eslint.vuejs.org/rules/no-invalid-model-keys.html)
+   * Disallow shorthand type conversions in `<template>`.
+   * @see [no-implicit-coercion](https://eslint.vuejs.org/rules/no-implicit-coercion.html)
    */
-  'vue/no-invalid-model-keys': null;
+  'vue/no-implicit-coercion': [NoImplicitCoercionOption?];
+
+  /**
+   * Disallow importing Vue compiler macros.
+   * @see [no-import-compiler-macros](https://eslint.vuejs.org/rules/no-import-compiler-macros.html)
+   */
+  'vue/no-import-compiler-macros': null;
 
   /**
    * Disallow irregular whitespace in `.vue` files.
@@ -2008,13 +2001,13 @@ export interface VueRules {
   ];
 
   /**
-   * Disallow to pass multiple objects into array to class.
+   * Disallow passing multiple objects in an array to class.
    * @see [no-multiple-objects-in-class](https://eslint.vuejs.org/rules/no-multiple-objects-in-class.html)
    */
   'vue/no-multiple-objects-in-class': null;
 
   /**
-   * Disallow to pass multiple arguments to scoped slots.
+   * Disallow passing multiple arguments to scoped slots.
    * @see [no-multiple-slot-args](https://eslint.vuejs.org/rules/no-multiple-slot-args.html)
    */
   'vue/no-multiple-slot-args': null;
@@ -2054,13 +2047,6 @@ export interface VueRules {
    * @see [no-ref-as-operand](https://eslint.vuejs.org/rules/no-ref-as-operand.html)
    */
   'vue/no-ref-as-operand': null;
-
-  /**
-   * Disallow usages of ref objects that can lead to loss of reactivity.
-   * @deprecated
-   * @see [no-ref-object-destructure](https://eslint.vuejs.org/rules/no-ref-object-destructure.html)
-   */
-  'vue/no-ref-object-destructure': null;
 
   /**
    * Disallow usages of ref objects that can lead to loss of reactivity.
@@ -2184,13 +2170,6 @@ export interface VueRules {
    * @see [no-root-v-if](https://eslint.vuejs.org/rules/no-root-v-if.html)
    */
   'vue/no-root-v-if': null;
-
-  /**
-   * Disallow usages that lose the reactivity of `props` passed to `setup`.
-   * @deprecated
-   * @see [no-setup-props-destructure](https://eslint.vuejs.org/rules/no-setup-props-destructure.html)
-   */
-  'vue/no-setup-props-destructure': null;
 
   /**
    * Disallow usages that lose the reactivity of `props` passed to `setup`.
@@ -2394,6 +2373,7 @@ export interface VueRules {
 
   /**
    * Disallow `key` attribute on `<template v-for>`.
+   * @deprecated
    * @see [no-v-for-template-key](https://eslint.vuejs.org/rules/no-v-for-template-key.html)
    */
   'vue/no-v-for-template-key': null;
@@ -2406,6 +2386,7 @@ export interface VueRules {
 
   /**
    * Disallow adding an argument to `v-model` used in custom component.
+   * @deprecated
    * @see [no-v-model-argument](https://eslint.vuejs.org/rules/no-v-model-argument.html)
    */
   'vue/no-v-model-argument': null;
@@ -2538,7 +2519,12 @@ export interface VueRules {
    * Require shorthand form attribute when `v-bind` value is `true`.
    * @see [prefer-true-attribute-shorthand](https://eslint.vuejs.org/rules/prefer-true-attribute-shorthand.html)
    */
-  'vue/prefer-true-attribute-shorthand': [('always' | 'never')?];
+  'vue/prefer-true-attribute-shorthand': [
+    ('always' | 'never')?,
+    {
+      except?: string[];
+    }?,
+  ];
 
   /**
    * Require using `useTemplateRef` instead of `ref`/`shallowRef` for template refs.
@@ -2550,7 +2536,7 @@ export interface VueRules {
    * Enforce specific casing for the Prop name in Vue components.
    * @see [prop-name-casing](https://eslint.vuejs.org/rules/prop-name-casing.html)
    */
-  'vue/prop-name-casing': [('camelCase' | 'snake_case')?];
+  'vue/prop-name-casing': PropNameCasingRuleConfig;
 
   /**
    * Require quotes around object literal, type literal, interfaces and enums property names in `<template>`.
@@ -2731,13 +2717,6 @@ export interface VueRules {
   'vue/script-indent': ScriptIndentRuleConfig;
 
   /**
-   * Prevent `<script setup>` variables used in `<template>` to be marked as unused.
-   * @deprecated
-   * @see [script-setup-uses-vars](https://eslint.vuejs.org/rules/script-setup-uses-vars.html)
-   */
-  'vue/script-setup-uses-vars': null;
-
-  /**
    * Require a line break before and after the contents of a singleline element.
    * @see [singleline-html-element-content-newline](https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html)
    */
@@ -2834,13 +2813,6 @@ export interface VueRules {
   'vue/v-on-event-hyphenation': VOnEventHyphenationRuleConfig;
 
   /**
-   * Enforce or forbid parentheses after method calls without arguments in `v-on` directives.
-   * @deprecated
-   * @see [v-on-function-call](https://eslint.vuejs.org/rules/v-on-function-call.html)
-   */
-  'vue/v-on-function-call': VOnFunctionCallRuleConfig;
-
-  /**
    * Enforce writing style for handlers in `v-on` directives.
    * @see [v-on-handler-style](https://eslint.vuejs.org/rules/v-on-handler-style.html)
    */
@@ -2884,6 +2856,7 @@ export interface VueRules {
 
   /**
    * Require valid keys in model option.
+   * @deprecated
    * @see [valid-model-definition](https://eslint.vuejs.org/rules/valid-model-definition.html)
    */
   'vue/valid-model-definition': null;
@@ -2902,6 +2875,7 @@ export interface VueRules {
 
   /**
    * Enforce valid `.sync` modifier on `v-bind` directives.
+   * @deprecated
    * @see [valid-v-bind-sync](https://eslint.vuejs.org/rules/valid-v-bind-sync.html)
    */
   'vue/valid-v-bind-sync': null;

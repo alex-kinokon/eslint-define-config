@@ -50,19 +50,13 @@ export interface ReactRules {
   '@eslint-react/avoid-shorthand-fragment': null;
 
   /**
-   * Require a 'ref' parameter to be set when using 'forwardRef'.
-   * @see [ensure-forward-ref-using-ref](https://eslint-react.xyz/docs/rules/ensure-forward-ref-using-ref)
-   */
-  '@eslint-react/ensure-forward-ref-using-ref': null;
-
-  /**
    * Disallow accessing 'this.state' within 'setState'.
    * @see [no-access-state-in-setstate](https://eslint-react.xyz/docs/rules/no-access-state-in-setstate)
    */
   '@eslint-react/no-access-state-in-setstate': null;
 
   /**
-   * Disallow using Array index as 'key'.
+   * Disallow using an item's index in the array as its key.
    * @see [no-array-index-key](https://eslint-react.xyz/docs/rules/no-array-index-key)
    */
   '@eslint-react/no-array-index-key': null;
@@ -128,25 +122,25 @@ export interface ReactRules {
   '@eslint-react/no-complex-conditional-rendering': null;
 
   /**
-   * Disallow using 'componentWillMount'.
+   * Replace usages of 'componentWillMount' with 'UNSAFE_componentWillMount'.
    * @see [no-component-will-mount](https://eslint-react.xyz/docs/rules/no-component-will-mount)
    */
   '@eslint-react/no-component-will-mount': null;
 
   /**
-   * Disallow using 'componentWillReceiveProps'.
+   * Replace usages of 'componentWillReceiveProps' with 'UNSAFE_componentWillReceiveProps'.
    * @see [no-component-will-receive-props](https://eslint-react.xyz/docs/rules/no-component-will-receive-props)
    */
   '@eslint-react/no-component-will-receive-props': null;
 
   /**
-   * Disallow using 'componentWillReceiveProps'.
+   * Replace usages of 'componentWillUpdate' with 'UNSAFE_componentWillUpdate'.
    * @see [no-component-will-update](https://eslint-react.xyz/docs/rules/no-component-will-update)
    */
   '@eslint-react/no-component-will-update': null;
 
   /**
-   * Disallow the use of '<Context.Provider>'.
+   * Replace usages of '<Context.Provider>' with '<Context>'.
    * @see [no-context-provider](https://eslint-react.xyz/docs/rules/no-context-provider)
    */
   '@eslint-react/no-context-provider': null;
@@ -182,7 +176,7 @@ export interface ReactRules {
   '@eslint-react/no-duplicate-key': null;
 
   /**
-   * Disallow the use of 'forwardRef'.
+   * Replace usages of 'forwardRef' with passing 'ref' as a prop.
    * @see [no-forward-ref](https://eslint-react.xyz/docs/rules/no-forward-ref)
    */
   '@eslint-react/no-forward-ref': null;
@@ -218,10 +212,10 @@ export interface ReactRules {
   '@eslint-react/no-missing-key': null;
 
   /**
-   * Disallow using unstable nested components.
-   * @see [no-nested-components](https://eslint-react.xyz/docs/rules/no-nested-components)
+   * Prevents nesting component definitions inside other components.
+   * @see [no-nested-component-definitions](https://eslint-react.xyz/docs/rules/no-nested-component-definitions)
    */
-  '@eslint-react/no-nested-components': null;
+  '@eslint-react/no-nested-component-definitions': null;
 
   /**
    * Disallow using 'propTypes' property in components.
@@ -302,10 +296,16 @@ export interface ReactRules {
   '@eslint-react/no-unused-state': null;
 
   /**
-   * Disallow the use of 'useContext'.
+   * Replace usages of 'useContext' with 'use'.
    * @see [no-use-context](https://eslint-react.xyz/docs/rules/no-use-context)
    */
   '@eslint-react/no-use-context': null;
+
+  /**
+   * Require a 'ref' parameter to be set when using 'forwardRef'.
+   * @see [no-useless-forward-ref](https://eslint-react.xyz/docs/rules/no-useless-forward-ref)
+   */
+  '@eslint-react/no-useless-forward-ref': null;
 
   /**
    * Disallow useless fragments.
@@ -332,13 +332,13 @@ export interface ReactRules {
   '@eslint-react/prefer-read-only-props': null;
 
   /**
-   * Enforce using shorthand boolean attributes.
+   * Enforce the use of shorthand syntax for boolean attributes.
    * @see [prefer-shorthand-boolean](https://eslint-react.xyz/docs/rules/prefer-shorthand-boolean)
    */
   '@eslint-react/prefer-shorthand-boolean': null;
 
   /**
-   * Enforce using fragment syntax instead of 'Fragment' component.
+   * Enforce the use of shorthand syntax for fragments.
    * @see [prefer-shorthand-fragment](https://eslint-react.xyz/docs/rules/prefer-shorthand-fragment)
    */
   '@eslint-react/prefer-shorthand-fragment': null;
@@ -348,6 +348,12 @@ export interface ReactRules {
    * @see [use-jsx-vars](https://eslint-react.xyz/docs/rules/use-jsx-vars)
    */
   '@eslint-react/use-jsx-vars': null;
+
+  /**
+   * Require a 'ref' parameter to be set when using 'forwardRef'.
+   * @see [ensure-forward-ref-using-ref](https://eslint-react.xyz/docs/rules/no-useless-forward-ref)
+   */
+  '@eslint-react/ensure-forward-ref-using-ref': null;
 
   /**
    * Disallow duplicate props.
@@ -366,6 +372,12 @@ export interface ReactRules {
    * @see [no-complicated-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
    */
   '@eslint-react/no-complicated-conditional-rendering': null;
+
+  /**
+   * Prevents nesting component definitions inside other components.
+   * @see [no-nested-components](https://eslint-react.xyz/docs/rules/no-nested-component-definitions)
+   */
+  '@eslint-react/no-nested-components': null;
 
   /**
    * Disallow when a DOM component is using 'dangerouslySetInnerHTML'.
@@ -541,12 +553,18 @@ export interface ReactRules {
   '@eslint-react/hooks-extra/no-redundant-custom-hook': null;
 
   /**
-   * Enforce component naming convention to 'PascalCase' or 'CONSTANT_CASE'.
+   * Enforce naming convention for components.
    * @see [naming-convention/component-name](https://eslint-react.xyz/docs/rules/naming-convention-component-name)
    */
   '@eslint-react/naming-convention/component-name': [
     NamingConventionComponentNameOption?,
   ];
+
+  /**
+   * Enforce context name to be a valid component name with the suffix 'Context'.
+   * @see [naming-convention/context-name](https://eslint-react.xyz/docs/rules/naming-convention-context-name)
+   */
+  '@eslint-react/naming-convention/context-name': null;
 
   /**
    * Enforce naming convention for JSX filenames.
