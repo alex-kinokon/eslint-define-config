@@ -170,6 +170,9 @@ export namespace MatchDocumentFilename {
     | 'matchDocumentStyle';
 
   export interface AsObject {
+    /**
+     * One of: `camelCase`, `PascalCase`, `snake_case`, `UPPER_CASE`, `kebab-case`, `matchDocumentStyle`
+     */
     style?:
       | 'camelCase'
       | 'PascalCase'
@@ -301,6 +304,9 @@ export namespace NamingConvention {
     | 'UPPER_CASE';
 
   export interface AsObject {
+    /**
+     * One of: `camelCase`, `PascalCase`, `snake_case`, `UPPER_CASE`
+     */
     style?: 'camelCase' | 'PascalCase' | 'snake_case' | 'UPPER_CASE';
     prefix?: string;
     suffix?: string;
@@ -319,17 +325,10 @@ export namespace NamingConvention {
     ];
     /**
      * Should be of instance of `RegEx`
-     *
-     * @minItems 1
      */
-    requiredPatterns?: [
-      {
-        [k: string]: any;
-      },
-      ...{
-        [k: string]: any;
-      }[],
-    ];
+    requiredPattern?: {
+      [k: string]: any;
+    };
     /**
      * > [!WARNING]
      * >
@@ -349,7 +348,7 @@ export namespace NamingConvention {
     /**
      * > [!WARNING]
      * >
-     * > This option is deprecated and will be removed in the next major release. Use [`requiredPatterns`](#requiredpatterns-array) instead.
+     * > This option is deprecated and will be removed in the next major release. Use [`requiredPattern`](#requiredpattern-object) instead.
      *
      * @minItems 1
      */
@@ -357,7 +356,7 @@ export namespace NamingConvention {
     /**
      * > [!WARNING]
      * >
-     * > This option is deprecated and will be removed in the next major release. Use [`requiredPatterns`](#requiredpatterns-array) instead.
+     * > This option is deprecated and will be removed in the next major release. Use [`requiredPattern`](#requiredpattern-object) instead.
      *
      * @minItems 1
      */

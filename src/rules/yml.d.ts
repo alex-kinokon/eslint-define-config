@@ -68,6 +68,7 @@ export type IndentRuleConfig = [
   {
     indentBlockSequences?: boolean;
     indicatorValueIndent?: number;
+    alignMultilineFlowScalars?: boolean;
   }?,
 ];
 

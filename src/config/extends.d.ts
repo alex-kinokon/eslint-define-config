@@ -181,7 +181,9 @@ type ReactExtends =
   | 'plugin:@eslint-react/recommended-type-checked'
   | 'plugin:@eslint-react/recommended-type-checked-legacy'
   | 'plugin:@eslint-react/recommended-typescript'
-  | 'plugin:@eslint-react/recommended-typescript-legacy';
+  | 'plugin:@eslint-react/recommended-typescript-legacy'
+  | 'plugin:@eslint-react/x'
+  | 'plugin:@eslint-react/x-legacy';
 
 /**
  * ESLint ReactHooks extends.

@@ -1529,6 +1529,10 @@ export interface NoUnnecessaryConditionOption {
 
 export interface NoUnnecessaryTypeAssertionOption {
   /**
+   * Whether to check literal const assertions.
+   */
+  checkLiteralConstAssertions?: boolean;
+  /**
    * A list of type names to ignore.
    */
   typesToIgnore?: string[];
@@ -1733,6 +1737,10 @@ export interface PreferNullishCoalescingOption {
    * Whether to ignore cases that are located within a conditional test.
    */
   ignoreConditionalTests?: boolean;
+  /**
+   * Whether to ignore any if statements that could be simplified by using the nullish coalescing operator.
+   */
+  ignoreIfStatements?: boolean;
   /**
    * Whether to ignore any logical or expressions that are part of a mixed logical expression (with `&&`).
    */

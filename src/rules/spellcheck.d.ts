@@ -59,6 +59,10 @@ export interface SpellcheckerOption {
        */
       description?: string;
       /**
+       * Some dictionaries may contain forbidden words to prevent compounding from generating words that are not valid in the language. These are often words that are used in other languages or might be generated through compounding. This setting allows flagged words to be ignored when checking the dictionary. The effect is similar to the word not being in the dictionary.
+       */
+      ignoreForbiddenWords?: boolean;
+      /**
        * This is the name of a dictionary.
        *
        * Name Format:

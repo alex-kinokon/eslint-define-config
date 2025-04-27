@@ -98,6 +98,13 @@ export type CapitalizedCommentsRuleConfig = [
   CapitalizedCommentsConfig?,
 ];
 
+export interface ClassMethodsUseThisOption {
+  exceptMethods?: string[];
+  enforceForClassFields?: boolean;
+  ignoreOverrideMethods?: boolean;
+  ignoreClassesWithImplements?: 'all' | 'public-fields';
+}
+
 export namespace CommaDangle {
   export type CommaDangleOption =
     | []
@@ -920,6 +927,10 @@ export interface NoEmptyFunctionOption {
     | 'constructors'
     | 'asyncFunctions'
     | 'asyncMethods'
+    | 'privateConstructors'
+    | 'protectedConstructors'
+    | 'decoratedFunctions'
+    | 'overrideMethods'
   )[];
 }
 
@@ -1180,18 +1191,9 @@ export type NoRestrictedModulesOption =
       patterns?: string[];
     }[];
 
-export type NoRestrictedPropertiesOption = (
-  | {
-      object: string;
-      property?: string;
-      message?: string;
-    }
-  | {
-      object?: string;
-      property: string;
-      message?: string;
-    }
-)[];
+export type NoRestrictedPropertiesOption = {
+  [k: string]: any;
+}[];
 
 /**
  * @minItems 0
@@ -1822,12 +1824,7 @@ export interface EslintRules {
    * Enforce that class methods utilize `this`.
    * @see [class-methods-use-this](https://eslint.org/docs/latest/rules/class-methods-use-this)
    */
-  'class-methods-use-this': [
-    {
-      exceptMethods?: string[];
-      enforceForClassFields?: boolean;
-    }?,
-  ];
+  'class-methods-use-this': [ClassMethodsUseThisOption?];
 
   /**
    * Require or disallow trailing commas.

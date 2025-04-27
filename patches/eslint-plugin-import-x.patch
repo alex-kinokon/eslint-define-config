@@ -1,14 +1,16 @@
 diff --git a/lib/node-resolver.js b/lib/node-resolver.js
-index 7e1c80c9652d98e10846c5289a1c484711684ccc..8c634dad8342a8eeae562cc0d78414d8f657e435 100644
+index 08922955c9edf42872609f16985ddfc580d2c4b2..c9af2ab534388771f3e5aafe9175dc3ee63384fa 100644
 --- a/lib/node-resolver.js
 +++ b/lib/node-resolver.js
-@@ -4,8 +4,8 @@ exports.createNodeResolver = createNodeResolver;
- const tslib_1 = require("tslib");
- const node_module_1 = tslib_1.__importDefault(require("node:module"));
- const node_path_1 = tslib_1.__importDefault(require("node:path"));
--const rspack_resolver_1 = require("rspack-resolver");
- function createNodeResolver({ extensions = ['.mjs', '.cjs', '.js', '.json', '.node'], conditionNames = ['import', 'require', 'default'], mainFields = ['module', 'main'], ...restOptions } = {}) {
-+    const rspack_resolver_1 = require("rspack-resolver");
-     const resolver = new rspack_resolver_1.ResolverFactory({
+@@ -1,7 +1,10 @@
+ import module from 'node:module';
+ import path from 'node:path';
+-import { ResolverFactory } from 'unrs-resolver';
++
++const require = module.createRequire(import.meta.url);
++
+ export function createNodeResolver({ extensions = ['.mjs', '.cjs', '.js', '.json', '.node'], conditionNames = ['import', 'require', 'default'], mainFields = ['module', 'main'], ...restOptions } = {}) {
++    const { ResolverFactory } = require('unrs-resolver');
+     const resolver = new ResolverFactory({
          extensions,
          conditionNames,

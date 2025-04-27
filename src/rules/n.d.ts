@@ -2772,6 +2772,9 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'zlib.Unzip()'
       | 'zlib.Unzip'
       | 'zlib'
+      | 'import.meta.resolve'
+      | 'import.meta.dirname'
+      | 'import.meta.filename'
     )[];
   }
 

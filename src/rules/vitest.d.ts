@@ -401,6 +401,12 @@ export interface VitestRules {
   'vitest/prefer-comparison-matcher': null;
 
   /**
+   * Enforce using a function as a describe title over an equivalent string.
+   * @see [prefer-describe-function-title](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-describe-function-title.md)
+   */
+  'vitest/prefer-describe-function-title': null;
+
+  /**
    * Enforce using toContain().
    * @see [prefer-to-contain](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-contain.md)
    */

@@ -33,6 +33,12 @@ export interface ReactQueryRules {
    * @see [infinite-query-property-order](https://tanstack.com/query/latest/docs/eslint/infinite-query-property-order)
    */
   '@tanstack/query/infinite-query-property-order': null;
+
+  /**
+   * Ensures queryFn returns a non-undefined value.
+   * @see [no-void-query-fn](https://tanstack.com/query/latest/docs/eslint/no-void-query-fn)
+   */
+  '@tanstack/query/no-void-query-fn': null;
 }
 
 export type ReactQueryRulesObject = RulesObject<ReactQueryRules>;
