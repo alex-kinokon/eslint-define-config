@@ -224,7 +224,7 @@ export interface VitestRules {
   ];
 
   /**
-   * Disallow using `test` as a prefix.
+   * Disallow using the `f` and `x` prefixes in favour of `.only` and `.skip`.
    * @see [no-test-prefixes](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-test-prefixes.md)
    */
   'vitest/no-test-prefixes': null;

@@ -1649,6 +1649,10 @@ export interface OnlyThrowErrorOption {
       }
   )[];
   /**
+   * Whether to allow rethrowing caught values that are not `Error` objects.
+   */
+  allowRethrowing?: boolean;
+  /**
    * Whether to always allow throwing values typed as `any`.
    */
   allowThrowingAny?: boolean;
@@ -2644,6 +2648,12 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-unnecessary-type-constraint': null;
 
   /**
+   * Disallow conversion idioms when they do not change the type or value of the expression.
+   * @see [no-unnecessary-type-conversion](https://typescript-eslint.io/rules/no-unnecessary-type-conversion)
+   */
+  '@typescript-eslint/no-unnecessary-type-conversion': null;
+
+  /**
    * Disallow type parameters that aren't used multiple times.
    * @see [no-unnecessary-type-parameters](https://typescript-eslint.io/rules/no-unnecessary-type-parameters)
    */
@@ -2719,6 +2729,7 @@ export interface TypeScriptRules {
       allowTernary?: boolean;
       allowTaggedTemplates?: boolean;
       enforceForJSX?: boolean;
+      ignoreDirectives?: boolean;
     }?,
   ];
 

@@ -194,6 +194,10 @@ export type CustomEventNameCasingRuleConfig = [
   }?,
 ];
 
+export interface DefinePropsDestructuringOption {
+  destructure?: 'always' | 'never';
+}
+
 export interface EnforceStyleAttributeOption {
   /**
    * @minItems 1
@@ -1444,6 +1448,12 @@ export interface VueRules {
   'vue/define-props-declaration': [('type-based' | 'runtime')?];
 
   /**
+   * Enforce consistent style for props destructuring.
+   * @see [define-props-destructuring](https://eslint.vuejs.org/rules/define-props-destructuring.html)
+   */
+  'vue/define-props-destructuring': [DefinePropsDestructuringOption?];
+
+  /**
    * Enforce consistent newlines before and after dots in `<template>`.
    * @see [dot-location](https://eslint.vuejs.org/rules/dot-location.html)
    */
@@ -2016,7 +2026,11 @@ export interface VueRules {
    * Disallow adding multiple root nodes to the template.
    * @see [no-multiple-template-root](https://eslint.vuejs.org/rules/no-multiple-template-root.html)
    */
-  'vue/no-multiple-template-root': null;
+  'vue/no-multiple-template-root': [
+    {
+      disallowComments?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow mutation of component props.

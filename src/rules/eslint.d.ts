@@ -3097,7 +3097,11 @@ export interface EslintRules {
    * Disallow identifiers from shadowing restricted names.
    * @see [no-shadow-restricted-names](https://eslint.org/docs/latest/rules/no-shadow-restricted-names)
    */
-  'no-shadow-restricted-names': null;
+  'no-shadow-restricted-names': [
+    {
+      reportGlobalThis?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow spacing between function identifiers and their applications (deprecated).
@@ -3280,6 +3284,7 @@ export interface EslintRules {
       allowTernary?: boolean;
       allowTaggedTemplates?: boolean;
       enforceForJSX?: boolean;
+      ignoreDirectives?: boolean;
     }?,
   ];
 

@@ -350,6 +350,12 @@ export interface ReactRules {
   '@eslint-react/prefer-shorthand-fragment': null;
 
   /**
+   * Enforces that the 'key' attribute is placed before the spread attribute in JSX elements.
+   * @see [jsx-key-before-spread](https://eslint-react.xyz/docs/rules/jsx-key-before-spread)
+   */
+  '@eslint-react/jsx-key-before-spread': null;
+
+  /**
    * Disallow duplicate props in JSX elements.
    * @see [jsx-no-duplicate-props](https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props)
    */

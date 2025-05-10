@@ -360,6 +360,7 @@ export interface NoUnpublishedImportOption {
   resolverConfig?: {
     [k: string]: any;
   };
+  tryExtensions?: string[];
   ignoreTypeImport?: boolean;
   ignorePrivate?: boolean;
 }
@@ -2112,12 +2113,30 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'http2.Http2ServerRequest'
       | 'http2.Http2ServerResponse'
       | 'http'
+      | 'http.METHODS'
+      | 'http.STATUS_CODES'
       | 'http.globalAgent'
+      | 'http.maxHeaderSize'
       | 'http.createServer'
       | 'http.get'
       | 'http.request'
+      | 'http.validateHeaderName'
+      | 'http.validateHeaderValue'
+      | 'http.setMaxIdleHTTPParsers'
       | 'http.Agent'
+      | 'http.ClientRequest'
       | 'http.Server'
+      | 'http.ServerResponse'
+      | 'http.IncomingMessage'
+      | 'http.OutgoingMessage'
+      | 'http.WebSocket'
+      | 'https'
+      | 'https.globalAgent'
+      | 'https.createServer'
+      | 'https.get'
+      | 'https.request'
+      | 'https.Agent'
+      | 'https.Server'
       | 'inspector'
       | 'inspector.Session'
       | 'inspector.Network.loadingFailed'
@@ -2428,6 +2447,12 @@ export namespace NoUnsupportedFeaturesNodeBuiltins {
       | 'stream/consumers.text'
       | 'string_decoder'
       | 'string_decoder.StringDecoder'
+      | 'sqlite'
+      | 'sqlite.DatabaseSync'
+      | 'sqlite.StatementSync'
+      | 'sqlite.SQLITE_CHANGESET_OMIT'
+      | 'sqlite.SQLITE_CHANGESET_REPLACE'
+      | 'sqlite.SQLITE_CHANGESET_ABORT'
       | 'test'
       | 'test.after'
       | 'test.afterEach'
