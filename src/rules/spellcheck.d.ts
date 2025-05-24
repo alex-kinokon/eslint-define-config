@@ -44,6 +44,15 @@ export interface SpellcheckerOption {
      */
     allowCompoundWords?: boolean;
     /**
+     * Determines if words must match case and accent rules.
+     *
+     * See [Case Sensitivity](https://cspell.org/docs/case-sensitive/) for more details.
+     *
+     * - `false` - Case is ignored and accents can be missing on the entire word.   Incorrect accents or partially missing accents will be marked as incorrect.
+     * - `true` - Case and accents are enforced.
+     */
+    caseSensitive?: boolean;
+    /**
      * Optional list of dictionaries to use. Each entry should match the name of the dictionary.
      *
      * To remove a dictionary from the list, add `!` before the name.
@@ -53,58 +62,84 @@ export interface SpellcheckerOption {
      * See the [Dictionaries](https://cspell.org/docs/dictionaries/) and [Custom Dictionaries](https://cspell.org/docs/dictionaries-custom/) for more details.
      */
     dictionaries?: string[];
-    dictionaryDefinitions?: {
-      /**
-       * Optional description of the contents / purpose of the dictionary.
-       */
-      description?: string;
-      /**
-       * Some dictionaries may contain forbidden words to prevent compounding from generating words that are not valid in the language. These are often words that are used in other languages or might be generated through compounding. This setting allows flagged words to be ignored when checking the dictionary. The effect is similar to the word not being in the dictionary.
-       */
-      ignoreForbiddenWords?: boolean;
-      /**
-       * This is the name of a dictionary.
-       *
-       * Name Format:
-       * - Must contain at least 1 number or letter.
-       * - Spaces are allowed.
-       * - Leading and trailing space will be removed.
-       * - Names ARE case-sensitive.
-       * - Must not contain `*`, `!`, `;`, `,`, `{`, `}`, `[`, `]`, `~`.
-       */
-      name: string;
-      /**
-       * Indicate that suggestions should not come from this dictionary. Words in this dictionary are considered correct, but will not be used when making spell correction suggestions.
-       *
-       * Note: if a word is suggested by another dictionary, but found in this dictionary, it will be removed from the set of possible suggestions.
-       */
-      noSuggest?: boolean;
-      /**
-       * Path to the file.
-       */
-      path: string;
-      /**
-       * Replacement pairs.
-       */
-      repMap?: [string, string][];
-      /**
-       * Type of file:
-       * - S - single word per line,
-       * - W - each line can contain one or more words separated by space,
-       * - C - each line is treated like code (Camel Case is allowed).
-       *
-       * Default is S.
-       *
-       * C is the slowest to load due to the need to split each line based upon code splitting rules.
-       *
-       * Note: this settings does not apply to inline dictionaries or `.trie` files.
-       */
-      type?: 'S' | 'W' | 'C' | 'T';
-      /**
-       * Use Compounds.
-       */
-      useCompounds?: boolean;
-    }[];
+    dictionaryDefinitions?: (
+      | {
+          /**
+           * Optional description of the contents / purpose of the dictionary.
+           */
+          description?: string;
+          /**
+           * This is the name of a dictionary.
+           *
+           * Name Format:
+           * - Must contain at least 1 number or letter.
+           * - Spaces are allowed.
+           * - Leading and trailing space will be removed.
+           * - Names ARE case-sensitive.
+           * - Must not contain `*`, `!`, `;`, `,`, `{`, `}`, `[`, `]`, `~`.
+           */
+          name: string;
+          /**
+           * Path to the file.
+           */
+          path: string;
+          /**
+           * Strip case and accents to allow for case insensitive searches and words without accents.
+           *
+           * Note: this setting only applies to word lists. It has no-impact on trie dictionaries.
+           */
+          supportNonStrictSearches?: boolean;
+        }
+      | {
+          /**
+           * Optional description of the contents / purpose of the dictionary.
+           */
+          description?: string;
+          /**
+           * List of words to always be considered incorrect. Words found in `flagWords` override `words`.
+           *
+           * Format of `flagWords`
+           * - single word entry - `word`
+           * - with suggestions - `word:suggestion` or `word->suggestion, suggestions`
+           *
+           * Example: ```ts "flagWords": [   "color: colour",   "incase: in case, encase",   "canot->cannot",   "cancelled->canceled" ] ```
+           */
+          flagWords?: string[];
+          /**
+           * List of words to be ignored. An ignored word will not show up as an error, even if it is also in the `flagWords`.
+           */
+          ignoreWords?: string[];
+          /**
+           * This is the name of a dictionary.
+           *
+           * Name Format:
+           * - Must contain at least 1 number or letter.
+           * - Spaces are allowed.
+           * - Leading and trailing space will be removed.
+           * - Names ARE case-sensitive.
+           * - Must not contain `*`, `!`, `;`, `,`, `{`, `}`, `[`, `]`, `~`.
+           */
+          name: string;
+          /**
+           * A list of suggested replacements for words. Suggested words provide a way to make preferred suggestions on word replacements. To hint at a preferred change, but not to require it.
+           *
+           * Format of `suggestWords`
+           * - Single suggestion (possible auto fix)     - `word: suggestion`     - `word->suggestion`
+           * - Multiple suggestions (not auto fixable)    - `word: first, second, third`    - `word->first, second, third`
+           */
+          suggestWords?: string[];
+          /**
+           * Strip case and accents to allow for case insensitive searches and words without accents.
+           *
+           * Note: this setting only applies to word lists. It has no-impact on trie dictionaries.
+           */
+          supportNonStrictSearches?: boolean;
+          /**
+           * List of words to be considered correct.
+           */
+          words?: string[];
+        }
+    )[];
     /**
      * Is the spell checker enabled.
      */

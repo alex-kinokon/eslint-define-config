@@ -159,6 +159,12 @@ export interface TestingLibraryRules {
   'testing-library/no-render-in-lifecycle': [NoRenderInLifecycleOption?];
 
   /**
+   * Ensure no `data-testid` queries are used.
+   * @see [no-test-id-queries](https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-test-id-queries.md)
+   */
+  'testing-library/no-test-id-queries': null;
+
+  /**
    * Disallow wrapping Testing Library utils or empty callbacks in `act`.
    * @see [no-unnecessary-act](https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-unnecessary-act.md)
    */

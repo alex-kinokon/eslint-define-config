@@ -396,18 +396,6 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      as?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      async?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      await?: {
-        before?: boolean;
-        after?: boolean;
-      };
       boolean?: {
         before?: boolean;
         after?: boolean;
@@ -500,15 +488,7 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      from?: {
-        before?: boolean;
-        after?: boolean;
-      };
       function?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      get?: {
         before?: boolean;
         after?: boolean;
       };
@@ -544,10 +524,6 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      let?: {
-        before?: boolean;
-        after?: boolean;
-      };
       long?: {
         before?: boolean;
         after?: boolean;
@@ -561,10 +537,6 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       null?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      of?: {
         before?: boolean;
         after?: boolean;
       };
@@ -585,14 +557,6 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       return?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      satisfies?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      set?: {
         before?: boolean;
         after?: boolean;
       };
@@ -661,6 +625,42 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       with?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      as?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      async?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      await?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      from?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      get?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      let?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      of?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      satisfies?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      set?: {
         before?: boolean;
         after?: boolean;
       };

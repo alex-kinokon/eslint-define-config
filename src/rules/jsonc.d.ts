@@ -577,7 +577,11 @@ export interface JsoncRules {
    * Disallow unnecessary escape usage.
    * @see [no-useless-escape](https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-useless-escape.html)
    */
-  'jsonc/no-useless-escape': null;
+  'jsonc/no-useless-escape': [
+    {
+      allowRegexCharacters?: string[];
+    }?,
+  ];
 
   /**
    * Enforce consistent line breaks inside braces.

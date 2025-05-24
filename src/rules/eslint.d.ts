@@ -858,6 +858,10 @@ export type MaxParamsOption =
   | {
       maximum?: number;
       max?: number;
+      /**
+       * Whether to count a `this` declaration when the type is `void`.
+       */
+      countVoidThis?: boolean;
     };
 
 export type MaxStatementsOption =
@@ -3175,6 +3179,12 @@ export interface EslintRules {
   ];
 
   /**
+   * Disallow `let` or `var` variables that are read but never assigned.
+   * @see [no-unassigned-vars](https://eslint.org/docs/latest/rules/no-unassigned-vars)
+   */
+  'no-unassigned-vars': null;
+
+  /**
    * Disallow the use of undeclared variables unless mentioned in `/*global ` comments.
    * @see [no-undef](https://eslint.org/docs/latest/rules/no-undef)
    */
@@ -3362,7 +3372,11 @@ export interface EslintRules {
    * Disallow unnecessary escape characters.
    * @see [no-useless-escape](https://eslint.org/docs/latest/rules/no-useless-escape)
    */
-  'no-useless-escape': null;
+  'no-useless-escape': [
+    {
+      allowRegexCharacters?: string[];
+    }?,
+  ];
 
   /**
    * Disallow renaming import, export, and destructured assignments to the same name.
