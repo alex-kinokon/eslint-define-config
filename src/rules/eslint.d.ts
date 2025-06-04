@@ -218,6 +218,7 @@ export namespace FuncNames {
 
 export interface FuncStyleConfig {
   allowArrowFunctions?: boolean;
+  allowTypeAnnotation?: boolean;
   overrides?: {
     namedExports?: 'declaration' | 'expression' | 'ignore';
   };
@@ -990,6 +991,10 @@ export interface NoMagicNumbersOption {
   ignoreArrayIndexes?: boolean;
   ignoreDefaultValues?: boolean;
   ignoreClassFieldInitialValues?: boolean;
+  ignoreEnums?: boolean;
+  ignoreNumericLiteralTypes?: boolean;
+  ignoreReadonlyClassProperties?: boolean;
+  ignoreTypeIndexes?: boolean;
 }
 
 export interface NoMixedOperatorsOption {
@@ -1212,9 +1217,11 @@ export type NoRestrictedSyntaxOption = (
 
 export interface NoShadowOption {
   builtinGlobals?: boolean;
-  hoist?: 'all' | 'functions' | 'never';
+  hoist?: 'all' | 'functions' | 'never' | 'types' | 'functions-and-types';
   allow?: string[];
   ignoreOnInitialization?: boolean;
+  ignoreTypeValueShadow?: boolean;
+  ignoreFunctionTypeParameterNameValueShadow?: boolean;
 }
 
 export interface NoUnreachableLoopOption {
@@ -1249,6 +1256,9 @@ export type NoUseBeforeDefineOption =
       classes?: boolean;
       variables?: boolean;
       allowNamedExports?: boolean;
+      enums?: boolean;
+      typedefs?: boolean;
+      ignoreTypeReferences?: boolean;
     };
 
 export interface NoWarningCommentsOption {

@@ -30,10 +30,10 @@ export interface CheckLineAlignmentConfig {
     postTag?: number;
     postType?: number;
   };
+  disableWrapIndent?: boolean;
   preserveMainDescriptionPostDelimiter?: boolean;
   tags?: string[];
   wrapIndent?: string;
-  disableWrapIndent?: boolean;
 }
 
 export type CheckLineAlignmentRuleConfig = [

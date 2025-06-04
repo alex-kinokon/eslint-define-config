@@ -525,7 +525,11 @@ export interface RegExpRules {
    * Enforce using quantifier.
    * @see [prefer-quantifier](https://ota-meshi.github.io/eslint-plugin-regexp/rules/prefer-quantifier.html)
    */
-  'regexp/prefer-quantifier': null;
+  'regexp/prefer-quantifier': [
+    {
+      allows?: string[];
+    }?,
+  ];
 
   /**
    * Enforce using `?` quantifier.

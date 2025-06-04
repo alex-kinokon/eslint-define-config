@@ -280,6 +280,66 @@ export type NoRestrictedRequireOption = (
     }
 )[];
 
+export interface NoSyncOption {
+  allowAtRootLevel?: boolean;
+  ignores?: (
+    | string
+    | {
+        from?: 'file';
+        path?: string;
+        name?: string[];
+      }
+    | {
+        from?: 'lib';
+        name?: string[];
+      }
+    | {
+        from?: 'package';
+        package?: string;
+        name?: string[];
+      }
+  )[];
+}
+
+export interface NoTopLevelAwaitOption {
+  ignoreBin?: boolean;
+  convertPath?:
+    | {
+        /**
+         * @minItems 2
+         * @maxItems 2
+         *
+         */
+        [k: string]: [string, string];
+      }
+    | [
+        {
+          /**
+           * @minItems 1
+           */
+          include: [string, ...string[]];
+          exclude?: string[];
+          /**
+           * @minItems 2
+           * @maxItems 2
+           */
+          replace: [string, string];
+        },
+        ...{
+          /**
+           * @minItems 1
+           */
+          include: [string, ...string[]];
+          exclude?: string[];
+          /**
+           * @minItems 2
+           * @maxItems 2
+           */
+          replace: [string, string];
+        }[],
+      ];
+}
+
 export interface NoUnpublishedBinOption {
   convertPath?:
     | {
@@ -3060,12 +3120,13 @@ export interface NRules {
    * Disallow synchronous methods.
    * @see [no-sync](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-sync.md)
    */
-  'n/no-sync': [
-    {
-      allowAtRootLevel?: boolean;
-      ignores?: string[];
-    }?,
-  ];
+  'n/no-sync': [NoSyncOption?];
+
+  /**
+   * Disallow top-level `await` in published modules.
+   * @see [no-top-level-await](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-top-level-await.md)
+   */
+  'n/no-top-level-await': [NoTopLevelAwaitOption?];
 
   /**
    * Disallow `bin` files that npm ignores.

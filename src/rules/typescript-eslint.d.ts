@@ -2990,6 +2990,7 @@ export interface TypeScriptRules {
 
   /**
    * Require type annotations in certain places.
+   * @deprecated
    * @see [typedef](https://typescript-eslint.io/rules/typedef)
    */
   '@typescript-eslint/typedef': [TypedefOption?];

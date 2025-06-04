@@ -362,6 +362,12 @@ export interface ReactRules {
   '@eslint-react/jsx-no-duplicate-props': null;
 
   /**
+   * Disallows 'IIFE' in JSX elements.
+   * @see [jsx-no-iife](https://eslint-react.xyz/docs/rules/jsx-no-iife)
+   */
+  '@eslint-react/jsx-no-iife': null;
+
+  /**
    * Disallow undefined variables in JSX.
    * @see [jsx-no-undef](https://eslint-react.xyz/docs/rules/jsx-no-undef)
    */
