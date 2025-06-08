@@ -942,7 +942,7 @@ export type NoRestrictedCustomEventOption = (
 export type NoRestrictedHtmlElementsOption = (
   | string
   | {
-      element: string;
+      element: string | string[];
       message?: string;
     }
 )[];
