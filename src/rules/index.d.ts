@@ -12,8 +12,10 @@ import type { ImportXRulesObject } from './import-x';
 import type { JSDocRulesObject } from './jsdoc';
 import type { JsoncRulesObject } from './jsonc';
 import type { JsxA11yRulesObject } from './jsx-a11y';
+import type { LinguiRulesObject } from './lingui';
 import type { MdxRulesObject } from './mdx';
 import type { NRulesObject } from './n';
+import type { PlaywrightRulesObject } from './playwright';
 import type { PrettierRulesObject } from './prettier';
 import type { PromiseRulesObject } from './promise';
 import type { ReactRulesObject } from './react';
@@ -21,6 +23,7 @@ import type { ReactHooksRulesObject } from './react-hooks';
 import type { ReactQueryRulesObject } from './react-query';
 import type { ReactRefreshRulesObject } from './react-refresh';
 import type { RegExpRulesObject } from './regexp';
+import type { SecurityRulesObject } from './security';
 import type { SolidRulesObject } from './solid';
 import type { SonarJSRulesObject } from './sonarjs';
 import type { SpellcheckRulesObject } from './spellcheck';
@@ -90,15 +93,18 @@ export interface Rules
     JSDocRulesObject,
     JsoncRulesObject,
     JsxA11yRulesObject,
+    LinguiRulesObject,
     MdxRulesObject,
     NRulesObject,
     PrettierRulesObject,
+    PlaywrightRulesObject,
     PromiseRulesObject,
     ReactRulesObject,
     ReactHooksRulesObject,
     ReactQueryRulesObject,
     ReactRefreshRulesObject,
     RegExpRulesObject,
+    SecurityRulesObject,
     SonarJSRulesObject,
     SolidRulesObject,
     SpellcheckRulesObject,

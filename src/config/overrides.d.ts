@@ -1,6 +1,5 @@
 import type { Parser, ParserOptions } from '../parser-options';
 import type { Rules } from '../rules/index';
-import type { Environments } from './env';
 import type { Extends } from './extends';
 import type { Plugin } from './plugin';
 import type { Settings } from './settings';
@@ -20,13 +19,6 @@ export interface Override {
    */
   // https://github.com/eslint/eslint/blob/762a8727fb3b5619cff900826053b643ca5f1162/lib/shared/types.js#L59
   excludedFiles?: string | string[];
-
-  /**
-   * An environment provides predefined global variables.
-   *
-   * @see [Environments](https://eslint.org/docs/user-guide/configuring/language-options#specifying-environments)
-   */
-  env?: Environments;
 
   /**
    * Extending Configuration Files.

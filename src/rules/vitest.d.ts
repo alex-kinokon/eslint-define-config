@@ -493,6 +493,18 @@ export interface VitestRules {
       checkImportFunctions?: boolean;
     }?,
   ];
+
+  /**
+   * Disallow importing Vitest globals.
+   * @see [no-importing-vitest-globals](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-importing-vitest-globals.md)
+   */
+  'vitest/no-importing-vitest-globals': null;
+
+  /**
+   * Enforce importing Vitest globals.
+   * @see [prefer-importing-vitest-globals](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-importing-vitest-globals.md)
+   */
+  'vitest/prefer-importing-vitest-globals': null;
 }
 
 export type VitestRulesObject = RulesObject<VitestRules>;

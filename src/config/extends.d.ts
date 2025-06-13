@@ -115,6 +115,13 @@ type JsoncExtends =
 type JsxA11yExtends = 'plugin:jsx-a11y/recommended' | 'plugin:jsx-a11y/strict';
 
 /**
+ * ESLint Lingui extends.
+ *
+ * @see [Lingui extends](https://github.com/lingui/eslint-plugin#rules)
+ */
+type LinguiExtends = 'plugin:lingui/recommended';
+
+/**
  * ESLint Mdx extends.
  *
  * @see [Mdx extends](https://github.com/mdx-js/eslint-mdx/tree/master/packages/eslint-plugin-mdx#classic)
@@ -142,6 +149,15 @@ type NExtends =
  * @see [Prettier extends](https://github.com/prettier/eslint-plugin-prettier#configuration-legacy-eslintrc)
  */
 type PrettierExtends = 'plugin:prettier/recommended';
+
+/**
+ * ESLint Playwright extends.
+ *
+ * @see [Playwright extends](https://github.com/playwright-community/eslint-plugin-playwright#rules)
+ */
+type PlaywrightExtends =
+  | 'plugin:playwright/playwright-test'
+  | 'plugin:playwright/recommended';
 
 /**
  * ESLint Promise extends.
@@ -215,6 +231,15 @@ type ReactRefreshExtends =
  * @see [RegExp extends](https://ota-meshi.github.io/eslint-plugin-regexp/rules/)
  */
 type RegExpExtends = 'plugin:regexp/all' | 'plugin:regexp/recommended';
+
+/**
+ * ESLint Security extends.
+ *
+ * @see [Security extends](https://github.com/eslint-community/eslint-plugin-security#rules)
+ */
+type SecurityExtends =
+  | 'plugin:security/recommended'
+  | 'plugin:security/recommended-legacy';
 
 /**
  * ESLint SonarJS extends.
@@ -408,15 +433,18 @@ export type KnownExtends = LiteralUnion<
   | JsDocExtends
   | JsoncExtends
   | JsxA11yExtends
+  | LinguiExtends
   | MdxExtends
   | NExtends
   | PrettierExtends
+  | PlaywrightExtends
   | PromiseExtends
   | ReactExtends
   | ReactHooksExtends
   | ReactQueryExtends
   | ReactRefreshExtends
   | RegExpExtends
+  | SecurityExtends
   | SonarJsExtends
   | SolidExtends
   | SpellcheckExtends

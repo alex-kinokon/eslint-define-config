@@ -75,6 +75,12 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
         'https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#usage---legacy-config-eslintrc',
     },
   }),
+  include('lingui', {
+    import: () => import('eslint-plugin-lingui'),
+    docs: {
+      extends: 'https://github.com/lingui/eslint-plugin#rules',
+    },
+  }),
   include('mdx', {
     import: () => import('eslint-plugin-mdx'),
     docs: {
@@ -95,6 +101,13 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
         'https://github.com/prettier/eslint-plugin-prettier#configuration-legacy-eslintrc',
     },
   }),
+  include('playwright', {
+    import: () => import('eslint-plugin-playwright'),
+    docs: {
+      extends:
+        'https://github.com/playwright-community/eslint-plugin-playwright#rules',
+    },
+  }),
   include('promise', {
     // @ts-expect-error no types
     import: () => import('eslint-plugin-promise'),
@@ -111,7 +124,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     },
   }),
   include('react-hooks', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-react-hooks'),
     docs: {
       home: 'https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks',
@@ -133,6 +145,14 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     import: () => import('eslint-plugin-regexp'),
     docs: {
       extends: 'https://ota-meshi.github.io/eslint-plugin-regexp/rules/',
+    },
+  }),
+  include('security', {
+    // @ts-expect-error no types
+    import: () => import('eslint-plugin-security'),
+    docs: {
+      extends:
+        'https://github.com/eslint-community/eslint-plugin-security#rules',
     },
   }),
   include('sonarjs', {
@@ -202,7 +222,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
   include('vue-i18n', {
     name: 'VueI18n',
     prefix: '@intlify/vue-i18n',
-    // @ts-expect-error no types
     import: () => import('@intlify/eslint-plugin-vue-i18n'),
     docs: {
       extends: 'https://eslint-plugin-vue-i18n.intlify.dev/started.html',
@@ -257,22 +276,25 @@ const order = [
   'eslint',
   'eslint-comments',
   'graphql-eslint',
-  'import',
   'import-x',
+  'import',
   'jsdoc',
   'jsonc',
   'jsx-a11y',
+  'lingui',
   'mdx',
   'n',
   'node',
+  'playwright',
   'promise',
-  'react',
   'react-hooks',
   'react-query',
+  'react',
   'react-refresh',
   'regexp',
-  'sonarjs',
+  'security',
   'solid',
+  'sonarjs',
   'spellcheck',
   'storybook',
   'stylistic',
