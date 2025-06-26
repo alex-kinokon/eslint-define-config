@@ -1,16 +1,11 @@
 diff --git a/lib/node-resolver.js b/lib/node-resolver.js
-index 08922955c9edf42872609f16985ddfc580d2c4b2..c9af2ab534388771f3e5aafe9175dc3ee63384fa 100644
+index d441e68a3fe8a0cacb5f5aa997ed57732f62bc0d..b3cbf13b75eda9253865f41ac575e2f5cf299e0e 100644
 --- a/lib/node-resolver.js
 +++ b/lib/node-resolver.js
-@@ -1,7 +1,10 @@
- import module from 'node:module';
+@@ -1,6 +1,5 @@
+ import { isBuiltin } from 'node:module';
  import path from 'node:path';
 -import { ResolverFactory } from 'unrs-resolver';
-+
-+const require = module.createRequire(import.meta.url);
-+
  export function createNodeResolver({ extensions = ['.mjs', '.cjs', '.js', '.json', '.node'], conditionNames = ['import', 'require', 'default'], mainFields = ['module', 'main'], ...restOptions } = {}) {
-+    const { ResolverFactory } = require('unrs-resolver');
      const resolver = new ResolverFactory({
          extensions,
-         conditionNames,

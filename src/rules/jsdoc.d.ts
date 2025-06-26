@@ -625,6 +625,7 @@ export interface JSDocRules {
       checkBlockStarts?: boolean;
       excludedTags?: string[];
       ignoreSameLine?: boolean;
+      ignoreSingleLines?: boolean;
       lines?: number;
     }?,
   ];

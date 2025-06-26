@@ -1,0 +1,16 @@
+diff --git a/rules/no-unnecessary-polyfills.js b/rules/no-unnecessary-polyfills.js
+index 73f36612a588439ebf2ab5eb148c4ac461d2e790..ca5f88746d81af78a507ad26ddf91a11f0240fe7 100644
+--- a/rules/no-unnecessary-polyfills.js
++++ b/rules/no-unnecessary-polyfills.js
+@@ -1,10 +1,9 @@
+ import path from 'node:path';
+-import coreJsCompat from 'core-js-compat';
+ import {camelCase} from './utils/lodash.js';
+ import isStaticRequire from './ast/is-static-require.js';
+ import {readPackageJson} from './shared/package-json.js';
+ 
+-const {data: compatData, entries: coreJsEntries} = coreJsCompat;
++const {data: compatData, entries: coreJsEntries} = { data: {}, entries: {} };
+ 
+ const MESSAGE_ID_POLYFILL = 'unnecessaryPolyfill';
+ const MESSAGE_ID_CORE_JS = 'unnecessaryCoreJsModule';

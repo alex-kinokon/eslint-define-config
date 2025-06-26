@@ -323,7 +323,6 @@ async function generateRuleFile(
   try {
     await fs.writeFile(rulePath, await format(fileContent));
   } catch (error) {
-    console.error(error);
     await fs.writeFile(rulePath, fileContent);
   }
 }
@@ -428,27 +427,33 @@ export async function run(): Promise<void> {
   const extendsCollector = new ExtendsCollector();
 
   for (const plugin of PLUGIN_REGISTRY) {
-    logger.info(`Generating ${plugin.name} rules.`);
-    logger.logUpdate(colors.yellow(`  Loading plugin > ${plugin.id}`));
-    const loadedPlugin = await loadPlugin(plugin);
-    extendsCollector.add(loadedPlugin);
+    try {
+      logger.info(`Generating ${plugin.name} rules.`);
+      logger.logUpdate(colors.yellow(`  Loading plugin > ${plugin.id}`));
+      logger.logUpdate('??Loading plugin' + plugin.import.toString());
+      const loadedPlugin = await loadPlugin(plugin);
+      extendsCollector.add(loadedPlugin);
 
-    const rulesFile = await generateRulesFile(loadedPlugin);
-    await generateRuleFile(
-      rulesDir,
-      `${plugin.id}.d.ts`,
-      loadedPlugin,
-      rulesFile,
-    );
+      const rulesFile = await generateRulesFile(loadedPlugin);
+      await generateRuleFile(
+        rulesDir,
+        `${plugin.id}.d.ts`,
+        loadedPlugin,
+        rulesFile,
+      );
 
-    const ruleDetails = [...rulesFile.ruleDetails].flatMap(
-      ([name, { meta }]) => ({ name, meta }),
-    );
+      const ruleDetails = [...rulesFile.ruleDetails].flatMap(
+        ([name, { meta }]) => ({ name, meta }),
+      );
 
-    programmaticData.push({
-      plugin: loadedPlugin.entry,
-      ruleDetails,
-    });
+      programmaticData.push({
+        plugin: loadedPlugin.entry,
+        ruleDetails,
+      });
+    } catch (e) {
+      console.error(e.stack);
+      throw e;
+    }
   }
 
   await generateRuleIndex(

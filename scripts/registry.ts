@@ -37,7 +37,7 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
   include('graphql-eslint', {
     name: 'GraphQL',
     prefix: '@graphql-eslint',
-    import: () => require('@graphql-eslint/eslint-plugin') as ESLint.Plugin,
+    import: () => import('@graphql-eslint/eslint-plugin') as ESLint.Plugin,
     docs: {
       extends: 'https://the-guild.dev/graphql/eslint/docs/configs',
     },

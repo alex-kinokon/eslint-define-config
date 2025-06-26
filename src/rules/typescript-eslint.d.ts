@@ -978,6 +978,10 @@ export namespace NamingConvention {
 
 export interface NoBaseToStringOption {
   /**
+   * Whether to also check values of type `unknown`
+   */
+  checkUnknown?: boolean;
+  /**
    * Stringified regular expressions of type names to ignore.
    */
   ignoredTypeNames?: string[];

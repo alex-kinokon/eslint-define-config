@@ -664,6 +664,10 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      using?: {
+        before?: boolean;
+        after?: boolean;
+      };
       yield?: {
         before?: boolean;
         after?: boolean;
@@ -812,6 +816,11 @@ export type NoExtraParensOption =
         enforceForFunctionPrototypeMethods?: boolean;
         allowParensAfterCommentPattern?: string;
         nestedConditionalExpressions?: boolean;
+        allowNodesInSpreadElement?: {
+          ConditionalExpression?: boolean;
+          LogicalExpression?: boolean;
+          AwaitExpression?: boolean;
+        };
       },
     ];
 
@@ -1102,6 +1111,13 @@ export type ObjectCurlyNewlineOption =
             consistent?: boolean;
           };
       TSInterfaceBody?:
+        | ('always' | 'never')
+        | {
+            multiline?: boolean;
+            minProperties?: number;
+            consistent?: boolean;
+          };
+      TSEnumBody?:
         | ('always' | 'never')
         | {
             multiline?: boolean;
@@ -2447,7 +2463,6 @@ export interface VueRules {
   'vue/object-property-newline': [
     {
       allowAllPropertiesOnSameLine?: boolean;
-      allowMultiplePropertiesPerLine?: boolean;
     }?,
   ];
 

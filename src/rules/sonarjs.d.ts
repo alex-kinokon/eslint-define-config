@@ -64,7 +64,7 @@ export type CommentRegexOption =
 
 /**
  * @minItems 0
- * @maxItems 2
+ * @maxItems 1
  */
 export type NestedControlFlowOption =
   | []
@@ -72,12 +72,6 @@ export type NestedControlFlowOption =
       {
         maximumNestingLevel?: number;
       },
-    ]
-  | [
-      {
-        maximumNestingLevel?: number;
-      },
-      'sonar-runtime' | 'metric',
     ];
 
 /**
@@ -94,7 +88,7 @@ export type MaxLinesPerFunctionOption =
 
 /**
  * @minItems 0
- * @maxItems 2
+ * @maxItems 1
  */
 export type ExpressionComplexityOption =
   | []
@@ -102,17 +96,11 @@ export type ExpressionComplexityOption =
       {
         max?: number;
       },
-    ]
-  | [
-      {
-        max?: number;
-      },
-      'sonar-runtime' | 'metric',
     ];
 
 /**
  * @minItems 0
- * @maxItems 2
+ * @maxItems 1
  */
 export type NoDuplicateStringOption =
   | []
@@ -121,13 +109,6 @@ export type NoDuplicateStringOption =
         threshold?: number;
         ignoreStrings?: string;
       },
-    ]
-  | [
-      {
-        threshold?: number;
-        ignoreStrings?: string;
-      },
-      'sonar-runtime' | 'metric',
     ];
 
 /**
@@ -151,7 +132,7 @@ export type MaxSwitchCasesOption = [] | [number];
 
 /**
  * @minItems 0
- * @maxItems 2
+ * @maxItems 1
  */
 export type CyclomaticComplexityOption =
   | []
@@ -159,17 +140,11 @@ export type CyclomaticComplexityOption =
       {
         threshold?: number;
       },
-    ]
-  | [
-      {
-        threshold?: number;
-      },
-      'sonar-runtime' | 'metric',
     ];
 
 /**
  * @minItems 0
- * @maxItems 2
+ * @maxItems 1
  */
 export type NoNestedFunctionsOption =
   | []
@@ -177,12 +152,6 @@ export type NoNestedFunctionsOption =
       {
         threshold?: number;
       },
-    ]
-  | [
-      {
-        threshold?: number;
-      },
-      'sonar-runtime' | 'metric',
     ];
 
 /**
@@ -199,7 +168,7 @@ export type NoHardcodedPasswordsOption =
 
 /**
  * @minItems 0
- * @maxItems 2
+ * @maxItems 1
  */
 export type NewOperatorMisuseOption =
   | []
@@ -207,12 +176,6 @@ export type NewOperatorMisuseOption =
       {
         considerJSDoc?: boolean;
       },
-    ]
-  | [
-      {
-        considerJSDoc?: boolean;
-      },
-      any,
     ];
 
 /**
@@ -267,12 +230,9 @@ export type CognitiveComplexityOption =
 
 /**
  * @minItems 0
- * @maxItems 2
+ * @maxItems 1
  */
-export type NoIdenticalFunctionsOption =
-  | []
-  | [number]
-  | [number, 'sonar-runtime' | 'metric'];
+export type NoIdenticalFunctionsOption = [] | [number];
 
 /**
  * @minItems 0
@@ -325,7 +285,7 @@ export type ContentLengthOption =
 
 /**
  * @minItems 0
- * @maxItems 2
+ * @maxItems 1
  */
 export type RegexComplexityOption =
   | []
@@ -333,12 +293,6 @@ export type RegexComplexityOption =
       {
         threshold?: number;
       },
-    ]
-  | [
-      {
-        threshold?: number;
-      },
-      'sonar-runtime' | 'metric',
     ];
 
 /**
@@ -423,7 +377,7 @@ export interface SonarJSRules {
    * Loops should not contain more than a single "break" or "continue" statement.
    * @see [too-many-break-or-continue-in-loop](https://sonarsource.github.io/rspec/#/rspec/S135/javascript)
    */
-  'sonarjs/too-many-break-or-continue-in-loop': [('sonar-runtime' | 'metric')?];
+  'sonarjs/too-many-break-or-continue-in-loop': null;
 
   /**
    * Functions should not have too many lines of code.
@@ -447,13 +401,13 @@ export interface SonarJSRules {
    * Function calls should not pass extra arguments.
    * @see [no-extra-arguments](https://sonarsource.github.io/rspec/#/rspec/S930/javascript)
    */
-  'sonarjs/no-extra-arguments': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-extra-arguments': null;
 
   /**
    * Mergeable "if" statements should be combined.
    * @see [no-collapsible-if](https://sonarsource.github.io/rspec/#/rspec/S1066/javascript)
    */
-  'sonarjs/no-collapsible-if': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-collapsible-if': null;
 
   /**
    * Expressions should not be too complex.
@@ -466,7 +420,7 @@ export interface SonarJSRules {
    * @deprecated
    * @see [no-redundant-parentheses](https://sonarsource.github.io/rspec/#/rspec/S1110/javascript)
    */
-  'sonarjs/no-redundant-parentheses': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-redundant-parentheses': null;
 
   /**
    * Labels should not be used.
@@ -611,7 +565,7 @@ export interface SonarJSRules {
    * Functions should not be defined inside loops.
    * @see [function-inside-loop](https://sonarsource.github.io/rspec/#/rspec/S1515/javascript)
    */
-  'sonarjs/function-inside-loop': [('sonar-runtime' | 'metric')?];
+  'sonarjs/function-inside-loop': null;
 
   /**
    * Dynamically executing code is security-sensitive.
@@ -623,9 +577,7 @@ export interface SonarJSRules {
    * Variables declared with "var" should be declared before they are used.
    * @see [no-variable-usage-before-declaration](https://sonarsource.github.io/rspec/#/rspec/S1526/javascript)
    */
-  'sonarjs/no-variable-usage-before-declaration': [
-    ('sonar-runtime' | 'metric')?,
-  ];
+  'sonarjs/no-variable-usage-before-declaration': null;
 
   /**
    * Future reserved words should not be used as identifiers.
@@ -685,7 +637,7 @@ export interface SonarJSRules {
    * Identical expressions should not be used on both sides of a binary operator.
    * @see [no-identical-expressions](https://sonarsource.github.io/rspec/#/rspec/S1764/javascript)
    */
-  'sonarjs/no-identical-expressions': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-identical-expressions': null;
 
   /**
    * "switch" statements should not be nested.
@@ -709,13 +661,13 @@ export interface SonarJSRules {
    * "if/else if" chains and "switch" cases should not have the same condition.
    * @see [no-identical-conditions](https://sonarsource.github.io/rspec/#/rspec/S1862/javascript)
    */
-  'sonarjs/no-identical-conditions': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-identical-conditions': null;
 
   /**
    * Two branches in a conditional structure should not have exactly the same implementation.
    * @see [no-duplicated-branches](https://sonarsource.github.io/rspec/#/rspec/S1871/javascript)
    */
-  'sonarjs/no-duplicated-branches': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-duplicated-branches': null;
 
   /**
    * Deprecated APIs should not be used.
@@ -757,7 +709,7 @@ export interface SonarJSRules {
    * Creating cookies without the "secure" flag is security-sensitive.
    * @see [insecure-cookie](https://sonarsource.github.io/rspec/#/rspec/S2092/javascript)
    */
-  'sonarjs/insecure-cookie': [('sonar-runtime' | 'metric')?];
+  'sonarjs/insecure-cookie': null;
 
   /**
    * Values should not be uselessly incremented.
@@ -799,7 +751,7 @@ export interface SonarJSRules {
    * Parameters should be passed in the correct order.
    * @see [arguments-order](https://sonarsource.github.io/rspec/#/rspec/S2234/javascript)
    */
-  'sonarjs/arguments-order': [('sonar-runtime' | 'metric')?];
+  'sonarjs/arguments-order': null;
 
   /**
    * Using pseudorandom number generators (PRNGs) is security-sensitive.
@@ -811,7 +763,7 @@ export interface SonarJSRules {
    * A "for" loop update clause should move the counter in the right direction.
    * @see [for-loop-increment-sign](https://sonarsource.github.io/rspec/#/rspec/S2251/javascript)
    */
-  'sonarjs/for-loop-increment-sign': [('sonar-runtime' | 'metric')?];
+  'sonarjs/for-loop-increment-sign': null;
 
   /**
    * Writing cookies is security-sensitive.
@@ -830,19 +782,20 @@ export interface SonarJSRules {
    * Methods should not contain selector parameters.
    * @see [no-selector-parameter](https://sonarsource.github.io/rspec/#/rspec/S2301/javascript)
    */
-  'sonarjs/no-selector-parameter': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-selector-parameter': null;
 
   /**
    * Loop counters should not be assigned within the loop body.
+   * @deprecated
    * @see [updated-loop-counter](https://sonarsource.github.io/rspec/#/rspec/S2310/javascript)
    */
-  'sonarjs/updated-loop-counter': [('sonar-runtime' | 'metric')?];
+  'sonarjs/updated-loop-counter': null;
 
   /**
    * Variables should be used in the blocks where they are declared.
    * @see [block-scoped-var](https://sonarsource.github.io/rspec/#/rspec/S2392/javascript)
    */
-  'sonarjs/block-scoped-var': [('sonar-runtime' | 'metric')?];
+  'sonarjs/block-scoped-var': null;
 
   /**
    * Built-in objects should not be overridden.
@@ -866,13 +819,13 @@ export interface SonarJSRules {
    * Boolean expressions should not be gratuitous.
    * @see [no-gratuitous-expressions](https://sonarsource.github.io/rspec/#/rspec/S2589/javascript)
    */
-  'sonarjs/no-gratuitous-expressions': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-gratuitous-expressions': null;
 
   /**
    * File uploads should be restricted.
    * @see [file-uploads](https://sonarsource.github.io/rspec/#/rspec/S2598/javascript)
    */
-  'sonarjs/file-uploads': [('sonar-runtime' | 'metric')?];
+  'sonarjs/file-uploads': null;
 
   /**
    * Setting loose POSIX file permissions is security-sensitive.
@@ -920,7 +873,7 @@ export interface SonarJSRules {
    * XML parsers should not be vulnerable to XXE attacks.
    * @see [xml-parser-xxe](https://sonarsource.github.io/rspec/#/rspec/S2755/javascript)
    */
-  'sonarjs/xml-parser-xxe': [('sonar-runtime' | 'metric')?];
+  'sonarjs/xml-parser-xxe': null;
 
   /**
    * Non-existent operators '=+', '=-' and '=!' should not be used.
@@ -981,7 +934,7 @@ export interface SonarJSRules {
    * Comparison operators should not be used with strings.
    * @see [strings-comparison](https://sonarsource.github.io/rspec/#/rspec/S3003/javascript)
    */
-  'sonarjs/strings-comparison': [('sonar-runtime' | 'metric')?];
+  'sonarjs/strings-comparison': null;
 
   /**
    * Default export names and file names should match.
@@ -993,7 +946,7 @@ export interface SonarJSRules {
    * Creating cookies without the "HttpOnly" flag is security-sensitive.
    * @see [cookie-no-httponly](https://sonarsource.github.io/rspec/#/rspec/S3330/javascript)
    */
-  'sonarjs/cookie-no-httponly': [('sonar-runtime' | 'metric')?];
+  'sonarjs/cookie-no-httponly': null;
 
   /**
    * Ternary operators should not be nested.
@@ -1005,49 +958,49 @@ export interface SonarJSRules {
    * Strings and non-strings should not be added.
    * @see [no-incorrect-string-concat](https://sonarsource.github.io/rspec/#/rspec/S3402/javascript)
    */
-  'sonarjs/no-incorrect-string-concat': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-incorrect-string-concat': null;
 
   /**
    * Strict equality operators should not be used with dissimilar types.
    * @see [different-types-comparison](https://sonarsource.github.io/rspec/#/rspec/S3403/javascript)
    */
-  'sonarjs/different-types-comparison': [('sonar-runtime' | 'metric')?];
+  'sonarjs/different-types-comparison': null;
 
   /**
    * Assertion arguments should be passed in the correct order.
    * @see [inverted-assertion-arguments](https://sonarsource.github.io/rspec/#/rspec/S3415/javascript)
    */
-  'sonarjs/inverted-assertion-arguments': [('sonar-runtime' | 'metric')?];
+  'sonarjs/inverted-assertion-arguments': null;
 
   /**
    * Shorthand object properties should be grouped at the beginning or end of an object declaration.
    * @see [shorthand-property-grouping](https://sonarsource.github.io/rspec/#/rspec/S3499/javascript)
    */
-  'sonarjs/shorthand-property-grouping': [('sonar-runtime' | 'metric')?];
+  'sonarjs/shorthand-property-grouping': null;
 
   /**
    * "const" variables should not be reassigned.
    * @see [updated-const-var](https://sonarsource.github.io/rspec/#/rspec/S3500/javascript)
    */
-  'sonarjs/updated-const-var': [('sonar-runtime' | 'metric')?];
+  'sonarjs/updated-const-var': null;
 
   /**
    * "arguments" should not be accessed directly.
    * @see [arguments-usage](https://sonarsource.github.io/rspec/#/rspec/S3513/javascript)
    */
-  'sonarjs/arguments-usage': [('sonar-runtime' | 'metric')?];
+  'sonarjs/arguments-usage': null;
 
   /**
    * Destructuring syntax should be used for assignments.
    * @see [destructuring-assignment-syntax](https://sonarsource.github.io/rspec/#/rspec/S3514/javascript)
    */
-  'sonarjs/destructuring-assignment-syntax': [('sonar-runtime' | 'metric')?];
+  'sonarjs/destructuring-assignment-syntax': null;
 
   /**
    * Function returns should not be invariant.
    * @see [no-invariant-returns](https://sonarsource.github.io/rspec/#/rspec/S3516/javascript)
    */
-  'sonarjs/no-invariant-returns': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-invariant-returns': null;
 
   /**
    * Braces and parentheses should be used consistently with arrow functions.
@@ -1095,7 +1048,7 @@ export interface SonarJSRules {
    * Functions should be called consistently with or without "new".
    * @see [inconsistent-function-call](https://sonarsource.github.io/rspec/#/rspec/S3686/javascript)
    */
-  'sonarjs/inconsistent-function-call': [('sonar-runtime' | 'metric')?];
+  'sonarjs/inconsistent-function-call': null;
 
   /**
    * The return value of void functions should not be used.
@@ -1132,9 +1085,7 @@ export interface SonarJSRules {
    * Arithmetic operators should only have numbers as operands.
    * @see [non-number-in-arithmetic-expression](https://sonarsource.github.io/rspec/#/rspec/S3760/javascript)
    */
-  'sonarjs/non-number-in-arithmetic-expression': [
-    ('sonar-runtime' | 'metric')?,
-  ];
+  'sonarjs/non-number-in-arithmetic-expression': null;
 
   /**
    * Cognitive Complexity of functions should not be too high.
@@ -1152,7 +1103,7 @@ export interface SonarJSRules {
    * "in" should not be used with primitive types.
    * @see [in-operator-type-error](https://sonarsource.github.io/rspec/#/rspec/S3785/javascript)
    */
-  'sonarjs/in-operator-type-error': [('sonar-runtime' | 'metric')?];
+  'sonarjs/in-operator-type-error': null;
 
   /**
    * Callbacks of array methods should have return statements.
@@ -1170,19 +1121,19 @@ export interface SonarJSRules {
    * Functions should always return the same type.
    * @see [function-return-type](https://sonarsource.github.io/rspec/#/rspec/S3800/javascript)
    */
-  'sonarjs/function-return-type': [('sonar-runtime' | 'metric')?];
+  'sonarjs/function-return-type': null;
 
   /**
    * Functions should use "return" consistently.
    * @see [no-inconsistent-returns](https://sonarsource.github.io/rspec/#/rspec/S3801/javascript)
    */
-  'sonarjs/no-inconsistent-returns': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-inconsistent-returns': null;
 
   /**
    * Variables should be defined before being used.
    * @see [no-reference-error](https://sonarsource.github.io/rspec/#/rspec/S3827/javascript)
    */
-  'sonarjs/no-reference-error': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-reference-error': null;
 
   /**
    * "super()" should be invoked appropriately.
@@ -1200,14 +1151,14 @@ export interface SonarJSRules {
    * Conditionals should start on new lines.
    * @see [no-same-line-conditional](https://sonarsource.github.io/rspec/#/rspec/S3972/javascript)
    */
-  'sonarjs/no-same-line-conditional': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-same-line-conditional': null;
 
   /**
    * A conditionally executed single line should be denoted by indentation.
    * @deprecated
    * @see [conditional-indentation](https://sonarsource.github.io/rspec/#/rspec/S3973/javascript)
    */
-  'sonarjs/conditional-indentation': [('sonar-runtime' | 'metric')?];
+  'sonarjs/conditional-indentation': null;
 
   /**
    * Collection size and array length comparisons should make sense.
@@ -1240,12 +1191,6 @@ export interface SonarJSRules {
   'sonarjs/no-misleading-array-reverse': null;
 
   /**
-   * "await" should only be used with promises.
-   * @see [no-invalid-await](https://sonarsource.github.io/rspec/#/rspec/S4123/javascript)
-   */
-  'sonarjs/no-invalid-await': null;
-
-  /**
    * "for in" should not be used with iterables.
    * @see [no-for-in-iterable](https://sonarsource.github.io/rspec/#/rspec/S4139/javascript)
    */
@@ -1255,7 +1200,7 @@ export interface SonarJSRules {
    * Collection elements should not be replaced unconditionally.
    * @see [no-element-overwrite](https://sonarsource.github.io/rspec/#/rspec/S4143/javascript)
    */
-  'sonarjs/no-element-overwrite': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-element-overwrite': null;
 
   /**
    * Functions should not have identical implementations.
@@ -1285,7 +1230,7 @@ export interface SonarJSRules {
    * Type aliases should be used.
    * @see [use-type-alias](https://sonarsource.github.io/rspec/#/rspec/S4323/javascript)
    */
-  'sonarjs/use-type-alias': [('sonar-runtime' | 'metric')?];
+  'sonarjs/use-type-alias': null;
 
   /**
    * Primitive return types should be used.
@@ -1321,7 +1266,7 @@ export interface SonarJSRules {
    * Disabling CSRF protections is security-sensitive.
    * @see [csrf](https://sonarsource.github.io/rspec/#/rspec/S4502/javascript)
    */
-  'sonarjs/csrf': [('sonar-runtime' | 'metric')?];
+  'sonarjs/csrf': null;
 
   /**
    * Delivering code in production with debug features activated is security-sensitive.
@@ -1345,7 +1290,7 @@ export interface SonarJSRules {
    * Union and intersection types should not include duplicated constituents.
    * @see [no-duplicate-in-composite](https://sonarsource.github.io/rspec/#/rspec/S4621/javascript)
    */
-  'sonarjs/no-duplicate-in-composite': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-duplicate-in-composite': null;
 
   /**
    * Union types should not have too many elements.
@@ -1381,7 +1326,7 @@ export interface SonarJSRules {
    * Optional property declarations should not use both '?' and 'undefined' syntax.
    * @see [no-redundant-optional](https://sonarsource.github.io/rspec/#/rspec/S4782/javascript)
    */
-  'sonarjs/no-redundant-optional': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-redundant-optional': null;
 
   /**
    * Using regular expressions is security-sensitive.
@@ -1427,7 +1372,7 @@ export interface SonarJSRules {
    * Promise rejections should not be caught by "try" blocks.
    * @see [no-try-promise](https://sonarsource.github.io/rspec/#/rspec/S4822/javascript)
    */
-  'sonarjs/no-try-promise': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-try-promise': null;
 
   /**
    * Using command line arguments is security-sensitive.
@@ -1447,7 +1392,7 @@ export interface SonarJSRules {
    * Server certificates should be verified during SSL/TLS connections.
    * @see [unverified-certificate](https://sonarsource.github.io/rspec/#/rspec/S4830/javascript)
    */
-  'sonarjs/unverified-certificate': [('sonar-runtime' | 'metric')?];
+  'sonarjs/unverified-certificate': null;
 
   /**
    * Expanding archive files without controlling resource consumption is security-sensitive.
@@ -1459,7 +1404,7 @@ export interface SonarJSRules {
    * Having a permissive Cross-Origin Resource Sharing policy is security-sensitive.
    * @see [cors](https://sonarsource.github.io/rspec/#/rspec/S5122/javascript)
    */
-  'sonarjs/cors': [('sonar-runtime' | 'metric')?];
+  'sonarjs/cors': null;
 
   /**
    * Authorizing an opened window to access back to the originating window is security-sensitive.
@@ -1471,7 +1416,7 @@ export interface SonarJSRules {
    * Disabling auto-escaping in template engines is security-sensitive.
    * @see [disabled-auto-escaping](https://sonarsource.github.io/rspec/#/rspec/S5247/javascript)
    */
-  'sonarjs/disabled-auto-escaping': [('sonar-runtime' | 'metric')?];
+  'sonarjs/disabled-auto-escaping': null;
 
   /**
    * Tables should have headers.
@@ -1513,7 +1458,7 @@ export interface SonarJSRules {
    * Server hostnames should be verified during SSL/TLS connections.
    * @see [unverified-hostname](https://sonarsource.github.io/rspec/#/rspec/S5527/javascript)
    */
-  'sonarjs/unverified-hostname': [('sonar-runtime' | 'metric')?];
+  'sonarjs/unverified-hostname': null;
 
   /**
    * Encryption algorithms should be used with secure mode and padding scheme.
@@ -1537,7 +1482,7 @@ export interface SonarJSRules {
    * JWT should be signed and verified with strong cipher algorithms.
    * @see [insecure-jwt-token](https://sonarsource.github.io/rspec/#/rspec/S5659/javascript)
    */
-  'sonarjs/insecure-jwt-token': [('sonar-runtime' | 'metric')?];
+  'sonarjs/insecure-jwt-token': null;
 
   /**
    * Disclosing fingerprints from web application technologies is security-sensitive.
@@ -1567,63 +1512,63 @@ export interface SonarJSRules {
    * Disabling content security policy fetch directives is security-sensitive.
    * @see [content-security-policy](https://sonarsource.github.io/rspec/#/rspec/S5728/javascript)
    */
-  'sonarjs/content-security-policy': [('sonar-runtime' | 'metric')?];
+  'sonarjs/content-security-policy': null;
 
   /**
    * Allowing mixed-content is security-sensitive.
    * @see [no-mixed-content](https://sonarsource.github.io/rspec/#/rspec/S5730/javascript)
    */
-  'sonarjs/no-mixed-content': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-mixed-content': null;
 
   /**
    * Disabling content security policy frame-ancestors directive is security-sensitive.
    * @see [frame-ancestors](https://sonarsource.github.io/rspec/#/rspec/S5732/javascript)
    */
-  'sonarjs/frame-ancestors': [('sonar-runtime' | 'metric')?];
+  'sonarjs/frame-ancestors': null;
 
   /**
    * Allowing browsers to sniff MIME types is security-sensitive.
    * @see [no-mime-sniff](https://sonarsource.github.io/rspec/#/rspec/S5734/javascript)
    */
-  'sonarjs/no-mime-sniff': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-mime-sniff': null;
 
   /**
    * Disabling strict HTTP no-referrer policy is security-sensitive.
    * @see [no-referrer-policy](https://sonarsource.github.io/rspec/#/rspec/S5736/javascript)
    */
-  'sonarjs/no-referrer-policy': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-referrer-policy': null;
 
   /**
    * Disabling Strict-Transport-Security policy is security-sensitive.
    * @see [strict-transport-security](https://sonarsource.github.io/rspec/#/rspec/S5739/javascript)
    */
-  'sonarjs/strict-transport-security': [('sonar-runtime' | 'metric')?];
+  'sonarjs/strict-transport-security': null;
 
   /**
    * Disabling Certificate Transparency monitoring is security-sensitive.
    * @deprecated
    * @see [certificate-transparency](https://sonarsource.github.io/rspec/#/rspec/S5742/javascript)
    */
-  'sonarjs/certificate-transparency': [('sonar-runtime' | 'metric')?];
+  'sonarjs/certificate-transparency': null;
 
   /**
    * Allowing browsers to perform DNS prefetching is security-sensitive.
    * @deprecated
    * @see [dns-prefetching](https://sonarsource.github.io/rspec/#/rspec/S5743/javascript)
    */
-  'sonarjs/dns-prefetching': [('sonar-runtime' | 'metric')?];
+  'sonarjs/dns-prefetching': null;
 
   /**
    * Allowing confidential information to be logged is security-sensitive.
    * @see [confidential-information-logging](https://sonarsource.github.io/rspec/#/rspec/S5757/javascript)
    */
-  'sonarjs/confidential-information-logging': [('sonar-runtime' | 'metric')?];
+  'sonarjs/confidential-information-logging': null;
 
   /**
    * Forwarding client IP address is security-sensitive.
    * @see [no-ip-forward](https://sonarsource.github.io/rspec/#/rspec/S5759/javascript)
    */
-  'sonarjs/no-ip-forward': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-ip-forward': null;
 
   /**
    * Repeated patterns in regular expressions should not match the empty string.
@@ -1659,19 +1604,19 @@ export interface SonarJSRules {
    * Names of regular expressions named groups should be used.
    * @see [unused-named-groups](https://sonarsource.github.io/rspec/#/rspec/S5860/javascript)
    */
-  'sonarjs/unused-named-groups': [('sonar-runtime' | 'metric')?];
+  'sonarjs/unused-named-groups': null;
 
   /**
    * Assertions should not be given twice the same argument.
    * @see [no-same-argument-assert](https://sonarsource.github.io/rspec/#/rspec/S5863/javascript)
    */
-  'sonarjs/no-same-argument-assert': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-same-argument-assert': null;
 
   /**
    * Regular expressions using Unicode character classes or property escapes should enable the unicode flag.
    * @see [unicode-aware-regex](https://sonarsource.github.io/rspec/#/rspec/S5867/javascript)
    */
-  'sonarjs/unicode-aware-regex': [('sonar-runtime' | 'metric')?];
+  'sonarjs/unicode-aware-regex': null;
 
   /**
    * Unicode Grapheme Clusters should be avoided inside regex character classes.
@@ -1683,7 +1628,7 @@ export interface SonarJSRules {
    * Character classes in regular expressions should not contain the same character twice.
    * @see [duplicates-in-character-class](https://sonarsource.github.io/rspec/#/rspec/S5869/javascript)
    */
-  'sonarjs/duplicates-in-character-class': [('sonar-runtime' | 'metric')?];
+  'sonarjs/duplicates-in-character-class': null;
 
   /**
    * A new session should be created during user authentication.
@@ -1719,7 +1664,7 @@ export interface SonarJSRules {
    * Tests should not execute any code after "done()" is called.
    * @see [no-code-after-done](https://sonarsource.github.io/rspec/#/rspec/S6079/javascript)
    */
-  'sonarjs/no-code-after-done': [('sonar-runtime' | 'metric')?];
+  'sonarjs/no-code-after-done': null;
 
   /**
    * Disabling Mocha timeouts should be explicit.
@@ -1738,7 +1683,7 @@ export interface SonarJSRules {
    * @deprecated
    * @see [aws-s3-bucket-server-encryption](https://sonarsource.github.io/rspec/#/rspec/S6245/javascript)
    */
-  'sonarjs/aws-s3-bucket-server-encryption': [('sonar-runtime' | 'metric')?];
+  'sonarjs/aws-s3-bucket-server-encryption': null;
 
   /**
    * Authorizing HTTP communications with S3 buckets is security-sensitive.
@@ -1750,13 +1695,13 @@ export interface SonarJSRules {
    * Disabling versioning of S3 buckets is security-sensitive.
    * @see [aws-s3-bucket-versioning](https://sonarsource.github.io/rspec/#/rspec/S6252/javascript)
    */
-  'sonarjs/aws-s3-bucket-versioning': [('sonar-runtime' | 'metric')?];
+  'sonarjs/aws-s3-bucket-versioning': null;
 
   /**
    * Granting access to S3 buckets to all or authenticated users is security-sensitive.
    * @see [aws-s3-bucket-granted-access](https://sonarsource.github.io/rspec/#/rspec/S6265/javascript)
    */
-  'sonarjs/aws-s3-bucket-granted-access': [('sonar-runtime' | 'metric')?];
+  'sonarjs/aws-s3-bucket-granted-access': null;
 
   /**
    * Disabling Angular built-in sanitization is security-sensitive.
@@ -1768,7 +1713,7 @@ export interface SonarJSRules {
    * Policies authorizing public access to resources are security-sensitive.
    * @see [aws-iam-public-access](https://sonarsource.github.io/rspec/#/rspec/S6270/javascript)
    */
-  'sonarjs/aws-iam-public-access': [('sonar-runtime' | 'metric')?];
+  'sonarjs/aws-iam-public-access': null;
 
   /**
    * Using unencrypted EBS volumes is security-sensitive.
@@ -1780,7 +1725,7 @@ export interface SonarJSRules {
    * Allowing public ACLs or policies on a S3 bucket is security-sensitive.
    * @see [aws-s3-bucket-public-access](https://sonarsource.github.io/rspec/#/rspec/S6281/javascript)
    */
-  'sonarjs/aws-s3-bucket-public-access': [('sonar-runtime' | 'metric')?];
+  'sonarjs/aws-s3-bucket-public-access': null;
 
   /**
    * Disabling Vue.js built-in escaping is security-sensitive.
@@ -1793,7 +1738,7 @@ export interface SonarJSRules {
    * Policies granting all privileges are security-sensitive.
    * @see [aws-iam-all-privileges](https://sonarsource.github.io/rspec/#/rspec/S6302/javascript)
    */
-  'sonarjs/aws-iam-all-privileges': [('sonar-runtime' | 'metric')?];
+  'sonarjs/aws-iam-all-privileges': null;
 
   /**
    * Using unencrypted RDS DB resources is security-sensitive.
@@ -1805,7 +1750,7 @@ export interface SonarJSRules {
    * Policies granting access to all resources of an account are security-sensitive.
    * @see [aws-iam-all-resources-accessible](https://sonarsource.github.io/rspec/#/rspec/S6304/javascript)
    */
-  'sonarjs/aws-iam-all-resources-accessible': [('sonar-runtime' | 'metric')?];
+  'sonarjs/aws-iam-all-resources-accessible': null;
 
   /**
    * Using unencrypted Elasticsearch domains is security-sensitive.
@@ -1817,7 +1762,7 @@ export interface SonarJSRules {
    * AWS IAM policies should limit the scope of permissions given.
    * @see [aws-iam-privilege-escalation](https://sonarsource.github.io/rspec/#/rspec/S6317/javascript)
    */
-  'sonarjs/aws-iam-privilege-escalation': [('sonar-runtime' | 'metric')?];
+  'sonarjs/aws-iam-privilege-escalation': null;
 
   /**
    * Using unencrypted SageMaker notebook instances is security-sensitive.
@@ -1895,7 +1840,7 @@ export interface SonarJSRules {
    * Regular expressions with the global flag should be used with caution.
    * @see [stateful-regex](https://sonarsource.github.io/rspec/#/rspec/S6351/javascript)
    */
-  'sonarjs/stateful-regex': [('sonar-runtime' | 'metric')?];
+  'sonarjs/stateful-regex': null;
 
   /**
    * Regular expression quantifiers and character classes should be used concisely.

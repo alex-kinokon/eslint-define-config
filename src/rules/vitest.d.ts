@@ -12,6 +12,10 @@ export interface ConsistentTestItOption {
   withinDescribe?: 'test' | 'it';
 }
 
+export interface ConsistentVitestViOption {
+  fn?: 'vi' | 'vitest';
+}
+
 export interface NoRestrictedViMethodsOption {
   [k: string]: string | null;
 }
@@ -102,6 +106,12 @@ export interface VitestRules {
    * @see [consistent-test-it](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md)
    */
   'vitest/consistent-test-it': [ConsistentTestItOption?];
+
+  /**
+   * Enforce using vitest or vi but not both.
+   * @see [consistent-vitest-vi](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-vitest-vi.md)
+   */
+  'vitest/consistent-vitest-vi': [ConsistentVitestViOption?];
 
   /**
    * Enforce using toBe().
