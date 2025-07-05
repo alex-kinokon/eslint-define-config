@@ -156,6 +156,7 @@ export interface MultilineBlocksOption {
   noMultilineBlocks?: boolean;
   noSingleLineBlocks?: boolean;
   noZeroLineText?: boolean;
+  requireSingleLineUnderCount?: number;
   singleLineTags?: string[];
 }
 

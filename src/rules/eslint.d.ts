@@ -2485,6 +2485,7 @@ export interface EslintRules {
   'no-duplicate-imports': [
     {
       includeExports?: boolean;
+      allowSeparateTypeImports?: boolean;
     }?,
   ];
 

@@ -2160,7 +2160,7 @@ export interface VueRules {
   'vue/no-restricted-custom-event': NoRestrictedCustomEventOption;
 
   /**
-   * Disallow specific HTML elements.
+   * Disallow specific elements.
    * @see [no-restricted-html-elements](https://eslint.vuejs.org/rules/no-restricted-html-elements.html)
    */
   'vue/no-restricted-html-elements': NoRestrictedHtmlElementsOption;

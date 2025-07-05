@@ -515,6 +515,24 @@ export interface VitestRules {
    * @see [prefer-importing-vitest-globals](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-importing-vitest-globals.md)
    */
   'vitest/prefer-importing-vitest-globals': null;
+
+  /**
+   * Enforce using `toBeCalledOnce()` or `toHaveBeenCalledOnce()`.
+   * @see [prefer-called-once](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-once.md)
+   */
+  'vitest/prefer-called-once': null;
+
+  /**
+   * Enforce using `toBeCalledTimes(1)` or `toHaveBeenCalledTimes(1)`.
+   * @see [prefer-called-times](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-times.md)
+   */
+  'vitest/prefer-called-times': null;
+
+  /**
+   * Disallow `.todo` usage.
+   * @see [warn-todo](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/warn-todo.md)
+   */
+  'vitest/warn-todo': null;
 }
 
 export type VitestRulesObject = RulesObject<VitestRules>;
