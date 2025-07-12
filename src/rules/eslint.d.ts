@@ -2395,7 +2395,7 @@ export interface EslintRules {
   'no-console': [NoConsoleOption?];
 
   /**
-   * Disallow reassigning `const` variables.
+   * Disallow reassigning `const`, `using`, and `await using` variables.
    * @see [no-const-assign](https://eslint.org/docs/latest/rules/no-const-assign)
    */
   'no-const-assign': null;

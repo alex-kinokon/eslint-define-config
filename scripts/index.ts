@@ -430,7 +430,6 @@ export async function run(): Promise<void> {
     try {
       logger.info(`Generating ${plugin.name} rules.`);
       logger.logUpdate(colors.yellow(`  Loading plugin > ${plugin.id}`));
-      logger.logUpdate('??Loading plugin' + plugin.import.toString());
       const loadedPlugin = await loadPlugin(plugin);
       extendsCollector.add(loadedPlugin);
 
@@ -451,7 +450,7 @@ export async function run(): Promise<void> {
         ruleDetails,
       });
     } catch (e) {
-      console.error(e.stack);
+      console.error((e as Error).stack);
       throw e;
     }
   }

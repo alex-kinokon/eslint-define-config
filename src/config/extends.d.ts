@@ -26,6 +26,79 @@ type CspellExtends =
 type DeprecationExtends = 'plugin:deprecation/recommended';
 
 /**
+ * ESLint EsX extends.
+ *
+ * @see [EsX extends](https://eslint-community.github.io/eslint-plugin-es-x/rules/)
+ */
+type EsXExtends =
+  | 'plugin:es-x/no-2015'
+  | 'plugin:es-x/no-2016'
+  | 'plugin:es-x/no-2017'
+  | 'plugin:es-x/no-2018'
+  | 'plugin:es-x/no-2019'
+  | 'plugin:es-x/no-5'
+  | 'plugin:es-x/no-array-grouping'
+  | 'plugin:es-x/no-change-array-by-copy'
+  | 'plugin:es-x/no-class-fields'
+  | 'plugin:es-x/no-explicit-resource-management'
+  | 'plugin:es-x/no-float16array'
+  | 'plugin:es-x/no-import-attributes'
+  | 'plugin:es-x/no-intl-numberformat-v3'
+  | 'plugin:es-x/no-is-usv-string'
+  | 'plugin:es-x/no-iterator-helpers'
+  | 'plugin:es-x/no-new-in-es2015'
+  | 'plugin:es-x/no-new-in-es2015-intl-api'
+  | 'plugin:es-x/no-new-in-es2016'
+  | 'plugin:es-x/no-new-in-es2016-intl-api'
+  | 'plugin:es-x/no-new-in-es2017'
+  | 'plugin:es-x/no-new-in-es2017-intl-api'
+  | 'plugin:es-x/no-new-in-es2018'
+  | 'plugin:es-x/no-new-in-es2018-intl-api'
+  | 'plugin:es-x/no-new-in-es2019'
+  | 'plugin:es-x/no-new-in-es2019-intl-api'
+  | 'plugin:es-x/no-new-in-es2020'
+  | 'plugin:es-x/no-new-in-es2020-intl-api'
+  | 'plugin:es-x/no-new-in-es2021'
+  | 'plugin:es-x/no-new-in-es2021-intl-api'
+  | 'plugin:es-x/no-new-in-es2022'
+  | 'plugin:es-x/no-new-in-es2022-intl-api'
+  | 'plugin:es-x/no-new-in-es2023'
+  | 'plugin:es-x/no-new-in-es2023-intl-api'
+  | 'plugin:es-x/no-new-in-es2024'
+  | 'plugin:es-x/no-new-in-es2024-intl-api'
+  | 'plugin:es-x/no-new-in-es2025'
+  | 'plugin:es-x/no-new-in-es2025-intl-api'
+  | 'plugin:es-x/no-new-in-es5'
+  | 'plugin:es-x/no-new-in-esnext'
+  | 'plugin:es-x/no-new-in-esnext-intl-api'
+  | 'plugin:es-x/no-relative-indexing-method'
+  | 'plugin:es-x/no-set-methods'
+  | 'plugin:es-x/no-string-matchall'
+  | 'plugin:es-x/restrict-to-es-intl-api-1st-edition'
+  | 'plugin:es-x/restrict-to-es2015'
+  | 'plugin:es-x/restrict-to-es2015-intl-api'
+  | 'plugin:es-x/restrict-to-es2016'
+  | 'plugin:es-x/restrict-to-es2016-intl-api'
+  | 'plugin:es-x/restrict-to-es2017'
+  | 'plugin:es-x/restrict-to-es2017-intl-api'
+  | 'plugin:es-x/restrict-to-es2018'
+  | 'plugin:es-x/restrict-to-es2018-intl-api'
+  | 'plugin:es-x/restrict-to-es2019'
+  | 'plugin:es-x/restrict-to-es2019-intl-api'
+  | 'plugin:es-x/restrict-to-es2020'
+  | 'plugin:es-x/restrict-to-es2020-intl-api'
+  | 'plugin:es-x/restrict-to-es2021'
+  | 'plugin:es-x/restrict-to-es2021-intl-api'
+  | 'plugin:es-x/restrict-to-es2022'
+  | 'plugin:es-x/restrict-to-es2022-intl-api'
+  | 'plugin:es-x/restrict-to-es2023'
+  | 'plugin:es-x/restrict-to-es2023-intl-api'
+  | 'plugin:es-x/restrict-to-es2024'
+  | 'plugin:es-x/restrict-to-es2024-intl-api'
+  | 'plugin:es-x/restrict-to-es3'
+  | 'plugin:es-x/restrict-to-es5';
+
+/**
  * ESLint Eslint extends.
  */
 type EslintExtends = 'eslint:recommended' | 'eslint:all';
@@ -425,6 +498,7 @@ export type KnownExtends = LiteralUnion<
   | AstroExtends
   | CspellExtends
   | DeprecationExtends
+  | EsXExtends
   | EslintExtends
   | EslintCommentsExtends
   | GraphQlExtends

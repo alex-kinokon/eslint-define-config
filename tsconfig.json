@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "strict": true,
     "noEmit": true,
-    "declaration": true,
+    "declaration": false,
     "noImplicitOverride": true,
     "noUncheckedIndexedAccess": true,
     "allowSyntheticDefaultImports": true,

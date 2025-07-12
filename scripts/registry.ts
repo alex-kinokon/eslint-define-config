@@ -23,6 +23,13 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
   include('deprecation', {
     import: () => import('eslint-plugin-deprecation'),
   }),
+  include('es-x', {
+    // @ts-expect-error no types
+    import: () => import('eslint-plugin-es-x'),
+    docs: {
+      extends: 'https://eslint-community.github.io/eslint-plugin-es-x/rules/',
+    },
+  }),
   include('eslint', {
     import: () => import('eslint'),
   }),
@@ -43,7 +50,6 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     },
   }),
   include('import', {
-    // @ts-expect-error no types
     import: () => import('eslint-plugin-import'),
     docs: {
       extends: 'https://github.com/import-js/eslint-plugin-import#installation',
@@ -273,8 +279,9 @@ const order = [
    * Map of plugins for which the script will generate rule files.
    */
   'deprecation',
-  'eslint',
+  'es-x',
   'eslint-comments',
+  'eslint',
   'graphql-eslint',
   'import-x',
   'import',

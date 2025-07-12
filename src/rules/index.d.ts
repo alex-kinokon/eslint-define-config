@@ -4,6 +4,7 @@ import type { RuleConfig, RulesObject } from '../rule-config';
 import type { AstroRulesObject } from './astro';
 import type { CspellRulesObject } from './cspell';
 import type { DeprecationRulesObject } from './deprecation';
+import type { EsXRulesObject } from './es-x';
 import type { EslintRulesObject } from './eslint';
 import type { EslintCommentsRulesObject } from './eslint-comments';
 import type { GraphQLRulesObject } from './graphql-eslint';
@@ -85,6 +86,7 @@ export interface Rules
     AstroRulesObject,
     CspellRulesObject,
     DeprecationRulesObject,
+    EsXRulesObject,
     EslintRulesObject,
     EslintCommentsRulesObject,
     GraphQLRulesObject,
