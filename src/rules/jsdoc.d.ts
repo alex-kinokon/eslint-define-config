@@ -143,8 +143,8 @@ export interface MatchNameOption {
     context?: string;
     disallowName?: string;
     message?: string;
+    replacement?: string;
     tags?: string[];
-    [k: string]: any;
   }[];
 }
 
@@ -209,7 +209,6 @@ export interface RequireAsteriskPrefixConfig {
     always?: string[];
     any?: string[];
     never?: string[];
-    [k: string]: any;
   };
 }
 
@@ -462,7 +461,6 @@ export interface SortTagsOption {
   reportTagGroupSpacing?: boolean;
   tagSequence?: {
     tags?: string[];
-    [k: string]: any;
   }[];
 }
 

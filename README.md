@@ -2,7 +2,7 @@
 
 Fork from v1 of [eslint-types/eslint-define-config](https://github.com/eslint-types/eslint-define-config).
 
-Provide a `defineConfig` function for `.eslintrc.js`, and a `defineFlatConfig` function for `eslint.config.js` files.
+Provide a `defineConfig` function for `eslint.config.js` files.
 
 > This project is written by a human and only partially automatically generated!  
 > Some rules are even enhanced by hand!  

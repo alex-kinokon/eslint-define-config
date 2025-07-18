@@ -316,10 +316,12 @@ export namespace Indent {
     FunctionDeclaration?: {
       parameters?: number | ('first' | 'off');
       body?: number;
+      returnType?: number;
     };
     FunctionExpression?: {
       parameters?: number | ('first' | 'off');
       body?: number;
+      returnType?: number;
     };
     StaticBlock?: {
       body?: number;
@@ -376,48 +378,72 @@ export type JsxCurlyNewlineOption =
       multiline?: 'consistent' | 'require' | 'forbid';
     };
 
-export namespace JsxCurlySpacing {
-  export type JsxCurlySpacingOption =
-    | []
-    | [
-        | (BasicConfig & {
-            attributes?: BasicConfigOrBoolean;
-            children?: BasicConfigOrBoolean;
-            [k: string]: any;
-          })
-        | ('always' | 'never'),
-      ]
-    | [
-        (
-          | (BasicConfig & {
-              attributes?: BasicConfigOrBoolean;
-              children?: BasicConfigOrBoolean;
-              [k: string]: any;
-            })
-          | ('always' | 'never')
-        ),
-        {
+export type JsxCurlySpacingOption =
+  | []
+  | [
+      | {
+          when?: 'always' | 'never';
           allowMultiline?: boolean;
           spacing?: {
             objectLiterals?: 'always' | 'never';
-            [k: string]: any;
           };
-        },
-      ];
-  export type BasicConfigOrBoolean = BasicConfig | boolean;
-
-  export interface BasicConfig {
-    when?: 'always' | 'never';
-    allowMultiline?: boolean;
-    spacing?: {
-      objectLiterals?: 'always' | 'never';
-      [k: string]: any;
-    };
-    [k: string]: any;
-  }
-
-  export type JsxCurlySpacingRuleConfig = JsxCurlySpacingOption;
-}
+          attributes?:
+            | {
+                when?: 'always' | 'never';
+                allowMultiline?: boolean;
+                spacing?: {
+                  objectLiterals?: 'always' | 'never';
+                };
+              }
+            | boolean;
+          children?:
+            | {
+                when?: 'always' | 'never';
+                allowMultiline?: boolean;
+                spacing?: {
+                  objectLiterals?: 'always' | 'never';
+                };
+              }
+            | boolean;
+        }
+      | ('always' | 'never'),
+    ]
+  | [
+      (
+        | {
+            when?: 'always' | 'never';
+            allowMultiline?: boolean;
+            spacing?: {
+              objectLiterals?: 'always' | 'never';
+            };
+            attributes?:
+              | {
+                  when?: 'always' | 'never';
+                  allowMultiline?: boolean;
+                  spacing?: {
+                    objectLiterals?: 'always' | 'never';
+                  };
+                }
+              | boolean;
+            children?:
+              | {
+                  when?: 'always' | 'never';
+                  allowMultiline?: boolean;
+                  spacing?: {
+                    objectLiterals?: 'always' | 'never';
+                  };
+                }
+              | boolean;
+          }
+        | ('always' | 'never')
+      ),
+      {
+        allowMultiline?: boolean;
+        spacing?: {
+          objectLiterals?: 'always' | 'never';
+        };
+      },
+    ];
 
 export type JsxIndentOption = 'tab' | number;
 
@@ -435,7 +461,6 @@ export type JsxIndentPropsOption =
   | {
       indentMode?: ('tab' | 'first') | number;
       ignoreTernaryOperator?: boolean;
-      [k: string]: any;
     };
 
 export type JsxMaxPropsPerLineOption =
@@ -443,7 +468,6 @@ export type JsxMaxPropsPerLineOption =
       maximum?: {
         single?: number;
         multi?: number;
-        [k: string]: any;
       };
     }
   | {
@@ -789,6 +813,10 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      accessor?: {
+        before?: boolean;
+        after?: boolean;
+      };
       as?: {
         before?: boolean;
         after?: boolean;
@@ -999,17 +1027,15 @@ export type MultilineCommentStyleOption =
       'separate-lines',
       {
         checkJSDoc?: boolean;
+        checkExclamation?: boolean;
       },
     ];
 
-export interface MultilineTernaryConfig {
-  ignoreJSX?: boolean;
-  [k: string]: any;
-}
-
 export type MultilineTernaryRuleConfig = [
   ('always' | 'always-multiline' | 'never')?,
-  MultilineTernaryConfig?,
+  {
+    ignoreJSX?: boolean;
+  }?,
 ];
 
 export type NoExtraParensOption =
@@ -1727,7 +1753,7 @@ export interface StylisticRules {
    * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
    * @see [jsx-curly-spacing](https://eslint.style/rules/jsx-curly-spacing)
    */
-  'stylistic/jsx-curly-spacing': JsxCurlySpacing.JsxCurlySpacingRuleConfig;
+  'stylistic/jsx-curly-spacing': JsxCurlySpacingOption;
 
   /**
    * Enforce or disallow spaces around equal signs in JSX attributes.

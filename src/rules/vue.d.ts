@@ -628,6 +628,10 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      accessor?: {
+        before?: boolean;
+        after?: boolean;
+      };
       as?: {
         before?: boolean;
         after?: boolean;
@@ -753,14 +757,11 @@ export namespace MaxLen {
   ];
 }
 
-export interface MultilineTernaryConfig {
-  ignoreJSX?: boolean;
-  [k: string]: any;
-}
-
 export type MultilineTernaryRuleConfig = [
   ('always' | 'always-multiline' | 'never')?,
-  MultilineTernaryConfig?,
+  {
+    ignoreJSX?: boolean;
+  }?,
 ];
 
 export interface NoBareStringsInTemplateOption {
