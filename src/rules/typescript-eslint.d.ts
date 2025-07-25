@@ -1716,7 +1716,6 @@ export namespace PreferDestructuring {
      * Whether to enforce destructuring that use a different variable name than the property name.
      */
     enforceForRenamedProperties?: boolean;
-    [k: string]: any;
   }
 
   export type PreferDestructuringRuleConfig = [
@@ -1774,7 +1773,6 @@ export interface PreferNullishCoalescingOption {
          * Ignore string primitive types.
          */
         string?: boolean;
-        [k: string]: any;
       }
     | true;
   /**
