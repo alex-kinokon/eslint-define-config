@@ -260,6 +260,13 @@ export type GeneratorStarSpacingOption =
           };
     };
 
+export type GroupedAccessorPairsRuleConfig = [
+  ('anyOrder' | 'getBeforeSet' | 'setBeforeGet')?,
+  {
+    enforceForTSTypes?: boolean;
+  }?,
+];
+
 export type HandleCallbackErrOption = string;
 
 export type IdBlacklistOption = string[];
@@ -1246,6 +1253,7 @@ export type NoUnusedVarsOption =
       caughtErrorsIgnorePattern?: string;
       destructuredArrayIgnorePattern?: string;
       ignoreClassWithStaticInitBlock?: boolean;
+      ignoreUsingDeclarations?: boolean;
       reportUsedIgnorePattern?: boolean;
     };
 
@@ -1734,6 +1742,7 @@ export interface EslintRules {
       getWithoutSet?: boolean;
       setWithoutGet?: boolean;
       enforceForClassMembers?: boolean;
+      enforceForTSTypes?: boolean;
     }?,
   ];
 
@@ -2033,7 +2042,7 @@ export interface EslintRules {
    * Require grouped accessor pairs in object literals and classes.
    * @see [grouped-accessor-pairs](https://eslint.org/docs/latest/rules/grouped-accessor-pairs)
    */
-  'grouped-accessor-pairs': [('anyOrder' | 'getBeforeSet' | 'setBeforeGet')?];
+  'grouped-accessor-pairs': GroupedAccessorPairsRuleConfig;
 
   /**
    * Require `for-in` loops to include an `if` statement.
