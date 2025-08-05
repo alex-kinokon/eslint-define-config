@@ -43,6 +43,7 @@ export namespace RequireDescription {
 export interface EslintCommentsRules {
   /**
    * Require a `eslint-enable` comment for every `eslint-disable` comment.
+   * @preset `eslint-comments/recommended`
    * @see [disable-enable-pair](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/disable-enable-pair.html)
    */
   'eslint-comments/disable-enable-pair': [
@@ -53,12 +54,14 @@ export interface EslintCommentsRules {
 
   /**
    * Disallow a `eslint-enable` comment for multiple `eslint-disable` comments.
+   * @preset `eslint-comments/recommended`
    * @see [no-aggregating-enable](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-aggregating-enable.html)
    */
   'eslint-comments/no-aggregating-enable': null;
 
   /**
    * Disallow duplicate `eslint-disable` comments.
+   * @preset `eslint-comments/recommended`
    * @see [no-duplicate-disable](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-duplicate-disable.html)
    */
   'eslint-comments/no-duplicate-disable': null;
@@ -71,6 +74,7 @@ export interface EslintCommentsRules {
 
   /**
    * Disallow `eslint-disable` comments without rule names.
+   * @preset `eslint-comments/recommended`
    * @see [no-unlimited-disable](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unlimited-disable.html)
    */
   'eslint-comments/no-unlimited-disable': null;
@@ -83,6 +87,7 @@ export interface EslintCommentsRules {
 
   /**
    * Disallow unused `eslint-enable` comments.
+   * @preset `eslint-comments/recommended`
    * @see [no-unused-enable](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-enable.html)
    */
   'eslint-comments/no-unused-enable': null;

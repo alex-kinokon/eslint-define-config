@@ -14,23 +14,30 @@ export interface PreferLowercaseTitleOption {
   ignoreTopLevelDescribe?: boolean;
 }
 
-export type ValidTitleOption = {
+export interface ValidTestTagsOption {
+  allowedTags?: (
+    | string
+    | {
+        source?: string;
+      }
+  )[];
+  disallowedTags?: (
+    | string
+    | {
+        source?: string;
+      }
+  )[];
+}
+
+export interface ValidTitleOption {
   disallowedWords?: string[];
   ignoreSpaces?: boolean;
   ignoreTypeOfDescribeName?: boolean;
   ignoreTypeOfStepName?: boolean;
   ignoreTypeOfTestName?: boolean;
-  /**
-   */
-} & {
-  [k: string]:
-    | string
-    | [string]
-    | [string, string]
-    | {
-        [k: string]: string | [string] | [string, string];
-      };
-};
+  mustNotMatch?: Partial<Record<'describe' | 'test', string>> | string;
+  mustMatch?: Partial<Record<'describe' | 'test', string>> | string;
+}
 
 /**
  * All Playwright rules.
@@ -38,6 +45,7 @@ export type ValidTitleOption = {
 export interface PlaywrightRules {
   /**
    * Enforce assertion to be made in a test body.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [expect-expect](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/expect-expect.md)
    */
   'playwright/expect-expect': [ExpectExpectOption?];
@@ -54,6 +62,7 @@ export interface PlaywrightRules {
 
   /**
    * Enforces a maximum depth to nested describe calls.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [max-nested-describe](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/max-nested-describe.md)
    */
   'playwright/max-nested-describe': [
@@ -64,6 +73,7 @@ export interface PlaywrightRules {
 
   /**
    * Identify false positives when async Playwright APIs are not properly awaited.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [missing-playwright-await](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/missing-playwright-await.md)
    */
   'playwright/missing-playwright-await': [
@@ -80,12 +90,14 @@ export interface PlaywrightRules {
 
   /**
    * Disallow calling `expect` conditionally.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-conditional-expect](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-conditional-expect.md)
    */
   'playwright/no-conditional-expect': null;
 
   /**
    * Disallow conditional logic in tests.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-conditional-in-test](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-conditional-in-test.md)
    */
   'playwright/no-conditional-in-test': null;
@@ -98,24 +110,28 @@ export interface PlaywrightRules {
 
   /**
    * The use of ElementHandle is discouraged, use Locator instead.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-element-handle](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-element-handle.md)
    */
   'playwright/no-element-handle': null;
 
   /**
    * The use of `page.$eval` and `page.$$eval` are discouraged, use `locator.evaluate` or `locator.evaluateAll` instead.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-eval](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-eval.md)
    */
   'playwright/no-eval': null;
 
   /**
    * Prevent usage of `.only()` focus test annotation.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-focused-test](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-focused-test.md)
    */
   'playwright/no-focused-test': null;
 
   /**
    * Prevent usage of `{ force: true }` option.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-force-option](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-force-option.md)
    */
   'playwright/no-force-option': null;
@@ -138,12 +154,14 @@ export interface PlaywrightRules {
 
   /**
    * Disallow nested `test.step()` methods.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-nested-step](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-nested-step.md)
    */
   'playwright/no-nested-step': null;
 
   /**
    * Prevent usage of the networkidle option.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-networkidle](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-networkidle.md)
    */
   'playwright/no-networkidle': null;
@@ -156,6 +174,7 @@ export interface PlaywrightRules {
 
   /**
    * Prevent usage of page.pause().
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-page-pause](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-page-pause.md)
    */
   'playwright/no-page-pause': null;
@@ -178,6 +197,7 @@ export interface PlaywrightRules {
 
   /**
    * Prevent usage of the `.skip()` skip test annotation.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-skipped-test](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-skipped-test.md)
    */
   'playwright/no-skipped-test': [
@@ -198,36 +218,49 @@ export interface PlaywrightRules {
 
   /**
    * Disallow using `expect` outside of `test` blocks.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-standalone-expect](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-standalone-expect.md)
    */
   'playwright/no-standalone-expect': null;
 
   /**
-   * Prevent unsafe variable references in page.evaluate().
+   * Prevent unsafe variable references in page.evaluate() and page.addInitScript().
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-unsafe-references](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-unsafe-references.md)
    */
   'playwright/no-unsafe-references': null;
 
   /**
    * Disallow unnecessary awaits for Playwright methods.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-useless-await](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-useless-await.md)
    */
   'playwright/no-useless-await': null;
 
   /**
    * Disallow usage of 'not' matchers when a more specific matcher exists.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-useless-not](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-useless-not.md)
    */
   'playwright/no-useless-not': null;
 
   /**
+   * Prevent usage of page.waitForNavigation().
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
+   * @see [no-wait-for-navigation](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-wait-for-navigation.md)
+   */
+  'playwright/no-wait-for-navigation': null;
+
+  /**
    * Prevent usage of page.waitForSelector().
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-wait-for-selector](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-wait-for-selector.md)
    */
   'playwright/no-wait-for-selector': null;
 
   /**
    * Prevent usage of page.waitForTimeout().
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-wait-for-timeout](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-wait-for-timeout.md)
    */
   'playwright/no-wait-for-timeout': null;
@@ -310,6 +343,7 @@ export interface PlaywrightRules {
 
   /**
    * Prefer web first assertions.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [prefer-web-first-assertions](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/prefer-web-first-assertions.md)
    */
   'playwright/prefer-web-first-assertions': null;
@@ -348,12 +382,14 @@ export interface PlaywrightRules {
 
   /**
    * Enforce valid `describe()` callback.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [valid-describe-callback](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/valid-describe-callback.md)
    */
   'playwright/valid-describe-callback': null;
 
   /**
    * Enforce valid `expect()` usage.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [valid-expect](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/valid-expect.md)
    */
   'playwright/valid-expect': [
@@ -365,12 +401,20 @@ export interface PlaywrightRules {
 
   /**
    * Require promises that have expectations in their chain to be valid.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [valid-expect-in-promise](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/valid-expect-in-promise.md)
    */
   'playwright/valid-expect-in-promise': null;
 
   /**
+   * Enforce valid tag format in Playwright test blocks.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
+   */
+  'playwright/valid-test-tags': [ValidTestTagsOption?];
+
+  /**
    * Enforce valid titles.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [valid-title](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/valid-title.md)
    */
   'playwright/valid-title': [ValidTitleOption?];

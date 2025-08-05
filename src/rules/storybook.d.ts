@@ -70,12 +70,14 @@ export interface StorybookRules {
 
   /**
    * StoriesOf is deprecated and should not be used.
+   * @preset `storybook/csf-strict`
    * @see [no-stories-of](https://github.com/storybookjs/storybook/blob/next/code/lib/eslint-plugin/docs/rules/no-stories-of.md)
    */
   'storybook/no-stories-of': null;
 
   /**
    * Do not define a title in meta.
+   * @preset `storybook/csf-strict`
    * @see [no-title-property-in-meta](https://github.com/storybookjs/storybook/blob/next/code/lib/eslint-plugin/docs/rules/no-title-property-in-meta.md)
    */
   'storybook/no-title-property-in-meta': null;

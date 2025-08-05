@@ -106,12 +106,14 @@ export interface NoUnnecessaryArbitraryValueOption {
 export interface TailwindRules {
   /**
    * Enforce a consistent and logical order of the Tailwind CSS classnames.
+   * @preset `tailwindcss/recommended`
    * @see [classnames-order](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/classnames-order.md)
    */
   'tailwindcss/classnames-order': [ClassnamesOrderOption?];
 
   /**
    * Warns about dash prefixed classnames using arbitrary values.
+   * @preset `tailwindcss/recommended`
    * @see [enforces-negative-arbitrary-values](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/enforces-negative-arbitrary-values.md)
    */
   'tailwindcss/enforces-negative-arbitrary-values': [
@@ -120,36 +122,42 @@ export interface TailwindRules {
 
   /**
    * Enforces the usage of shorthand Tailwind CSS classnames.
+   * @preset `tailwindcss/recommended`
    * @see [enforces-shorthand](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/enforces-shorthand.md)
    */
   'tailwindcss/enforces-shorthand': [EnforcesShorthandOption?];
 
   /**
    * Detect obsolete classnames when upgrading to Tailwind CSS v3.
+   * @preset `tailwindcss/recommended`
    * @see [migration-from-tailwind-2](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/migration-from-tailwind-2.md)
    */
   'tailwindcss/migration-from-tailwind-2': [MigrationFromTailwind_2Option?];
 
   /**
    * Forbid using arbitrary values in classnames.
+   * @preset `tailwindcss/recommended`
    * @see [no-arbitrary-value](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-arbitrary-value.md)
    */
   'tailwindcss/no-arbitrary-value': [NoArbitraryValueOption?];
 
   /**
    * Avoid contradicting Tailwind CSS classnames (e.g. "w-3 w-5").
+   * @preset `tailwindcss/recommended`
    * @see [no-contradicting-classname](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-contradicting-classname.md)
    */
   'tailwindcss/no-contradicting-classname': [NoContradictingClassnameOption?];
 
   /**
    * Detect classnames which do not belong to Tailwind CSS.
+   * @preset `tailwindcss/recommended`
    * @see [no-custom-classname](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-custom-classname.md)
    */
   'tailwindcss/no-custom-classname': [NoCustomClassnameOption?];
 
   /**
    * Forbid using arbitrary values in classnames when an equivalent preset exists.
+   * @preset `tailwindcss/recommended`
    * @see [no-unnecessary-arbitrary-value](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-unnecessary-arbitrary-value.md)
    */
   'tailwindcss/no-unnecessary-arbitrary-value': [

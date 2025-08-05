@@ -352,12 +352,14 @@ export interface DynamicImportChunknameOption {
 export interface ImportXRules {
   /**
    * Ensure imports point to a file/module that can be resolved.
+   * @preset `import-x/recommended`, `import-x/errors`, `import-x/flat/recommended`, `import-x/flat/errors`
    * @see [no-unresolved](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/no-unresolved.md)
    */
   'import-x/no-unresolved': [NoUnresolvedOption?];
 
   /**
    * Ensure named imports correspond to a named export in the remote file.
+   * @preset `import-x/recommended`, `import-x/errors`, `import-x/typescript`, `import-x/flat/recommended`, `import-x/flat/errors`, `import-x/flat/typescript`
    * @see [named](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/named.md)
    */
   'import-x/named': [
@@ -368,12 +370,14 @@ export interface ImportXRules {
 
   /**
    * Ensure a default export is present, given a default import.
+   * @preset `import-x/recommended`, `import-x/errors`, `import-x/flat/recommended`, `import-x/flat/errors`
    * @see [default](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/default.md)
    */
   'import-x/default': null;
 
   /**
    * Ensure imported namespaces contain dereferenced properties as they are dereferenced.
+   * @preset `import-x/recommended`, `import-x/errors`, `import-x/flat/recommended`, `import-x/flat/errors`
    * @see [namespace](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/namespace.md)
    */
   'import-x/namespace': [NamespaceOption?];
@@ -386,6 +390,7 @@ export interface ImportXRules {
 
   /**
    * Forbid any invalid exports, i.e. re-export of the same name.
+   * @preset `import-x/recommended`, `import-x/errors`, `import-x/flat/recommended`, `import-x/flat/errors`
    * @see [export](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/export.md)
    */
   'import-x/export': null;
@@ -460,12 +465,14 @@ export interface ImportXRules {
 
   /**
    * Forbid use of exported name as identifier of default export.
+   * @preset `import-x/recommended`, `import-x/warnings`, `import-x/flat/recommended`, `import-x/flat/warnings`
    * @see [no-named-as-default](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/no-named-as-default.md)
    */
   'import-x/no-named-as-default': null;
 
   /**
    * Forbid use of exported name as property of default export.
+   * @preset `import-x/recommended`, `import-x/warnings`, `import-x/flat/recommended`, `import-x/flat/warnings`
    * @see [no-named-as-default-member](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/no-named-as-default-member.md)
    */
   'import-x/no-named-as-default-member': null;
@@ -478,6 +485,7 @@ export interface ImportXRules {
 
   /**
    * Forbid importing a default export by a different name.
+   * @preset `import-x/warnings`, `import-x/flat/warnings`
    * @see [no-rename-default](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/no-rename-default.md)
    */
   'import-x/no-rename-default': [
@@ -507,6 +515,7 @@ export interface ImportXRules {
 
   /**
    * Forbid repeated import of the same module in multiple places.
+   * @preset `import-x/recommended`, `import-x/warnings`, `import-x/flat/recommended`, `import-x/flat/warnings`
    * @see [no-duplicates](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/no-duplicates.md)
    */
   'import-x/no-duplicates': [NoDuplicatesOption?];
@@ -665,6 +674,7 @@ export interface ImportXRules {
 
   /**
    * Forbid imported names marked with `@deprecated` documentation tag.
+   * @preset `import-x/stage-0`, `import-x/flat/stage-0`
    * @see [no-deprecated](https://github.com/un-ts/eslint-plugin-import-x/blob/v4.16.1/docs/rules/no-deprecated.md)
    */
   'import-x/no-deprecated': null;

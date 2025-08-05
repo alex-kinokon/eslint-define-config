@@ -18,6 +18,7 @@ export interface PreferAwaitToThenOption {
 export interface PromiseRules {
   /**
    * Enforce consistent param names and ordering when creating new promises.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [param-names](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/param-names.md)
    */
   'promise/param-names': [
@@ -29,6 +30,7 @@ export interface PromiseRules {
 
   /**
    * Disallow wrapping values in `Promise.resolve` or `Promise.reject` when not needed.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [no-return-wrap](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-return-wrap.md)
    */
   'promise/no-return-wrap': [
@@ -39,6 +41,7 @@ export interface PromiseRules {
 
   /**
    * Require returning inside each `then()` to create readable and reusable Promise chains.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [always-return](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/always-return.md)
    */
   'promise/always-return': [
@@ -50,6 +53,7 @@ export interface PromiseRules {
 
   /**
    * Enforce the use of `catch()` on un-returned promises.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [catch-or-return](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/catch-or-return.md)
    */
   'promise/catch-or-return': [CatchOrReturnOption?];
@@ -74,12 +78,14 @@ export interface PromiseRules {
 
   /**
    * Require creating a `Promise` constructor before using it in an ES5 environment.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [no-native](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-native.md)
    */
   'promise/no-native': null;
 
   /**
    * Disallow calling `cb()` inside of a `then()` (use [util.callbackify][] instead).
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [no-callback-in-promise](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-callback-in-promise.md)
    */
   'promise/no-callback-in-promise': [
@@ -91,36 +97,42 @@ export interface PromiseRules {
 
   /**
    * Disallow using promises inside of callbacks.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [no-promise-in-callback](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-promise-in-callback.md)
    */
   'promise/no-promise-in-callback': null;
 
   /**
    * Disallow nested `then()` or `catch()` statements.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [no-nesting](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-nesting.md)
    */
   'promise/no-nesting': null;
 
   /**
    * Disallow creating `new` promises outside of utility libs (use [util.promisify][] instead).
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [avoid-new](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/avoid-new.md)
    */
   'promise/avoid-new': null;
 
   /**
    * Disallow calling `new` on a Promise static method.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [no-new-statics](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-new-statics.md)
    */
   'promise/no-new-statics': null;
 
   /**
    * Disallow return statements in `finally()`.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [no-return-in-finally](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-return-in-finally.md)
    */
   'promise/no-return-in-finally': null;
 
   /**
    * Enforces the proper number of arguments are passed to Promise functions.
+   * @preset `promise/recommended`, `promise/flat/recommended`
    * @see [valid-params](https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/valid-params.md)
    */
   'promise/valid-params': [

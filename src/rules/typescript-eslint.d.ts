@@ -2164,36 +2164,42 @@ export interface UnifiedSignaturesOption {
 export interface TypeScriptRules {
   /**
    * Require that function overload signatures be consecutive.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [adjacent-overload-signatures](https://typescript-eslint.io/rules/adjacent-overload-signatures)
    */
   '@typescript-eslint/adjacent-overload-signatures': null;
 
   /**
    * Require consistently using either `T[]` or `Array<T>` for arrays.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [array-type](https://typescript-eslint.io/rules/array-type)
    */
   '@typescript-eslint/array-type': [ArrayTypeOption?];
 
   /**
    * Disallow awaiting a value that is not a Thenable.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [await-thenable](https://typescript-eslint.io/rules/await-thenable)
    */
   '@typescript-eslint/await-thenable': null;
 
   /**
    * Disallow `@ts-<directive>` comments or require descriptions after directives.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [ban-ts-comment](https://typescript-eslint.io/rules/ban-ts-comment)
    */
   '@typescript-eslint/ban-ts-comment': BanTsComment.BanTsCommentRuleConfig;
 
   /**
    * Disallow `// tslint:<rule-flag>` comments.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [ban-tslint-comment](https://typescript-eslint.io/rules/ban-tslint-comment)
    */
   '@typescript-eslint/ban-tslint-comment': null;
 
   /**
    * Enforce that literals on classes are exposed in a consistent style.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [class-literal-property-style](https://typescript-eslint.io/rules/class-literal-property-style)
    */
   '@typescript-eslint/class-literal-property-style': [
@@ -2202,12 +2208,14 @@ export interface TypeScriptRules {
 
   /**
    * Enforce that class methods utilize `this`.
+   * @preset `@typescript-eslint/all`
    * @see [class-methods-use-this](https://typescript-eslint.io/rules/class-methods-use-this)
    */
   '@typescript-eslint/class-methods-use-this': [ClassMethodsUseThisOption?];
 
   /**
    * Enforce specifying generic type arguments on type annotation or constructor name of a constructor call.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [consistent-generic-constructors](https://typescript-eslint.io/rules/consistent-generic-constructors)
    */
   '@typescript-eslint/consistent-generic-constructors': [
@@ -2216,6 +2224,7 @@ export interface TypeScriptRules {
 
   /**
    * Require or disallow the `Record` type.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [consistent-indexed-object-style](https://typescript-eslint.io/rules/consistent-indexed-object-style)
    */
   '@typescript-eslint/consistent-indexed-object-style': [
@@ -2224,6 +2233,7 @@ export interface TypeScriptRules {
 
   /**
    * Require `return` statements to either always or never specify values.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [consistent-return](https://typescript-eslint.io/rules/consistent-return)
    */
   '@typescript-eslint/consistent-return': [
@@ -2234,6 +2244,7 @@ export interface TypeScriptRules {
 
   /**
    * Enforce consistent usage of type assertions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [consistent-type-assertions](https://typescript-eslint.io/rules/consistent-type-assertions)
    */
   '@typescript-eslint/consistent-type-assertions': [
@@ -2242,6 +2253,7 @@ export interface TypeScriptRules {
 
   /**
    * Enforce type definitions to consistently use either `interface` or `type`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [consistent-type-definitions](https://typescript-eslint.io/rules/consistent-type-definitions)
    */
   '@typescript-eslint/consistent-type-definitions': [
@@ -2250,30 +2262,35 @@ export interface TypeScriptRules {
 
   /**
    * Enforce consistent usage of type exports.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [consistent-type-exports](https://typescript-eslint.io/rules/consistent-type-exports)
    */
   '@typescript-eslint/consistent-type-exports': ConsistentTypeExports.ConsistentTypeExportsRuleConfig;
 
   /**
    * Enforce consistent usage of type imports.
+   * @preset `@typescript-eslint/all`
    * @see [consistent-type-imports](https://typescript-eslint.io/rules/consistent-type-imports)
    */
   '@typescript-eslint/consistent-type-imports': [ConsistentTypeImportsOption?];
 
   /**
    * Enforce default parameters to be last.
+   * @preset `@typescript-eslint/all`
    * @see [default-param-last](https://typescript-eslint.io/rules/default-param-last)
    */
   '@typescript-eslint/default-param-last': null;
 
   /**
    * Enforce dot notation whenever possible.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/stylistic-type-checked`, `@typescript-eslint/stylistic-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [dot-notation](https://typescript-eslint.io/rules/dot-notation)
    */
   '@typescript-eslint/dot-notation': [DotNotationOption?];
 
   /**
    * Require explicit return types on functions and class methods.
+   * @preset `@typescript-eslint/all`
    * @see [explicit-function-return-type](https://typescript-eslint.io/rules/explicit-function-return-type)
    */
   '@typescript-eslint/explicit-function-return-type': [
@@ -2282,12 +2299,14 @@ export interface TypeScriptRules {
 
   /**
    * Require explicit accessibility modifiers on class properties and methods.
+   * @preset `@typescript-eslint/all`
    * @see [explicit-member-accessibility](https://typescript-eslint.io/rules/explicit-member-accessibility)
    */
   '@typescript-eslint/explicit-member-accessibility': ExplicitMemberAccessibility.ExplicitMemberAccessibilityRuleConfig;
 
   /**
    * Require explicit return and argument types on exported functions' and classes' public class methods.
+   * @preset `@typescript-eslint/all`
    * @see [explicit-module-boundary-types](https://typescript-eslint.io/rules/explicit-module-boundary-types)
    */
   '@typescript-eslint/explicit-module-boundary-types': [
@@ -2296,60 +2315,70 @@ export interface TypeScriptRules {
 
   /**
    * Require or disallow initialization in variable declarations.
+   * @preset `@typescript-eslint/all`
    * @see [init-declarations](https://typescript-eslint.io/rules/init-declarations)
    */
   '@typescript-eslint/init-declarations': InitDeclarationsOption;
 
   /**
    * Enforce a maximum number of parameters in function definitions.
+   * @preset `@typescript-eslint/all`
    * @see [max-params](https://typescript-eslint.io/rules/max-params)
    */
   '@typescript-eslint/max-params': [MaxParamsOption?];
 
   /**
    * Require a consistent member declaration order.
+   * @preset `@typescript-eslint/all`
    * @see [member-ordering](https://typescript-eslint.io/rules/member-ordering)
    */
   '@typescript-eslint/member-ordering': MemberOrdering.MemberOrderingRuleConfig;
 
   /**
    * Enforce using a particular method signature syntax.
+   * @preset `@typescript-eslint/all`
    * @see [method-signature-style](https://typescript-eslint.io/rules/method-signature-style)
    */
   '@typescript-eslint/method-signature-style': [('property' | 'method')?];
 
   /**
    * Enforce naming conventions for everything across a codebase.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [naming-convention](https://typescript-eslint.io/rules/naming-convention)
    */
   '@typescript-eslint/naming-convention': NamingConvention.NamingConventionRuleConfig;
 
   /**
    * Disallow generic `Array` constructors.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-array-constructor](https://typescript-eslint.io/rules/no-array-constructor)
    */
   '@typescript-eslint/no-array-constructor': null;
 
   /**
    * Disallow using the `delete` operator on array values.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-array-delete](https://typescript-eslint.io/rules/no-array-delete)
    */
   '@typescript-eslint/no-array-delete': null;
 
   /**
    * Require `.toString()` and `.toLocaleString()` to only be called on objects which provide useful information when stringified.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-base-to-string](https://typescript-eslint.io/rules/no-base-to-string)
    */
   '@typescript-eslint/no-base-to-string': [NoBaseToStringOption?];
 
   /**
    * Disallow non-null assertion in locations that may be confusing.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [no-confusing-non-null-assertion](https://typescript-eslint.io/rules/no-confusing-non-null-assertion)
    */
   '@typescript-eslint/no-confusing-non-null-assertion': null;
 
   /**
    * Require expressions of type void to appear in statement position.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-confusing-void-expression](https://typescript-eslint.io/rules/no-confusing-void-expression)
    */
   '@typescript-eslint/no-confusing-void-expression': [
@@ -2358,24 +2387,28 @@ export interface TypeScriptRules {
 
   /**
    * Disallow using code marked as `@deprecated`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-deprecated](https://typescript-eslint.io/rules/no-deprecated)
    */
   '@typescript-eslint/no-deprecated': [NoDeprecatedOption?];
 
   /**
    * Disallow duplicate class members.
+   * @preset `@typescript-eslint/all`
    * @see [no-dupe-class-members](https://typescript-eslint.io/rules/no-dupe-class-members)
    */
   '@typescript-eslint/no-dupe-class-members': null;
 
   /**
    * Disallow duplicate enum member values.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-duplicate-enum-values](https://typescript-eslint.io/rules/no-duplicate-enum-values)
    */
   '@typescript-eslint/no-duplicate-enum-values': null;
 
   /**
    * Disallow duplicate constituents of union or intersection types.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-duplicate-type-constituents](https://typescript-eslint.io/rules/no-duplicate-type-constituents)
    */
   '@typescript-eslint/no-duplicate-type-constituents': [
@@ -2384,12 +2417,14 @@ export interface TypeScriptRules {
 
   /**
    * Disallow using the `delete` operator on computed key expressions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-dynamic-delete](https://typescript-eslint.io/rules/no-dynamic-delete)
    */
   '@typescript-eslint/no-dynamic-delete': null;
 
   /**
    * Disallow empty functions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [no-empty-function](https://typescript-eslint.io/rules/no-empty-function)
    */
   '@typescript-eslint/no-empty-function': [NoEmptyFunctionOption?];
@@ -2403,60 +2438,70 @@ export interface TypeScriptRules {
 
   /**
    * Disallow accidentally using the "empty object" type.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-empty-object-type](https://typescript-eslint.io/rules/no-empty-object-type)
    */
   '@typescript-eslint/no-empty-object-type': [NoEmptyObjectTypeOption?];
 
   /**
    * Disallow the `any` type.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-explicit-any](https://typescript-eslint.io/rules/no-explicit-any)
    */
   '@typescript-eslint/no-explicit-any': [NoExplicitAnyOption?];
 
   /**
    * Disallow extra non-null assertions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-extra-non-null-assertion](https://typescript-eslint.io/rules/no-extra-non-null-assertion)
    */
   '@typescript-eslint/no-extra-non-null-assertion': null;
 
   /**
    * Disallow classes used as namespaces.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-extraneous-class](https://typescript-eslint.io/rules/no-extraneous-class)
    */
   '@typescript-eslint/no-extraneous-class': [NoExtraneousClassOption?];
 
   /**
    * Require Promise-like statements to be handled appropriately.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-floating-promises](https://typescript-eslint.io/rules/no-floating-promises)
    */
   '@typescript-eslint/no-floating-promises': [NoFloatingPromisesOption?];
 
   /**
    * Disallow iterating over an array with a for-in loop.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-for-in-array](https://typescript-eslint.io/rules/no-for-in-array)
    */
   '@typescript-eslint/no-for-in-array': null;
 
   /**
    * Disallow the use of `eval()`-like functions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-implied-eval](https://typescript-eslint.io/rules/no-implied-eval)
    */
   '@typescript-eslint/no-implied-eval': null;
 
   /**
    * Enforce the use of top-level import type qualifier when an import only has specifiers with inline type qualifiers.
+   * @preset `@typescript-eslint/all`
    * @see [no-import-type-side-effects](https://typescript-eslint.io/rules/no-import-type-side-effects)
    */
   '@typescript-eslint/no-import-type-side-effects': null;
 
   /**
    * Disallow explicit type declarations for variables or parameters initialized to a number, string, or boolean.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [no-inferrable-types](https://typescript-eslint.io/rules/no-inferrable-types)
    */
   '@typescript-eslint/no-inferrable-types': [NoInferrableTypesOption?];
 
   /**
    * Disallow `this` keywords outside of classes or class-like objects.
+   * @preset `@typescript-eslint/all`
    * @see [no-invalid-this](https://typescript-eslint.io/rules/no-invalid-this)
    */
   '@typescript-eslint/no-invalid-this': [
@@ -2467,12 +2512,14 @@ export interface TypeScriptRules {
 
   /**
    * Disallow `void` type outside of generic or return types.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-invalid-void-type](https://typescript-eslint.io/rules/no-invalid-void-type)
    */
   '@typescript-eslint/no-invalid-void-type': [NoInvalidVoidTypeOption?];
 
   /**
    * Disallow function declarations that contain unsafe references inside loop statements.
+   * @preset `@typescript-eslint/all`
    * @see [no-loop-func](https://typescript-eslint.io/rules/no-loop-func)
    */
   '@typescript-eslint/no-loop-func': null;
@@ -2486,12 +2533,14 @@ export interface TypeScriptRules {
 
   /**
    * Disallow magic numbers.
+   * @preset `@typescript-eslint/all`
    * @see [no-magic-numbers](https://typescript-eslint.io/rules/no-magic-numbers)
    */
   '@typescript-eslint/no-magic-numbers': [NoMagicNumbersOption?];
 
   /**
    * Disallow the `void` operator except when used to discard a value.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-meaningless-void-operator](https://typescript-eslint.io/rules/no-meaningless-void-operator)
    */
   '@typescript-eslint/no-meaningless-void-operator': [
@@ -2500,90 +2549,105 @@ export interface TypeScriptRules {
 
   /**
    * Enforce valid definition of `new` and `constructor`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-misused-new](https://typescript-eslint.io/rules/no-misused-new)
    */
   '@typescript-eslint/no-misused-new': null;
 
   /**
    * Disallow Promises in places not designed to handle them.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-misused-promises](https://typescript-eslint.io/rules/no-misused-promises)
    */
   '@typescript-eslint/no-misused-promises': [NoMisusedPromisesOption?];
 
   /**
    * Disallow using the spread operator when it might cause unexpected behavior.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-misused-spread](https://typescript-eslint.io/rules/no-misused-spread)
    */
   '@typescript-eslint/no-misused-spread': [NoMisusedSpreadOption?];
 
   /**
    * Disallow enums from having both number and string members.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-mixed-enums](https://typescript-eslint.io/rules/no-mixed-enums)
    */
   '@typescript-eslint/no-mixed-enums': null;
 
   /**
    * Disallow TypeScript namespaces.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-namespace](https://typescript-eslint.io/rules/no-namespace)
    */
   '@typescript-eslint/no-namespace': [NoNamespaceOption?];
 
   /**
    * Disallow non-null assertions in the left operand of a nullish coalescing operator.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-non-null-asserted-nullish-coalescing](https://typescript-eslint.io/rules/no-non-null-asserted-nullish-coalescing)
    */
   '@typescript-eslint/no-non-null-asserted-nullish-coalescing': null;
 
   /**
    * Disallow non-null assertions after an optional chain expression.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-non-null-asserted-optional-chain](https://typescript-eslint.io/rules/no-non-null-asserted-optional-chain)
    */
   '@typescript-eslint/no-non-null-asserted-optional-chain': null;
 
   /**
    * Disallow non-null assertions using the `!` postfix operator.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-non-null-assertion](https://typescript-eslint.io/rules/no-non-null-assertion)
    */
   '@typescript-eslint/no-non-null-assertion': null;
 
   /**
    * Disallow variable redeclaration.
+   * @preset `@typescript-eslint/all`
    * @see [no-redeclare](https://typescript-eslint.io/rules/no-redeclare)
    */
   '@typescript-eslint/no-redeclare': [NoRedeclareOption?];
 
   /**
    * Disallow members of unions and intersections that do nothing or override type information.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-redundant-type-constituents](https://typescript-eslint.io/rules/no-redundant-type-constituents)
    */
   '@typescript-eslint/no-redundant-type-constituents': null;
 
   /**
    * Disallow invocation of `require()`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-require-imports](https://typescript-eslint.io/rules/no-require-imports)
    */
   '@typescript-eslint/no-require-imports': [NoRequireImportsOption?];
 
   /**
    * Disallow specified modules when loaded by `import`.
+   * @preset `@typescript-eslint/all`
    * @see [no-restricted-imports](https://typescript-eslint.io/rules/no-restricted-imports)
    */
   '@typescript-eslint/no-restricted-imports': NoRestrictedImportsOption;
 
   /**
    * Disallow certain types.
+   * @preset `@typescript-eslint/all`
    * @see [no-restricted-types](https://typescript-eslint.io/rules/no-restricted-types)
    */
   '@typescript-eslint/no-restricted-types': NoRestrictedTypes.NoRestrictedTypesRuleConfig;
 
   /**
    * Disallow variable declarations from shadowing variables declared in the outer scope.
+   * @preset `@typescript-eslint/all`
    * @see [no-shadow](https://typescript-eslint.io/rules/no-shadow)
    */
   '@typescript-eslint/no-shadow': [NoShadowOption?];
 
   /**
    * Disallow aliasing `this`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-this-alias](https://typescript-eslint.io/rules/no-this-alias)
    */
   '@typescript-eslint/no-this-alias': [NoThisAliasOption?];
@@ -2597,6 +2661,7 @@ export interface TypeScriptRules {
 
   /**
    * Disallow unnecessary equality comparisons against boolean literals.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unnecessary-boolean-literal-compare](https://typescript-eslint.io/rules/no-unnecessary-boolean-literal-compare)
    */
   '@typescript-eslint/no-unnecessary-boolean-literal-compare': [
@@ -2605,6 +2670,7 @@ export interface TypeScriptRules {
 
   /**
    * Disallow conditionals where the type is always truthy or always falsy.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unnecessary-condition](https://typescript-eslint.io/rules/no-unnecessary-condition)
    */
   '@typescript-eslint/no-unnecessary-condition': [
@@ -2613,30 +2679,35 @@ export interface TypeScriptRules {
 
   /**
    * Disallow unnecessary assignment of constructor property parameter.
+   * @preset `@typescript-eslint/all`
    * @see [no-unnecessary-parameter-property-assignment](https://typescript-eslint.io/rules/no-unnecessary-parameter-property-assignment)
    */
   '@typescript-eslint/no-unnecessary-parameter-property-assignment': null;
 
   /**
    * Disallow unnecessary namespace qualifiers.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unnecessary-qualifier](https://typescript-eslint.io/rules/no-unnecessary-qualifier)
    */
   '@typescript-eslint/no-unnecessary-qualifier': null;
 
   /**
    * Disallow unnecessary template expressions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unnecessary-template-expression](https://typescript-eslint.io/rules/no-unnecessary-template-expression)
    */
   '@typescript-eslint/no-unnecessary-template-expression': null;
 
   /**
    * Disallow type arguments that are equal to the default.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unnecessary-type-arguments](https://typescript-eslint.io/rules/no-unnecessary-type-arguments)
    */
   '@typescript-eslint/no-unnecessary-type-arguments': null;
 
   /**
    * Disallow type assertions that do not change the type of an expression.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unnecessary-type-assertion](https://typescript-eslint.io/rules/no-unnecessary-type-assertion)
    */
   '@typescript-eslint/no-unnecessary-type-assertion': [
@@ -2645,84 +2716,98 @@ export interface TypeScriptRules {
 
   /**
    * Disallow unnecessary constraints on generic types.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-unnecessary-type-constraint](https://typescript-eslint.io/rules/no-unnecessary-type-constraint)
    */
   '@typescript-eslint/no-unnecessary-type-constraint': null;
 
   /**
    * Disallow conversion idioms when they do not change the type or value of the expression.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unnecessary-type-conversion](https://typescript-eslint.io/rules/no-unnecessary-type-conversion)
    */
   '@typescript-eslint/no-unnecessary-type-conversion': null;
 
   /**
    * Disallow type parameters that aren't used multiple times.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unnecessary-type-parameters](https://typescript-eslint.io/rules/no-unnecessary-type-parameters)
    */
   '@typescript-eslint/no-unnecessary-type-parameters': null;
 
   /**
    * Disallow calling a function with a value with type `any`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-argument](https://typescript-eslint.io/rules/no-unsafe-argument)
    */
   '@typescript-eslint/no-unsafe-argument': null;
 
   /**
    * Disallow assigning a value with type `any` to variables and properties.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-assignment](https://typescript-eslint.io/rules/no-unsafe-assignment)
    */
   '@typescript-eslint/no-unsafe-assignment': null;
 
   /**
    * Disallow calling a value with type `any`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-call](https://typescript-eslint.io/rules/no-unsafe-call)
    */
   '@typescript-eslint/no-unsafe-call': null;
 
   /**
    * Disallow unsafe declaration merging.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-unsafe-declaration-merging](https://typescript-eslint.io/rules/no-unsafe-declaration-merging)
    */
   '@typescript-eslint/no-unsafe-declaration-merging': null;
 
   /**
    * Disallow comparing an enum value with a non-enum value.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-enum-comparison](https://typescript-eslint.io/rules/no-unsafe-enum-comparison)
    */
   '@typescript-eslint/no-unsafe-enum-comparison': null;
 
   /**
    * Disallow using the unsafe built-in Function type.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-unsafe-function-type](https://typescript-eslint.io/rules/no-unsafe-function-type)
    */
   '@typescript-eslint/no-unsafe-function-type': null;
 
   /**
    * Disallow member access on a value with type `any`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-member-access](https://typescript-eslint.io/rules/no-unsafe-member-access)
    */
   '@typescript-eslint/no-unsafe-member-access': null;
 
   /**
    * Disallow returning a value with type `any` from a function.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-return](https://typescript-eslint.io/rules/no-unsafe-return)
    */
   '@typescript-eslint/no-unsafe-return': null;
 
   /**
    * Disallow type assertions that narrow a type.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-type-assertion](https://typescript-eslint.io/rules/no-unsafe-type-assertion)
    */
   '@typescript-eslint/no-unsafe-type-assertion': null;
 
   /**
    * Require unary negation to take a number.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-unary-minus](https://typescript-eslint.io/rules/no-unsafe-unary-minus)
    */
   '@typescript-eslint/no-unsafe-unary-minus': null;
 
   /**
    * Disallow unused expressions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-unused-expressions](https://typescript-eslint.io/rules/no-unused-expressions)
    */
   '@typescript-eslint/no-unused-expressions': [
@@ -2737,24 +2822,28 @@ export interface TypeScriptRules {
 
   /**
    * Disallow unused variables.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-unused-vars](https://typescript-eslint.io/rules/no-unused-vars)
    */
   '@typescript-eslint/no-unused-vars': [NoUnusedVarsOption?];
 
   /**
    * Disallow the use of variables before they are defined.
+   * @preset `@typescript-eslint/all`
    * @see [no-use-before-define](https://typescript-eslint.io/rules/no-use-before-define)
    */
   '@typescript-eslint/no-use-before-define': NoUseBeforeDefine.NoUseBeforeDefineRuleConfig;
 
   /**
    * Disallow unnecessary constructors.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-useless-constructor](https://typescript-eslint.io/rules/no-useless-constructor)
    */
   '@typescript-eslint/no-useless-constructor': null;
 
   /**
    * Disallow empty exports that don't change anything in a module file.
+   * @preset `@typescript-eslint/all`
    * @see [no-useless-empty-export](https://typescript-eslint.io/rules/no-useless-empty-export)
    */
   '@typescript-eslint/no-useless-empty-export': null;
@@ -2768,72 +2857,84 @@ export interface TypeScriptRules {
 
   /**
    * Disallow using confusing built-in primitive class wrappers.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-wrapper-object-types](https://typescript-eslint.io/rules/no-wrapper-object-types)
    */
   '@typescript-eslint/no-wrapper-object-types': null;
 
   /**
    * Enforce non-null assertions over explicit type assertions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/stylistic-type-checked`, `@typescript-eslint/stylistic-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [non-nullable-type-assertion-style](https://typescript-eslint.io/rules/non-nullable-type-assertion-style)
    */
   '@typescript-eslint/non-nullable-type-assertion-style': null;
 
   /**
    * Disallow throwing non-`Error` values as exceptions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [only-throw-error](https://typescript-eslint.io/rules/only-throw-error)
    */
   '@typescript-eslint/only-throw-error': [OnlyThrowErrorOption?];
 
   /**
    * Require or disallow parameter properties in class constructors.
+   * @preset `@typescript-eslint/all`
    * @see [parameter-properties](https://typescript-eslint.io/rules/parameter-properties)
    */
   '@typescript-eslint/parameter-properties': ParameterProperties.ParameterPropertiesRuleConfig;
 
   /**
    * Enforce the use of `as const` over literal type.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [prefer-as-const](https://typescript-eslint.io/rules/prefer-as-const)
    */
   '@typescript-eslint/prefer-as-const': null;
 
   /**
    * Require destructuring from arrays and/or objects.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-destructuring](https://typescript-eslint.io/rules/prefer-destructuring)
    */
   '@typescript-eslint/prefer-destructuring': PreferDestructuring.PreferDestructuringRuleConfig;
 
   /**
    * Require each enum member value to be explicitly initialized.
+   * @preset `@typescript-eslint/all`
    * @see [prefer-enum-initializers](https://typescript-eslint.io/rules/prefer-enum-initializers)
    */
   '@typescript-eslint/prefer-enum-initializers': null;
 
   /**
    * Enforce the use of Array.prototype.find() over Array.prototype.filter() followed by [0] when looking for a single result.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/stylistic-type-checked`, `@typescript-eslint/stylistic-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-find](https://typescript-eslint.io/rules/prefer-find)
    */
   '@typescript-eslint/prefer-find': null;
 
   /**
    * Enforce the use of `for-of` loop over the standard `for` loop where possible.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [prefer-for-of](https://typescript-eslint.io/rules/prefer-for-of)
    */
   '@typescript-eslint/prefer-for-of': null;
 
   /**
    * Enforce using function types instead of interfaces with call signatures.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/stylistic`, `@typescript-eslint/stylistic-type-checked`
    * @see [prefer-function-type](https://typescript-eslint.io/rules/prefer-function-type)
    */
   '@typescript-eslint/prefer-function-type': null;
 
   /**
    * Enforce `includes` method over `indexOf` method.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/stylistic-type-checked`, `@typescript-eslint/stylistic-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-includes](https://typescript-eslint.io/rules/prefer-includes)
    */
   '@typescript-eslint/prefer-includes': null;
 
   /**
    * Require all enum members to be literal values.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [prefer-literal-enum-member](https://typescript-eslint.io/rules/prefer-literal-enum-member)
    */
   '@typescript-eslint/prefer-literal-enum-member': [
@@ -2842,12 +2943,14 @@ export interface TypeScriptRules {
 
   /**
    * Require using `namespace` keyword over `module` keyword to declare custom TypeScript modules.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [prefer-namespace-keyword](https://typescript-eslint.io/rules/prefer-namespace-keyword)
    */
   '@typescript-eslint/prefer-namespace-keyword': null;
 
   /**
    * Enforce using the nullish coalescing operator instead of logical assignments or chaining.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/stylistic-type-checked`, `@typescript-eslint/stylistic-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-nullish-coalescing](https://typescript-eslint.io/rules/prefer-nullish-coalescing)
    */
   '@typescript-eslint/prefer-nullish-coalescing': [
@@ -2856,12 +2959,14 @@ export interface TypeScriptRules {
 
   /**
    * Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/stylistic-type-checked`, `@typescript-eslint/stylistic-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-optional-chain](https://typescript-eslint.io/rules/prefer-optional-chain)
    */
   '@typescript-eslint/prefer-optional-chain': [PreferOptionalChainOption?];
 
   /**
    * Require using Error objects as Promise rejection reasons.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-promise-reject-errors](https://typescript-eslint.io/rules/prefer-promise-reject-errors)
    */
   '@typescript-eslint/prefer-promise-reject-errors': [
@@ -2870,12 +2975,14 @@ export interface TypeScriptRules {
 
   /**
    * Require private members to be marked as `readonly` if they're never modified outside of the constructor.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-readonly](https://typescript-eslint.io/rules/prefer-readonly)
    */
   '@typescript-eslint/prefer-readonly': [PreferReadonlyOption?];
 
   /**
    * Require function parameters to be typed as `readonly` to prevent accidental mutation of inputs.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-readonly-parameter-types](https://typescript-eslint.io/rules/prefer-readonly-parameter-types)
    */
   '@typescript-eslint/prefer-readonly-parameter-types': [
@@ -2884,24 +2991,28 @@ export interface TypeScriptRules {
 
   /**
    * Enforce using type parameter when calling `Array#reduce` instead of using a type assertion.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-reduce-type-parameter](https://typescript-eslint.io/rules/prefer-reduce-type-parameter)
    */
   '@typescript-eslint/prefer-reduce-type-parameter': null;
 
   /**
    * Enforce `RegExp#exec` over `String#match` if no global flag is provided.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/stylistic-type-checked`, `@typescript-eslint/stylistic-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-regexp-exec](https://typescript-eslint.io/rules/prefer-regexp-exec)
    */
   '@typescript-eslint/prefer-regexp-exec': null;
 
   /**
    * Enforce that `this` is used when only `this` type is returned.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-return-this-type](https://typescript-eslint.io/rules/prefer-return-this-type)
    */
   '@typescript-eslint/prefer-return-this-type': null;
 
   /**
    * Enforce using `String#startsWith` and `String#endsWith` over other equivalent methods of checking substrings.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/stylistic-type-checked`, `@typescript-eslint/stylistic-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [prefer-string-starts-ends-with](https://typescript-eslint.io/rules/prefer-string-starts-ends-with)
    */
   '@typescript-eslint/prefer-string-starts-ends-with': [
@@ -2917,18 +3028,21 @@ export interface TypeScriptRules {
 
   /**
    * Require any function or method that returns a Promise to be marked async.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [promise-function-async](https://typescript-eslint.io/rules/promise-function-async)
    */
   '@typescript-eslint/promise-function-async': [PromiseFunctionAsyncOption?];
 
   /**
    * Enforce that `get()` types should be assignable to their equivalent `set()` type.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [related-getter-setter-pairs](https://typescript-eslint.io/rules/related-getter-setter-pairs)
    */
   '@typescript-eslint/related-getter-setter-pairs': null;
 
   /**
    * Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [require-array-sort-compare](https://typescript-eslint.io/rules/require-array-sort-compare)
    */
   '@typescript-eslint/require-array-sort-compare': [
@@ -2937,18 +3051,21 @@ export interface TypeScriptRules {
 
   /**
    * Disallow async functions which do not return promises and have no `await` expression.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [require-await](https://typescript-eslint.io/rules/require-await)
    */
   '@typescript-eslint/require-await': null;
 
   /**
    * Require both operands of addition to be the same type and be `bigint`, `number`, or `string`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [restrict-plus-operands](https://typescript-eslint.io/rules/restrict-plus-operands)
    */
   '@typescript-eslint/restrict-plus-operands': [RestrictPlusOperandsOption?];
 
   /**
    * Enforce template literal expressions to be of `string` type.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [restrict-template-expressions](https://typescript-eslint.io/rules/restrict-template-expressions)
    */
   '@typescript-eslint/restrict-template-expressions': [
@@ -2957,6 +3074,7 @@ export interface TypeScriptRules {
 
   /**
    * Enforce consistent awaiting of returned promises.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [return-await](https://typescript-eslint.io/rules/return-await)
    */
   '@typescript-eslint/return-await': [ReturnAwaitOption?];
@@ -2970,6 +3088,7 @@ export interface TypeScriptRules {
 
   /**
    * Disallow certain types in boolean expressions.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [strict-boolean-expressions](https://typescript-eslint.io/rules/strict-boolean-expressions)
    */
   '@typescript-eslint/strict-boolean-expressions': [
@@ -2978,6 +3097,7 @@ export interface TypeScriptRules {
 
   /**
    * Require switch-case statements to be exhaustive.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
    * @see [switch-exhaustiveness-check](https://typescript-eslint.io/rules/switch-exhaustiveness-check)
    */
   '@typescript-eslint/switch-exhaustiveness-check': [
@@ -2986,6 +3106,7 @@ export interface TypeScriptRules {
 
   /**
    * Disallow certain triple slash directives in favor of ES6-style import declarations.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [triple-slash-reference](https://typescript-eslint.io/rules/triple-slash-reference)
    */
   '@typescript-eslint/triple-slash-reference': [TripleSlashReferenceOption?];
@@ -2999,18 +3120,21 @@ export interface TypeScriptRules {
 
   /**
    * Enforce unbound methods are called with their expected scope.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [unbound-method](https://typescript-eslint.io/rules/unbound-method)
    */
   '@typescript-eslint/unbound-method': [UnboundMethodOption?];
 
   /**
    * Disallow two overloads that could be unified into one with a union or an optional/rest parameter.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [unified-signatures](https://typescript-eslint.io/rules/unified-signatures)
    */
   '@typescript-eslint/unified-signatures': [UnifiedSignaturesOption?];
 
   /**
    * Enforce typing arguments in Promise rejection callbacks as `unknown`.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [use-unknown-in-catch-callback-variable](https://typescript-eslint.io/rules/use-unknown-in-catch-callback-variable)
    */
   '@typescript-eslint/use-unknown-in-catch-callback-variable': null;

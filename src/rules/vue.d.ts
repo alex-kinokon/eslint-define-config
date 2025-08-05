@@ -1299,24 +1299,28 @@ export type VSlotStyleOption =
 export interface VueRules {
   /**
    * Enforce linebreaks after opening and before closing array brackets in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [array-bracket-newline](https://eslint.vuejs.org/rules/array-bracket-newline.html)
    */
   'vue/array-bracket-newline': [ArrayBracketNewlineOption?];
 
   /**
    * Enforce consistent spacing inside array brackets in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [array-bracket-spacing](https://eslint.vuejs.org/rules/array-bracket-spacing.html)
    */
   'vue/array-bracket-spacing': ArrayBracketSpacingRuleConfig;
 
   /**
    * Enforce line breaks after each array element in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [array-element-newline](https://eslint.vuejs.org/rules/array-element-newline.html)
    */
   'vue/array-element-newline': ArrayElementNewline.ArrayElementNewlineRuleConfig;
 
   /**
    * Enforce consistent spacing before and after the arrow in arrow functions in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [arrow-spacing](https://eslint.vuejs.org/rules/arrow-spacing.html)
    */
   'vue/arrow-spacing': [
@@ -1328,12 +1332,14 @@ export interface VueRules {
 
   /**
    * Enforce attribute naming style on custom components in template.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [attribute-hyphenation](https://eslint.vuejs.org/rules/attribute-hyphenation.html)
    */
   'vue/attribute-hyphenation': AttributeHyphenationRuleConfig;
 
   /**
    * Enforce order of attributes.
+   * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [attributes-order](https://eslint.vuejs.org/rules/attributes-order.html)
    */
   'vue/attributes-order': [AttributesOrderOption?];
@@ -1346,24 +1352,28 @@ export interface VueRules {
 
   /**
    * Enforce order of component top-level elements.
+   * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [block-order](https://eslint.vuejs.org/rules/block-order.html)
    */
   'vue/block-order': [BlockOrderOption?];
 
   /**
    * Disallow or enforce spaces inside of blocks after opening block and before closing block in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [block-spacing](https://eslint.vuejs.org/rules/block-spacing.html)
    */
   'vue/block-spacing': [('always' | 'never')?];
 
   /**
    * Enforce line breaks after opening and before closing block-level tags.
+   * @preset `vue/no-layout-rules`
    * @see [block-tag-newline](https://eslint.vuejs.org/rules/block-tag-newline.html)
    */
   'vue/block-tag-newline': [BlockTagNewlineOption?];
 
   /**
    * Enforce consistent brace style for blocks in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [brace-style](https://eslint.vuejs.org/rules/brace-style.html)
    */
   'vue/brace-style': BraceStyleRuleConfig;
@@ -1376,12 +1386,14 @@ export interface VueRules {
 
   /**
    * Require or disallow trailing commas in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [comma-dangle](https://eslint.vuejs.org/rules/comma-dangle.html)
    */
   'vue/comma-dangle': CommaDangle.CommaDangleRuleConfig;
 
   /**
    * Enforce consistent spacing before and after commas in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [comma-spacing](https://eslint.vuejs.org/rules/comma-spacing.html)
    */
   'vue/comma-spacing': [
@@ -1393,12 +1405,14 @@ export interface VueRules {
 
   /**
    * Enforce consistent comma style in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [comma-style](https://eslint.vuejs.org/rules/comma-style.html)
    */
   'vue/comma-style': [('first' | 'last')?, CommaStyleConfig?];
 
   /**
    * Support comment-directives in `<template>`.
+   * @preset `vue/base`
    * @see [comment-directive](https://eslint.vuejs.org/rules/comment-directive.html)
    */
   'vue/comment-directive': [
@@ -1415,6 +1429,7 @@ export interface VueRules {
 
   /**
    * Enforce specific casing for component definition name.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [component-definition-name-casing](https://eslint.vuejs.org/rules/component-definition-name-casing.html)
    */
   'vue/component-definition-name-casing': [('PascalCase' | 'kebab-case')?];
@@ -1449,6 +1464,7 @@ export interface VueRules {
 
   /**
    * Enforce order of compiler macros (`defineProps`, `defineEmits`, etc.).
+   * @preset `vue/no-layout-rules`
    * @see [define-macros-order](https://eslint.vuejs.org/rules/define-macros-order.html)
    */
   'vue/define-macros-order': [
@@ -1472,6 +1488,7 @@ export interface VueRules {
 
   /**
    * Enforce consistent newlines before and after dots in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [dot-location](https://eslint.vuejs.org/rules/dot-location.html)
    */
   'vue/dot-location': [('object' | 'property')?];
@@ -1501,12 +1518,14 @@ export interface VueRules {
 
   /**
    * Enforce the location of first attribute.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [first-attribute-linebreak](https://eslint.vuejs.org/rules/first-attribute-linebreak.html)
    */
   'vue/first-attribute-linebreak': [FirstAttributeLinebreakOption?];
 
   /**
    * Require or disallow spacing between function identifiers and their invocations in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [func-call-spacing](https://eslint.vuejs.org/rules/func-call-spacing.html)
    */
   'vue/func-call-spacing': FuncCallSpacingOption;
@@ -1525,72 +1544,84 @@ export interface VueRules {
 
   /**
    * Require or disallow a line break before tag's closing brackets.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [html-closing-bracket-newline](https://eslint.vuejs.org/rules/html-closing-bracket-newline.html)
    */
   'vue/html-closing-bracket-newline': [HtmlClosingBracketNewlineOption?];
 
   /**
    * Require or disallow a space before tag's closing brackets.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [html-closing-bracket-spacing](https://eslint.vuejs.org/rules/html-closing-bracket-spacing.html)
    */
   'vue/html-closing-bracket-spacing': [HtmlClosingBracketSpacingOption?];
 
   /**
    * Enforce unified line break in HTML comments.
+   * @preset `vue/no-layout-rules`
    * @see [html-comment-content-newline](https://eslint.vuejs.org/rules/html-comment-content-newline.html)
    */
   'vue/html-comment-content-newline': HtmlCommentContentNewlineRuleConfig;
 
   /**
    * Enforce unified spacing in HTML comments.
+   * @preset `vue/no-layout-rules`
    * @see [html-comment-content-spacing](https://eslint.vuejs.org/rules/html-comment-content-spacing.html)
    */
   'vue/html-comment-content-spacing': HtmlCommentContentSpacingRuleConfig;
 
   /**
    * Enforce consistent indentation in HTML comments.
+   * @preset `vue/no-layout-rules`
    * @see [html-comment-indent](https://eslint.vuejs.org/rules/html-comment-indent.html)
    */
   'vue/html-comment-indent': [HtmlCommentIndentOption?];
 
   /**
    * Enforce end tag style.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [html-end-tags](https://eslint.vuejs.org/rules/html-end-tags.html)
    */
   'vue/html-end-tags': null;
 
   /**
    * Enforce consistent indentation in `<template>`.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [html-indent](https://eslint.vuejs.org/rules/html-indent.html)
    */
   'vue/html-indent': HtmlIndent.HtmlIndentRuleConfig;
 
   /**
    * Enforce quotes style of HTML attributes.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [html-quotes](https://eslint.vuejs.org/rules/html-quotes.html)
    */
   'vue/html-quotes': HtmlQuotesRuleConfig;
 
   /**
    * Enforce self-closing style.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [html-self-closing](https://eslint.vuejs.org/rules/html-self-closing.html)
    */
   'vue/html-self-closing': HtmlSelfClosing.HtmlSelfClosingRuleConfig;
 
   /**
    * Prevent variables used in JSX to be marked as unused.
+   * @preset `vue/base`
    * @see [jsx-uses-vars](https://eslint.vuejs.org/rules/jsx-uses-vars.html)
    */
   'vue/jsx-uses-vars': null;
 
   /**
    * Enforce consistent spacing between property names and type annotations in types and interfaces in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [key-spacing](https://eslint.vuejs.org/rules/key-spacing.html)
    */
   'vue/key-spacing': [KeySpacingOption?];
 
   /**
    * Enforce consistent spacing before and after keywords in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [keyword-spacing](https://eslint.vuejs.org/rules/keyword-spacing.html)
    */
   'vue/keyword-spacing': KeywordSpacing.KeywordSpacingRuleConfig;
@@ -1614,12 +1645,14 @@ export interface VueRules {
 
   /**
    * Enforce the maximum number of attributes per line.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [max-attributes-per-line](https://eslint.vuejs.org/rules/max-attributes-per-line.html)
    */
   'vue/max-attributes-per-line': [MaxAttributesPerLineOption?];
 
   /**
    * Enforce a maximum line length in `.vue` files.
+   * @preset `vue/no-layout-rules`
    * @see [max-len](https://eslint.vuejs.org/rules/max-len.html)
    */
   'vue/max-len': MaxLen.MaxLenRuleConfig;
@@ -1659,6 +1692,7 @@ export interface VueRules {
 
   /**
    * Require component names to be always multi-word.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [multi-word-component-names](https://eslint.vuejs.org/rules/multi-word-component-names.html)
    */
   'vue/multi-word-component-names': [
@@ -1669,6 +1703,7 @@ export interface VueRules {
 
   /**
    * Require a line break before and after the contents of a multiline element.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [multiline-html-element-content-newline](https://eslint.vuejs.org/rules/multiline-html-element-content-newline.html)
    */
   'vue/multiline-html-element-content-newline': [
@@ -1681,18 +1716,21 @@ export interface VueRules {
 
   /**
    * Enforce newlines between operands of ternary expressions in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [multiline-ternary](https://eslint.vuejs.org/rules/multiline-ternary.html)
    */
   'vue/multiline-ternary': MultilineTernaryRuleConfig;
 
   /**
    * Enforce unified spacing in mustache interpolations.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [mustache-interpolation-spacing](https://eslint.vuejs.org/rules/mustache-interpolation-spacing.html)
    */
   'vue/mustache-interpolation-spacing': [('always' | 'never')?];
 
   /**
    * Enforce new lines between multi-line properties in Vue components.
+   * @preset `vue/no-layout-rules`
    * @see [new-line-between-multi-line-property](https://eslint.vuejs.org/rules/new-line-between-multi-line-property.html)
    */
   'vue/new-line-between-multi-line-property': [
@@ -1709,12 +1747,14 @@ export interface VueRules {
 
   /**
    * Disallow using arrow functions to define watcher.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-arrow-functions-in-watch](https://eslint.vuejs.org/rules/no-arrow-functions-in-watch.html)
    */
   'vue/no-arrow-functions-in-watch': null;
 
   /**
    * Disallow asynchronous actions in computed properties.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-async-in-computed-properties](https://eslint.vuejs.org/rules/no-async-in-computed-properties.html)
    */
   'vue/no-async-in-computed-properties': null;
@@ -1733,12 +1773,14 @@ export interface VueRules {
 
   /**
    * Disallow element's child contents which would be overwritten by a directive like `v-html` or `v-text`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-child-content](https://eslint.vuejs.org/rules/no-child-content.html)
    */
   'vue/no-child-content': [NoChildContentOption?];
 
   /**
    * Disallow accessing computed properties in `data`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-computed-properties-in-data](https://eslint.vuejs.org/rules/no-computed-properties-in-data.html)
    */
   'vue/no-computed-properties-in-data': null;
@@ -1757,72 +1799,84 @@ export interface VueRules {
 
   /**
    * Disallow custom modifiers on v-model used on the component.
+   * @preset `vue/vue2-essential`
    * @see [no-custom-modifiers-on-v-model](https://eslint.vuejs.org/rules/no-custom-modifiers-on-v-model.html)
    */
   'vue/no-custom-modifiers-on-v-model': null;
 
   /**
    * Disallow using deprecated object declaration on data (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-data-object-declaration](https://eslint.vuejs.org/rules/no-deprecated-data-object-declaration.html)
    */
   'vue/no-deprecated-data-object-declaration': null;
 
   /**
    * Disallow using deprecated `$delete` and `$set` (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-delete-set](https://eslint.vuejs.org/rules/no-deprecated-delete-set.html)
    */
   'vue/no-deprecated-delete-set': null;
 
   /**
    * Disallow using deprecated `destroyed` and `beforeDestroy` lifecycle hooks (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-destroyed-lifecycle](https://eslint.vuejs.org/rules/no-deprecated-destroyed-lifecycle.html)
    */
   'vue/no-deprecated-destroyed-lifecycle': null;
 
   /**
    * Disallow using deprecated `$listeners` (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-dollar-listeners-api](https://eslint.vuejs.org/rules/no-deprecated-dollar-listeners-api.html)
    */
   'vue/no-deprecated-dollar-listeners-api': null;
 
   /**
    * Disallow using deprecated `$scopedSlots` (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-dollar-scopedslots-api](https://eslint.vuejs.org/rules/no-deprecated-dollar-scopedslots-api.html)
    */
   'vue/no-deprecated-dollar-scopedslots-api': null;
 
   /**
    * Disallow using deprecated events api (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-events-api](https://eslint.vuejs.org/rules/no-deprecated-events-api.html)
    */
   'vue/no-deprecated-events-api': null;
 
   /**
    * Disallow using deprecated filters syntax (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-filter](https://eslint.vuejs.org/rules/no-deprecated-filter.html)
    */
   'vue/no-deprecated-filter': null;
 
   /**
    * Disallow using deprecated the `functional` template (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-functional-template](https://eslint.vuejs.org/rules/no-deprecated-functional-template.html)
    */
   'vue/no-deprecated-functional-template': null;
 
   /**
    * Disallow using deprecated the `is` attribute on HTML elements (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-html-element-is](https://eslint.vuejs.org/rules/no-deprecated-html-element-is.html)
    */
   'vue/no-deprecated-html-element-is': null;
 
   /**
    * Disallow using deprecated `inline-template` attribute (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-inline-template](https://eslint.vuejs.org/rules/no-deprecated-inline-template.html)
    */
   'vue/no-deprecated-inline-template': null;
 
   /**
    * Disallow deprecated `model` definition (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-model-definition](https://eslint.vuejs.org/rules/no-deprecated-model-definition.html)
    */
   'vue/no-deprecated-model-definition': [
@@ -1833,12 +1887,14 @@ export interface VueRules {
 
   /**
    * Disallow deprecated `this` access in props default function (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-props-default-this](https://eslint.vuejs.org/rules/no-deprecated-props-default-this.html)
    */
   'vue/no-deprecated-props-default-this': null;
 
   /**
    * Disallow using deprecated `tag` property on `RouterLink` (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-router-link-tag-prop](https://eslint.vuejs.org/rules/no-deprecated-router-link-tag-prop.html)
    */
   'vue/no-deprecated-router-link-tag-prop': [
@@ -1847,58 +1903,68 @@ export interface VueRules {
 
   /**
    * Disallow deprecated `scope` attribute (in Vue.js 2.5.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-scope-attribute](https://eslint.vuejs.org/rules/no-deprecated-scope-attribute.html)
    */
   'vue/no-deprecated-scope-attribute': null;
 
   /**
    * Disallow deprecated `slot` attribute (in Vue.js 2.6.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-slot-attribute](https://eslint.vuejs.org/rules/no-deprecated-slot-attribute.html)
    */
   'vue/no-deprecated-slot-attribute': [
     {
       ignore?: string[];
+      ignoreParents?: string[];
     }?,
   ];
 
   /**
    * Disallow deprecated `slot-scope` attribute (in Vue.js 2.6.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-slot-scope-attribute](https://eslint.vuejs.org/rules/no-deprecated-slot-scope-attribute.html)
    */
   'vue/no-deprecated-slot-scope-attribute': null;
 
   /**
    * Disallow use of deprecated `.sync` modifier on `v-bind` directive (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-v-bind-sync](https://eslint.vuejs.org/rules/no-deprecated-v-bind-sync.html)
    */
   'vue/no-deprecated-v-bind-sync': null;
 
   /**
    * Disallow deprecated `v-is` directive (in Vue.js 3.1.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-v-is](https://eslint.vuejs.org/rules/no-deprecated-v-is.html)
    */
   'vue/no-deprecated-v-is': null;
 
   /**
    * Disallow using deprecated `.native` modifiers (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-v-on-native-modifier](https://eslint.vuejs.org/rules/no-deprecated-v-on-native-modifier.html)
    */
   'vue/no-deprecated-v-on-native-modifier': null;
 
   /**
    * Disallow using deprecated number (keycode) modifiers (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-v-on-number-modifiers](https://eslint.vuejs.org/rules/no-deprecated-v-on-number-modifiers.html)
    */
   'vue/no-deprecated-v-on-number-modifiers': null;
 
   /**
    * Disallow using deprecated `Vue.config.keyCodes` (in Vue.js 3.0.0+).
+   * @preset `vue/essential`
    * @see [no-deprecated-vue-config-keycodes](https://eslint.vuejs.org/rules/no-deprecated-vue-config-keycodes.html)
    */
   'vue/no-deprecated-vue-config-keycodes': null;
 
   /**
    * Disallow duplication of field names.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-dupe-keys](https://eslint.vuejs.org/rules/no-dupe-keys.html)
    */
   'vue/no-dupe-keys': [
@@ -1909,6 +1975,7 @@ export interface VueRules {
 
   /**
    * Disallow duplicate conditions in `v-if` / `v-else-if` chains.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-dupe-v-else-if](https://eslint.vuejs.org/rules/no-dupe-v-else-if.html)
    */
   'vue/no-dupe-v-else-if': null;
@@ -1925,6 +1992,7 @@ export interface VueRules {
 
   /**
    * Disallow duplication of attributes.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-duplicate-attributes](https://eslint.vuejs.org/rules/no-duplicate-attributes.html)
    */
   'vue/no-duplicate-attributes': [
@@ -1952,18 +2020,21 @@ export interface VueRules {
 
   /**
    * Disallow `export` in `<script setup>`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-export-in-script-setup](https://eslint.vuejs.org/rules/no-export-in-script-setup.html)
    */
   'vue/no-export-in-script-setup': null;
 
   /**
    * Disallow asynchronously registered `expose`.
+   * @preset `vue/essential`
    * @see [no-expose-after-await](https://eslint.vuejs.org/rules/no-expose-after-await.html)
    */
   'vue/no-expose-after-await': null;
 
   /**
    * Disallow unnecessary parentheses in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [no-extra-parens](https://eslint.vuejs.org/rules/no-extra-parens.html)
    */
   'vue/no-extra-parens': NoExtraParensOption;
@@ -1997,12 +2068,14 @@ export interface VueRules {
 
   /**
    * Disallow asynchronously registered lifecycle hooks.
+   * @preset `vue/essential`
    * @see [no-lifecycle-after-await](https://eslint.vuejs.org/rules/no-lifecycle-after-await.html)
    */
   'vue/no-lifecycle-after-await': null;
 
   /**
    * Disallow unnecessary `<template>`.
+   * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [no-lone-template](https://eslint.vuejs.org/rules/no-lone-template.html)
    */
   'vue/no-lone-template': [
@@ -2019,6 +2092,7 @@ export interface VueRules {
 
   /**
    * Disallow multiple spaces.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [no-multi-spaces](https://eslint.vuejs.org/rules/no-multi-spaces.html)
    */
   'vue/no-multi-spaces': [
@@ -2035,12 +2109,14 @@ export interface VueRules {
 
   /**
    * Disallow passing multiple arguments to scoped slots.
+   * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [no-multiple-slot-args](https://eslint.vuejs.org/rules/no-multiple-slot-args.html)
    */
   'vue/no-multiple-slot-args': null;
 
   /**
    * Disallow adding multiple root nodes to the template.
+   * @preset `vue/vue2-essential`
    * @see [no-multiple-template-root](https://eslint.vuejs.org/rules/no-multiple-template-root.html)
    */
   'vue/no-multiple-template-root': [
@@ -2051,6 +2127,7 @@ export interface VueRules {
 
   /**
    * Disallow mutation of component props.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-mutating-props](https://eslint.vuejs.org/rules/no-mutating-props.html)
    */
   'vue/no-mutating-props': [
@@ -2060,7 +2137,20 @@ export interface VueRules {
   ];
 
   /**
+   * Disallow negated conditions in `<template>`.
+   * @see [no-negated-condition](https://eslint.vuejs.org/rules/no-negated-condition.html)
+   */
+  'vue/no-negated-condition': null;
+
+  /**
+   * Disallow negated conditions in v-if/v-else.
+   * @see [no-negated-v-if-condition](https://eslint.vuejs.org/rules/no-negated-v-if-condition.html)
+   */
+  'vue/no-negated-v-if-condition': null;
+
+  /**
    * Disallow parsing errors in `<template>`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-parsing-error](https://eslint.vuejs.org/rules/no-parsing-error.html)
    */
   'vue/no-parsing-error': [NoParsingErrorOption?];
@@ -2075,6 +2165,7 @@ export interface VueRules {
 
   /**
    * Disallow use of value wrapped by `ref()` (Composition API) as an operand.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-ref-as-operand](https://eslint.vuejs.org/rules/no-ref-as-operand.html)
    */
   'vue/no-ref-as-operand': null;
@@ -2087,6 +2178,7 @@ export interface VueRules {
 
   /**
    * Enforce props with default values to be optional.
+   * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [no-required-prop-with-default](https://eslint.vuejs.org/rules/no-required-prop-with-default.html)
    */
   'vue/no-required-prop-with-default': [
@@ -2097,6 +2189,7 @@ export interface VueRules {
 
   /**
    * Disallow the use of reserved names in component definitions.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-reserved-component-names](https://eslint.vuejs.org/rules/no-reserved-component-names.html)
    */
   'vue/no-reserved-component-names': [
@@ -2109,6 +2202,7 @@ export interface VueRules {
 
   /**
    * Disallow overwriting reserved keys.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-reserved-keys](https://eslint.vuejs.org/rules/no-reserved-keys.html)
    */
   'vue/no-reserved-keys': [
@@ -2120,6 +2214,7 @@ export interface VueRules {
 
   /**
    * Disallow reserved names in props.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-reserved-props](https://eslint.vuejs.org/rules/no-reserved-props.html)
    */
   'vue/no-reserved-props': [NoReservedPropsOption?];
@@ -2210,18 +2305,21 @@ export interface VueRules {
 
   /**
    * Enforce component's data property to be a function.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-shared-component-data](https://eslint.vuejs.org/rules/no-shared-component-data.html)
    */
   'vue/no-shared-component-data': null;
 
   /**
    * Disallow side effects in computed properties.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-side-effects-in-computed-properties](https://eslint.vuejs.org/rules/no-side-effects-in-computed-properties.html)
    */
   'vue/no-side-effects-in-computed-properties': null;
 
   /**
    * Disallow spaces around equal signs in attribute.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [no-spaces-around-equal-signs-in-attribute](https://eslint.vuejs.org/rules/no-spaces-around-equal-signs-in-attribute.html)
    */
   'vue/no-spaces-around-equal-signs-in-attribute': null;
@@ -2244,12 +2342,14 @@ export interface VueRules {
 
   /**
    * Disallow `key` attribute on `<template>`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-template-key](https://eslint.vuejs.org/rules/no-template-key.html)
    */
   'vue/no-template-key': null;
 
   /**
    * Disallow variable declarations from shadowing variables declared in the outer scope.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [no-template-shadow](https://eslint.vuejs.org/rules/no-template-shadow.html)
    */
   'vue/no-template-shadow': [
@@ -2266,6 +2366,7 @@ export interface VueRules {
 
   /**
    * Disallow mustaches in `<textarea>`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-textarea-mustache](https://eslint.vuejs.org/rules/no-textarea-mustache.html)
    */
   'vue/no-textarea-mustache': null;
@@ -2304,6 +2405,7 @@ export interface VueRules {
 
   /**
    * Disallow registering components that are not used inside templates.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-unused-components](https://eslint.vuejs.org/rules/no-unused-components.html)
    */
   'vue/no-unused-components': [
@@ -2332,6 +2434,7 @@ export interface VueRules {
 
   /**
    * Disallow unused variable definitions of v-for directives or scope attributes.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-unused-vars](https://eslint.vuejs.org/rules/no-unused-vars.html)
    */
   'vue/no-unused-vars': [
@@ -2342,6 +2445,7 @@ export interface VueRules {
 
   /**
    * Disallow use computed property like method.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-use-computed-property-like-method](https://eslint.vuejs.org/rules/no-use-computed-property-like-method.html)
    */
   'vue/no-use-computed-property-like-method': null;
@@ -2354,6 +2458,7 @@ export interface VueRules {
 
   /**
    * Disallow using `v-if` on the same element as `v-for`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-use-v-if-with-v-for](https://eslint.vuejs.org/rules/no-use-v-if-with-v-for.html)
    */
   'vue/no-use-v-if-with-v-for': [
@@ -2381,6 +2486,7 @@ export interface VueRules {
 
   /**
    * Disallow useless attribute on `<template>`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-useless-template-attributes](https://eslint.vuejs.org/rules/no-useless-template-attributes.html)
    */
   'vue/no-useless-template-attributes': null;
@@ -2398,6 +2504,7 @@ export interface VueRules {
 
   /**
    * Disallow key of `<template v-for>` placed on child elements.
+   * @preset `vue/essential`
    * @see [no-v-for-template-key-on-child](https://eslint.vuejs.org/rules/no-v-for-template-key-on-child.html)
    */
   'vue/no-v-for-template-key-on-child': null;
@@ -2405,12 +2512,14 @@ export interface VueRules {
   /**
    * Disallow `key` attribute on `<template v-for>`.
    * @deprecated
+   * @preset `vue/vue2-essential`
    * @see [no-v-for-template-key](https://eslint.vuejs.org/rules/no-v-for-template-key.html)
    */
   'vue/no-v-for-template-key': null;
 
   /**
    * Disallow use of v-html to prevent XSS attack.
+   * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [no-v-html](https://eslint.vuejs.org/rules/no-v-html.html)
    */
   'vue/no-v-html': null;
@@ -2418,12 +2527,14 @@ export interface VueRules {
   /**
    * Disallow adding an argument to `v-model` used in custom component.
    * @deprecated
+   * @preset `vue/vue2-essential`
    * @see [no-v-model-argument](https://eslint.vuejs.org/rules/no-v-model-argument.html)
    */
   'vue/no-v-model-argument': null;
 
   /**
    * Disallow v-text / v-html on component.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-v-text-v-html-on-component](https://eslint.vuejs.org/rules/no-v-text-v-html-on-component.html)
    */
   'vue/no-v-text-v-html-on-component': [
@@ -2441,24 +2552,28 @@ export interface VueRules {
 
   /**
    * Disallow asynchronously registered `watch`.
+   * @preset `vue/essential`
    * @see [no-watch-after-await](https://eslint.vuejs.org/rules/no-watch-after-await.html)
    */
   'vue/no-watch-after-await': null;
 
   /**
    * Enforce consistent line breaks after opening and before closing braces in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [object-curly-newline](https://eslint.vuejs.org/rules/object-curly-newline.html)
    */
   'vue/object-curly-newline': [ObjectCurlyNewlineOption?];
 
   /**
    * Enforce consistent spacing inside braces in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [object-curly-spacing](https://eslint.vuejs.org/rules/object-curly-spacing.html)
    */
   'vue/object-curly-spacing': ObjectCurlySpacingRuleConfig;
 
   /**
    * Enforce placing object properties on separate lines in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [object-property-newline](https://eslint.vuejs.org/rules/object-property-newline.html)
    */
   'vue/object-property-newline': [
@@ -2475,18 +2590,21 @@ export interface VueRules {
 
   /**
    * Enforce that each component should be in its own file.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [one-component-per-file](https://eslint.vuejs.org/rules/one-component-per-file.html)
    */
   'vue/one-component-per-file': null;
 
   /**
    * Enforce consistent linebreak style for operators in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [operator-linebreak](https://eslint.vuejs.org/rules/operator-linebreak.html)
    */
   'vue/operator-linebreak': OperatorLinebreak.OperatorLinebreakRuleConfig;
 
   /**
    * Enforce order of properties in components.
+   * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [order-in-components](https://eslint.vuejs.org/rules/order-in-components.html)
    */
   'vue/order-in-components': [
@@ -2497,18 +2615,21 @@ export interface VueRules {
 
   /**
    * Require or disallow padding lines between blocks.
+   * @preset `vue/no-layout-rules`
    * @see [padding-line-between-blocks](https://eslint.vuejs.org/rules/padding-line-between-blocks.html)
    */
   'vue/padding-line-between-blocks': [('never' | 'always')?];
 
   /**
    * Require or disallow newlines between sibling tags in template.
+   * @preset `vue/no-layout-rules`
    * @see [padding-line-between-tags](https://eslint.vuejs.org/rules/padding-line-between-tags.html)
    */
   'vue/padding-line-between-tags': [PaddingLineBetweenTagsOption?];
 
   /**
    * Require or disallow padding lines in component definition.
+   * @preset `vue/no-layout-rules`
    * @see [padding-lines-in-component-definition](https://eslint.vuejs.org/rules/padding-lines-in-component-definition.html)
    */
   'vue/padding-lines-in-component-definition': [
@@ -2523,6 +2644,7 @@ export interface VueRules {
 
   /**
    * Enforce import from 'vue' instead of import from '@vue/*'.
+   * @preset `vue/essential`
    * @see [prefer-import-from-vue](https://eslint.vuejs.org/rules/prefer-import-from-vue.html)
    */
   'vue/prefer-import-from-vue': null;
@@ -2564,18 +2686,21 @@ export interface VueRules {
 
   /**
    * Enforce specific casing for the Prop name in Vue components.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [prop-name-casing](https://eslint.vuejs.org/rules/prop-name-casing.html)
    */
   'vue/prop-name-casing': PropNameCasingRuleConfig;
 
   /**
    * Require quotes around object literal, type literal, interfaces and enums property names in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [quote-props](https://eslint.vuejs.org/rules/quote-props.html)
    */
   'vue/quote-props': QuotePropsOption;
 
   /**
    * Require `v-bind:is` of `<component>` elements.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [require-component-is](https://eslint.vuejs.org/rules/require-component-is.html)
    */
   'vue/require-component-is': null;
@@ -2588,6 +2713,7 @@ export interface VueRules {
 
   /**
    * Require default value for props.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [require-default-prop](https://eslint.vuejs.org/rules/require-default-prop.html)
    */
   'vue/require-default-prop': null;
@@ -2610,6 +2736,7 @@ export interface VueRules {
 
   /**
    * Require `emits` option with name triggered by `$emit()`.
+   * @preset `vue/strongly-recommended`
    * @see [require-explicit-emits](https://eslint.vuejs.org/rules/require-explicit-emits.html)
    */
   'vue/require-explicit-emits': [
@@ -2658,30 +2785,35 @@ export interface VueRules {
 
   /**
    * Require prop type to be a constructor.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [require-prop-type-constructor](https://eslint.vuejs.org/rules/require-prop-type-constructor.html)
    */
   'vue/require-prop-type-constructor': null;
 
   /**
    * Require type definitions in props.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [require-prop-types](https://eslint.vuejs.org/rules/require-prop-types.html)
    */
   'vue/require-prop-types': null;
 
   /**
    * Enforce render function to always return value.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [require-render-return](https://eslint.vuejs.org/rules/require-render-return.html)
    */
   'vue/require-render-return': null;
 
   /**
    * Enforce properties of `$slots` to be used as a function.
+   * @preset `vue/essential`
    * @see [require-slots-as-functions](https://eslint.vuejs.org/rules/require-slots-as-functions.html)
    */
   'vue/require-slots-as-functions': null;
 
   /**
    * Require control the display of the content inside `<transition>`.
+   * @preset `vue/essential`
    * @see [require-toggle-inside-transition](https://eslint.vuejs.org/rules/require-toggle-inside-transition.html)
    */
   'vue/require-toggle-inside-transition': [
@@ -2704,12 +2836,14 @@ export interface VueRules {
 
   /**
    * Require `v-bind:key` with `v-for` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [require-v-for-key](https://eslint.vuejs.org/rules/require-v-for-key.html)
    */
   'vue/require-v-for-key': null;
 
   /**
    * Enforce props default values to be valid.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [require-valid-default-prop](https://eslint.vuejs.org/rules/require-valid-default-prop.html)
    */
   'vue/require-valid-default-prop': null;
@@ -2726,6 +2860,7 @@ export interface VueRules {
 
   /**
    * Enforce that a return statement is present in computed property.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [return-in-computed-property](https://eslint.vuejs.org/rules/return-in-computed-property.html)
    */
   'vue/return-in-computed-property': [
@@ -2736,18 +2871,21 @@ export interface VueRules {
 
   /**
    * Enforce that a return statement is present in emits validator.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [return-in-emits-validator](https://eslint.vuejs.org/rules/return-in-emits-validator.html)
    */
   'vue/return-in-emits-validator': null;
 
   /**
    * Enforce consistent indentation in `<script>`.
+   * @preset `vue/no-layout-rules`
    * @see [script-indent](https://eslint.vuejs.org/rules/script-indent.html)
    */
   'vue/script-indent': ScriptIndentRuleConfig;
 
   /**
    * Require a line break before and after the contents of a singleline element.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
    * @see [singleline-html-element-content-newline](https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html)
    */
   'vue/singleline-html-element-content-newline': [
@@ -2773,12 +2911,14 @@ export interface VueRules {
 
   /**
    * Enforce consistent spacing inside parentheses in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [space-in-parens](https://eslint.vuejs.org/rules/space-in-parens.html)
    */
   'vue/space-in-parens': [('always' | 'never')?, SpaceInParensConfig?];
 
   /**
    * Require spacing around infix operators in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [space-infix-ops](https://eslint.vuejs.org/rules/space-infix-ops.html)
    */
   'vue/space-infix-ops': [
@@ -2790,6 +2930,7 @@ export interface VueRules {
 
   /**
    * Enforce consistent spacing before or after unary operators in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [space-unary-ops](https://eslint.vuejs.org/rules/space-unary-ops.html)
    */
   'vue/space-unary-ops': [SpaceUnaryOpsOption?];
@@ -2802,30 +2943,35 @@ export interface VueRules {
 
   /**
    * Require or disallow spacing around embedded expressions of template strings in `<template>`.
+   * @preset `vue/no-layout-rules`
    * @see [template-curly-spacing](https://eslint.vuejs.org/rules/template-curly-spacing.html)
    */
   'vue/template-curly-spacing': [('always' | 'never')?];
 
   /**
    * Disallow usage of `this` in template.
+   * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [this-in-template](https://eslint.vuejs.org/rules/this-in-template.html)
    */
   'vue/this-in-template': [('always' | 'never')?];
 
   /**
    * Enforce usage of `exact` modifier on `v-on`.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [use-v-on-exact](https://eslint.vuejs.org/rules/use-v-on-exact.html)
    */
   'vue/use-v-on-exact': null;
 
   /**
    * Enforce `v-bind` directive style.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [v-bind-style](https://eslint.vuejs.org/rules/v-bind-style.html)
    */
   'vue/v-bind-style': [('shorthand' | 'longform')?, VBindStyleConfig?];
 
   /**
    * Enforce `v-for` directive's delimiter style.
+   * @preset `vue/no-layout-rules`
    * @see [v-for-delimiter-style](https://eslint.vuejs.org/rules/v-for-delimiter-style.html)
    */
   'vue/v-for-delimiter-style': [('in' | 'of')?];
@@ -2838,6 +2984,7 @@ export interface VueRules {
 
   /**
    * Enforce v-on event naming style on custom components in template.
+   * @preset `vue/strongly-recommended`
    * @see [v-on-event-hyphenation](https://eslint.vuejs.org/rules/v-on-event-hyphenation.html)
    */
   'vue/v-on-event-hyphenation': VOnEventHyphenationRuleConfig;
@@ -2850,36 +2997,42 @@ export interface VueRules {
 
   /**
    * Enforce `v-on` directive style.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [v-on-style](https://eslint.vuejs.org/rules/v-on-style.html)
    */
   'vue/v-on-style': [('shorthand' | 'longform')?];
 
   /**
    * Enforce `v-slot` directive style.
+   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
    * @see [v-slot-style](https://eslint.vuejs.org/rules/v-slot-style.html)
    */
   'vue/v-slot-style': [VSlotStyleOption?];
 
   /**
    * Require valid attribute names.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-attribute-name](https://eslint.vuejs.org/rules/valid-attribute-name.html)
    */
   'vue/valid-attribute-name': null;
 
   /**
    * Enforce valid `defineEmits` compiler macro.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-define-emits](https://eslint.vuejs.org/rules/valid-define-emits.html)
    */
   'vue/valid-define-emits': null;
 
   /**
    * Enforce valid `defineOptions` compiler macro.
+   * @preset `vue/essential`
    * @see [valid-define-options](https://eslint.vuejs.org/rules/valid-define-options.html)
    */
   'vue/valid-define-options': null;
 
   /**
    * Enforce valid `defineProps` compiler macro.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-define-props](https://eslint.vuejs.org/rules/valid-define-props.html)
    */
   'vue/valid-define-props': null;
@@ -2887,18 +3040,21 @@ export interface VueRules {
   /**
    * Require valid keys in model option.
    * @deprecated
+   * @preset `vue/vue2-essential`
    * @see [valid-model-definition](https://eslint.vuejs.org/rules/valid-model-definition.html)
    */
   'vue/valid-model-definition': null;
 
   /**
    * Enforce valid `nextTick` function calls.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-next-tick](https://eslint.vuejs.org/rules/valid-next-tick.html)
    */
   'vue/valid-next-tick': null;
 
   /**
    * Enforce valid template root.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-template-root](https://eslint.vuejs.org/rules/valid-template-root.html)
    */
   'vue/valid-template-root': null;
@@ -2906,72 +3062,84 @@ export interface VueRules {
   /**
    * Enforce valid `.sync` modifier on `v-bind` directives.
    * @deprecated
+   * @preset `vue/vue2-essential`
    * @see [valid-v-bind-sync](https://eslint.vuejs.org/rules/valid-v-bind-sync.html)
    */
   'vue/valid-v-bind-sync': null;
 
   /**
    * Enforce valid `v-bind` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-bind](https://eslint.vuejs.org/rules/valid-v-bind.html)
    */
   'vue/valid-v-bind': null;
 
   /**
    * Enforce valid `v-cloak` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-cloak](https://eslint.vuejs.org/rules/valid-v-cloak.html)
    */
   'vue/valid-v-cloak': null;
 
   /**
    * Enforce valid `v-else-if` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-else-if](https://eslint.vuejs.org/rules/valid-v-else-if.html)
    */
   'vue/valid-v-else-if': null;
 
   /**
    * Enforce valid `v-else` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-else](https://eslint.vuejs.org/rules/valid-v-else.html)
    */
   'vue/valid-v-else': null;
 
   /**
    * Enforce valid `v-for` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-for](https://eslint.vuejs.org/rules/valid-v-for.html)
    */
   'vue/valid-v-for': null;
 
   /**
    * Enforce valid `v-html` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-html](https://eslint.vuejs.org/rules/valid-v-html.html)
    */
   'vue/valid-v-html': null;
 
   /**
    * Enforce valid `v-if` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-if](https://eslint.vuejs.org/rules/valid-v-if.html)
    */
   'vue/valid-v-if': null;
 
   /**
    * Enforce valid `v-is` directives.
+   * @preset `vue/essential`
    * @see [valid-v-is](https://eslint.vuejs.org/rules/valid-v-is.html)
    */
   'vue/valid-v-is': null;
 
   /**
    * Enforce valid `v-memo` directives.
+   * @preset `vue/essential`
    * @see [valid-v-memo](https://eslint.vuejs.org/rules/valid-v-memo.html)
    */
   'vue/valid-v-memo': null;
 
   /**
    * Enforce valid `v-model` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-model](https://eslint.vuejs.org/rules/valid-v-model.html)
    */
   'vue/valid-v-model': null;
 
   /**
    * Enforce valid `v-on` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-on](https://eslint.vuejs.org/rules/valid-v-on.html)
    */
   'vue/valid-v-on': [
@@ -2982,24 +3150,28 @@ export interface VueRules {
 
   /**
    * Enforce valid `v-once` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-once](https://eslint.vuejs.org/rules/valid-v-once.html)
    */
   'vue/valid-v-once': null;
 
   /**
    * Enforce valid `v-pre` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-pre](https://eslint.vuejs.org/rules/valid-v-pre.html)
    */
   'vue/valid-v-pre': null;
 
   /**
    * Enforce valid `v-show` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-show](https://eslint.vuejs.org/rules/valid-v-show.html)
    */
   'vue/valid-v-show': null;
 
   /**
    * Enforce valid `v-slot` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-slot](https://eslint.vuejs.org/rules/valid-v-slot.html)
    */
   'vue/valid-v-slot': [
@@ -3010,6 +3182,7 @@ export interface VueRules {
 
   /**
    * Enforce valid `v-text` directives.
+   * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-text](https://eslint.vuejs.org/rules/valid-v-text.html)
    */
   'vue/valid-v-text': null;

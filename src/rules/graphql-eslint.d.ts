@@ -639,6 +639,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid for execution if all definitions are either operation or fragment definitions.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [executable-definitions](https://the-guild.dev/graphql/eslint/rules/executable-definitions)
  */
   '@graphql-eslint/executable-definitions': null;
@@ -646,6 +647,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if all fields selected are defined by the parent type, or are an allowed meta field such as `__typename`.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [fields-on-correct-type](https://the-guild.dev/graphql/eslint/rules/fields-on-correct-type)
  */
   '@graphql-eslint/fields-on-correct-type': null;
@@ -653,6 +655,7 @@ export interface GraphQLRules {
   /**
  * Fragments use a type condition to determine if they apply, since fragments can only be spread into a composite type (object, interface, or union), the type condition must also be a composite type.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [fragments-on-composite-type](https://the-guild.dev/graphql/eslint/rules/fragments-on-composite-type)
  */
   '@graphql-eslint/fragments-on-composite-type': null;
@@ -660,6 +663,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL field is only valid if all supplied arguments are defined by that field.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [known-argument-names](https://the-guild.dev/graphql/eslint/rules/known-argument-names)
  */
   '@graphql-eslint/known-argument-names': null;
@@ -667,6 +671,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if all `@directive`s are known by the schema and legally positioned.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [known-directives](https://the-guild.dev/graphql/eslint/rules/known-directives)
  */
   '@graphql-eslint/known-directives': KnownDirectivesOption;
@@ -674,6 +679,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if all `...Fragment` fragment spreads refer to fragments defined in the same document.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [known-fragment-names](https://the-guild.dev/graphql/eslint/rules/known-fragment-names)
  */
   '@graphql-eslint/known-fragment-names': null;
@@ -681,6 +687,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if referenced types (specifically variable definitions and fragment conditions) are defined by the type schema.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [known-type-names](https://the-guild.dev/graphql/eslint/rules/known-type-names)
  */
   '@graphql-eslint/known-type-names': null;
@@ -688,6 +695,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document that contains an anonymous operation (the `query` short-hand) is only valid if it contains only that one operation definition.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [lone-anonymous-operation](https://the-guild.dev/graphql/eslint/rules/lone-anonymous-operation)
  */
   '@graphql-eslint/lone-anonymous-operation': null;
@@ -695,6 +703,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if it contains only one schema definition.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
  * @see [lone-schema-definition](https://the-guild.dev/graphql/eslint/rules/lone-schema-definition)
  */
   '@graphql-eslint/lone-schema-definition': null;
@@ -702,6 +711,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL fragment is only valid when it does not have cycles in fragments usage.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [no-fragment-cycles](https://the-guild.dev/graphql/eslint/rules/no-fragment-cycles)
  */
   '@graphql-eslint/no-fragment-cycles': null;
@@ -709,6 +719,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL operation is only valid if all variables encountered, both directly and via fragment spreads, are defined by that operation.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [no-undefined-variables](https://the-guild.dev/graphql/eslint/rules/no-undefined-variables)
  */
   '@graphql-eslint/no-undefined-variables': null;
@@ -716,6 +727,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if all fragment definitions are spread within operations, or spread within other fragments spread within operations.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [no-unused-fragments](https://the-guild.dev/graphql/eslint/rules/no-unused-fragments)
  */
   '@graphql-eslint/no-unused-fragments': null;
@@ -723,6 +735,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL operation is only valid if all variables defined by an operation are used, either directly or within a spread fragment.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [no-unused-variables](https://the-guild.dev/graphql/eslint/rules/no-unused-variables)
  */
   '@graphql-eslint/no-unused-variables': null;
@@ -730,6 +743,7 @@ export interface GraphQLRules {
   /**
  * A selection set is only valid if all fields (including spreading any fragments) either correspond to distinct response names or can be merged without ambiguity.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [overlapping-fields-can-be-merged](https://the-guild.dev/graphql/eslint/rules/overlapping-fields-can-be-merged)
  */
   '@graphql-eslint/overlapping-fields-can-be-merged': null;
@@ -737,6 +751,7 @@ export interface GraphQLRules {
   /**
  * A fragment spread is only valid if the type condition could ever possibly be true: if there is a non-empty intersection of the possible parent types, and possible types which pass the type condition.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [possible-fragment-spread](https://the-guild.dev/graphql/eslint/rules/possible-fragment-spread)
  */
   '@graphql-eslint/possible-fragment-spread': null;
@@ -744,6 +759,7 @@ export interface GraphQLRules {
   /**
  * A type extension is only valid if the type is defined and has the same kind.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
  * @see [possible-type-extension](https://the-guild.dev/graphql/eslint/rules/possible-type-extension)
  */
   '@graphql-eslint/possible-type-extension': null;
@@ -751,6 +767,7 @@ export interface GraphQLRules {
   /**
  * A field or directive is only valid if all required (non-null without a default value) field arguments have been provided.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [provided-required-arguments](https://the-guild.dev/graphql/eslint/rules/provided-required-arguments)
  */
   '@graphql-eslint/provided-required-arguments': null;
@@ -758,6 +775,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is valid only if all leaf fields (fields without sub selections) are of scalar or enum types.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [scalar-leafs](https://the-guild.dev/graphql/eslint/rules/scalar-leafs)
  */
   '@graphql-eslint/scalar-leafs': null;
@@ -765,6 +783,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL subscription is valid only if it contains a single root field.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [one-field-subscriptions](https://the-guild.dev/graphql/eslint/rules/one-field-subscriptions)
  */
   '@graphql-eslint/one-field-subscriptions': null;
@@ -772,6 +791,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL field or directive is only valid if all supplied arguments are uniquely named.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [unique-argument-names](https://the-guild.dev/graphql/eslint/rules/unique-argument-names)
  */
   '@graphql-eslint/unique-argument-names': null;
@@ -779,6 +799,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if all defined directives have unique names.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
  * @see [unique-directive-names](https://the-guild.dev/graphql/eslint/rules/unique-directive-names)
  */
   '@graphql-eslint/unique-directive-names': null;
@@ -786,6 +807,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if all non-repeatable directives at a given location are uniquely named.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [unique-directive-names-per-location](https://the-guild.dev/graphql/eslint/rules/unique-directive-names-per-location)
  */
   '@graphql-eslint/unique-directive-names-per-location': null;
@@ -793,6 +815,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL complex type is only valid if all its fields are uniquely named.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
  * @see [unique-field-definition-names](https://the-guild.dev/graphql/eslint/rules/unique-field-definition-names)
  */
   '@graphql-eslint/unique-field-definition-names': null;
@@ -800,6 +823,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL input object value is only valid if all supplied fields are uniquely named.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [unique-input-field-names](https://the-guild.dev/graphql/eslint/rules/unique-input-field-names)
  */
   '@graphql-eslint/unique-input-field-names': null;
@@ -807,6 +831,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if it has only one type per operation.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
  * @see [unique-operation-types](https://the-guild.dev/graphql/eslint/rules/unique-operation-types)
  */
   '@graphql-eslint/unique-operation-types': null;
@@ -814,6 +839,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if all defined types have unique names.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
  * @see [unique-type-names](https://the-guild.dev/graphql/eslint/rules/unique-type-names)
  */
   '@graphql-eslint/unique-type-names': null;
@@ -821,6 +847,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL operation is only valid if all its variables are uniquely named.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [unique-variable-names](https://the-guild.dev/graphql/eslint/rules/unique-variable-names)
  */
   '@graphql-eslint/unique-variable-names': null;
@@ -828,6 +855,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL document is only valid if all value literals are of the type expected at their position.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [value-literals-of-correct-type](https://the-guild.dev/graphql/eslint/rules/value-literals-of-correct-type)
  */
   '@graphql-eslint/value-literals-of-correct-type': null;
@@ -835,6 +863,7 @@ export interface GraphQLRules {
   /**
  * A GraphQL operation is only valid if all the variables it defines are of input types (scalar, enum, or input object).
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [variables-are-input-types](https://the-guild.dev/graphql/eslint/rules/variables-are-input-types)
  */
   '@graphql-eslint/variables-are-input-types': null;
@@ -842,18 +871,21 @@ export interface GraphQLRules {
   /**
  * Variables passed to field arguments conform to type.
 > This rule is a wrapper around a `graphql-js` validation function.
+ * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
  * @see [variables-in-allowed-position](https://the-guild.dev/graphql/eslint/rules/variables-in-allowed-position)
  */
   '@graphql-eslint/variables-in-allowed-position': null;
 
   /**
    * Enforce arrange in alphabetical order for type fields, enum values, input object fields, operation selections and more.
+   * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/operations-all`, `@graphql-eslint/flat/schema-all`, `@graphql-eslint/flat/operations-all`
    * @see [alphabetize](https://the-guild.dev/graphql/eslint/rules/alphabetize)
    */
   '@graphql-eslint/alphabetize': AlphabetizeOption;
 
   /**
    * Require all comments to follow the same style (either block or inline).
+   * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
    * @see [description-style](https://the-guild.dev/graphql/eslint/rules/description-style)
    */
   '@graphql-eslint/description-style': DescriptionStyleOption;
@@ -861,42 +893,49 @@ export interface GraphQLRules {
   /**
  * Require mutation argument to be always called "input" and input type to be called Mutation name + "Input".
 Using the same name for all input parameters will make your schemas easier to consume and more predictable. Using the same name as mutation for InputType will make it easier to find mutations that InputType belongs to.
+ * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/flat/schema-all`
  * @see [input-name](https://the-guild.dev/graphql/eslint/rules/input-name)
  */
   '@graphql-eslint/input-name': InputNameOption;
 
   /**
    * Require queries, mutations, subscriptions or fragments to be located in separate files.
+   * @preset `@graphql-eslint/operations-all`, `@graphql-eslint/flat/operations-all`
    * @see [lone-executable-definition](https://the-guild.dev/graphql/eslint/rules/lone-executable-definition)
    */
   '@graphql-eslint/lone-executable-definition': LoneExecutableDefinitionOption;
 
   /**
    * This rule allows you to enforce that the file name should match the operation name.
+   * @preset `@graphql-eslint/operations-all`, `@graphql-eslint/flat/operations-all`
    * @see [match-document-filename](https://the-guild.dev/graphql/eslint/rules/match-document-filename)
    */
   '@graphql-eslint/match-document-filename': MatchDocumentFilename.MatchDocumentFilenameRuleConfig;
 
   /**
    * Require names to follow specified conventions.
+   * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
    * @see [naming-convention](https://the-guild.dev/graphql/eslint/rules/naming-convention)
    */
   '@graphql-eslint/naming-convention': NamingConvention.NamingConventionRuleConfig;
 
   /**
    * Require name for your GraphQL operations. This is useful since most GraphQL client libraries are using the operation name for caching purposes.
+   * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
    * @see [no-anonymous-operations](https://the-guild.dev/graphql/eslint/rules/no-anonymous-operations)
    */
   '@graphql-eslint/no-anonymous-operations': null;
 
   /**
    * Enforce that deprecated fields or enum values are not in use by operations.
+   * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
    * @see [no-deprecated](https://the-guild.dev/graphql/eslint/rules/no-deprecated)
    */
   '@graphql-eslint/no-deprecated': null;
 
   /**
    * Checks for duplicate fields in selection set, variables in operation definition, or in arguments set of a field.
+   * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
    * @see [no-duplicate-fields](https://the-guild.dev/graphql/eslint/rules/no-duplicate-fields)
    */
   '@graphql-eslint/no-duplicate-fields': null;
@@ -904,36 +943,42 @@ Using the same name for all input parameters will make your schemas easier to co
   /**
  * Requires to use `"""` or `"` for adding a GraphQL description instead of `#`.
 Allows to use hashtag for comments, as long as it's not attached to an AST definition.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
  * @see [no-hashtag-description](https://the-guild.dev/graphql/eslint/rules/no-hashtag-description)
  */
   '@graphql-eslint/no-hashtag-description': null;
 
   /**
    * Disallow fragments that are used only in one place.
+   * @preset `@graphql-eslint/operations-all`, `@graphql-eslint/flat/operations-all`
    * @see [no-one-place-fragments](https://the-guild.dev/graphql/eslint/rules/no-one-place-fragments)
    */
   '@graphql-eslint/no-one-place-fragments': null;
 
   /**
    * Disallow using root types `mutation` and/or `subscription`.
+   * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/flat/schema-all`
    * @see [no-root-type](https://the-guild.dev/graphql/eslint/rules/no-root-type)
    */
   '@graphql-eslint/no-root-type': NoRootTypeOption;
 
   /**
    * Avoid scalar result type on mutation type to make sure to return a valid state.
+   * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/flat/schema-all`
    * @see [no-scalar-result-type-on-mutation](https://the-guild.dev/graphql/eslint/rules/no-scalar-result-type-on-mutation)
    */
   '@graphql-eslint/no-scalar-result-type-on-mutation': null;
 
   /**
    * Enforces users to avoid using the type name in a field name while defining your schema.
+   * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
    * @see [no-typename-prefix](https://the-guild.dev/graphql/eslint/rules/no-typename-prefix)
    */
   '@graphql-eslint/no-typename-prefix': null;
 
   /**
    * Requires all types to be reachable at some level by root level fields.
+   * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
    * @see [no-unreachable-types](https://the-guild.dev/graphql/eslint/rules/no-unreachable-types)
    */
   '@graphql-eslint/no-unreachable-types': null;
@@ -958,6 +1003,7 @@ Backward pagination arguments
 
 - `last` takes a non-negative integer
 - `before` takes the Cursor type.
+ * @preset `@graphql-eslint/schema-relay`, `@graphql-eslint/flat/schema-relay`
  * @see [relay-arguments](https://the-guild.dev/graphql/eslint/rules/relay-arguments)
  */
   '@graphql-eslint/relay-arguments': RelayArgumentsOption;
@@ -969,6 +1015,7 @@ Backward pagination arguments
 - Connection type must be an Object type
 - Connection type must contain a field `edges` that return a list type that wraps an edge type
 - Connection type must contain a field `pageInfo` that return a non-null `PageInfo` Object type.
+ * @preset `@graphql-eslint/schema-relay`, `@graphql-eslint/flat/schema-relay`
  * @see [relay-connection-types](https://the-guild.dev/graphql/eslint/rules/relay-connection-types)
  */
   '@graphql-eslint/relay-connection-types': null;
@@ -983,6 +1030,7 @@ Backward pagination arguments
 - Edge type name must end in "Edge" _(optional)_
 - Edge type's field `node` must implement `Node` interface _(optional)_
 - A list type should only wrap an edge type _(optional)_.
+ * @preset `@graphql-eslint/schema-relay`, `@graphql-eslint/flat/schema-relay`
  * @see [relay-edge-types](https://the-guild.dev/graphql/eslint/rules/relay-edge-types)
  */
   '@graphql-eslint/relay-edge-types': RelayEdgeTypesOption;
@@ -993,24 +1041,28 @@ Backward pagination arguments
 - `PageInfo` must be an Object type
 - `PageInfo` must contain fields `hasPreviousPage` and `hasNextPage`, that return non-null Boolean
 - `PageInfo` must contain fields `startCursor` and `endCursor`, that return either String or Scalar, which can be null if there are no results.
+ * @preset `@graphql-eslint/schema-relay`, `@graphql-eslint/flat/schema-relay`
  * @see [relay-page-info](https://the-guild.dev/graphql/eslint/rules/relay-page-info)
  */
   '@graphql-eslint/relay-page-info': null;
 
   /**
    * Require deletion date on `@deprecated` directive. Suggest removing deprecated things after deprecated date.
+   * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/flat/schema-all`
    * @see [require-deprecation-date](https://the-guild.dev/graphql/eslint/rules/require-deprecation-date)
    */
   '@graphql-eslint/require-deprecation-date': RequireDeprecationDateOption;
 
   /**
    * Require all deprecation directives to specify a reason.
+   * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
    * @see [require-deprecation-reason](https://the-guild.dev/graphql/eslint/rules/require-deprecation-reason)
    */
   '@graphql-eslint/require-deprecation-reason': null;
 
   /**
    * Enforce descriptions in type definitions and operations.
+   * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
    * @see [require-description](https://the-guild.dev/graphql/eslint/rules/require-description)
    */
   '@graphql-eslint/require-description': RequireDescriptionOption;
@@ -1018,48 +1070,56 @@ Backward pagination arguments
   /**
  * Allow the client in one round-trip not only to call mutation but also to get a wagon of data to update their application.
 > Currently, no errors are reported for result type `union`, `interface` and `scalar`.
+ * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/flat/schema-all`
  * @see [require-field-of-type-query-in-mutation-result](https://the-guild.dev/graphql/eslint/rules/require-field-of-type-query-in-mutation-result)
  */
   '@graphql-eslint/require-field-of-type-query-in-mutation-result': null;
 
   /**
    * Require fragments to be imported via an import expression.
+   * @preset `@graphql-eslint/operations-all`, `@graphql-eslint/flat/operations-all`
    * @see [require-import-fragment](https://the-guild.dev/graphql/eslint/rules/require-import-fragment)
    */
   '@graphql-eslint/require-import-fragment': null;
 
   /**
    * Require `input` or `type` fields to be non-nullable with `@oneOf` directive.
+   * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/flat/schema-all`
    * @see [require-nullable-fields-with-oneof](https://the-guild.dev/graphql/eslint/rules/require-nullable-fields-with-oneof)
    */
   '@graphql-eslint/require-nullable-fields-with-oneof': null;
 
   /**
    * Require nullable fields in root types.
+   * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/flat/schema-all`
    * @see [require-nullable-result-in-root](https://the-guild.dev/graphql/eslint/rules/require-nullable-result-in-root)
    */
   '@graphql-eslint/require-nullable-result-in-root': null;
 
   /**
    * Enforce selecting specific fields when they are available on the GraphQL type.
+   * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
    * @see [require-selections](https://the-guild.dev/graphql/eslint/rules/require-selections)
    */
   '@graphql-eslint/require-selections': RequireSelections.RequireSelectionsRuleConfig;
 
   /**
    * Enforce types with `@oneOf` directive have `error` and `ok` fields.
+   * @preset `@graphql-eslint/schema-all`, `@graphql-eslint/flat/schema-all`
    * @see [require-type-pattern-with-oneof](https://the-guild.dev/graphql/eslint/rules/require-type-pattern-with-oneof)
    */
   '@graphql-eslint/require-type-pattern-with-oneof': null;
 
   /**
    * Limit the complexity of the GraphQL operations solely by their depth. Based on [graphql-depth-limit](https://npmjs.com/package/graphql-depth-limit).
+   * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
    * @see [selection-set-depth](https://the-guild.dev/graphql/eslint/rules/selection-set-depth)
    */
   '@graphql-eslint/selection-set-depth': SelectionSetDepthOption;
 
   /**
    * Requires output types to have one unique identifier unless they do not have a logical one. Exceptions can be used to ignore output types that do not have unique identifiers.
+   * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
    * @see [strict-id-in-types](https://the-guild.dev/graphql/eslint/rules/strict-id-in-types)
    */
   '@graphql-eslint/strict-id-in-types': StrictIdInTypesOption;
@@ -1067,18 +1127,21 @@ Backward pagination arguments
   /**
  * A GraphQL enum type is only valid if all its values are uniquely named.
 > This rule disallows case-insensitive enum values duplicates too.
+ * @preset `@graphql-eslint/schema-recommended`, `@graphql-eslint/flat/schema-recommended`, `@graphql-eslint/flat/schema-all`
  * @see [unique-enum-value-names](https://the-guild.dev/graphql/eslint/rules/unique-enum-value-names)
  */
   '@graphql-eslint/unique-enum-value-names': null;
 
   /**
    * Enforce unique fragment names across your project.
+   * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
    * @see [unique-fragment-name](https://the-guild.dev/graphql/eslint/rules/unique-fragment-name)
    */
   '@graphql-eslint/unique-fragment-name': null;
 
   /**
    * Enforce unique operation names across your project.
+   * @preset `@graphql-eslint/operations-recommended`, `@graphql-eslint/flat/operations-recommended`, `@graphql-eslint/flat/operations-all`
    * @see [unique-operation-name](https://the-guild.dev/graphql/eslint/rules/unique-operation-name)
    */
   '@graphql-eslint/unique-operation-name': null;

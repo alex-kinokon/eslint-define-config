@@ -6,12 +6,14 @@ import type { RulesObject } from '../rule-config';
 export interface ReactHooksRules {
   /**
    * Enforces the Rules of Hooks.
+   * @preset `react-hooks/recommended-legacy`, `react-hooks/recommended`, `react-hooks/recommended-latest`
    * @see [rules-of-hooks](https://reactjs.org/docs/hooks-rules.html)
    */
   'react-hooks/rules-of-hooks': null;
 
   /**
    * Verifies the list of dependencies for Hooks like useEffect and similar.
+   * @preset `react-hooks/recommended-legacy`, `react-hooks/recommended`, `react-hooks/recommended-latest`
    * @see [exhaustive-deps](https://github.com/facebook/react/issues/14920)
    */
   'react-hooks/exhaustive-deps': [

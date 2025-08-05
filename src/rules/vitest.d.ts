@@ -54,12 +54,14 @@ export type ValidTitleOption = {
 export interface VitestRules {
   /**
    * Enforce lowercase titles.
+   * @preset `vitest/all`
    * @see [prefer-lowercase-title](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-lowercase-title.md)
    */
   'vitest/prefer-lowercase-title': [PreferLowercaseTitleOption?];
 
   /**
    * Require describe block to be less than set max value or default value.
+   * @preset `vitest/all`
    * @see [max-nested-describe](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/max-nested-describe.md)
    */
   'vitest/max-nested-describe': [
@@ -70,12 +72,14 @@ export interface VitestRules {
 
   /**
    * Disallow identical titles.
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-identical-title](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-identical-title.md)
    */
   'vitest/no-identical-title': null;
 
   /**
    * Disallow focused tests.
+   * @preset `vitest/all`
    * @see [no-focused-tests](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-focused-tests.md)
    */
   'vitest/no-focused-tests': [
@@ -86,12 +90,14 @@ export interface VitestRules {
 
   /**
    * Disallow conditional tests.
+   * @preset `vitest/all`
    * @see [no-conditional-tests](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-tests.md)
    */
   'vitest/no-conditional-tests': null;
 
   /**
    * Enforce having expectation in test body.
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [expect-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md)
    */
   'vitest/expect-expect': [
@@ -103,24 +109,28 @@ export interface VitestRules {
 
   /**
    * Enforce using test or it but not both.
+   * @preset `vitest/all`
    * @see [consistent-test-it](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md)
    */
   'vitest/consistent-test-it': [ConsistentTestItOption?];
 
   /**
    * Enforce using vitest or vi but not both.
+   * @preset `vitest/all`
    * @see [consistent-vitest-vi](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-vitest-vi.md)
    */
   'vitest/consistent-vitest-vi': [ConsistentVitestViOption?];
 
   /**
    * Enforce using toBe().
+   * @preset `vitest/all`
    * @see [prefer-to-be](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be.md)
    */
   'vitest/prefer-to-be': null;
 
   /**
    * Disallow setup and teardown hooks.
+   * @preset `vitest/all`
    * @see [no-hooks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-hooks.md)
    */
   'vitest/no-hooks': [
@@ -131,12 +141,14 @@ export interface VitestRules {
 
   /**
    * Disallow specific `vi.` methods.
+   * @preset `vitest/all`
    * @see [no-restricted-vi-methods](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-restricted-vi-methods.md)
    */
   'vitest/no-restricted-vi-methods': [NoRestrictedViMethodsOption?];
 
   /**
    * Require .spec test file pattern.
+   * @preset `vitest/all`
    * @see [consistent-test-filename](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-filename.md)
    */
   'vitest/consistent-test-filename': [
@@ -148,6 +160,7 @@ export interface VitestRules {
 
   /**
    * Enforce a maximum number of expect per test.
+   * @preset `vitest/all`
    * @see [max-expects](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/max-expects.md)
    */
   'vitest/max-expects': [
@@ -158,30 +171,35 @@ export interface VitestRules {
 
   /**
    * Disallow alias methods.
+   * @preset `vitest/all`
    * @see [no-alias-methods](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-alias-methods.md)
    */
   'vitest/no-alias-methods': null;
 
   /**
    * Disallow commented out tests.
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-commented-out-tests](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-commented-out-tests.md)
    */
   'vitest/no-commented-out-tests': null;
 
   /**
    * Disallow conditional expects.
+   * @preset `vitest/all`
    * @see [no-conditional-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-expect.md)
    */
   'vitest/no-conditional-expect': null;
 
   /**
    * Disallow conditional tests.
+   * @preset `vitest/all`
    * @see [no-conditional-in-test](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-in-test.md)
    */
   'vitest/no-conditional-in-test': null;
 
   /**
    * Disallow disabled tests.
+   * @preset `vitest/all`
    * @see [no-disabled-tests](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-disabled-tests.md)
    */
   'vitest/no-disabled-tests': null;
@@ -189,42 +207,49 @@ export interface VitestRules {
   /**
    * Disallow using a callback in asynchronous tests and hooks.
    * @deprecated
+   * @preset `vitest/all`
    * @see [no-done-callback](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-done-callback.md)
    */
   'vitest/no-done-callback': null;
 
   /**
    * Disallow duplicate hooks and teardown hooks.
+   * @preset `vitest/all`
    * @see [no-duplicate-hooks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-duplicate-hooks.md)
    */
   'vitest/no-duplicate-hooks': null;
 
   /**
    * Disallow large snapshots.
+   * @preset `vitest/all`
    * @see [no-large-snapshots](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-large-snapshots.md)
    */
   'vitest/no-large-snapshots': [NoLargeSnapshotsOption?];
 
   /**
    * Disallow string interpolation in snapshots.
+   * @preset `vitest/all`
    * @see [no-interpolation-in-snapshots](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-interpolation-in-snapshots.md)
    */
   'vitest/no-interpolation-in-snapshots': null;
 
   /**
    * Disallow importing from __mocks__ directory.
+   * @preset `vitest/all`
    * @see [no-mocks-import](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-mocks-import.md)
    */
   'vitest/no-mocks-import': null;
 
   /**
    * Disallow the use of certain matchers.
+   * @preset `vitest/all`
    * @see [no-restricted-matchers](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-restricted-matchers.md)
    */
   'vitest/no-restricted-matchers': [NoRestrictedMatchersOption?];
 
   /**
    * Disallow using `expect` outside of `it` or `test` blocks.
+   * @preset `vitest/all`
    * @see [no-standalone-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-standalone-expect.md)
    */
   'vitest/no-standalone-expect': [
@@ -235,36 +260,42 @@ export interface VitestRules {
 
   /**
    * Disallow using the `f` and `x` prefixes in favour of `.only` and `.skip`.
+   * @preset `vitest/all`
    * @see [no-test-prefixes](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-test-prefixes.md)
    */
   'vitest/no-test-prefixes': null;
 
   /**
    * Disallow return statements in tests.
+   * @preset `vitest/all`
    * @see [no-test-return-statement](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-test-return-statement.md)
    */
   'vitest/no-test-return-statement': null;
 
   /**
    * Disallow importing `node:test`.
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-import-node-test](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-import-node-test.md)
    */
   'vitest/no-import-node-test': null;
 
   /**
    * Enforce using `toBeCalledWith()` or `toHaveBeenCalledWith()`.
+   * @preset `vitest/all`
    * @see [prefer-called-with](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-with.md)
    */
   'vitest/prefer-called-with': null;
 
   /**
    * Enforce valid titles.
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [valid-title](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/valid-title.md)
    */
   'vitest/valid-title': [ValidTitleOption?];
 
   /**
    * Enforce valid `expect()` usage.
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [valid-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md)
    */
   'vitest/valid-expect': [
@@ -278,96 +309,112 @@ export interface VitestRules {
 
   /**
    * Enforce using toBeFalsy().
+   * @preset `vitest/all`
    * @see [prefer-to-be-falsy](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be-falsy.md)
    */
   'vitest/prefer-to-be-falsy': null;
 
   /**
    * Enforce using toBeObject().
+   * @preset `vitest/all`
    * @see [prefer-to-be-object](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be-object.md)
    */
   'vitest/prefer-to-be-object': null;
 
   /**
    * Enforce using `toBeTruthy`.
+   * @preset `vitest/all`
    * @see [prefer-to-be-truthy](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-be-truthy.md)
    */
   'vitest/prefer-to-be-truthy': null;
 
   /**
    * Enforce using toHaveLength().
+   * @preset `vitest/all`
    * @see [prefer-to-have-length](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-have-length.md)
    */
   'vitest/prefer-to-have-length': null;
 
   /**
    * Enforce using the built-in quality matchers.
+   * @preset `vitest/all`
    * @see [prefer-equality-matcher](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-equality-matcher.md)
    */
   'vitest/prefer-equality-matcher': null;
 
   /**
    * Enforce strict equal over equal.
+   * @preset `vitest/all`
    * @see [prefer-strict-equal](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-strict-equal.md)
    */
   'vitest/prefer-strict-equal': null;
 
   /**
    * Enforce using `expect().resolves` over `expect(await ...)` syntax.
+   * @preset `vitest/all`
    * @see [prefer-expect-resolves](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-resolves.md)
    */
   'vitest/prefer-expect-resolves': null;
 
   /**
    * Enforce using `each` rather than manual loops.
+   * @preset `vitest/all`
    * @see [prefer-each](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-each.md)
    */
   'vitest/prefer-each': null;
 
   /**
    * Enforce having hooks before any test cases.
+   * @preset `vitest/all`
    * @see [prefer-hooks-on-top](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-hooks-on-top.md)
    */
   'vitest/prefer-hooks-on-top': null;
 
   /**
    * Enforce having hooks in consistent order.
+   * @preset `vitest/all`
    * @see [prefer-hooks-in-order](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-hooks-in-order.md)
    */
   'vitest/prefer-hooks-in-order': null;
 
   /**
    * Require local Test Context for concurrent snapshot tests.
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [require-local-test-context-for-concurrent-snapshots](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-local-test-context-for-concurrent-snapshots.md)
    */
   'vitest/require-local-test-context-for-concurrent-snapshots': null;
 
   /**
    * Enforce mock resolved/rejected shorthands for promises.
+   * @preset `vitest/all`
    * @see [prefer-mock-promise-shorthand](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-mock-promise-shorthand.md)
    */
   'vitest/prefer-mock-promise-shorthand': null;
 
   /**
    * Require `vi.mocked()` over `fn as Mock`.
+   * @preset `vitest/all`
    * @see [prefer-vi-mocked](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-vi-mocked.md)
    */
   'vitest/prefer-vi-mocked': null;
 
   /**
    * Enforce including a hint with external snapshots.
+   * @preset `vitest/all`
    * @see [prefer-snapshot-hint](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-snapshot-hint.md)
    */
   'vitest/prefer-snapshot-hint': [('always' | 'multi')?];
 
   /**
    * Enforce valid describe callback.
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [valid-describe-callback](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/valid-describe-callback.md)
    */
   'vitest/valid-describe-callback': null;
 
   /**
    * Enforce that all tests are in a top-level describe.
+   * @preset `vitest/all`
    * @see [require-top-level-describe](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-top-level-describe.md)
    */
   'vitest/require-top-level-describe': [
@@ -378,12 +425,14 @@ export interface VitestRules {
 
   /**
    * Require toThrow() to be called with an error message.
+   * @preset `vitest/all`
    * @see [require-to-throw-message](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-to-throw-message.md)
    */
   'vitest/require-to-throw-message': null;
 
   /**
    * Require setup and teardown to be within a hook.
+   * @preset `vitest/all`
    * @see [require-hook](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-hook.md)
    */
   'vitest/require-hook': [
@@ -394,36 +443,42 @@ export interface VitestRules {
 
   /**
    * Enforce using `test.todo`.
+   * @preset `vitest/all`
    * @see [prefer-todo](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-todo.md)
    */
   'vitest/prefer-todo': null;
 
   /**
    * Enforce using `vi.spyOn`.
+   * @preset `vitest/all`
    * @see [prefer-spy-on](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-spy-on.md)
    */
   'vitest/prefer-spy-on': null;
 
   /**
    * Enforce using the built-in comparison matchers.
+   * @preset `vitest/all`
    * @see [prefer-comparison-matcher](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-comparison-matcher.md)
    */
   'vitest/prefer-comparison-matcher': null;
 
   /**
    * Enforce using a function as a describe title over an equivalent string.
+   * @preset `vitest/all`
    * @see [prefer-describe-function-title](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-describe-function-title.md)
    */
   'vitest/prefer-describe-function-title': null;
 
   /**
    * Enforce using toContain().
+   * @preset `vitest/all`
    * @see [prefer-to-contain](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-contain.md)
    */
   'vitest/prefer-to-contain': null;
 
   /**
    * Enforce using expect assertions instead of callbacks.
+   * @preset `vitest/all`
    * @see [prefer-expect-assertions](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-assertions.md)
    */
   'vitest/prefer-expect-assertions': [
@@ -436,66 +491,77 @@ export interface VitestRules {
 
   /**
    * Enforce padding around `afterAll` blocks.
+   * @preset `vitest/all`
    * @see [padding-around-after-all-blocks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-after-all-blocks.md)
    */
   'vitest/padding-around-after-all-blocks': null;
 
   /**
    * Enforce padding around `afterEach` blocks.
+   * @preset `vitest/all`
    * @see [padding-around-after-each-blocks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-after-each-blocks.md)
    */
   'vitest/padding-around-after-each-blocks': null;
 
   /**
    * Enforce padding around vitest functions.
+   * @preset `vitest/all`
    * @see [padding-around-all](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-all.md)
    */
   'vitest/padding-around-all': null;
 
   /**
    * Enforce padding around `beforeAll` blocks.
+   * @preset `vitest/all`
    * @see [padding-around-before-all-blocks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-before-all-blocks.md)
    */
   'vitest/padding-around-before-all-blocks': null;
 
   /**
    * Enforce padding around `beforeEach` blocks.
+   * @preset `vitest/all`
    * @see [padding-around-before-each-blocks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-before-each-blocks.md)
    */
   'vitest/padding-around-before-each-blocks': null;
 
   /**
    * Enforce padding around `describe` blocks.
+   * @preset `vitest/all`
    * @see [padding-around-describe-blocks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-describe-blocks.md)
    */
   'vitest/padding-around-describe-blocks': null;
 
   /**
    * Enforce padding around `expect` groups.
+   * @preset `vitest/all`
    * @see [padding-around-expect-groups](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-expect-groups.md)
    */
   'vitest/padding-around-expect-groups': null;
 
   /**
    * Enforce padding around `test` blocks.
+   * @preset `vitest/all`
    * @see [padding-around-test-blocks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-test-blocks.md)
    */
   'vitest/padding-around-test-blocks': null;
 
   /**
    * Require promises that have expectations in their chain to be valid.
+   * @preset `vitest/all`
    * @see [valid-expect-in-promise](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/valid-expect-in-promise.md)
    */
   'vitest/valid-expect-in-promise': null;
 
   /**
    * Enforce using `toBe(true)` and `toBe(false)` over matchers that coerce types to boolean.
+   * @preset `vitest/all`
    * @see [prefer-strict-boolean-matchers](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-strict-boolean-matchers.md)
    */
   'vitest/prefer-strict-boolean-matchers': null;
 
   /**
    * Enforce using type parameters with vitest mock functions.
+   * @preset `vitest/all`
    * @see [require-mock-type-parameters](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-mock-type-parameters.md)
    */
   'vitest/require-mock-type-parameters': [
@@ -506,24 +572,28 @@ export interface VitestRules {
 
   /**
    * Disallow importing Vitest globals.
+   * @preset `vitest/all`
    * @see [no-importing-vitest-globals](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-importing-vitest-globals.md)
    */
   'vitest/no-importing-vitest-globals': null;
 
   /**
    * Enforce importing Vitest globals.
+   * @preset `vitest/all`
    * @see [prefer-importing-vitest-globals](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-importing-vitest-globals.md)
    */
   'vitest/prefer-importing-vitest-globals': null;
 
   /**
    * Enforce using `toBeCalledOnce()` or `toHaveBeenCalledOnce()`.
+   * @preset `vitest/all`
    * @see [prefer-called-once](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-once.md)
    */
   'vitest/prefer-called-once': null;
 
   /**
    * Enforce using `toBeCalledTimes(1)` or `toHaveBeenCalledTimes(1)`.
+   * @preset `vitest/all`
    * @see [prefer-called-times](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-times.md)
    */
   'vitest/prefer-called-times': null;

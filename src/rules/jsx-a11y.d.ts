@@ -293,30 +293,35 @@ export interface JsxA11yRules {
 
   /**
    * Enforce all elements that require alternative text have meaningful information to relay back to end user.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [alt-text](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/alt-text.md)
    */
   'jsx-a11y/alt-text': [AltTextOption?];
 
   /**
    * Enforce `<a>` text to not exactly match "click here", "here", "link", or "a link".
+   * @preset `jsx-a11y/recommended`
    * @see [anchor-ambiguous-text](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/anchor-ambiguous-text.md)
    */
   'jsx-a11y/anchor-ambiguous-text': [AnchorAmbiguousTextOption?];
 
   /**
    * Enforce all anchors to contain accessible content.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [anchor-has-content](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/anchor-has-content.md)
    */
   'jsx-a11y/anchor-has-content': [AnchorHasContentOption?];
 
   /**
    * Enforce all anchors are valid, navigable elements.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [anchor-is-valid](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/anchor-is-valid.md)
    */
   'jsx-a11y/anchor-is-valid': [AnchorIsValidOption?];
 
   /**
    * Enforce elements with aria-activedescendant are tabbable.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [aria-activedescendant-has-tabindex](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-activedescendant-has-tabindex.md)
    */
   'jsx-a11y/aria-activedescendant-has-tabindex': [
@@ -325,78 +330,91 @@ export interface JsxA11yRules {
 
   /**
    * Enforce all `aria-*` props are valid.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [aria-props](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-props.md)
    */
   'jsx-a11y/aria-props': [AriaPropsOption?];
 
   /**
    * Enforce ARIA state and property values are valid.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [aria-proptypes](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-proptypes.md)
    */
   'jsx-a11y/aria-proptypes': [AriaProptypesOption?];
 
   /**
    * Enforce that elements with ARIA roles must use a valid, non-abstract ARIA role.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [aria-role](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-role.md)
    */
   'jsx-a11y/aria-role': [AriaRoleOption?];
 
   /**
    * Enforce that elements that do not support ARIA roles, states, and properties do not have those attributes.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [aria-unsupported-elements](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/aria-unsupported-elements.md)
    */
   'jsx-a11y/aria-unsupported-elements': [AriaUnsupportedElementsOption?];
 
   /**
    * Enforce that autocomplete attributes are used correctly.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [autocomplete-valid](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/autocomplete-valid.md)
    */
   'jsx-a11y/autocomplete-valid': [AutocompleteValidOption?];
 
   /**
    * Enforce a clickable non-interactive element has at least one keyboard event listener.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [click-events-have-key-events](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/click-events-have-key-events.md)
    */
   'jsx-a11y/click-events-have-key-events': [ClickEventsHaveKeyEventsOption?];
 
   /**
    * Enforce that a control (an interactive element) has a text label.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [control-has-associated-label](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/control-has-associated-label.md)
    */
   'jsx-a11y/control-has-associated-label': [ControlHasAssociatedLabelOption?];
 
   /**
    * Enforce heading (`h1`, `h2`, etc) elements contain accessible content.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [heading-has-content](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/heading-has-content.md)
    */
   'jsx-a11y/heading-has-content': [HeadingHasContentOption?];
 
   /**
    * Enforce `<html>` element has `lang` prop.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [html-has-lang](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/html-has-lang.md)
    */
   'jsx-a11y/html-has-lang': [HtmlHasLangOption?];
 
   /**
    * Enforce iframe elements have a title attribute.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [iframe-has-title](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/iframe-has-title.md)
    */
   'jsx-a11y/iframe-has-title': [IframeHasTitleOption?];
 
   /**
    * Enforce `<img>` alt prop does not contain the word "image", "picture", or "photo".
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [img-redundant-alt](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/img-redundant-alt.md)
    */
   'jsx-a11y/img-redundant-alt': [ImgRedundantAltOption?];
 
   /**
    * Enforce that elements with interactive handlers like `onClick` must be focusable.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [interactive-supports-focus](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/interactive-supports-focus.md)
    */
   'jsx-a11y/interactive-supports-focus': [InteractiveSupportsFocusOption?];
 
   /**
    * Enforce that a `label` tag has a text label and an associated control.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [label-has-associated-control](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/label-has-associated-control.md)
    */
   'jsx-a11y/label-has-associated-control': [LabelHasAssociatedControlOption?];
@@ -404,6 +422,7 @@ export interface JsxA11yRules {
   /**
    * Enforce that `<label>` elements have the `htmlFor` prop.
    * @deprecated
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [label-has-for](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/label-has-for.md)
    */
   'jsx-a11y/label-has-for': [LabelHasForOption?];
@@ -416,18 +435,21 @@ export interface JsxA11yRules {
 
   /**
    * Enforces that `<audio>` and `<video>` elements must have a `<track>` for captions.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [media-has-caption](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/media-has-caption.md)
    */
   'jsx-a11y/media-has-caption': [MediaHasCaptionOption?];
 
   /**
    * Enforce that `onMouseOver`/`onMouseOut` are accompanied by `onFocus`/`onBlur` for keyboard-only users.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [mouse-events-have-key-events](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/mouse-events-have-key-events.md)
    */
   'jsx-a11y/mouse-events-have-key-events': [MouseEventsHaveKeyEventsOption?];
 
   /**
    * Enforce that the `accessKey` prop is not used on any element to avoid complications with keyboard commands used by a screen reader.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-access-key](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-access-key.md)
    */
   'jsx-a11y/no-access-key': [NoAccessKeyOption?];
@@ -440,18 +462,21 @@ export interface JsxA11yRules {
 
   /**
    * Enforce autoFocus prop is not used.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-autofocus](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-autofocus.md)
    */
   'jsx-a11y/no-autofocus': [NoAutofocusOption?];
 
   /**
    * Enforce distracting elements are not used.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-distracting-elements](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-distracting-elements.md)
    */
   'jsx-a11y/no-distracting-elements': [NoDistractingElementsOption?];
 
   /**
    * Interactive elements should not be assigned non-interactive roles.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-interactive-element-to-noninteractive-role](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-interactive-element-to-noninteractive-role.md)
    */
   'jsx-a11y/no-interactive-element-to-noninteractive-role': [
@@ -460,6 +485,7 @@ export interface JsxA11yRules {
 
   /**
    * Non-interactive elements should not be assigned mouse or keyboard event listeners.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-noninteractive-element-interactions](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-noninteractive-element-interactions.md)
    */
   'jsx-a11y/no-noninteractive-element-interactions': [
@@ -468,6 +494,7 @@ export interface JsxA11yRules {
 
   /**
    * Non-interactive elements should not be assigned interactive roles.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-noninteractive-element-to-interactive-role](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-noninteractive-element-to-interactive-role.md)
    */
   'jsx-a11y/no-noninteractive-element-to-interactive-role': [
@@ -476,6 +503,7 @@ export interface JsxA11yRules {
 
   /**
    * `tabIndex` should only be declared on interactive elements.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-noninteractive-tabindex](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-noninteractive-tabindex.md)
    */
   'jsx-a11y/no-noninteractive-tabindex': [NoNoninteractiveTabindexOption?];
@@ -489,12 +517,14 @@ export interface JsxA11yRules {
 
   /**
    * Enforce explicit role property is not the same as implicit/default role property on element.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-redundant-roles](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-redundant-roles.md)
    */
   'jsx-a11y/no-redundant-roles': [NoRedundantRolesOption?];
 
   /**
    * Enforce that non-interactive, visible elements (such as `<div>`) that have click handlers use the role attribute.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [no-static-element-interactions](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/no-static-element-interactions.md)
    */
   'jsx-a11y/no-static-element-interactions': [
@@ -509,24 +539,28 @@ export interface JsxA11yRules {
 
   /**
    * Enforce that elements with ARIA roles must have all required attributes for that role.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [role-has-required-aria-props](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/role-has-required-aria-props.md)
    */
   'jsx-a11y/role-has-required-aria-props': [RoleHasRequiredAriaPropsOption?];
 
   /**
    * Enforce that elements with explicit or implicit roles defined contain only `aria-*` properties supported by that `role`.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [role-supports-aria-props](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/role-supports-aria-props.md)
    */
   'jsx-a11y/role-supports-aria-props': [RoleSupportsAriaPropsOption?];
 
   /**
    * Enforce `scope` prop is only used on `<th>` elements.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [scope](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/scope.md)
    */
   'jsx-a11y/scope': [ScopeOption?];
 
   /**
    * Enforce `tabIndex` value is not greater than zero.
+   * @preset `jsx-a11y/recommended`, `jsx-a11y/strict`
    * @see [tabindex-no-positive](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/HEAD/docs/rules/tabindex-no-positive.md)
    */
   'jsx-a11y/tabindex-no-positive': [TabindexNoPositiveOption?];

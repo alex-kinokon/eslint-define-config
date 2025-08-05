@@ -14,18 +14,21 @@ export interface NoMathLog1POption {
 export interface EsXRules {
   /**
    * Disallow accessor properties.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-accessor-properties](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-accessor-properties.html)
    */
   'es-x/no-accessor-properties': null;
 
   /**
    * Disallow arbitrary module namespace names.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`
    * @see [no-arbitrary-module-namespace-names](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-arbitrary-module-namespace-names.html)
    */
   'es-x/no-arbitrary-module-namespace-names': null;
 
   /**
    * Disallow the `Array.from` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-from](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-from.html)
    */
   'es-x/no-array-from': [
@@ -36,6 +39,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.fromAsync` method.
+   * @preset `es-x/flat/no-new-in-esnext`, `es-x/no-new-in-esnext`
    * @see [no-array-fromasync](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-fromasync.html)
    */
   'es-x/no-array-fromasync': [
@@ -46,6 +50,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.isArray` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-isarray](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-isarray.html)
    */
   'es-x/no-array-isarray': [
@@ -56,6 +61,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.of` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-of](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-of.html)
    */
   'es-x/no-array-of': [
@@ -66,6 +72,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.at()` methods.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/no-relative-indexing-method`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`, `es-x/no-relative-indexing-method`
    * @see [no-array-prototype-at](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-at.html)
    */
   'es-x/no-array-prototype-at': [
@@ -77,6 +84,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.copyWithin` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-prototype-copywithin](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-copywithin.html)
    */
   'es-x/no-array-prototype-copywithin': [
@@ -88,6 +96,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.entries` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-prototype-entries](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-entries.html)
    */
   'es-x/no-array-prototype-entries': [
@@ -99,6 +108,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.every` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-every](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-every.html)
    */
   'es-x/no-array-prototype-every': [
@@ -110,6 +120,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.fill` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-prototype-fill](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-fill.html)
    */
   'es-x/no-array-prototype-fill': [
@@ -121,6 +132,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.filter` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-filter](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-filter.html)
    */
   'es-x/no-array-prototype-filter': [
@@ -132,6 +144,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.find` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-prototype-find](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-find.html)
    */
   'es-x/no-array-prototype-find': [
@@ -143,6 +156,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.findIndex` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-prototype-findindex](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-findindex.html)
    */
   'es-x/no-array-prototype-findindex': [
@@ -154,6 +168,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.{findLast,findLastIndex}` methods.
+   * @preset `es-x/flat/no-new-in-es2023`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/no-new-in-es2023`
    * @see [no-array-prototype-findlast-findlastindex](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-findlast-findlastindex.html)
    */
   'es-x/no-array-prototype-findlast-findlastindex': [
@@ -165,6 +180,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.{flat,flatMap}` method.
+   * @preset `es-x/flat/no-new-in-es2019`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/no-new-in-es2019`, `es-x/no-2019`
    * @see [no-array-prototype-flat](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-flat.html)
    */
   'es-x/no-array-prototype-flat': [
@@ -176,6 +192,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.forEach` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-foreach](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-foreach.html)
    */
   'es-x/no-array-prototype-foreach': [
@@ -187,6 +204,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.includes` method.
+   * @preset `es-x/flat/no-new-in-es2016`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/no-new-in-es2016`, `es-x/no-2016`
    * @see [no-array-prototype-includes](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-includes.html)
    */
   'es-x/no-array-prototype-includes': [
@@ -198,6 +216,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.indexOf` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-indexof](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-indexof.html)
    */
   'es-x/no-array-prototype-indexof': [
@@ -209,6 +228,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.keys` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-prototype-keys](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-keys.html)
    */
   'es-x/no-array-prototype-keys': [
@@ -220,6 +240,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.lastIndexOf` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-lastindexof](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-lastindexof.html)
    */
   'es-x/no-array-prototype-lastindexof': [
@@ -231,6 +252,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.map` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-map](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-map.html)
    */
   'es-x/no-array-prototype-map': [
@@ -242,6 +264,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.reduce` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-reduce](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-reduce.html)
    */
   'es-x/no-array-prototype-reduce': [
@@ -253,6 +276,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.reduceRight` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-reduceright](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-reduceright.html)
    */
   'es-x/no-array-prototype-reduceright': [
@@ -264,6 +288,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.some` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-array-prototype-some](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-some.html)
    */
   'es-x/no-array-prototype-some': [
@@ -275,6 +300,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.toReversed` method.
+   * @preset `es-x/flat/no-change-array-by-copy`, `es-x/flat/no-new-in-es2023`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/no-change-array-by-copy`, `es-x/no-new-in-es2023`
    * @see [no-array-prototype-toreversed](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-toreversed.html)
    */
   'es-x/no-array-prototype-toreversed': [
@@ -286,6 +312,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.toSorted` method.
+   * @preset `es-x/flat/no-change-array-by-copy`, `es-x/flat/no-new-in-es2023`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/no-change-array-by-copy`, `es-x/no-new-in-es2023`
    * @see [no-array-prototype-tosorted](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-tosorted.html)
    */
   'es-x/no-array-prototype-tosorted': [
@@ -297,6 +324,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.toSpliced` method.
+   * @preset `es-x/flat/no-change-array-by-copy`, `es-x/flat/no-new-in-es2023`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/no-change-array-by-copy`, `es-x/no-new-in-es2023`
    * @see [no-array-prototype-tospliced](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-tospliced.html)
    */
   'es-x/no-array-prototype-tospliced': [
@@ -308,6 +336,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.values` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-array-prototype-values](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-values.html)
    */
   'es-x/no-array-prototype-values': [
@@ -319,6 +348,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Array.prototype.with` method.
+   * @preset `es-x/flat/no-change-array-by-copy`, `es-x/flat/no-new-in-es2023`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/no-change-array-by-copy`, `es-x/no-new-in-es2023`
    * @see [no-array-prototype-with](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-array-prototype-with.html)
    */
   'es-x/no-array-prototype-with': [
@@ -342,6 +372,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `ArrayBuffer.prototype.transfer` method.
+   * @preset `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-new-in-es2024`
    * @see [no-arraybuffer-prototype-transfer](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-arraybuffer-prototype-transfer.html)
    */
   'es-x/no-arraybuffer-prototype-transfer': [
@@ -353,36 +384,42 @@ export interface EsXRules {
 
   /**
    * Disallow arrow function expressions.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-arrow-functions](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-arrow-functions.html)
    */
   'es-x/no-arrow-functions': null;
 
   /**
    * Disallow async function declarations.
+   * @preset `es-x/flat/no-new-in-es2017`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/no-new-in-es2017`, `es-x/no-2017`
    * @see [no-async-functions](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-async-functions.html)
    */
   'es-x/no-async-functions': null;
 
   /**
    * Disallow async iteration.
+   * @preset `es-x/flat/no-new-in-es2018`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/no-new-in-es2018`, `es-x/no-2018`
    * @see [no-async-iteration](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-async-iteration.html)
    */
   'es-x/no-async-iteration': null;
 
   /**
    * Disallow the `AsyncDisposableStack` class.
+   * @preset `es-x/flat/no-explicit-resource-management`, `es-x/flat/no-new-in-esnext`, `es-x/no-explicit-resource-management`, `es-x/no-new-in-esnext`
    * @see [no-asyncdisposablestack](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-asyncdisposablestack.html)
    */
   'es-x/no-asyncdisposablestack': null;
 
   /**
    * Disallow the `Atomics` class.
+   * @preset `es-x/flat/no-new-in-es2017`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/no-new-in-es2017`, `es-x/no-2017`
    * @see [no-atomics](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-atomics.html)
    */
   'es-x/no-atomics': null;
 
   /**
    * Disallow the `Atomics.waitAsync` method.
+   * @preset `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-new-in-es2024`
    * @see [no-atomics-waitasync](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-atomics-waitasync.html)
    */
   'es-x/no-atomics-waitasync': [
@@ -393,24 +430,28 @@ export interface EsXRules {
 
   /**
    * Disallow `bigint` syntax and built-ins.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-bigint](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-bigint.html)
    */
   'es-x/no-bigint': null;
 
   /**
    * Disallow binary numeric literals.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-binary-numeric-literals](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-binary-numeric-literals.html)
    */
   'es-x/no-binary-numeric-literals': null;
 
   /**
    * Disallow block-scoped function declarations.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-block-scoped-functions](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-block-scoped-functions.html)
    */
   'es-x/no-block-scoped-functions': null;
 
   /**
    * Disallow block-scoped variable declarations.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-block-scoped-variables](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-block-scoped-variables.html)
    */
   'es-x/no-block-scoped-variables': null;
@@ -424,48 +465,56 @@ export interface EsXRules {
 
   /**
    * Disallow instance class fields.
+   * @preset `es-x/flat/no-class-fields`, `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-class-fields`, `es-x/no-new-in-es2022`
    * @see [no-class-instance-fields](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-class-instance-fields.html)
    */
   'es-x/no-class-instance-fields': null;
 
   /**
    * Disallow private class fields.
+   * @preset `es-x/flat/no-class-fields`, `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-class-fields`, `es-x/no-new-in-es2022`
    * @see [no-class-private-fields](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-class-private-fields.html)
    */
   'es-x/no-class-private-fields': null;
 
   /**
    * Disallow private class methods.
+   * @preset `es-x/flat/no-class-fields`, `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-class-fields`, `es-x/no-new-in-es2022`
    * @see [no-class-private-methods](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-class-private-methods.html)
    */
   'es-x/no-class-private-methods': null;
 
   /**
    * Disallow class static block.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`
    * @see [no-class-static-block](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-class-static-block.html)
    */
   'es-x/no-class-static-block': null;
 
   /**
    * Disallow static class fields.
+   * @preset `es-x/flat/no-class-fields`, `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-class-fields`, `es-x/no-new-in-es2022`
    * @see [no-class-static-fields](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-class-static-fields.html)
    */
   'es-x/no-class-static-fields': null;
 
   /**
    * Disallow class declarations.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-classes](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-classes.html)
    */
   'es-x/no-classes': null;
 
   /**
    * Disallow computed properties.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-computed-properties](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-computed-properties.html)
    */
   'es-x/no-computed-properties': null;
 
   /**
    * Disallow the `DataView.prototype.{getFloat16,setFloat16}` methods.
+   * @preset `es-x/flat/no-float16array`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-float16array`, `es-x/no-new-in-es2025`
    * @see [no-dataview-prototype-getfloat16-setfloat16](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-dataview-prototype-getfloat16-setfloat16.html)
    */
   'es-x/no-dataview-prototype-getfloat16-setfloat16': [
@@ -477,6 +526,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Date.now` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-date-now](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-date-now.html)
    */
   'es-x/no-date-now': [
@@ -509,42 +559,49 @@ export interface EsXRules {
 
   /**
    * Disallow default parameters.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-default-parameters](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-default-parameters.html)
    */
   'es-x/no-default-parameters': null;
 
   /**
    * Disallow destructuring.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-destructuring](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-destructuring.html)
    */
   'es-x/no-destructuring': null;
 
   /**
    * Disallow the `DisposableStack` class.
+   * @preset `es-x/flat/no-explicit-resource-management`, `es-x/flat/no-new-in-esnext`, `es-x/no-explicit-resource-management`, `es-x/no-new-in-esnext`
    * @see [no-disposablestack](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-disposablestack.html)
    */
   'es-x/no-disposablestack': null;
 
   /**
    * Disallow `import()` syntax.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-dynamic-import](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-dynamic-import.html)
    */
   'es-x/no-dynamic-import': null;
 
   /**
    * Disallow the second parameter to `import()`.
+   * @preset `es-x/flat/no-import-attributes`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-import-attributes`, `es-x/no-new-in-es2025`
    * @see [no-dynamic-import-options](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-dynamic-import-options.html)
    */
   'es-x/no-dynamic-import-options': null;
 
   /**
    * Disallow Error Cause.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`
    * @see [no-error-cause](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-error-cause.html)
    */
   'es-x/no-error-cause': null;
 
   /**
    * Disallow the `Error.isError` method.
+   * @preset `es-x/flat/no-new-in-esnext`, `es-x/no-new-in-esnext`
    * @see [no-error-iserror](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-error-iserror.html)
    */
   'es-x/no-error-iserror': [
@@ -561,24 +618,28 @@ export interface EsXRules {
 
   /**
    * Disallow exponential operators.
+   * @preset `es-x/flat/no-new-in-es2016`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/no-new-in-es2016`, `es-x/no-2016`
    * @see [no-exponential-operators](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-exponential-operators.html)
    */
   'es-x/no-exponential-operators': null;
 
   /**
    * Disallow `export * as ns`.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-export-ns-from](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-export-ns-from.html)
    */
   'es-x/no-export-ns-from': null;
 
   /**
    * Disallow the `Float16Array` class.
+   * @preset `es-x/flat/no-float16array`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-float16array`, `es-x/no-new-in-es2025`
    * @see [no-float16array](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-float16array.html)
    */
   'es-x/no-float16array': null;
 
   /**
    * Disallow `for-of` statements.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-for-of-loops](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-for-of-loops.html)
    */
   'es-x/no-for-of-loops': null;
@@ -591,6 +652,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Function.prototype.bind` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-function-prototype-bind](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-function-prototype-bind.html)
    */
   'es-x/no-function-prototype-bind': [
@@ -602,30 +664,35 @@ export interface EsXRules {
 
   /**
    * Disallow generator function declarations.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-generators](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-generators.html)
    */
   'es-x/no-generators': null;
 
   /**
    * Disallow the `globalThis` variable.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-global-this](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-global-this.html)
    */
   'es-x/no-global-this': null;
 
   /**
    * Disallow Hashbang comments.
+   * @preset `es-x/flat/no-new-in-es2023`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/no-new-in-es2023`
    * @see [no-hashbang](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-hashbang.html)
    */
   'es-x/no-hashbang': null;
 
   /**
    * Disallow Import Attributes.
+   * @preset `es-x/flat/no-import-attributes`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-import-attributes`, `es-x/no-new-in-es2025`
    * @see [no-import-attributes](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-import-attributes.html)
    */
   'es-x/no-import-attributes': null;
 
   /**
    * Disallow `import.meta` meta property.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-import-meta](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-import-meta.html)
    */
   'es-x/no-import-meta': null;
@@ -638,6 +705,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.DateTimeFormat.prototype.formatRange` method.
+   * @preset `es-x/flat/no-new-in-es2021-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/no-new-in-es2021-intl-api`
    * @see [no-intl-datetimeformat-prototype-formatrange](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-datetimeformat-prototype-formatrange.html)
    */
   'es-x/no-intl-datetimeformat-prototype-formatrange': [
@@ -649,6 +717,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `DateTimeFormat.prototype.formatToParts` method.
+   * @preset `es-x/flat/no-new-in-es2017-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/no-new-in-es2017-intl-api`
    * @see [no-intl-datetimeformat-prototype-formattoparts](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-datetimeformat-prototype-formattoparts.html)
    */
   'es-x/no-intl-datetimeformat-prototype-formattoparts': [
@@ -660,6 +729,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.DisplayNames` object.
+   * @preset `es-x/flat/no-new-in-es2021-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/no-new-in-es2021-intl-api`
    * @see [no-intl-displaynames](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-displaynames.html)
    */
   'es-x/no-intl-displaynames': [
@@ -670,6 +740,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.DurationFormat` object.
+   * @preset `es-x/flat/no-new-in-es2025-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/flat/restrict-to-es2021-intl-api`, `es-x/flat/restrict-to-es2022-intl-api`, `es-x/flat/restrict-to-es2023-intl-api`, `es-x/flat/restrict-to-es2024-intl-api`, `es-x/no-new-in-es2025-intl-api`
    * @see [no-intl-durationformat](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-durationformat.html)
    */
   'es-x/no-intl-durationformat': [
@@ -680,6 +751,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.getCanonicalLocales` method.
+   * @preset `es-x/flat/no-new-in-es2016-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/no-new-in-es2016-intl-api`
    * @see [no-intl-getcanonicallocales](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-getcanonicallocales.html)
    */
   'es-x/no-intl-getcanonicallocales': [
@@ -690,6 +762,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.ListFormat` object.
+   * @preset `es-x/flat/no-new-in-es2021-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/no-new-in-es2021-intl-api`
    * @see [no-intl-listformat](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-listformat.html)
    */
   'es-x/no-intl-listformat': [
@@ -700,6 +773,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.Locale` object.
+   * @preset `es-x/flat/no-new-in-es2020-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/no-new-in-es2020-intl-api`
    * @see [no-intl-locale](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale.html)
    */
   'es-x/no-intl-locale': [
@@ -710,6 +784,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `NumberFormat.prototype.formatRange` method.
+   * @preset `es-x/flat/no-intl-numberformat-v3`, `es-x/flat/no-new-in-es2023-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/flat/restrict-to-es2021-intl-api`, `es-x/flat/restrict-to-es2022-intl-api`, `es-x/no-intl-numberformat-v3`, `es-x/no-new-in-es2023-intl-api`
    * @see [no-intl-numberformat-prototype-formatrange](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-numberformat-prototype-formatrange.html)
    */
   'es-x/no-intl-numberformat-prototype-formatrange': [
@@ -721,6 +796,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `NumberFormat.prototype.formatRangeToParts` method.
+   * @preset `es-x/flat/no-intl-numberformat-v3`, `es-x/flat/no-new-in-es2023-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/flat/restrict-to-es2021-intl-api`, `es-x/flat/restrict-to-es2022-intl-api`, `es-x/no-intl-numberformat-v3`, `es-x/no-new-in-es2023-intl-api`
    * @see [no-intl-numberformat-prototype-formatrangetoparts](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-numberformat-prototype-formatrangetoparts.html)
    */
   'es-x/no-intl-numberformat-prototype-formatrangetoparts': [
@@ -732,6 +808,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `NumberFormat.prototype.formatToParts` method.
+   * @preset `es-x/flat/no-new-in-es2018-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/no-new-in-es2018-intl-api`
    * @see [no-intl-numberformat-prototype-formattoparts](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-numberformat-prototype-formattoparts.html)
    */
   'es-x/no-intl-numberformat-prototype-formattoparts': [
@@ -743,6 +820,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.PluralRules` object.
+   * @preset `es-x/flat/no-new-in-es2018-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/no-new-in-es2018-intl-api`
    * @see [no-intl-pluralrules](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-pluralrules.html)
    */
   'es-x/no-intl-pluralrules': [
@@ -753,6 +831,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `PluralRules.prototype.selectRange` method.
+   * @preset `es-x/flat/no-intl-numberformat-v3`, `es-x/flat/no-new-in-es2023-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/flat/restrict-to-es2021-intl-api`, `es-x/flat/restrict-to-es2022-intl-api`, `es-x/no-intl-numberformat-v3`, `es-x/no-new-in-es2023-intl-api`
    * @see [no-intl-pluralrules-prototype-selectrange](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-pluralrules-prototype-selectrange.html)
    */
   'es-x/no-intl-pluralrules-prototype-selectrange': [
@@ -764,6 +843,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.RelativeTimeFormat` object.
+   * @preset `es-x/flat/no-new-in-es2020-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/no-new-in-es2020-intl-api`
    * @see [no-intl-relativetimeformat](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-relativetimeformat.html)
    */
   'es-x/no-intl-relativetimeformat': [
@@ -774,6 +854,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.Segmenter` object.
+   * @preset `es-x/flat/no-new-in-es2022-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/flat/restrict-to-es2021-intl-api`, `es-x/no-new-in-es2022-intl-api`
    * @see [no-intl-segmenter](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-segmenter.html)
    */
   'es-x/no-intl-segmenter': [
@@ -784,6 +865,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Intl.supportedValuesOf` method.
+   * @preset `es-x/flat/no-new-in-es2022-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/flat/restrict-to-es2021-intl-api`, `es-x/no-new-in-es2022-intl-api`
    * @see [no-intl-supportedvaluesof](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-supportedvaluesof.html)
    */
   'es-x/no-intl-supportedvaluesof': [
@@ -794,12 +876,14 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator` class.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator.html)
    */
   'es-x/no-iterator': null;
 
   /**
    * Disallow the `Iterator.prototype.drop` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-drop](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-drop.html)
    */
   'es-x/no-iterator-prototype-drop': [
@@ -811,6 +895,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.every` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-every](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-every.html)
    */
   'es-x/no-iterator-prototype-every': [
@@ -822,6 +907,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.filter` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-filter](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-filter.html)
    */
   'es-x/no-iterator-prototype-filter': [
@@ -833,6 +919,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.find` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-find](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-find.html)
    */
   'es-x/no-iterator-prototype-find': [
@@ -844,6 +931,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.flatMap` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-flatmap](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-flatmap.html)
    */
   'es-x/no-iterator-prototype-flatmap': [
@@ -855,6 +943,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.forEach` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-foreach](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-foreach.html)
    */
   'es-x/no-iterator-prototype-foreach': [
@@ -866,6 +955,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.map` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-map](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-map.html)
    */
   'es-x/no-iterator-prototype-map': [
@@ -877,6 +967,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.reduce` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-reduce](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-reduce.html)
    */
   'es-x/no-iterator-prototype-reduce': [
@@ -888,6 +979,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.some` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-some](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-some.html)
    */
   'es-x/no-iterator-prototype-some': [
@@ -899,6 +991,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.take` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-take](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-take.html)
    */
   'es-x/no-iterator-prototype-take': [
@@ -910,6 +1003,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Iterator.prototype.toArray` method.
+   * @preset `es-x/flat/no-iterator-helpers`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-iterator-helpers`, `es-x/no-new-in-es2025`
    * @see [no-iterator-prototype-toarray](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-prototype-toarray.html)
    */
   'es-x/no-iterator-prototype-toarray': [
@@ -921,24 +1015,28 @@ export interface EsXRules {
 
   /**
    * Disallow the `JSON` class.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-json](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-json.html)
    */
   'es-x/no-json': null;
 
   /**
    * Disallow JSON Modules.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`
    * @see [no-json-modules](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-json-modules.html)
    */
   'es-x/no-json-modules': null;
 
   /**
    * Disallow `\u2028` and `\u2029` in string literals.
+   * @preset `es-x/flat/no-new-in-es2019`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/no-new-in-es2019`, `es-x/no-2019`
    * @see [no-json-superset](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-json-superset.html)
    */
   'es-x/no-json-superset': null;
 
   /**
    * Disallow reserved words as property names.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-keyword-properties](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-keyword-properties.html)
    */
   'es-x/no-keyword-properties': null;
@@ -957,24 +1055,28 @@ export interface EsXRules {
 
   /**
    * Disallow logical assignment operators.
+   * @preset `es-x/flat/no-new-in-es2021`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/no-new-in-es2021`
    * @see [no-logical-assignment-operators](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-logical-assignment-operators.html)
    */
   'es-x/no-logical-assignment-operators': null;
 
   /**
    * Disallow template literals with invalid escape sequences.
+   * @preset `es-x/flat/no-new-in-es2018`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/no-new-in-es2018`, `es-x/no-2018`
    * @see [no-malformed-template-literals](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-malformed-template-literals.html)
    */
   'es-x/no-malformed-template-literals': null;
 
   /**
    * Disallow the `Map` class.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-map](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-map.html)
    */
   'es-x/no-map': null;
 
   /**
    * Disallow the `Map.groupBy()` method.
+   * @preset `es-x/flat/no-array-grouping`, `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-array-grouping`, `es-x/no-new-in-es2024`
    * @see [no-map-groupby](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-map-groupby.html)
    */
   'es-x/no-map-groupby': [
@@ -985,6 +1087,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.acosh` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-acosh](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-acosh.html)
    */
   'es-x/no-math-acosh': [
@@ -995,6 +1098,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.asinh` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-asinh](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-asinh.html)
    */
   'es-x/no-math-asinh': [
@@ -1005,6 +1109,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.atanh` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-atanh](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-atanh.html)
    */
   'es-x/no-math-atanh': [
@@ -1015,6 +1120,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.cbrt` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-cbrt](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-cbrt.html)
    */
   'es-x/no-math-cbrt': [
@@ -1025,6 +1131,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.clz32` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-clz32](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-clz32.html)
    */
   'es-x/no-math-clz32': [
@@ -1035,6 +1142,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.cosh` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-cosh](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-cosh.html)
    */
   'es-x/no-math-cosh': [
@@ -1045,6 +1153,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.expm1` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-expm1](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-expm1.html)
    */
   'es-x/no-math-expm1': [
@@ -1055,12 +1164,14 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.f16round` method.
+   * @preset `es-x/flat/no-float16array`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-float16array`, `es-x/no-new-in-es2025`
    * @see [no-math-f16round](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-f16round.html)
    */
   'es-x/no-math-f16round': [NoMathF16roundOption?];
 
   /**
    * Disallow the `Math.fround` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-fround](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-fround.html)
    */
   'es-x/no-math-fround': [
@@ -1071,6 +1182,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.hypot` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-hypot](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-hypot.html)
    */
   'es-x/no-math-hypot': [
@@ -1081,6 +1193,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.imul` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-imul](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-imul.html)
    */
   'es-x/no-math-imul': [
@@ -1091,12 +1204,14 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.log1p` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-log1p](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-log1p.html)
    */
   'es-x/no-math-log1p': [NoMathLog1pOption?];
 
   /**
    * Disallow the `Math.log2` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-log2](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-log2.html)
    */
   'es-x/no-math-log2': [
@@ -1107,6 +1222,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.log10` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-log10](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-log10.html)
    */
   'es-x/no-math-log10': [
@@ -1117,6 +1233,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.sign` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-sign](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-sign.html)
    */
   'es-x/no-math-sign': [
@@ -1127,6 +1244,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.sinh` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-sinh](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-sinh.html)
    */
   'es-x/no-math-sinh': [
@@ -1137,6 +1255,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.tanh` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-tanh](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-tanh.html)
    */
   'es-x/no-math-tanh': [
@@ -1147,6 +1266,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Math.trunc` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-trunc](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-trunc.html)
    */
   'es-x/no-math-trunc': [
@@ -1157,12 +1277,14 @@ export interface EsXRules {
 
   /**
    * Disallow modules.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-modules](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-modules.html)
    */
   'es-x/no-modules': null;
 
   /**
    * Disallow `new.target` meta property.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-new-target](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-new-target.html)
    */
   'es-x/no-new-target': null;
@@ -1972,12 +2094,14 @@ export interface EsXRules {
 
   /**
    * Disallow nullish coalescing operators.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-nullish-coalescing-operators](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-nullish-coalescing-operators.html)
    */
   'es-x/no-nullish-coalescing-operators': null;
 
   /**
    * Disallow the `Number.EPSILON` property.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-epsilon](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-epsilon.html)
    */
   'es-x/no-number-epsilon': [
@@ -1988,6 +2112,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Number.isFinite` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-isfinite](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-isfinite.html)
    */
   'es-x/no-number-isfinite': [
@@ -1998,6 +2123,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Number.isInteger` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-isinteger](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-isinteger.html)
    */
   'es-x/no-number-isinteger': [
@@ -2008,6 +2134,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Number.isNaN` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-isnan](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-isnan.html)
    */
   'es-x/no-number-isnan': [
@@ -2018,6 +2145,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Number.isSafeInteger` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-issafeinteger](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-issafeinteger.html)
    */
   'es-x/no-number-issafeinteger': [
@@ -2028,6 +2156,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Number.MAX_SAFE_INTEGER` property.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-maxsafeinteger](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-maxsafeinteger.html)
    */
   'es-x/no-number-maxsafeinteger': [
@@ -2038,6 +2167,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Number.MIN_SAFE_INTEGER` property.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-minsafeinteger](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-minsafeinteger.html)
    */
   'es-x/no-number-minsafeinteger': [
@@ -2048,6 +2178,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Number.parseFloat` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-parsefloat](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-parsefloat.html)
    */
   'es-x/no-number-parsefloat': [
@@ -2058,6 +2189,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Number.parseInt` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-number-parseint](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-number-parseint.html)
    */
   'es-x/no-number-parseint': [
@@ -2068,12 +2200,14 @@ export interface EsXRules {
 
   /**
    * Disallow numeric separators.
+   * @preset `es-x/flat/no-new-in-es2021`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/no-new-in-es2021`
    * @see [no-numeric-separators](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-numeric-separators.html)
    */
   'es-x/no-numeric-separators': null;
 
   /**
    * Disallow the `Object.assign` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-object-assign](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-assign.html)
    */
   'es-x/no-object-assign': [
@@ -2084,6 +2218,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.create` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-create](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-create.html)
    */
   'es-x/no-object-create': [
@@ -2094,6 +2229,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.defineProperties` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-defineproperties](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-defineproperties.html)
    */
   'es-x/no-object-defineproperties': [
@@ -2104,6 +2240,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.defineProperty` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-defineproperty](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-defineproperty.html)
    */
   'es-x/no-object-defineproperty': [
@@ -2114,6 +2251,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.entries` method.
+   * @preset `es-x/flat/no-new-in-es2017`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/no-new-in-es2017`, `es-x/no-2017`
    * @see [no-object-entries](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-entries.html)
    */
   'es-x/no-object-entries': [
@@ -2124,6 +2262,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.freeze` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-freeze](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-freeze.html)
    */
   'es-x/no-object-freeze': [
@@ -2134,6 +2273,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.fromEntries` method.
+   * @preset `es-x/flat/no-new-in-es2019`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/no-new-in-es2019`, `es-x/no-2019`
    * @see [no-object-fromentries](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-fromentries.html)
    */
   'es-x/no-object-fromentries': [
@@ -2144,6 +2284,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.getOwnPropertyDescriptor` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-getownpropertydescriptor](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-getownpropertydescriptor.html)
    */
   'es-x/no-object-getownpropertydescriptor': [
@@ -2154,6 +2295,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.getOwnPropertyDescriptors` method.
+   * @preset `es-x/flat/no-new-in-es2017`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/no-new-in-es2017`, `es-x/no-2017`
    * @see [no-object-getownpropertydescriptors](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-getownpropertydescriptors.html)
    */
   'es-x/no-object-getownpropertydescriptors': [
@@ -2164,6 +2306,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.getOwnPropertyNames` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-getownpropertynames](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-getownpropertynames.html)
    */
   'es-x/no-object-getownpropertynames': [
@@ -2174,6 +2317,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.getOwnPropertySymbols` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-object-getownpropertysymbols](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-getownpropertysymbols.html)
    */
   'es-x/no-object-getownpropertysymbols': [
@@ -2184,6 +2328,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.getPrototypeOf` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-getprototypeof](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-getprototypeof.html)
    */
   'es-x/no-object-getprototypeof': [
@@ -2194,6 +2339,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.groupBy()` method.
+   * @preset `es-x/flat/no-array-grouping`, `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-array-grouping`, `es-x/no-new-in-es2024`
    * @see [no-object-groupby](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-groupby.html)
    */
   'es-x/no-object-groupby': [
@@ -2204,6 +2350,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.hasOwn` method.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`
    * @see [no-object-hasown](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-hasown.html)
    */
   'es-x/no-object-hasown': [
@@ -2214,6 +2361,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.is` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-object-is](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-is.html)
    */
   'es-x/no-object-is': [
@@ -2224,6 +2372,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.isExtensible` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-isextensible](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-isextensible.html)
    */
   'es-x/no-object-isextensible': [
@@ -2234,6 +2383,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.isFrozen` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-isfrozen](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-isfrozen.html)
    */
   'es-x/no-object-isfrozen': [
@@ -2244,6 +2394,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.isSealed` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-issealed](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-issealed.html)
    */
   'es-x/no-object-issealed': [
@@ -2254,6 +2405,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.keys` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-keys](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-keys.html)
    */
   'es-x/no-object-keys': [
@@ -2271,6 +2423,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.preventExtensions` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-preventextensions](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-preventextensions.html)
    */
   'es-x/no-object-preventextensions': [
@@ -2281,6 +2434,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.seal` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-object-seal](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-seal.html)
    */
   'es-x/no-object-seal': [
@@ -2291,6 +2445,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Object.setPrototypeOf` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-object-setprototypeof](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-setprototypeof.html)
    */
   'es-x/no-object-setprototypeof': [
@@ -2301,12 +2456,14 @@ export interface EsXRules {
 
   /**
    * Disallow `super` property accesses in object literals.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-object-super-properties](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-super-properties.html)
    */
   'es-x/no-object-super-properties': null;
 
   /**
    * Disallow the `Object.values` method.
+   * @preset `es-x/flat/no-new-in-es2017`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/no-new-in-es2017`, `es-x/no-2017`
    * @see [no-object-values](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-object-values.html)
    */
   'es-x/no-object-values': [
@@ -2317,36 +2474,42 @@ export interface EsXRules {
 
   /**
    * Disallow octal numeric literals.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-octal-numeric-literals](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-octal-numeric-literals.html)
    */
   'es-x/no-octal-numeric-literals': null;
 
   /**
    * Disallow optional `catch` binding.
+   * @preset `es-x/flat/no-new-in-es2019`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/no-new-in-es2019`, `es-x/no-2019`
    * @see [no-optional-catch-binding](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-optional-catch-binding.html)
    */
   'es-x/no-optional-catch-binding': null;
 
   /**
    * Disallow optional chaining.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-optional-chaining](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-optional-chaining.html)
    */
   'es-x/no-optional-chaining': null;
 
   /**
    * Disallow `#x in obj`.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`
    * @see [no-private-in](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-private-in.html)
    */
   'es-x/no-private-in': null;
 
   /**
    * Disallow the `Promise` class.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-promise](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-promise.html)
    */
   'es-x/no-promise': null;
 
   /**
    * Disallow `Promise.allSettled` function.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-promise-all-settled](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-promise-all-settled.html)
    */
   'es-x/no-promise-all-settled': [
@@ -2357,6 +2520,7 @@ export interface EsXRules {
 
   /**
    * Disallow `Promise.any` function and `AggregateError` class.
+   * @preset `es-x/flat/no-new-in-es2021`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/no-new-in-es2021`
    * @see [no-promise-any](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-promise-any.html)
    */
   'es-x/no-promise-any': [
@@ -2367,6 +2531,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Promise.prototype.finally` method.
+   * @preset `es-x/flat/no-new-in-es2018`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/no-new-in-es2018`, `es-x/no-2018`
    * @see [no-promise-prototype-finally](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-promise-prototype-finally.html)
    */
   'es-x/no-promise-prototype-finally': [
@@ -2378,6 +2543,7 @@ export interface EsXRules {
 
   /**
    * Disallow `Promise.try` function.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`
    * @see [no-promise-try](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-promise-try.html)
    */
   'es-x/no-promise-try': [
@@ -2388,6 +2554,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Promise.withResolvers()` method.
+   * @preset `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-new-in-es2024`
    * @see [no-promise-withresolvers](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-promise-withresolvers.html)
    */
   'es-x/no-promise-withresolvers': [
@@ -2398,36 +2565,42 @@ export interface EsXRules {
 
   /**
    * Disallow property shorthands.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-property-shorthands](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-property-shorthands.html)
    */
   'es-x/no-property-shorthands': null;
 
   /**
    * Disallow the `Proxy` class.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-proxy](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-proxy.html)
    */
   'es-x/no-proxy': null;
 
   /**
    * Disallow the `Reflect` class.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-reflect](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-reflect.html)
    */
   'es-x/no-reflect': null;
 
   /**
    * Disallow RegExp `d` flag.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`
    * @see [no-regexp-d-flag](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-d-flag.html)
    */
   'es-x/no-regexp-d-flag': null;
 
   /**
    * Disallow RegExp duplicate named capturing groups.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`
    * @see [no-regexp-duplicate-named-capturing-groups](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-duplicate-named-capturing-groups.html)
    */
   'es-x/no-regexp-duplicate-named-capturing-groups': null;
 
   /**
    * Disallow `RegExp.escape` function.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`
    * @see [no-regexp-escape](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-escape.html)
    */
   'es-x/no-regexp-escape': [
@@ -2438,18 +2611,21 @@ export interface EsXRules {
 
   /**
    * Disallow RegExp lookbehind assertions.
+   * @preset `es-x/flat/no-new-in-es2018`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/no-new-in-es2018`, `es-x/no-2018`
    * @see [no-regexp-lookbehind-assertions](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-lookbehind-assertions.html)
    */
   'es-x/no-regexp-lookbehind-assertions': null;
 
   /**
    * Disallow RegExp Modifiers.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`
    * @see [no-regexp-modifiers](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-modifiers.html)
    */
   'es-x/no-regexp-modifiers': null;
 
   /**
    * Disallow RegExp named capture groups.
+   * @preset `es-x/flat/no-new-in-es2018`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/no-new-in-es2018`, `es-x/no-2018`
    * @see [no-regexp-named-capture-groups](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-named-capture-groups.html)
    */
   'es-x/no-regexp-named-capture-groups': null;
@@ -2467,6 +2643,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `RegExp.prototype.flags` property.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-regexp-prototype-flags](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-prototype-flags.html)
    */
   'es-x/no-regexp-prototype-flags': [
@@ -2478,66 +2655,77 @@ export interface EsXRules {
 
   /**
    * Disallow RegExp `s` flag.
+   * @preset `es-x/flat/no-new-in-es2018`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/no-new-in-es2018`, `es-x/no-2018`
    * @see [no-regexp-s-flag](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-s-flag.html)
    */
   'es-x/no-regexp-s-flag': null;
 
   /**
    * Disallow RegExp `u` flag.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-regexp-u-flag](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-u-flag.html)
    */
   'es-x/no-regexp-u-flag': null;
 
   /**
    * Disallow RegExp Unicode property escape sequences.
+   * @preset `es-x/flat/no-new-in-es2018`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/no-new-in-es2018`, `es-x/no-2018`
    * @see [no-regexp-unicode-property-escapes](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-unicode-property-escapes.html)
    */
   'es-x/no-regexp-unicode-property-escapes': null;
 
   /**
    * Disallow the new values of RegExp Unicode property escape sequences in ES2019.
+   * @preset `es-x/flat/no-new-in-es2019`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/no-new-in-es2019`, `es-x/no-2019`
    * @see [no-regexp-unicode-property-escapes-2019](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-unicode-property-escapes-2019.html)
    */
   'es-x/no-regexp-unicode-property-escapes-2019': null;
 
   /**
    * Disallow the new values of RegExp Unicode property escape sequences in ES2020.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`
    * @see [no-regexp-unicode-property-escapes-2020](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-unicode-property-escapes-2020.html)
    */
   'es-x/no-regexp-unicode-property-escapes-2020': null;
 
   /**
    * Disallow the new values of RegExp Unicode property escape sequences in ES2021.
+   * @preset `es-x/flat/no-new-in-es2021`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/no-new-in-es2021`
    * @see [no-regexp-unicode-property-escapes-2021](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-unicode-property-escapes-2021.html)
    */
   'es-x/no-regexp-unicode-property-escapes-2021': null;
 
   /**
    * Disallow the new values of RegExp Unicode property escape sequences in ES2022.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`
    * @see [no-regexp-unicode-property-escapes-2022](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-unicode-property-escapes-2022.html)
    */
   'es-x/no-regexp-unicode-property-escapes-2022': null;
 
   /**
    * Disallow the new values of RegExp Unicode property escape sequences in ES2023.
+   * @preset `es-x/flat/no-new-in-es2023`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/no-new-in-es2023`
    * @see [no-regexp-unicode-property-escapes-2023](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-unicode-property-escapes-2023.html)
    */
   'es-x/no-regexp-unicode-property-escapes-2023': null;
 
   /**
    * Disallow RegExp `v` flag.
+   * @preset `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-new-in-es2024`
    * @see [no-regexp-v-flag](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-v-flag.html)
    */
   'es-x/no-regexp-v-flag': null;
 
   /**
    * Disallow RegExp `y` flag.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-regexp-y-flag](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-regexp-y-flag.html)
    */
   'es-x/no-regexp-y-flag': null;
 
   /**
    * Disallow resizable and growable ArrayBuffers.
+   * @preset `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-new-in-es2024`
    * @see [no-resizable-and-growable-arraybuffers](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-resizable-and-growable-arraybuffers.html)
    */
   'es-x/no-resizable-and-growable-arraybuffers': [
@@ -2549,24 +2737,28 @@ export interface EsXRules {
 
   /**
    * Disallow rest parameters.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-rest-parameters](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-rest-parameters.html)
    */
   'es-x/no-rest-parameters': null;
 
   /**
    * Disallow rest/spread properties.
+   * @preset `es-x/flat/no-new-in-es2018`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/no-new-in-es2018`, `es-x/no-2018`
    * @see [no-rest-spread-properties](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-rest-spread-properties.html)
    */
   'es-x/no-rest-spread-properties': null;
 
   /**
    * Disallow the `Set` class.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-set](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-set.html)
    */
   'es-x/no-set': null;
 
   /**
    * Disallow the `Set.prototype.difference` method.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/no-set-methods`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`, `es-x/no-set-methods`
    * @see [no-set-prototype-difference](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-set-prototype-difference.html)
    */
   'es-x/no-set-prototype-difference': [
@@ -2578,6 +2770,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Set.prototype.intersection` method.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/no-set-methods`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`, `es-x/no-set-methods`
    * @see [no-set-prototype-intersection](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-set-prototype-intersection.html)
    */
   'es-x/no-set-prototype-intersection': [
@@ -2589,6 +2782,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Set.prototype.isDisjointFrom` method.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/no-set-methods`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`, `es-x/no-set-methods`
    * @see [no-set-prototype-isdisjointfrom](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-set-prototype-isdisjointfrom.html)
    */
   'es-x/no-set-prototype-isdisjointfrom': [
@@ -2600,6 +2794,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Set.prototype.isSubsetOf` method.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/no-set-methods`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`, `es-x/no-set-methods`
    * @see [no-set-prototype-issubsetof](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-set-prototype-issubsetof.html)
    */
   'es-x/no-set-prototype-issubsetof': [
@@ -2611,6 +2806,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Set.prototype.isSupersetOf` method.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/no-set-methods`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`, `es-x/no-set-methods`
    * @see [no-set-prototype-issupersetof](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-set-prototype-issupersetof.html)
    */
   'es-x/no-set-prototype-issupersetof': [
@@ -2622,6 +2818,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Set.prototype.symmetricDifference` method.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/no-set-methods`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`, `es-x/no-set-methods`
    * @see [no-set-prototype-symmetricdifference](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-set-prototype-symmetricdifference.html)
    */
   'es-x/no-set-prototype-symmetricdifference': [
@@ -2633,6 +2830,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Set.prototype.union` method.
+   * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/no-set-methods`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`, `es-x/no-set-methods`
    * @see [no-set-prototype-union](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-set-prototype-union.html)
    */
   'es-x/no-set-prototype-union': [
@@ -2650,12 +2848,14 @@ export interface EsXRules {
 
   /**
    * Disallow the `SharedArrayBuffer` class.
+   * @preset `es-x/flat/no-new-in-es2017`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/no-new-in-es2017`, `es-x/no-2017`
    * @see [no-shared-array-buffer](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-shared-array-buffer.html)
    */
   'es-x/no-shared-array-buffer': null;
 
   /**
    * Disallow spread elements.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-spread-elements](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-spread-elements.html)
    */
   'es-x/no-spread-elements': null;
@@ -2673,6 +2873,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.fromCodePoint` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-string-fromcodepoint](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-fromcodepoint.html)
    */
   'es-x/no-string-fromcodepoint': [
@@ -2683,6 +2884,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.at()` methods.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/no-relative-indexing-method`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`, `es-x/no-relative-indexing-method`
    * @see [no-string-prototype-at](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-at.html)
    */
   'es-x/no-string-prototype-at': [
@@ -2694,6 +2896,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.codePointAt` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-string-prototype-codepointat](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-codepointat.html)
    */
   'es-x/no-string-prototype-codepointat': [
@@ -2705,6 +2908,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.endsWith` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-string-prototype-endswith](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-endswith.html)
    */
   'es-x/no-string-prototype-endswith': [
@@ -2716,6 +2920,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.includes` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-string-prototype-includes](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-includes.html)
    */
   'es-x/no-string-prototype-includes': [
@@ -2727,6 +2932,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.isWellFormed` methods.
+   * @preset `es-x/flat/no-is-usv-string`, `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-is-usv-string`, `es-x/no-new-in-es2024`
    * @see [no-string-prototype-iswellformed](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-iswellformed.html)
    */
   'es-x/no-string-prototype-iswellformed': [
@@ -2750,6 +2956,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.matchAll` method.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/no-string-matchall`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`, `es-x/no-string-matchall`
    * @see [no-string-prototype-matchall](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-matchall.html)
    */
   'es-x/no-string-prototype-matchall': [
@@ -2761,6 +2968,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.normalize` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-string-prototype-normalize](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-normalize.html)
    */
   'es-x/no-string-prototype-normalize': [
@@ -2772,6 +2980,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.{padStart,padEnd}` methods.
+   * @preset `es-x/flat/no-new-in-es2017`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/no-new-in-es2017`, `es-x/no-2017`
    * @see [no-string-prototype-padstart-padend](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-padstart-padend.html)
    */
   'es-x/no-string-prototype-padstart-padend': [
@@ -2783,6 +2992,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.repeat` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-string-prototype-repeat](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-repeat.html)
    */
   'es-x/no-string-prototype-repeat': [
@@ -2794,6 +3004,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.replaceAll` method.
+   * @preset `es-x/flat/no-new-in-es2021`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/no-new-in-es2021`
    * @see [no-string-prototype-replaceall](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-replaceall.html)
    */
   'es-x/no-string-prototype-replaceall': [
@@ -2805,6 +3016,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.startsWith` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-string-prototype-startswith](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-startswith.html)
    */
   'es-x/no-string-prototype-startswith': [
@@ -2827,6 +3039,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.toWellFormed` methods.
+   * @preset `es-x/flat/no-is-usv-string`, `es-x/flat/no-new-in-es2024`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/no-is-usv-string`, `es-x/no-new-in-es2024`
    * @see [no-string-prototype-towellformed](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-towellformed.html)
    */
   'es-x/no-string-prototype-towellformed': [
@@ -2838,6 +3051,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.trim` method.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-string-prototype-trim](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-trim.html)
    */
   'es-x/no-string-prototype-trim': [
@@ -2860,6 +3074,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.prototype.{trimStart,trimEnd}` methods.
+   * @preset `es-x/flat/no-new-in-es2019`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/no-new-in-es2019`, `es-x/no-2019`
    * @see [no-string-prototype-trimstart-trimend](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-prototype-trimstart-trimend.html)
    */
   'es-x/no-string-prototype-trimstart-trimend': [
@@ -2871,6 +3086,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `String.raw` method.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-string-raw](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-string-raw.html)
    */
   'es-x/no-string-raw': [
@@ -2881,24 +3097,28 @@ export interface EsXRules {
 
   /**
    * Disallow the subclassing of the built-in classes.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-subclassing-builtins](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-subclassing-builtins.html)
    */
   'es-x/no-subclassing-builtins': null;
 
   /**
    * Disallow the `SuppressedError` class.
+   * @preset `es-x/flat/no-explicit-resource-management`, `es-x/flat/no-new-in-esnext`, `es-x/no-explicit-resource-management`, `es-x/no-new-in-esnext`
    * @see [no-suppressederror](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-suppressederror.html)
    */
   'es-x/no-suppressederror': null;
 
   /**
    * Disallow the `Symbol` class.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-symbol](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-symbol.html)
    */
   'es-x/no-symbol': null;
 
   /**
    * Disallow the `Symbol.asyncDispose` property.
+   * @preset `es-x/flat/no-explicit-resource-management`, `es-x/flat/no-new-in-esnext`, `es-x/no-explicit-resource-management`, `es-x/no-new-in-esnext`
    * @see [no-symbol-asyncdispose](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-symbol-asyncdispose.html)
    */
   'es-x/no-symbol-asyncdispose': [
@@ -2909,6 +3129,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Symbol.dispose` property.
+   * @preset `es-x/flat/no-explicit-resource-management`, `es-x/flat/no-new-in-esnext`, `es-x/no-explicit-resource-management`, `es-x/no-new-in-esnext`
    * @see [no-symbol-dispose](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-symbol-dispose.html)
    */
   'es-x/no-symbol-dispose': [
@@ -2919,6 +3140,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Symbol.matchAll` property.
+   * @preset `es-x/flat/no-new-in-es2020`, `es-x/flat/no-string-matchall`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/no-new-in-es2020`, `es-x/no-string-matchall`
    * @see [no-symbol-matchall](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-symbol-matchall.html)
    */
   'es-x/no-symbol-matchall': [
@@ -2929,6 +3151,7 @@ export interface EsXRules {
 
   /**
    * Disallow the `Symbol.prototype.description` property.
+   * @preset `es-x/flat/no-new-in-es2019`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/no-new-in-es2019`, `es-x/no-2019`
    * @see [no-symbol-prototype-description](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-symbol-prototype-description.html)
    */
   'es-x/no-symbol-prototype-description': [
@@ -2940,66 +3163,77 @@ export interface EsXRules {
 
   /**
    * Disallow template literals.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-template-literals](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-template-literals.html)
    */
   'es-x/no-template-literals': null;
 
   /**
    * Disallow top-level `await`.
+   * @preset `es-x/flat/no-new-in-es2022`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/no-new-in-es2022`
    * @see [no-top-level-await](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-top-level-await.html)
    */
   'es-x/no-top-level-await': null;
 
   /**
    * Disallow trailing commas in array/object literals.
+   * @preset `es-x/flat/no-new-in-es5`, `es-x/flat/restrict-to-es3`, `es-x/no-new-in-es5`, `es-x/no-5`
    * @see [no-trailing-commas](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-trailing-commas.html)
    */
   'es-x/no-trailing-commas': null;
 
   /**
    * Disallow trailing commas in `import()`.
+   * @preset `es-x/flat/no-import-attributes`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-import-attributes`, `es-x/no-new-in-es2025`
    * @see [no-trailing-dynamic-import-commas](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-trailing-dynamic-import-commas.html)
    */
   'es-x/no-trailing-dynamic-import-commas': null;
 
   /**
    * Disallow trailing commas in parameter/argument lists.
+   * @preset `es-x/flat/no-new-in-es2017`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/no-new-in-es2017`, `es-x/no-2017`
    * @see [no-trailing-function-commas](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-trailing-function-commas.html)
    */
   'es-x/no-trailing-function-commas': null;
 
   /**
    * Disallow ES2015 typed arrays.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-typed-arrays](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-typed-arrays.html)
    */
   'es-x/no-typed-arrays': null;
 
   /**
    * Disallow Unicode code point escape sequences.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-unicode-codepoint-escapes](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-unicode-codepoint-escapes.html)
    */
   'es-x/no-unicode-codepoint-escapes': null;
 
   /**
    * Disallow `using` and `await using` declarations.
+   * @preset `es-x/flat/no-explicit-resource-management`, `es-x/flat/no-new-in-esnext`, `es-x/no-explicit-resource-management`, `es-x/no-new-in-esnext`
    * @see [no-using-declarations](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-using-declarations.html)
    */
   'es-x/no-using-declarations': null;
 
   /**
    * Disallow the `WeakMap` class.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-weak-map](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-weak-map.html)
    */
   'es-x/no-weak-map': null;
 
   /**
    * Disallow the `WeakSet` class.
+   * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-weak-set](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-weak-set.html)
    */
   'es-x/no-weak-set': null;
 
   /**
    * Disallow the `WeakRef` and `FinalizationRegistry` class.
+   * @preset `es-x/flat/no-new-in-es2021`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/no-new-in-es2021`
    * @see [no-weakrefs](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-weakrefs.html)
    */
   'es-x/no-weakrefs': null;

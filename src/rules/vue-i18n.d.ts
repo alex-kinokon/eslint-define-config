@@ -23,7 +23,6 @@ export interface NoRawTextOption {
   ignoreNodes?: any[];
   ignorePattern?: string;
   ignoreText?: any[];
-  [k: string]: any;
 }
 
 /**
@@ -38,36 +37,42 @@ export interface VueI18nRules {
 
   /**
    * Disallow using deprecated `<i18n>` components (in Vue I18n 9.0.0+).
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-deprecated-i18n-component](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-deprecated-i18n-component.html)
    */
   '@intlify/vue-i18n/no-deprecated-i18n-component': null;
 
   /**
    * Disallow using deprecated `place` attribute (Removed in Vue I18n 9.0.0+).
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-deprecated-i18n-place-attr](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-deprecated-i18n-place-attr.html)
    */
   '@intlify/vue-i18n/no-deprecated-i18n-place-attr': null;
 
   /**
    * Disallow using deprecated `places` prop (Removed in Vue I18n 9.0.0+).
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-deprecated-i18n-places-prop](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-deprecated-i18n-places-prop.html)
    */
   '@intlify/vue-i18n/no-deprecated-i18n-places-prop': null;
 
   /**
    * Enforce modulo interpolation to be named interpolation.
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-deprecated-modulo-syntax](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-deprecated-modulo-syntax.html)
    */
   '@intlify/vue-i18n/no-deprecated-modulo-syntax': null;
 
   /**
    * Disallow using deprecated `tc` or `$tc` (Deprecated in Vue I18n 10.0.0, removed fully in Vue I18n 11.0.0).
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-deprecated-tc](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-deprecated-tc.html)
    */
   '@intlify/vue-i18n/no-deprecated-tc': null;
 
   /**
    * Disallow using deprecated `v-t` custom directive (Deprecated in Vue I18n 11.0.0, removed fully in Vue I18n 12.0.0).
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-deprecated-v-t](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-deprecated-v-t.html)
    */
   '@intlify/vue-i18n/no-deprecated-v-t': null;
@@ -90,12 +95,14 @@ export interface VueI18nRules {
 
   /**
    * Disallow use HTML localization messages.
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-html-messages](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-html-messages.html)
    */
   '@intlify/vue-i18n/no-html-messages': null;
 
   /**
    * Disallow using `path` prop with `<i18n-t>`.
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-i18n-t-path-prop](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-i18n-t-path-prop.html)
    */
   '@intlify/vue-i18n/no-i18n-t-path-prop': null;
@@ -112,12 +119,14 @@ export interface VueI18nRules {
 
   /**
    * Disallow missing locale message key at localization methods.
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-missing-keys](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-missing-keys.html)
    */
   '@intlify/vue-i18n/no-missing-keys': null;
 
   /**
    * Disallow to string literal in template or JSX.
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-raw-text](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-raw-text.html)
    */
   '@intlify/vue-i18n/no-raw-text': [NoRawTextOption?];
@@ -148,6 +157,7 @@ export interface VueI18nRules {
 
   /**
    * Disallow use of localization methods on v-html to prevent XSS attack.
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [no-v-html](https://eslint-plugin-vue-i18n.intlify.dev/rules/no-v-html.html)
    */
   '@intlify/vue-i18n/no-v-html': null;
@@ -172,6 +182,7 @@ export interface VueI18nRules {
 
   /**
    * Disallow invalid message syntax.
+   * @preset `@intlify/vue-i18n/recommended-legacy`
    * @see [valid-message-syntax](https://eslint-plugin-vue-i18n.intlify.dev/rules/valid-message-syntax.html)
    */
   '@intlify/vue-i18n/valid-message-syntax': [

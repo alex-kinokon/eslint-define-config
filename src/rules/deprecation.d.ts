@@ -6,6 +6,7 @@ import type { RulesObject } from '../rule-config';
 export interface DeprecationRules {
   /**
    * Do not use deprecated APIs.
+   * @preset `deprecation/recommended`
    * @see [deprecation](https://github.com/gund/eslint-plugin-deprecation)
    */
   'deprecation/deprecation': null;

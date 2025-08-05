@@ -2,6 +2,7 @@ import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 
+import * as eslintJs from '@eslint/js';
 import { Logger } from '@poppinss/cliui';
 import { pascalCase } from 'change-case';
 import type * as ESLint from 'eslint';
@@ -31,9 +32,10 @@ async function loadPlugin(entry: PluginEntry): Promise<LoadedPlugin> {
         .getRules()
         .entries(),
     );
+
     return {
       entry,
-      plugin: { rules },
+      plugin: { rules, configs: eslintJs.configs },
     };
   } else {
     return {
@@ -41,6 +43,59 @@ async function loadPlugin(entry: PluginEntry): Promise<LoadedPlugin> {
       plugin: mod,
     };
   }
+}
+
+/**
+ * Extract preset information from a loaded plugin and create a mapping of rules to presets.
+ */
+function extractRuleToPresetsMapping({
+  plugin,
+  entry,
+}: LoadedPlugin): Map<string, string[]> {
+  const ruleToPresets = new Map<string, string[]>();
+
+  if (!plugin.configs) {
+    return ruleToPresets;
+  }
+
+  // Iterate through all configs/presets, prioritizing flat configs
+  for (const [configName, config] of Object.entries(plugin.configs)) {
+    // Get the rules from this config
+    const rules = (config as any)?.rules;
+    if (!rules) continue;
+
+    // Add this preset to each rule's preset list
+    for (const ruleName of Object.keys(rules)) {
+      // Handle scoped rule names - extract just the rule name part
+      const baseRuleName = ruleName.startsWith(`${entry.prefix}/`)
+        ? ruleName.split('/').pop()!
+        : ruleName;
+
+      // Format the preset name - prefer flat config names when available
+      let presetName: string;
+      if (entry.id === 'eslint') {
+        presetName = `js:${configName}`;
+      } else {
+        presetName = `${entry.prefix}/${configName}`;
+      }
+
+      // Only track rules that belong to this plugin
+      const belongsToThisPlugin =
+        entry.id === 'eslint'
+          ? !ruleName.includes('/')
+          : ruleName.startsWith(`${entry.prefix}/`);
+
+      if (belongsToThisPlugin) {
+        const currentPresets = ruleToPresets.get(baseRuleName) || [];
+        if (!currentPresets.includes(presetName)) {
+          currentPresets.push(presetName);
+        }
+        ruleToPresets.set(baseRuleName, currentPresets);
+      }
+    }
+  }
+
+  return ruleToPresets;
 }
 
 /**
@@ -107,6 +162,7 @@ async function generateRule(
   entry: PluginEntry,
   ruleName: string,
   rule: Rule.RuleModule,
+  rulePresets?: string[],
 ) {
   let content = '';
   let optionText = '';
@@ -146,9 +202,17 @@ async function generateRule(
       ? `@see [${ruleName}](${meta.docs.url})`
       : '';
 
+    /**
+     * Build preset information to show which configs include this rule.
+     */
+    const presetsInfo = rulePresets?.length
+      ? `@preset ${rulePresets.map((c) => '`' + c + '`').join(', ')}`
+      : '';
+
     return concatDoc([
       description.replace('*/', ''),
       rule.meta?.deprecated ? '@deprecated' : '',
+      presetsInfo,
       seeDocLink,
     ]);
   }
@@ -202,9 +266,7 @@ async function generateRule(
     }
   }
 
-  /**
-   * Generate and append types for the rule schemas.
-   */
+  // Generate and append types for the rule schemas.
   if (thirdSchema) {
     settingText += await appendJsonSchemaType(thirdSchema, 'Setting');
   }
@@ -217,9 +279,7 @@ async function generateRule(
     optionText += await appendJsonSchemaType(mainSchema, 'Option');
   }
 
-  /**
-   * Append the rule type options to the file content.
-   */
+  // Append the rule type options to the file content.
   let type = '';
   let isSingleOptional: string | undefined;
 
@@ -264,9 +324,7 @@ async function generateRule(
     ? `${needsNamespace ? `${pascalName}.${type}` : type}`
     : 'null';
 
-  /**
-   * Append the final rule interface to the file content.
-   */
+  // Append the final rule interface to the file content.
   let property = `${generateTypeJsDoc()}\n`;
   property += `'${prefixedRuleName()}': ${ruleType};`;
 
@@ -297,9 +355,7 @@ async function generateRuleFile(
     );
   }
 
-  /**
-   * Write the final `index.d.ts` file.
-   */
+  // Write the final `index.d.ts` file.
   const fileContent = `
     import type { RuleConfig, RulesObject } from '../rule-config';
 
@@ -371,7 +427,8 @@ type RulesFile = Awaited<ReturnType<typeof generateRulesFile>>;
 /**
  * Generate a `.d.ts` file for each rule in the given plugin.
  */
-async function generateRulesFile({ plugin, entry }: LoadedPlugin) {
+async function generateRulesFile(loadedPlugin: LoadedPlugin) {
+  const { plugin, entry } = loadedPlugin;
   const failedRules: FailedRule[] = [];
   const ruleDetails = new Map</* ruleName */ string, RuleDetail>();
 
@@ -382,12 +439,19 @@ async function generateRulesFile({ plugin, entry }: LoadedPlugin) {
     );
   }
 
+  // Extract rule-to-presets mapping
+  const ruleToPresets = extractRuleToPresetsMapping(loadedPlugin);
+
   const rules: Array<[string, Rule.RuleModule]> = Object.entries(pluginRules);
   for (const [ruleName, rule] of rules) {
     logger.logUpdate(colors.yellow(`  Generating > ${ruleName}`));
 
     try {
-      ruleDetails.set(ruleName, await generateRule(entry, ruleName, rule));
+      const presets = ruleToPresets.get(ruleName);
+      ruleDetails.set(
+        ruleName,
+        await generateRule(entry, ruleName, rule, presets),
+      );
     } catch (error) {
       failedRules.push({ ruleName, err: error });
     }

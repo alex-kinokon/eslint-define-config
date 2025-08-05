@@ -21,6 +21,7 @@ export namespace Prettier {
  */
 export interface PrettierRules {
   /**
+   * @preset `prettier/recommended`
    * @see [prettier](https://github.com/prettier/eslint-plugin-prettier#options)
    */
   'prettier/prettier': Prettier.PrettierRuleConfig;

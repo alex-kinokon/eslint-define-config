@@ -39,348 +39,406 @@ export type NamingConventionFilenameExtensionOption =
 export interface ReactRules {
   /**
    * Enforces explicit boolean values for boolean attributes.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [avoid-shorthand-boolean](https://eslint-react.xyz/docs/rules/avoid-shorthand-boolean)
    */
   '@eslint-react/avoid-shorthand-boolean': null;
 
   /**
    * Enforces explicit `<Fragment>` components instead of the shorthand `<>` or `</>` syntax.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [avoid-shorthand-fragment](https://eslint-react.xyz/docs/rules/avoid-shorthand-fragment)
    */
   '@eslint-react/avoid-shorthand-fragment': null;
 
   /**
    * Disallow accessing `this.state` inside `setState` calls.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-access-state-in-setstate](https://eslint-react.xyz/docs/rules/no-access-state-in-setstate)
    */
   '@eslint-react/no-access-state-in-setstate': null;
 
   /**
    * Disallow an item's index in the array as its key.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-array-index-key](https://eslint-react.xyz/docs/rules/no-array-index-key)
    */
   '@eslint-react/no-array-index-key': null;
 
   /**
    * Disallow `Children.count`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-children-count](https://eslint-react.xyz/docs/rules/no-children-count)
    */
   '@eslint-react/no-children-count': null;
 
   /**
    * Disallow 'Children.forEach'.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-children-for-each](https://eslint-react.xyz/docs/rules/no-children-for-each)
    */
   '@eslint-react/no-children-for-each': null;
 
   /**
    * Disallow `Children.map`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-children-map](https://eslint-react.xyz/docs/rules/no-children-map)
    */
   '@eslint-react/no-children-map': null;
 
   /**
    * Disallow `Children.only`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-children-only](https://eslint-react.xyz/docs/rules/no-children-only)
    */
   '@eslint-react/no-children-only': null;
 
   /**
    * Disallow passing `children` as a prop.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [no-children-prop](https://eslint-react.xyz/docs/rules/no-children-prop)
    */
   '@eslint-react/no-children-prop': null;
 
   /**
    * Disallow `Children.toArray`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-children-to-array](https://eslint-react.xyz/docs/rules/no-children-to-array)
    */
   '@eslint-react/no-children-to-array': null;
 
   /**
    * Disallow class components except for error boundaries.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [no-class-component](https://eslint-react.xyz/docs/rules/no-class-component)
    */
   '@eslint-react/no-class-component': null;
 
   /**
    * Disallow `cloneElement`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-clone-element](https://eslint-react.xyz/docs/rules/no-clone-element)
    */
   '@eslint-react/no-clone-element': null;
 
   /**
    * Prevents comments from being inserted as text nodes.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-comment-textnodes](https://eslint-react.xyz/docs/rules/no-comment-textnodes)
    */
   '@eslint-react/no-comment-textnodes': null;
 
   /**
    * Disallow complex conditional rendering in JSX expressions.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [no-complex-conditional-rendering](https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering)
    */
   '@eslint-react/no-complex-conditional-rendering': null;
 
   /**
    * Replace usages of `componentWillMount` with `UNSAFE_componentWillMount`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-component-will-mount](https://eslint-react.xyz/docs/rules/no-component-will-mount)
    */
   '@eslint-react/no-component-will-mount': null;
 
   /**
    * Replace usages of `componentWillReceiveProps` with `UNSAFE_componentWillReceiveProps`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-component-will-receive-props](https://eslint-react.xyz/docs/rules/no-component-will-receive-props)
    */
   '@eslint-react/no-component-will-receive-props': null;
 
   /**
    * Replace usages of `componentWillUpdate` with `UNSAFE_componentWillUpdate`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-component-will-update](https://eslint-react.xyz/docs/rules/no-component-will-update)
    */
   '@eslint-react/no-component-will-update': null;
 
   /**
    * Replace usages of `<Context.Provider>` with `<Context>`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-context-provider](https://eslint-react.xyz/docs/rules/no-context-provider)
    */
   '@eslint-react/no-context-provider': null;
 
   /**
    * Disallow `createRef` in function components.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-create-ref](https://eslint-react.xyz/docs/rules/no-create-ref)
    */
   '@eslint-react/no-create-ref': null;
 
   /**
    * Disallow `defaultProps` property in favor of ES6 default parameters.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-default-props](https://eslint-react.xyz/docs/rules/no-default-props)
    */
   '@eslint-react/no-default-props': null;
 
   /**
    * Disallow direct mutation of `this.state`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-direct-mutation-state](https://eslint-react.xyz/docs/rules/no-direct-mutation-state)
    */
   '@eslint-react/no-direct-mutation-state': null;
 
   /**
    * Disallow duplicate `key` on elements in the same array or a list of `children`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-duplicate-key](https://eslint-react.xyz/docs/rules/no-duplicate-key)
    */
   '@eslint-react/no-duplicate-key': null;
 
   /**
    * Replaces usages of `forwardRef` with passing `ref` as a prop.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-forward-ref](https://eslint-react.xyz/docs/rules/no-forward-ref)
    */
   '@eslint-react/no-forward-ref': null;
 
   /**
    * Prevents `key` from not being explicitly specified (e.g. spreading `key` from objects).
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-implicit-key](https://eslint-react.xyz/docs/rules/no-implicit-key)
    */
   '@eslint-react/no-implicit-key': null;
 
   /**
    * Prevents problematic leaked values from being rendered.
+   * @preset `@eslint-react/disable-type-checked`, `@eslint-react/disable-type-checked-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`
    * @see [no-leaked-conditional-rendering](https://eslint-react.xyz/docs/rules/no-leaked-conditional-rendering)
    */
   '@eslint-react/no-leaked-conditional-rendering': null;
 
   /**
    * Enforces that all components have a `displayName` which can be used in devtools.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [no-missing-component-display-name](https://eslint-react.xyz/docs/rules/no-missing-component-display-name)
    */
   '@eslint-react/no-missing-component-display-name': null;
 
   /**
    * Enforces that all contexts have a `displayName` which can be used in devtools.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [no-missing-context-display-name](https://eslint-react.xyz/docs/rules/no-missing-context-display-name)
    */
   '@eslint-react/no-missing-context-display-name': null;
 
   /**
    * Disallow missing `key` on items in list rendering.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-missing-key](https://eslint-react.xyz/docs/rules/no-missing-key)
    */
   '@eslint-react/no-missing-key': null;
 
   /**
    * Prevents incorrect usage of `captureOwnerStack`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-misused-capture-owner-stack](https://eslint-react.xyz/docs/rules/no-misused-capture-owner-stack)
    */
   '@eslint-react/no-misused-capture-owner-stack': null;
 
   /**
    * Disallow nesting component definitions inside other components.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-nested-component-definitions](https://eslint-react.xyz/docs/rules/no-nested-component-definitions)
    */
   '@eslint-react/no-nested-component-definitions': null;
 
   /**
    * Disallow nesting lazy component declarations inside other components.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-nested-lazy-component-declarations](https://eslint-react.xyz/docs/rules/no-nested-component-definitions)
    */
   '@eslint-react/no-nested-lazy-component-declarations': null;
 
   /**
    * Disallow `propTypes` in favor of TypeScript or another type-checking solution.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-prop-types](https://eslint-react.xyz/docs/rules/no-prop-types)
    */
   '@eslint-react/no-prop-types': null;
 
   /**
    * Disallow `shouldComponentUpdate` when extending `React.PureComponent`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-redundant-should-component-update](https://eslint-react.xyz/docs/rules/no-redundant-should-component-update)
    */
   '@eslint-react/no-redundant-should-component-update': null;
 
   /**
    * Disallow calling `this.setState` in `componentDidMount` outside of functions, such as callbacks.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-set-state-in-component-did-mount](https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-mount)
    */
   '@eslint-react/no-set-state-in-component-did-mount': null;
 
   /**
    * Disallow calling `this.setState` in `componentDidUpdate` outside of functions, such as callbacks.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-set-state-in-component-did-update](https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-update)
    */
   '@eslint-react/no-set-state-in-component-did-update': null;
 
   /**
    * Disallows calling `this.setState` in `componentWillUpdate` outside of functions, such as callbacks.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-set-state-in-component-will-update](https://eslint-react.xyz/docs/rules/no-set-state-in-component-will-update)
    */
   '@eslint-react/no-set-state-in-component-will-update': null;
 
   /**
    * Replaces string refs with callback refs.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-string-refs](https://eslint-react.xyz/docs/rules/no-string-refs)
    */
   '@eslint-react/no-string-refs': null;
 
   /**
    * Warns the usage of `UNSAFE_componentWillMount` in class components.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-unsafe-component-will-mount](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-mount)
    */
   '@eslint-react/no-unsafe-component-will-mount': null;
 
   /**
    * Warns the usage of `UNSAFE_componentWillReceiveProps` in class components.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-unsafe-component-will-receive-props](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-receive-props)
    */
   '@eslint-react/no-unsafe-component-will-receive-props': null;
 
   /**
    * Warns the usage of `UNSAFE_componentWillUpdate` in class components.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-unsafe-component-will-update](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-update)
    */
   '@eslint-react/no-unsafe-component-will-update': null;
 
   /**
    * Prevents non-stable values (i.e. object literals) from being used as a value for `Context.Provider`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-unstable-context-value](https://eslint-react.xyz/docs/rules/no-unstable-context-value)
    */
   '@eslint-react/no-unstable-context-value': null;
 
   /**
    * Prevents using referential-type values as default props in object destructuring.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-unstable-default-props](https://eslint-react.xyz/docs/rules/no-unstable-default-props)
    */
   '@eslint-react/no-unstable-default-props': null;
 
   /**
    * Warns unused class component methods and properties.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-unused-class-component-members](https://eslint-react.xyz/docs/rules/no-unused-class-component-members)
    */
   '@eslint-react/no-unused-class-component-members': null;
 
   /**
    * Warns unused class component state.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-unused-state](https://eslint-react.xyz/docs/rules/no-unused-state)
    */
   '@eslint-react/no-unused-state': null;
 
   /**
    * Replaces usages of `useContext` with `use`.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-use-context](https://eslint-react.xyz/docs/rules/no-use-context)
    */
   '@eslint-react/no-use-context': null;
 
   /**
    * Disallow useless `forwardRef` calls on components that don't use `ref`s.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [no-useless-forward-ref](https://eslint-react.xyz/docs/rules/no-useless-forward-ref)
    */
   '@eslint-react/no-useless-forward-ref': null;
 
   /**
    * Disallow useless fragment elements.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [no-useless-fragment](https://eslint-react.xyz/docs/rules/no-useless-fragment)
    */
   '@eslint-react/no-useless-fragment': [NoUselessFragmentOption?];
 
   /**
    * Enforces destructuring assignment for component props and context.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [prefer-destructuring-assignment](https://eslint-react.xyz/docs/rules/prefer-destructuring-assignment)
    */
   '@eslint-react/prefer-destructuring-assignment': null;
 
   /**
    * Enforces React is imported via a namespace import.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [prefer-react-namespace-import](https://eslint-react.xyz/docs/rules/prefer-react-namespace-import)
    */
   '@eslint-react/prefer-react-namespace-import': null;
 
   /**
    * Enforces read-only props in components.
+   * @preset `@eslint-react/disable-type-checked`, `@eslint-react/disable-type-checked-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [prefer-read-only-props](https://eslint-react.xyz/docs/rules/prefer-read-only-props)
    */
   '@eslint-react/prefer-read-only-props': null;
 
   /**
    * Enforces shorthand syntax for boolean attributes.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [prefer-shorthand-boolean](https://eslint-react.xyz/docs/rules/prefer-shorthand-boolean)
    */
   '@eslint-react/prefer-shorthand-boolean': null;
 
   /**
    * Enforces shorthand syntax for fragments.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [prefer-shorthand-fragment](https://eslint-react.xyz/docs/rules/prefer-shorthand-fragment)
    */
   '@eslint-react/prefer-shorthand-fragment': null;
 
   /**
    * Enforces that the 'key' attribute is placed before the spread attribute in JSX elements.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [jsx-key-before-spread](https://eslint-react.xyz/docs/rules/jsx-key-before-spread)
    */
   '@eslint-react/jsx-key-before-spread': null;
 
   /**
    * Disallow duplicate props in JSX elements.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [jsx-no-duplicate-props](https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props)
    */
   '@eslint-react/jsx-no-duplicate-props': null;
 
   /**
    * Disallows 'IIFE' in JSX elements.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [jsx-no-iife](https://eslint-react.xyz/docs/rules/jsx-no-iife)
    */
   '@eslint-react/jsx-no-iife': null;
 
   /**
    * Disallow undefined variables in JSX.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`
    * @see [jsx-no-undef](https://eslint-react.xyz/docs/rules/jsx-no-undef)
    */
   '@eslint-react/jsx-no-undef': null;
 
   /**
    * Marks React variables as used when JSX is used.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [jsx-uses-react](https://eslint-react.xyz/docs/rules/jsx-uses-react)
    */
   '@eslint-react/jsx-uses-react': null;
 
   /**
    * Marks variables used in JSX elements as used.
+   * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
    * @see [jsx-uses-vars](https://eslint-react.xyz/docs/rules/jsx-uses-vars)
    */
   '@eslint-react/jsx-uses-vars': null;
