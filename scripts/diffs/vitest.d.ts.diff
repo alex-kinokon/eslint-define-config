@@ -1,8 +1,8 @@
 diff --git a/src/rules/vitest.d.ts b/src/rules/vitest.d.ts
-index 09b9fa7..85f2dec 100644
+index d8d1e9a..e5cc091 100644
 --- a/src/rules/vitest.d.ts
 +++ b/src/rules/vitest.d.ts
-@@ -28,10 +28,11 @@ export interface NoRestrictedMatchersOption {
+@@ -32,11 +32,11 @@ export interface NoRestrictedMatchersOption {
    [k: string]: string | null;
  }
  
@@ -11,16 +11,8 @@ index 09b9fa7..85f2dec 100644
    ignoreTypeOfDescribeName?: boolean;
    allowArguments?: boolean;
    disallowedWords?: string[];
+-
 +} & {
-   /**
-    */
    [k: string]:
-@@ -41,7 +42,7 @@ export interface ValidTitleOption {
-     | {
-         [k: string]: string | [string] | [string, string];
-       };
--}
-+};
- 
- /**
-  * All Vitest rules.
+     | string
+     | [string]

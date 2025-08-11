@@ -1,22 +1,20 @@
 diff --git a/src/rules/playwright.d.ts b/src/rules/playwright.d.ts
-index 2386749..05b23b7 100644
+index b2b88f6..90ea40b 100644
 --- a/src/rules/playwright.d.ts
 +++ b/src/rules/playwright.d.ts
-@@ -35,15 +35,8 @@ export interface ValidTitleOption {
+@@ -29,13 +29,13 @@ export interface ValidTestTagsOption {
+   )[];
+ }
+ 
+-export interface ValidTitleOption {
++export type ValidTitleOption = {
+   disallowedWords?: string[];
+   ignoreSpaces?: boolean;
    ignoreTypeOfDescribeName?: boolean;
    ignoreTypeOfStepName?: boolean;
    ignoreTypeOfTestName?: boolean;
--  /**
--   */
--  [k: string]:
--    | string
--    | [string]
--    | [string, string]
--    | {
--        [k: string]: string | [string] | [string, string];
--      };
-+  mustNotMatch?: Partial<Record<'describe' | 'test', string>> | string;
-+  mustMatch?: Partial<Record<'describe' | 'test', string>> | string;
- }
- 
- /**
+-
++} & {
+   [k: string]:
+     | string
+     | [string]

@@ -29,14 +29,20 @@ export interface ValidTestTagsOption {
   )[];
 }
 
-export interface ValidTitleOption {
+export type ValidTitleOption = {
   disallowedWords?: string[];
   ignoreSpaces?: boolean;
   ignoreTypeOfDescribeName?: boolean;
   ignoreTypeOfStepName?: boolean;
   ignoreTypeOfTestName?: boolean;
-  mustNotMatch?: Partial<Record<'describe' | 'test', string>> | string;
-  mustMatch?: Partial<Record<'describe' | 'test', string>> | string;
+} & {
+  [k: string]:
+    | string
+    | [string]
+    | [string, string]
+    | {
+        [k: string]: string | [string] | [string, string];
+      };
 }
 
 /**

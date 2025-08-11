@@ -32,8 +32,6 @@ export type ExtensionsOption =
       'always' | 'ignorePackages' | 'never',
       {
         pattern?: {
-          /**
-           */
           [k: string]: 'always' | 'ignorePackages' | 'never';
         };
         checkTypeImports?: boolean;
@@ -51,8 +49,6 @@ export type ExtensionsOption =
   | [
       {
         pattern?: {
-          /**
-           */
           [k: string]: 'always' | 'ignorePackages' | 'never';
         };
         checkTypeImports?: boolean;
@@ -69,8 +65,6 @@ export type ExtensionsOption =
     ]
   | [
       {
-        /**
-         */
         [k: string]: 'always' | 'ignorePackages' | 'never';
       },
     ]
@@ -78,8 +72,6 @@ export type ExtensionsOption =
   | [
       'always' | 'ignorePackages' | 'never',
       {
-        /**
-         */
         [k: string]: 'always' | 'ignorePackages' | 'never';
       },
     ];

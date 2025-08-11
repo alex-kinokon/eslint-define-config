@@ -110,7 +110,8 @@ function cleanJsDoc(content: string): string {
   return content
     .split('\n')
     .filter((line) => !patterns.some((ignoredLine) => ignoredLine.test(line)))
-    .join('\n');
+    .join('\n')
+    .replace(/\/\*\*\n\s+\*\//g, '\n');
 }
 
 /**

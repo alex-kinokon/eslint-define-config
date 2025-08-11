@@ -291,7 +291,7 @@ export namespace NamingConvention {
           allowLeadingUnderscore?: boolean;
           allowTrailingUnderscore?: boolean;
         } & {
-          [k: string]: AsString | AsObject;
+          [k: string]: AsString | AsObject | boolean | undefined;
         },
       ];
   /**

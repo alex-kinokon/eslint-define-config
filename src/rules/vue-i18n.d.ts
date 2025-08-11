@@ -16,8 +16,6 @@ export type KeyFormatStyleRuleConfig = [
 
 export interface NoRawTextOption {
   attributes?: {
-    /**
-     */
     [k: string]: string[];
   };
   ignoreNodes?: any[];

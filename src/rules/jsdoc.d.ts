@@ -97,8 +97,6 @@ export interface ImplementsOnClassesOption {
 
 export interface InformativeDocsOption {
   aliases?: {
-    /**
-     */
     [k: string]: string[];
   };
   excludedTags?: string[];
@@ -124,8 +122,6 @@ export interface MatchDescriptionOption {
   message?: string;
   nonemptyTags?: boolean;
   tags?: {
-    /**
-     */
     [k: string]:
       | string
       | true
@@ -250,8 +246,6 @@ export interface RequireExampleOption {
 
 export interface RequireFileOverviewOption {
   tags?: {
-    /**
-     */
     [k: string]: {
       initialCommentsOnly?: boolean;
       mustExist?: boolean;
@@ -263,8 +257,6 @@ export interface RequireFileOverviewOption {
 export interface RequireHyphenBeforeParamDescriptionConfig {
   tags?:
     | {
-        /**
-         */
         [k: string]: 'always' | 'never';
       }
     | 'any';
@@ -470,8 +462,6 @@ export interface TagLinesConfig {
   endLines?: number | null;
   startLines?: number | null;
   tags?: {
-    /**
-     */
     [k: string]: {
       count?: number;
       lines?: 'always' | 'never' | 'any';

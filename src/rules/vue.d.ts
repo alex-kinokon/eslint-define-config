@@ -86,8 +86,6 @@ export interface AttributesOrderOption {
 }
 
 export interface BlockLangOption {
-  /**
-   */
   [k: string]: {
     lang?: string | string[];
     allowNoLang?: boolean;
@@ -103,8 +101,6 @@ export interface BlockTagNewlineOption {
   multiline?: 'always' | 'never' | 'consistent' | 'ignore';
   maxEmptyLines?: number;
   blocks?: {
-    /**
-     */
     [k: string]: {
       singleline?: 'always' | 'never' | 'consistent' | 'ignore';
       multiline?: 'always' | 'never' | 'consistent' | 'ignore';
@@ -767,8 +763,6 @@ export type MultilineTernaryRuleConfig = [
 export interface NoBareStringsInTemplateOption {
   allowlist?: string[];
   attributes?: {
-    /**
-     */
     [k: string]: string[];
   };
   directives?: string[];
@@ -1191,8 +1185,6 @@ export type PaddingLinesInComponentDefinitionOption =
       withinOption?:
         | ('never' | 'always' | 'ignore')
         | {
-            /**
-             */
             [k: string]:
               | ('never' | 'always' | 'ignore')
               | {

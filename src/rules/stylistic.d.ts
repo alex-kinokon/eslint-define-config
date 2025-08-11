@@ -1161,8 +1161,6 @@ export type NoMixedSpacesAndTabsOption = 'smart-tabs' | boolean;
 
 export interface NoMultiSpacesOption {
   exceptions?: {
-    /**
-     */
     [k: string]: boolean;
   };
   ignoreEOLComments?: boolean;

@@ -2907,8 +2907,6 @@ export interface HashbangOption {
   ignoreUnpublished?: boolean;
   additionalExecutables?: string[];
   executableMap?: {
-    /**
-     */
     [k: string]: string;
   };
 }
@@ -2988,8 +2986,6 @@ export interface ShebangOption {
   ignoreUnpublished?: boolean;
   additionalExecutables?: string[];
   executableMap?: {
-    /**
-     */
     [k: string]: string;
   };
 }

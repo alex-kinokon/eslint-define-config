@@ -1108,8 +1108,6 @@ export type NoMixedSpacesAndTabsOption = 'smart-tabs' | true | false;
 
 export interface NoMultiSpacesOption {
   exceptions?: {
-    /**
-     */
     [k: string]: boolean;
   };
   ignoreEOLComments?: boolean;
@@ -1142,16 +1140,31 @@ export type NoRestrictedExportsOption =
       };
     };
 
-/**
- * @minItems 0
- */
-export type NoRestrictedGlobalsOption = (
-  | string
-  | {
-      name: string;
-      message?: string;
-    }
-)[];
+export type NoRestrictedGlobalsOption =
+  | (
+      | string
+      | {
+          name: string;
+          message?: string;
+        }
+    )[]
+  | []
+  | [
+      {
+        /**
+         * @minItems 0
+         */
+        globals: (
+          | string
+          | {
+              name: string;
+              message?: string;
+            }
+        )[];
+        checkGlobalObject?: boolean;
+        globalObjects?: string[];
+      },
+    ];
 
 export type NoRestrictedImportsOption =
   | (
@@ -1376,6 +1389,8 @@ export type OneVarOption =
       var?: 'always' | 'never' | 'consecutive';
       let?: 'always' | 'never' | 'consecutive';
       const?: 'always' | 'never' | 'consecutive';
+      using?: 'always' | 'never' | 'consecutive';
+      awaitUsing?: 'always' | 'never' | 'consecutive';
     }
   | {
       initialized?: 'always' | 'never' | 'consecutive';

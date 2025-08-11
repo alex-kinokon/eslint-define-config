@@ -37,8 +37,6 @@ export type ValidTitleOption = {
   allowArguments?: boolean;
   disallowedWords?: string[];
 } & {
-  /**
-   */
   [k: string]:
     | string
     | [string]
@@ -46,7 +44,7 @@ export type ValidTitleOption = {
     | {
         [k: string]: string | [string] | [string, string];
       };
-};
+}
 
 /**
  * All Vitest rules.

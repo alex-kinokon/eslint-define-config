@@ -10,7 +10,6 @@ export namespace Prettier {
     fileInfoOptions?: {
       [k: string]: any;
     };
-    [k: string]: any;
   }
 
   export type PrettierRuleConfig = [PrettierOption?, PrettierConfig?];
