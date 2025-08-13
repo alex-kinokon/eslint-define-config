@@ -3038,42 +3038,42 @@ export interface NRules {
 
   /**
    * Disallow deprecated APIs.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-deprecated-api](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-deprecated-api.md)
    */
   'n/no-deprecated-api': [NoDeprecatedApiOption?];
 
   /**
    * Disallow the assignment to `exports`.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-exports-assign](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-exports-assign.md)
    */
   'n/no-exports-assign': null;
 
   /**
    * Disallow `import` declarations which import extraneous modules.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-extraneous-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-extraneous-import.md)
    */
   'n/no-extraneous-import': [NoExtraneousImportOption?];
 
   /**
    * Disallow `require()` expressions which import extraneous modules.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-extraneous-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-extraneous-require.md)
    */
   'n/no-extraneous-require': [NoExtraneousRequireOption?];
 
   /**
    * Disallow `import` declarations which import non-existence modules.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-missing-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-missing-import.md)
    */
   'n/no-missing-import': [NoMissingImportOption?];
 
   /**
    * Disallow `require()` expressions which import non-existence modules.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-missing-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-missing-require.md)
    */
   'n/no-missing-require': [NoMissingRequireOption?];
@@ -3112,7 +3112,7 @@ export interface NRules {
 
   /**
    * Disallow the use of `process.exit()`.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-process-exit](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-process-exit.md)
    */
   'n/no-process-exit': null;
@@ -3147,21 +3147,21 @@ export interface NRules {
 
   /**
    * Disallow `bin` files that npm ignores.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-unpublished-bin](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-bin.md)
    */
   'n/no-unpublished-bin': [NoUnpublishedBinOption?];
 
   /**
    * Disallow `import` declarations which import private modules.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-unpublished-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-import.md)
    */
   'n/no-unpublished-import': [NoUnpublishedImportOption?];
 
   /**
    * Disallow `require()` expressions which import private modules.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-unpublished-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-unpublished-require.md)
    */
   'n/no-unpublished-require': [NoUnpublishedRequireOption?];
@@ -3253,14 +3253,14 @@ export interface NRules {
 
   /**
    * Require that `process.exit()` expressions use the same code path as `throw`.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [process-exit-as-throw](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/process-exit-as-throw.md)
    */
   'n/process-exit-as-throw': null;
 
   /**
    * Require correct usage of hashbang.
-   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/all`
+   * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [hashbang](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/hashbang.md)
    */
   'n/hashbang': [HashbangOption?];

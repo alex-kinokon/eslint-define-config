@@ -2,14 +2,29 @@ import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 
-import * as eslintJs from '@eslint/js';
 import { Logger } from '@poppinss/cliui';
-import { pascalCase } from 'change-case';
-import type * as ESLint from 'eslint';
+import { pascalCase as originalPascalCase } from 'change-case';
 import type { Rule } from 'eslint';
 import type { JSONSchema4 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
 import colors from 'picocolors';
+
+/**
+ * Enhanced pascalCase that handles common edge cases where change-case
+ * doesn't properly capitalize certain technical terms.
+ */
+function pascalCase(str: string): string {
+  const result = originalPascalCase(str);
+
+  // Handle common technical terms that should be properly capitalized
+  return result
+    .replace(/F16round/g, 'F16Round')
+    .replace(/Log1p/g, 'Log1P')
+    .replace(/Log2/g, 'Log2')
+    .replace(/Log10/g, 'Log10')
+    .replace(/H1/g, 'H1');
+  // Add more cases as needed
+}
 
 import { ExtendsCollector } from './extends.ts';
 import {
@@ -26,16 +41,17 @@ async function loadPlugin(entry: PluginEntry): Promise<LoadedPlugin> {
   let mod: any = await entry.import();
   mod = mod.default ?? mod;
 
-  if (entry.id === 'eslint') {
+  if (entry.id === 'eslint-js') {
+    const js = mod.default || mod;
+    // We need the actual rule objects (not just config), so we still use ESLint Linter
+    const { Linter } = await import('eslint');
     const rules = Object.fromEntries(
-      new (mod as typeof ESLint).Linter({ configType: 'eslintrc' })
-        .getRules()
-        .entries(),
+      new Linter({ configType: 'eslintrc' }).getRules().entries(),
     );
 
     return {
       entry,
-      plugin: { rules, configs: eslintJs.configs },
+      plugin: { rules, configs: js.configs },
     };
   } else {
     return {
@@ -60,8 +76,17 @@ function extractRuleToPresetsMapping({
 
   // Iterate through all configs/presets, prioritizing flat configs
   for (const [configName, config] of Object.entries(plugin.configs)) {
-    // Get the rules from this config
-    const rules = (config as any)?.rules;
+    // Get the rules from this config - handle both flat config arrays and legacy config objects
+    let rules: Record<string, any> | undefined;
+
+    if (Array.isArray(config)) {
+      // Flat config format - rules are in the first element
+      rules = (config[0] as any)?.rules;
+    } else {
+      // Legacy config format
+      rules = (config as any)?.rules;
+    }
+
     if (!rules) continue;
 
     // Add this preset to each rule's preset list
@@ -73,15 +98,15 @@ function extractRuleToPresetsMapping({
 
       // Format the preset name - prefer flat config names when available
       let presetName: string;
-      if (entry.id === 'eslint') {
-        presetName = `js:${configName}`;
+      if (['eslint-js', 'eslint-json', 'eslint-markdown'].includes(entry.id)) {
+        presetName = `${entry.id.slice(7)}/${configName}`;
       } else {
         presetName = `${entry.prefix}/${configName}`;
       }
 
       // Only track rules that belong to this plugin
       const belongsToThisPlugin =
-        entry.id === 'eslint'
+        entry.id === 'eslint-js'
           ? !ruleName.includes('/')
           : ruleName.startsWith(`${entry.prefix}/`);
 

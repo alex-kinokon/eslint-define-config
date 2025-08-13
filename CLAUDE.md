@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is `@aet/eslint-define-config`, a TypeScript library that provides type-safe configuration helpers for ESLint. It's a fork of v1 of eslint-types/eslint-define-config, offering `defineConfig` for `eslint.config.js` files.
+This is `@aet/eslint-define-config`, a TypeScript library that generates type definitions for various ESLint plugins and provides type-safe configuration helpers for ESLint. It's a fork of v1 of eslint-types/eslint-define-config, offering `defineConfig` for `eslint.config.js` files.
 
 ## Key Development Commands
 
-- `pnpm run build` - Builds the project by running CLI script and applying diffs
+- `pnpm run build` - Builds the project to `src` folder by running CLI script and applying diffs
 - `pnpm run cli` - Generates TypeScript definitions from ESLint plugins using Node.js with security permissions
 - `pnpm run adjust` - Applies patch files from `scripts/diffs/` directory after generation
 - `pnpm run format` - Formats code using Prettier with caching

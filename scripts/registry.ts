@@ -30,8 +30,19 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
       extends: 'https://eslint-community.github.io/eslint-plugin-es-x/rules/',
     },
   }),
-  include('eslint', {
-    import: () => import('eslint'),
+  include('eslint-js', {
+    name: 'EslintJs',
+    import: () => import('@eslint/js'),
+  }),
+  include('eslint-json', {
+    name: 'EslintJson',
+    prefix: 'json',
+    import: () => import('@eslint/json'),
+  }),
+  include('eslint-markdown', {
+    name: 'EslintMarkdown',
+    prefix: 'markdown',
+    import: () => import('@eslint/markdown'),
   }),
   include('eslint-comments', {
     // @ts-expect-error no types

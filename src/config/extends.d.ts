@@ -99,9 +99,22 @@ type EsXExtends =
   | 'plugin:es-x/restrict-to-es5';
 
 /**
- * ESLint Eslint extends.
+ * ESLint EslintJs extends.
  */
-type EslintExtends = 'eslint:recommended' | 'eslint:all';
+type EslintJsExtends = 'plugin:eslint-js/all' | 'plugin:eslint-js/recommended';
+
+/**
+ * ESLint EslintJson extends.
+ */
+type EslintJsonExtends = 'plugin:json/recommended';
+
+/**
+ * ESLint EslintMarkdown extends.
+ */
+type EslintMarkdownExtends =
+  | 'plugin:markdown/processor'
+  | 'plugin:markdown/recommended'
+  | 'plugin:markdown/recommended-legacy';
 
 /**
  * ESLint EslintComments extends.
@@ -499,7 +512,9 @@ export type KnownExtends = LiteralUnion<
   | CspellExtends
   | DeprecationExtends
   | EsXExtends
-  | EslintExtends
+  | EslintJsExtends
+  | EslintJsonExtends
+  | EslintMarkdownExtends
   | EslintCommentsExtends
   | GraphQlExtends
   | ImportExtends

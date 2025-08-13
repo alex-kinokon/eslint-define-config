@@ -1,13 +1,5 @@
 import type { RulesObject } from '../rule-config';
 
-export interface NoMathF16RoundOption {
-  allowTestedProperty?: boolean;
-}
-
-export interface NoMathLog1POption {
-  allowTestedProperty?: boolean;
-}
-
 /**
  * All EsX rules.
  */
@@ -1167,7 +1159,11 @@ export interface EsXRules {
    * @preset `es-x/flat/no-float16array`, `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-float16array`, `es-x/no-new-in-es2025`
    * @see [no-math-f16round](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-f16round.html)
    */
-  'es-x/no-math-f16round': [NoMathF16roundOption?];
+  'es-x/no-math-f16round': [
+    {
+      allowTestedProperty?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow the `Math.fround` method.
@@ -1207,7 +1203,11 @@ export interface EsXRules {
    * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-log1p](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-log1p.html)
    */
-  'es-x/no-math-log1p': [NoMathLog1pOption?];
+  'es-x/no-math-log1p': [
+    {
+      allowTestedProperty?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow the `Math.log2` method.

@@ -5,8 +5,10 @@ import type { AstroRulesObject } from './astro';
 import type { CspellRulesObject } from './cspell';
 import type { DeprecationRulesObject } from './deprecation';
 import type { EsXRulesObject } from './es-x';
-import type { EslintRulesObject } from './eslint';
 import type { EslintCommentsRulesObject } from './eslint-comments';
+import type { EslintJsRulesObject } from './eslint-js';
+import type { EslintJsonRulesObject } from './eslint-json';
+import type { EslintMarkdownRulesObject } from './eslint-markdown';
 import type { GraphQLRulesObject } from './graphql-eslint';
 import type { ImportRulesObject } from './import';
 import type { ImportXRulesObject } from './import-x';
@@ -87,7 +89,9 @@ export interface Rules
     CspellRulesObject,
     DeprecationRulesObject,
     EsXRulesObject,
-    EslintRulesObject,
+    EslintJsRulesObject,
+    EslintJsonRulesObject,
+    EslintMarkdownRulesObject,
     EslintCommentsRulesObject,
     GraphQLRulesObject,
     ImportRulesObject,
