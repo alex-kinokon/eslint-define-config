@@ -2,11 +2,8 @@
 import { pascalCase } from 'change-case';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import type { LoadedPlugin, PluginEntry } from './registry.ts';
 import { concatDoc, format, RegionReplacer } from './text.ts';
-
-const __dirname: string = fileURLToPath(new URL('.', import.meta.url));
 
 export class ExtendsCollector {
   extends: Array<{ entry: PluginEntry; configs: string[] }> = [];
@@ -19,7 +16,7 @@ export class ExtendsCollector {
   }
 
   async write(): Promise<void> {
-    const extendsFile = join(__dirname, '../src/config/extends.d.ts');
+    const extendsFile = join(import.meta.dirname, '../src/config/extends.d.ts');
     const source = await fs.readFile(extendsFile, 'utf-8');
 
     const extensions = this.extends
@@ -27,14 +24,14 @@ export class ExtendsCollector {
         const link = entry.docs?.extends ?? entry.docs?.home;
         configs = configs.filter((x) => !x.includes('flat'));
 
-        if (!configs.length && entry.id !== 'eslint') {
+        if (!configs.length && entry.id !== 'eslint-js') {
           return undefined;
         }
 
         return {
           ...entry,
           configs:
-            entry.id === 'eslint'
+            entry.id === 'eslint-js'
               ? ['eslint:recommended', 'eslint:all']
               : configs
                   .map((config) => `plugin:${entry.prefix}/${config}`)

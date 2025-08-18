@@ -1,9 +1,5 @@
-import { createRequire } from 'node:module';
-
 import { pascalCase } from 'change-case';
 import type { ESLint, Rule } from 'eslint';
-
-const require = createRequire(import.meta.url);
 
 export interface LoadedPlugin {
   entry: PluginEntry;
@@ -259,7 +255,7 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
 export type PluginRules = Record<string, Rule.RuleModule>;
 
 export interface PluginEntry {
-  id: string;
+  id: PluginID;
   name: string;
   prefix: string;
   import: () => ESLint.Plugin | Promise<ESLint.Plugin>;
@@ -270,7 +266,7 @@ export interface PluginEntry {
 }
 
 function include(
-  id: string,
+  id: PluginID,
   entry: Pick<PluginEntry, 'docs'> & {
     import: () => any;
     prefix?: string;
@@ -278,53 +274,55 @@ function include(
   },
 ): PluginEntry {
   return {
-    name: pascalCase(id),
+    name: pascalCase(id) as unknown as string,
     prefix: id,
     id,
     ...entry,
   };
 }
 
-const order = [
+type PluginID =
   /**
    * Map of plugins for which the script will generate rule files.
    */
-  'deprecation',
-  'es-x',
-  'eslint-comments',
-  'eslint',
-  'graphql-eslint',
-  'import-x',
-  'import',
-  'jsdoc',
-  'jsonc',
-  'jsx-a11y',
-  'lingui',
-  'mdx',
-  'n',
-  'node',
-  'playwright',
-  'promise',
-  'react-hooks',
-  'react-query',
-  'react',
-  'react-refresh',
-  'regexp',
-  'security',
-  'solid',
-  'sonarjs',
-  'spellcheck',
-  'storybook',
-  'stylistic',
-  'tailwind',
-  'testing-library',
-  'typescript-eslint',
-  'unicorn',
-  'vitest',
-  'vue',
-  'vue-i18n',
-  'vue-pug',
-  'yml',
-];
-
-Object(order);
+  | 'astro'
+  | 'cspell'
+  | 'deprecation'
+  | 'es-x'
+  | 'eslint-comments'
+  | 'eslint-js'
+  | 'eslint-json'
+  | 'eslint-markdown'
+  | 'graphql-eslint'
+  | 'import-x'
+  | 'import'
+  | 'jsdoc'
+  | 'jsonc'
+  | 'jsx-a11y'
+  | 'lingui'
+  | 'mdx'
+  | 'n'
+  | 'node'
+  | 'playwright'
+  | 'prettier'
+  | 'promise'
+  | 'react-hooks'
+  | 'react-query'
+  | 'react-refresh'
+  | 'react'
+  | 'regexp'
+  | 'security'
+  | 'solid'
+  | 'sonarjs'
+  | 'spellcheck'
+  | 'storybook'
+  | 'stylistic'
+  | 'tailwind'
+  | 'testing-library'
+  | 'typescript-eslint'
+  | 'unicorn'
+  | 'vitest'
+  | 'vue-i18n'
+  | 'vue-pug'
+  | 'vue'
+  | 'yml';

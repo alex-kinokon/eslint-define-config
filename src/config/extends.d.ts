@@ -101,7 +101,7 @@ type EsXExtends =
 /**
  * ESLint EslintJs extends.
  */
-type EslintJsExtends = 'plugin:eslint-js/all' | 'plugin:eslint-js/recommended';
+type EslintJsExtends = 'eslint:recommended' | 'eslint:all';
 
 /**
  * ESLint EslintJson extends.

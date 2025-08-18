@@ -1,6 +1,5 @@
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath, URL } from 'node:url';
 
 import { Logger } from '@poppinss/cliui';
 import { pascalCase as originalPascalCase } from 'change-case';
@@ -182,8 +181,6 @@ async function generateTypeFromSchema(
   return result;
 }
 
-const __dirname: string = fileURLToPath(new URL('.', import.meta.url));
-
 async function generateRule(
   entry: PluginEntry,
   ruleName: string,
@@ -255,8 +252,8 @@ async function generateRule(
    * Scoped rule name ESLint config uses.
    */
   function prefixedRuleName(): string {
-    const { prefix, name } = entry;
-    return name === 'Eslint' ? ruleName : `${prefix}/${ruleName}`;
+    const { prefix, id } = entry;
+    return id === 'eslint-js' ? ruleName : `${prefix}/${ruleName}`;
   }
 
   function writeMember(
@@ -510,7 +507,7 @@ export type RuleData = Array<{
 }>;
 
 export async function run(): Promise<void> {
-  const rulesDir = join(__dirname, '../src/rules');
+  const rulesDir = join(import.meta.dirname, '../src/rules');
   await mkdirpSync(rulesDir);
   const programmaticData: RuleData = [];
 
@@ -546,13 +543,13 @@ export async function run(): Promise<void> {
   }
 
   await generateRuleIndex(
-    join(__dirname, '../src/rules/index.d.ts'),
+    join(import.meta.dirname, '../src/rules/index.d.ts'),
     PLUGIN_REGISTRY,
   );
   await extendsCollector.write();
 
   // await fs.writeFile(
-  //   join(__dirname, '../src/data.json'),
+  //   join(import.meta.dirname, '../src/data.json'),
   //   JSON.stringify(programmaticData),
   // );
 }
