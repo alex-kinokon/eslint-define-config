@@ -1,5 +1,33 @@
 import type { RulesObject } from '../rule-config';
 
+export interface NoUint8ArrayFrombase64Option {
+  allowTestedProperty?: boolean;
+}
+
+export interface NoUint8ArrayFromhexOption {
+  allowTestedProperty?: boolean;
+}
+
+export interface NoUint8ArrayPrototypeSetfrombase64Option {
+  allowTestedProperty?: boolean;
+  aggressive?: boolean;
+}
+
+export interface NoUint8ArrayPrototypeSetfromhexOption {
+  allowTestedProperty?: boolean;
+  aggressive?: boolean;
+}
+
+export interface NoUint8ArrayPrototypeTobase64Option {
+  allowTestedProperty?: boolean;
+  aggressive?: boolean;
+}
+
+export interface NoUint8ArrayPrototypeTohexOption {
+  allowTestedProperty?: boolean;
+  aggressive?: boolean;
+}
+
 /**
  * All EsX rules.
  */
@@ -1248,6 +1276,17 @@ export interface EsXRules {
    * @see [no-math-sinh](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-sinh.html)
    */
   'es-x/no-math-sinh': [
+    {
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Math.sumPrecise` method.
+   * @preset `es-x/flat/no-new-in-esnext`, `es-x/no-new-in-esnext`
+   * @see [no-math-sumprecise](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-sumprecise.html)
+   */
+  'es-x/no-math-sumprecise': [
     {
       allowTestedProperty?: boolean;
     }?,
@@ -3202,6 +3241,54 @@ export interface EsXRules {
    * @see [no-typed-arrays](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-typed-arrays.html)
    */
   'es-x/no-typed-arrays': null;
+
+  /**
+   * Disallow the `Uint8Array.fromBase64` method.
+   * @preset `es-x/flat/no-arraybuffer-base64`, `es-x/flat/no-new-in-esnext`, `es-x/no-arraybuffer-base64`, `es-x/no-new-in-esnext`
+   * @see [no-uint8array-frombase64](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-uint8array-frombase64.html)
+   */
+  'es-x/no-uint8array-frombase64': [NoUint8arrayFrombase64Option?];
+
+  /**
+   * Disallow the `Uint8Array.fromHex` method.
+   * @preset `es-x/flat/no-arraybuffer-base64`, `es-x/flat/no-new-in-esnext`, `es-x/no-arraybuffer-base64`, `es-x/no-new-in-esnext`
+   * @see [no-uint8array-fromhex](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-uint8array-fromhex.html)
+   */
+  'es-x/no-uint8array-fromhex': [NoUint8arrayFromhexOption?];
+
+  /**
+   * Disallow the `Uint8Array.prototype.setFromBase64` method.
+   * @preset `es-x/flat/no-arraybuffer-base64`, `es-x/flat/no-new-in-esnext`, `es-x/no-arraybuffer-base64`, `es-x/no-new-in-esnext`
+   * @see [no-uint8array-prototype-setfrombase64](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-uint8array-prototype-setfrombase64.html)
+   */
+  'es-x/no-uint8array-prototype-setfrombase64': [
+    NoUint8arrayPrototypeSetfrombase64Option?,
+  ];
+
+  /**
+   * Disallow the `Uint8Array.prototype.setFromHex` method.
+   * @preset `es-x/flat/no-arraybuffer-base64`, `es-x/flat/no-new-in-esnext`, `es-x/no-arraybuffer-base64`, `es-x/no-new-in-esnext`
+   * @see [no-uint8array-prototype-setfromhex](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-uint8array-prototype-setfromhex.html)
+   */
+  'es-x/no-uint8array-prototype-setfromhex': [
+    NoUint8arrayPrototypeSetfromhexOption?,
+  ];
+
+  /**
+   * Disallow the `Uint8Array.prototype.toBase64` method.
+   * @preset `es-x/flat/no-arraybuffer-base64`, `es-x/flat/no-new-in-esnext`, `es-x/no-arraybuffer-base64`, `es-x/no-new-in-esnext`
+   * @see [no-uint8array-prototype-tobase64](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-uint8array-prototype-tobase64.html)
+   */
+  'es-x/no-uint8array-prototype-tobase64': [
+    NoUint8arrayPrototypeTobase64Option?,
+  ];
+
+  /**
+   * Disallow the `Uint8Array.prototype.toHex` method.
+   * @preset `es-x/flat/no-arraybuffer-base64`, `es-x/flat/no-new-in-esnext`, `es-x/no-arraybuffer-base64`, `es-x/no-new-in-esnext`
+   * @see [no-uint8array-prototype-tohex](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-uint8array-prototype-tohex.html)
+   */
+  'es-x/no-uint8array-prototype-tohex': [NoUint8arrayPrototypeTohexOption?];
 
   /**
    * Disallow Unicode code point escape sequences.

@@ -35,6 +35,10 @@ export interface TextRestrictionsOption {
 
 export interface NoTransInsideTransOption {}
 
+export interface ConsistentPluralFormatOption {
+  style?: 'hash' | 'template';
+}
+
 /**
  * All Lingui rules.
  */
@@ -87,6 +91,12 @@ export interface LinguiRules {
    * @see [no-trans-inside-trans](https://github.com/lingui/eslint-plugin/blob/main/docs/rules/no-trans-inside-trans.md)
    */
   'lingui/no-trans-inside-trans': [NoTransInsideTransOption?];
+
+  /**
+   * Enforce consistent format for plural definitions.
+   * @see [consistent-plural-format](https://github.com/lingui/eslint-plugin/blob/main/docs/rules/consistent-plural-format.md)
+   */
+  'lingui/consistent-plural-format': [ConsistentPluralFormatOption?];
 }
 
 export type LinguiRulesObject = RulesObject<LinguiRules>;

@@ -680,13 +680,6 @@ export interface SonarJSRules {
   'sonarjs/no-skipped-tests': null;
 
   /**
-   * Loops with at most one iteration should be refactored.
-   * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
-   * @see [no-one-iteration-loop](https://sonarsource.github.io/rspec/#/rspec/S1751/javascript)
-   */
-  'sonarjs/no-one-iteration-loop': null;
-
-  /**
    * Identical expressions should not be used on both sides of a binary operator.
    * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
    * @see [no-identical-expressions](https://sonarsource.github.io/rspec/#/rspec/S1764/javascript)
@@ -864,7 +857,6 @@ export interface SonarJSRules {
 
   /**
    * Loop counters should not be assigned within the loop body.
-   * @deprecated
    * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
    * @see [updated-loop-counter](https://sonarsource.github.io/rspec/#/rspec/S2310/javascript)
    */
@@ -2116,7 +2108,7 @@ export interface SonarJSRules {
   'sonarjs/no-hardcoded-secrets': NoHardcodedSecretsOption;
 
   /**
-   * Exclusive tests should not be commited to version control.
+   * Exclusive tests should not be committed to version control.
    * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
    * @see [no-exclusive-tests](https://sonarsource.github.io/rspec/#/rspec/S6426/javascript)
    */

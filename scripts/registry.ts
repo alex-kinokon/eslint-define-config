@@ -107,6 +107,9 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
       extends: 'https://github.com/eslint-community/eslint-plugin-n#-configs',
     },
   }),
+  include('perfectionist', {
+    import: () => import('eslint-plugin-perfectionist'),
+  }),
   include('prettier', {
     import: () => import('eslint-plugin-prettier'),
     docs: {
@@ -120,6 +123,9 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
       extends:
         'https://github.com/playwright-community/eslint-plugin-playwright#rules',
     },
+  }),
+  include('pnpm', {
+    import: () => import('eslint-plugin-pnpm'),
   }),
   include('promise', {
     // @ts-expect-error no types
@@ -303,7 +309,9 @@ type PluginID =
   | 'mdx'
   | 'n'
   | 'node'
+  | 'perfectionist'
   | 'playwright'
+  | 'pnpm'
   | 'prettier'
   | 'promise'
   | 'react-hooks'

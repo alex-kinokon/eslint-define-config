@@ -38,6 +38,7 @@ type EsXExtends =
   | 'plugin:es-x/no-2019'
   | 'plugin:es-x/no-5'
   | 'plugin:es-x/no-array-grouping'
+  | 'plugin:es-x/no-arraybuffer-base64'
   | 'plugin:es-x/no-change-array-by-copy'
   | 'plugin:es-x/no-class-fields'
   | 'plugin:es-x/no-explicit-resource-management'
@@ -230,6 +231,19 @@ type NExtends =
   | 'plugin:n/recommended-script';
 
 /**
+ * ESLint Perfectionist extends.
+ */
+type PerfectionistExtends =
+  | 'plugin:perfectionist/recommended-alphabetical'
+  | 'plugin:perfectionist/recommended-alphabetical-legacy'
+  | 'plugin:perfectionist/recommended-custom'
+  | 'plugin:perfectionist/recommended-custom-legacy'
+  | 'plugin:perfectionist/recommended-line-length'
+  | 'plugin:perfectionist/recommended-line-length-legacy'
+  | 'plugin:perfectionist/recommended-natural'
+  | 'plugin:perfectionist/recommended-natural-legacy';
+
+/**
  * ESLint Prettier extends.
  *
  * @see [Prettier extends](https://github.com/prettier/eslint-plugin-prettier#configuration-legacy-eslintrc)
@@ -244,6 +258,14 @@ type PrettierExtends = 'plugin:prettier/recommended';
 type PlaywrightExtends =
   | 'plugin:playwright/playwright-test'
   | 'plugin:playwright/recommended';
+
+/**
+ * ESLint Pnpm extends.
+ */
+type PnpmExtends =
+  | 'plugin:pnpm/json'
+  | 'plugin:pnpm/recommended'
+  | 'plugin:pnpm/yaml';
 
 /**
  * ESLint Promise extends.
@@ -525,8 +547,10 @@ export type KnownExtends = LiteralUnion<
   | LinguiExtends
   | MdxExtends
   | NExtends
+  | PerfectionistExtends
   | PrettierExtends
   | PlaywrightExtends
+  | PnpmExtends
   | PromiseExtends
   | ReactExtends
   | ReactHooksExtends

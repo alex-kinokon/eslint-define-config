@@ -20,7 +20,11 @@ export interface EslintMarkdownRules {
    * @preset `markdown/recommended`
    * @see [heading-increment](https://github.com/eslint/markdown/blob/main/docs/rules/heading-increment.md)
    */
-  'markdown/heading-increment': null;
+  'markdown/heading-increment': [
+    {
+      frontmatterTitle?: string;
+    }?,
+  ];
 
   /**
    * Disallow bare URLs.
@@ -84,6 +88,7 @@ export interface EslintMarkdownRules {
   'markdown/no-html': [
     {
       allowed?: string[];
+      allowedIgnoreCase?: boolean;
     }?,
   ];
 
@@ -99,7 +104,11 @@ export interface EslintMarkdownRules {
    * @preset `markdown/recommended`
    * @see [no-missing-atx-heading-space](https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-atx-heading-space.md)
    */
-  'markdown/no-missing-atx-heading-space': null;
+  'markdown/no-missing-atx-heading-space': [
+    {
+      checkClosedHeadings?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow missing label references.
@@ -137,6 +146,17 @@ export interface EslintMarkdownRules {
    * @see [no-reversed-media-syntax](https://github.com/eslint/markdown/blob/main/docs/rules/no-reversed-media-syntax.md)
    */
   'markdown/no-reversed-media-syntax': null;
+
+  /**
+   * Disallow spaces around emphasis markers.
+   * @preset `markdown/recommended`
+   * @see [no-space-in-emphasis](https://github.com/eslint/markdown/blob/main/docs/rules/no-space-in-emphasis.md)
+   */
+  'markdown/no-space-in-emphasis': [
+    {
+      checkStrikethrough?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow unused definitions.

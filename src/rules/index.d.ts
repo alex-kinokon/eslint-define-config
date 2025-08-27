@@ -18,7 +18,9 @@ import type { JsxA11yRulesObject } from './jsx-a11y';
 import type { LinguiRulesObject } from './lingui';
 import type { MdxRulesObject } from './mdx';
 import type { NRulesObject } from './n';
+import type { PerfectionistRulesObject } from './perfectionist';
 import type { PlaywrightRulesObject } from './playwright';
+import type { PnpmRulesObject } from './pnpm';
 import type { PrettierRulesObject } from './prettier';
 import type { PromiseRulesObject } from './promise';
 import type { ReactRulesObject } from './react';
@@ -102,8 +104,10 @@ export interface Rules
     LinguiRulesObject,
     MdxRulesObject,
     NRulesObject,
+    PerfectionistRulesObject,
     PrettierRulesObject,
     PlaywrightRulesObject,
+    PnpmRulesObject,
     PromiseRulesObject,
     ReactRulesObject,
     ReactHooksRulesObject,
