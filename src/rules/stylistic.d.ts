@@ -311,6 +311,7 @@ export namespace Indent {
           const?: number | ('first' | 'off');
           using?: number | ('first' | 'off');
         };
+    assignmentOperator?: number | 'off';
     outerIIFEBody?: number | 'off';
     MemberExpression?: number | 'off';
     FunctionDeclaration?: {
@@ -581,6 +582,22 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      arguments?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      as?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      async?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      await?: {
+        before?: boolean;
+        after?: boolean;
+      };
       boolean?: {
         before?: boolean;
         after?: boolean;
@@ -645,6 +662,10 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      eval?: {
+        before?: boolean;
+        after?: boolean;
+      };
       export?: {
         before?: boolean;
         after?: boolean;
@@ -673,7 +694,15 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      from?: {
+        before?: boolean;
+        after?: boolean;
+      };
       function?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      get?: {
         before?: boolean;
         after?: boolean;
       };
@@ -709,6 +738,10 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      let?: {
+        before?: boolean;
+        after?: boolean;
+      };
       long?: {
         before?: boolean;
         after?: boolean;
@@ -722,6 +755,10 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       null?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      of?: {
         before?: boolean;
         after?: boolean;
       };
@@ -742,6 +779,10 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       return?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      set?: {
         before?: boolean;
         after?: boolean;
       };
@@ -789,7 +830,15 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
+      type?: {
+        before?: boolean;
+        after?: boolean;
+      };
       typeof?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      using?: {
         before?: boolean;
         after?: boolean;
       };
@@ -813,55 +862,15 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      accessor?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      as?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      async?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      await?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      from?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      get?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      let?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      of?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      satisfies?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      set?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      using?: {
-        before?: boolean;
-        after?: boolean;
-      };
       yield?: {
         before?: boolean;
         after?: boolean;
       };
-      type?: {
+      accessor?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      satisfies?: {
         before?: boolean;
         after?: boolean;
       };
@@ -1061,6 +1070,7 @@ export type NoExtraParensOption =
           LogicalExpression?: boolean;
           AwaitExpression?: boolean;
         };
+        ignoredNodes?: string[];
       },
     ];
 
@@ -1306,7 +1316,6 @@ export namespace PaddingLineBetweenStatements {
     | 'for'
     | 'if'
     | 'import'
-    | 'return'
     | 'switch'
     | 'throw'
     | 'try'
@@ -1316,7 +1325,6 @@ export namespace PaddingLineBetweenStatements {
     | 'cjs-import'
     | 'enum'
     | 'interface'
-    | 'type'
     | 'function-overload'
     | 'block-like'
     | 'singleline-block-like'
@@ -1324,6 +1332,9 @@ export namespace PaddingLineBetweenStatements {
     | 'expression'
     | 'singleline-expression'
     | 'multiline-expression'
+    | 'return'
+    | 'singleline-return'
+    | 'multiline-return'
     | 'export'
     | 'singleline-export'
     | 'multiline-export'
@@ -1338,7 +1349,10 @@ export namespace PaddingLineBetweenStatements {
     | 'multiline-const'
     | 'using'
     | 'singleline-using'
-    | 'multiline-using';
+    | 'multiline-using'
+    | 'type'
+    | 'singleline-type'
+    | 'multiline-type';
   export type PaddingLineBetweenStatementsOption = {
     blankLine: PaddingType;
     prev: StatementOption;
@@ -1720,7 +1734,8 @@ export interface StylisticRules {
   ];
 
   /**
-   * Disallow multiple spaces between inline JSX props.
+   * Disallow multiple spaces between inline JSX props. Deprecated, use `no-multi-spaces` rule instead.
+   * @deprecated
    * @see [jsx-props-no-multi-spaces](https://eslint.style/rules/jsx-props-no-multi-spaces)
    */
   'stylistic/jsx-props-no-multi-spaces': null;

@@ -597,6 +597,13 @@ export interface VitestRules {
   'vitest/prefer-called-times': null;
 
   /**
+   * Enforce using `expectTypeOf` instead of `expect(typeof ...)`.
+   * @preset `vitest/all`
+   * @see [prefer-expect-type-of](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-type-of.md)
+   */
+  'vitest/prefer-expect-type-of': null;
+
+  /**
    * Disallow `.todo` usage.
    * @see [warn-todo](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/warn-todo.md)
    */

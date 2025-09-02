@@ -250,7 +250,7 @@ export interface ReactRules {
   /**
    * Disallow nesting lazy component declarations inside other components.
    * @preset `@eslint-react/all`, `@eslint-react/all-legacy`, `@eslint-react/off`, `@eslint-react/off-legacy`, `@eslint-react/recommended`, `@eslint-react/recommended-legacy`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-type-checked-legacy`, `@eslint-react/recommended-typescript`, `@eslint-react/recommended-typescript-legacy`, `@eslint-react/x`, `@eslint-react/x-legacy`, `@eslint-react/core`, `@eslint-react/core-legacy`
-   * @see [no-nested-lazy-component-declarations](https://eslint-react.xyz/docs/rules/no-nested-component-definitions)
+   * @see [no-nested-lazy-component-declarations](https://eslint-react.xyz/docs/rules/no-nested-lazy-component-declarations)
    */
   '@eslint-react/no-nested-lazy-component-declarations': null;
 
