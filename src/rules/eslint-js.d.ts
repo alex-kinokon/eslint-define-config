@@ -1605,6 +1605,13 @@ export interface PreferReflectOption {
   )[];
 }
 
+export interface PreserveCaughtErrorOption {
+  /**
+   * Requires the catch blocks to always have the caught error parameter so it is not discarded.
+   */
+  requireCatchParameter?: boolean;
+}
+
 export type QuotePropsOption =
   | []
   | ['always' | 'as-needed' | 'consistent' | 'consistent-as-needed']
@@ -3825,6 +3832,13 @@ export interface EslintJsRules {
    * @see [prefer-template](https://eslint.org/docs/latest/rules/prefer-template)
    */
   'prefer-template': null;
+
+  /**
+   * Disallow losing originally caught error when re-throwing custom errors.
+   * @preset `js/all`
+   * @see [preserve-caught-error](https://eslint.org/docs/latest/rules/preserve-caught-error)
+   */
+  'preserve-caught-error': [PreserveCaughtErrorOption?];
 
   /**
    * Require quotes around object literal property names.

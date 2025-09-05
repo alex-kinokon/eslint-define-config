@@ -894,6 +894,7 @@ export interface JSDocRules {
    */
   'jsdoc/require-template': [
     {
+      exemptedBy?: string[];
       requireSeparateTemplates?: boolean;
     }?,
   ];

@@ -436,7 +436,10 @@ type TypeScriptExtends =
  *
  * @see [Unicorn extends](https://github.com/sindresorhus/eslint-plugin-unicorn#usage-legacy-eslintrc-or-packagejson)
  */
-type UnicornExtends = 'plugin:unicorn/all' | 'plugin:unicorn/recommended';
+type UnicornExtends =
+  | 'plugin:unicorn/all'
+  | 'plugin:unicorn/recommended'
+  | 'plugin:unicorn/unopinionated';
 
 /**
  * ESLint Vitest extends.

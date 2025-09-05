@@ -106,6 +106,13 @@ export interface VitestRules {
   ];
 
   /**
+   * Enforce hoisted APIs to be on top of the file.
+   * @preset `vitest/all`
+   * @see [hoisted-apis-on-top](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/hoisted-apis-on-top.md)
+   */
+  'vitest/hoisted-apis-on-top': null;
+
+  /**
    * Enforce using test or it but not both.
    * @preset `vitest/all`
    * @see [consistent-test-it](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md)

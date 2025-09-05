@@ -11,8 +11,6 @@ export type NamingConventionComponentNameOption =
   | ('PascalCase' | 'CONSTANT_CASE')
   | {
       allowAllCaps?: boolean;
-      allowLeadingUnderscore?: boolean;
-      allowNamespace?: boolean;
       excepts?: string[];
       rule?: 'PascalCase' | 'CONSTANT_CASE';
     };
