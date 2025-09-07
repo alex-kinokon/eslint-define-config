@@ -282,6 +282,7 @@ export interface RequireJsdocOption {
   enableFixer?: boolean;
   exemptEmptyConstructors?: boolean;
   exemptEmptyFunctions?: boolean;
+  exemptOverloadedImplementations?: boolean;
   fixerMessage?: string;
   minLineCount?: number;
   publicOnly?:
@@ -300,6 +301,7 @@ export interface RequireJsdocOption {
     FunctionExpression?: boolean;
     MethodDefinition?: boolean;
   };
+  skipInterveningOverloadedDeclarations?: boolean;
 }
 
 export interface RequireParamOption {
@@ -485,7 +487,11 @@ export interface JSDocRules {
    * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/stylistic-typescript`, `jsdoc/flat/stylistic-typescript-error`, `jsdoc/flat/stylistic-typescript-flavor`, `jsdoc/flat/stylistic-typescript-flavor-error`
    * @see [check-alignment](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/check-alignment.md#repos-sticky-header)
    */
-  'jsdoc/check-alignment': null;
+  'jsdoc/check-alignment': [
+    {
+      innerIndent?: number;
+    }?,
+  ];
 
   /**
    * Ensures that (JavaScript) examples within JSDoc adhere to ESLint rules.

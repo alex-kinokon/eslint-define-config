@@ -9,6 +9,7 @@ import type { EslintCommentsRulesObject } from './eslint-comments';
 import type { EslintJsRulesObject } from './eslint-js';
 import type { EslintJsonRulesObject } from './eslint-json';
 import type { EslintMarkdownRulesObject } from './eslint-markdown';
+import type { EslintPluginRulesObject } from './eslint-plugin';
 import type { GraphQLRulesObject } from './graphql-eslint';
 import type { ImportRulesObject } from './import';
 import type { ImportXRulesObject } from './import-x';
@@ -95,6 +96,7 @@ export interface Rules
     EslintJsonRulesObject,
     EslintMarkdownRulesObject,
     EslintCommentsRulesObject,
+    EslintPluginRulesObject,
     GraphQLRulesObject,
     ImportRulesObject,
     ImportXRulesObject,

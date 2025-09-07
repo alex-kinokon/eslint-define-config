@@ -125,6 +125,18 @@ type EslintMarkdownExtends =
 type EslintCommentsExtends = 'plugin:eslint-comments/recommended';
 
 /**
+ * ESLint EslintPlugin extends.
+ */
+type EslintPluginExtends =
+  | 'plugin:eslint-plugin/all'
+  | 'plugin:eslint-plugin/all-type-checked'
+  | 'plugin:eslint-plugin/recommended'
+  | 'plugin:eslint-plugin/rules'
+  | 'plugin:eslint-plugin/rules-recommended'
+  | 'plugin:eslint-plugin/tests'
+  | 'plugin:eslint-plugin/tests-recommended';
+
+/**
  * ESLint GraphQL extends.
  *
  * @see [GraphQL extends](https://the-guild.dev/graphql/eslint/docs/configs)
@@ -541,6 +553,7 @@ export type KnownExtends = LiteralUnion<
   | EslintJsonExtends
   | EslintMarkdownExtends
   | EslintCommentsExtends
+  | EslintPluginExtends
   | GraphQlExtends
   | ImportExtends
   | ImportXExtends

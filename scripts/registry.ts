@@ -48,6 +48,9 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
         'https://mysticatea.github.io/eslint-plugin-eslint-comments/#%F0%9F%93%96-usage',
     },
   }),
+  include('eslint-plugin', {
+    import: () => import('eslint-plugin-eslint-plugin'),
+  }),
   include('graphql-eslint', {
     name: 'GraphQL',
     prefix: '@graphql-eslint',
@@ -299,6 +302,7 @@ type PluginID =
   | 'eslint-js'
   | 'eslint-json'
   | 'eslint-markdown'
+  | 'eslint-plugin'
   | 'graphql-eslint'
   | 'import-x'
   | 'import'
