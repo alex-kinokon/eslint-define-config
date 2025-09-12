@@ -471,6 +471,26 @@ export interface TagLinesConfig {
   };
 }
 
+export interface TypeFormattingOption {
+  arrayBrackets?: 'angle' | 'square';
+  enableFixer?: boolean;
+  genericDot?: boolean;
+  objectFieldIndent?: string;
+  objectFieldQuote?: 'double' | 'single' | null;
+  objectFieldSeparator?:
+    | 'comma'
+    | 'comma-and-linebreak'
+    | 'linebreak'
+    | 'semicolon'
+    | 'semicolon-and-linebreak';
+  objectFieldSeparatorTrailingPunctuation?: boolean;
+  propertyQuotes?: 'double' | 'single' | null;
+  separatorForSingleObjectField?: boolean;
+  stringQuotes?: 'double' | 'single';
+  typeBracketSpacing?: string;
+  unionSpacing?: string;
+}
+
 /**
  * All JSDoc rules.
  */
@@ -951,6 +971,13 @@ export interface JSDocRules {
       escapeMarkdown?: boolean;
     }?,
   ];
+
+  /**
+   * Formats JSDoc type values.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`
+   * @see [type-formatting](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/type-formatting.md#repos-sticky-header)
+   */
+  'jsdoc/type-formatting': [TypeFormattingOption?];
 
   /**
    * Requires all types to be valid JSDoc or Closure compiler types without syntax errors.
