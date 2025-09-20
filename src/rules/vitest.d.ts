@@ -32,18 +32,12 @@ export interface NoRestrictedMatchersOption {
   [k: string]: string | null;
 }
 
-export type ValidTitleOption = {
+export interface ValidTitleOption {
   ignoreTypeOfDescribeName?: boolean;
   allowArguments?: boolean;
   disallowedWords?: string[];
-} & {
-  [k: string]:
-    | string
-    | [string]
-    | [string, string]
-    | {
-        [k: string]: string | [string] | [string, string];
-      };
+  mustNotMatch?: string[];
+  mustMatch?: string[];
 }
 
 /**

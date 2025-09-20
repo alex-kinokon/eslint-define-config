@@ -47,6 +47,9 @@ export interface CheckTypesOption {
     types?: boolean | string[];
   }[];
   noDefaults?: boolean;
+  /**
+   * @deprecated Use the `preferredTypes[preferredType]` setting of the same name instead
+   */
   unifyParentAndChildTypeChecks?: boolean;
 }
 
@@ -325,6 +328,7 @@ export interface RequireParamOption {
   enableRootFixer?: boolean;
   exemptedBy?: string[];
   ignoreWhenAllParamsMissing?: boolean;
+  interfaceExemptsParamsCheck?: boolean;
   unnamedRootBase?: string[];
   useDefaultObjectProperties?: boolean;
 }
@@ -483,8 +487,8 @@ export interface TypeFormattingOption {
     | 'linebreak'
     | 'semicolon'
     | 'semicolon-and-linebreak';
+  objectFieldSeparatorOptionalLinebreak?: boolean;
   objectFieldSeparatorTrailingPunctuation?: boolean;
-  propertyQuotes?: 'double' | 'single' | null;
   separatorForSingleObjectField?: boolean;
   stringQuotes?: 'double' | 'single';
   typeBracketSpacing?: string;
@@ -769,6 +773,20 @@ export interface JSDocRules {
   ];
 
   /**
+   * Reports use of `any` or `*` type.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`
+   * @see [reject-any-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/reject-any-type.md#repos-sticky-header)
+   */
+  'jsdoc/reject-any-type': null;
+
+  /**
+   * Reports use of `Function` type.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`
+   * @see [reject-function-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/reject-function-type.md#repos-sticky-header)
+   */
+  'jsdoc/reject-function-type': null;
+
+  /**
    * Requires that each JSDoc line starts with an `*`.
    * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/stylistic-typescript`, `jsdoc/flat/stylistic-typescript-error`, `jsdoc/flat/stylistic-typescript-flavor`, `jsdoc/flat/stylistic-typescript-flavor-error`
    * @see [require-asterisk-prefix](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-asterisk-prefix.md#repos-sticky-header)
@@ -822,6 +840,13 @@ export interface JSDocRules {
    * @see [require-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-jsdoc.md#repos-sticky-header)
    */
   'jsdoc/require-jsdoc': [RequireJsdocOption?];
+
+  /**
+   * Requires a type for `@next` tags.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/requirements-typescript`, `jsdoc/flat/requirements-typescript-error`, `jsdoc/flat/requirements-typescript-flavor`, `jsdoc/flat/requirements-typescript-flavor-error`
+   * @see [require-next-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-next-type.md#repos-sticky-header)
+   */
+  'jsdoc/require-next-type': null;
 
   /**
    * Requires that all function parameters are documented.
@@ -933,6 +958,13 @@ export interface JSDocRules {
   'jsdoc/require-throws': [RequireThrowsOption?];
 
   /**
+   * Requires a type for `@throws` tags.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/requirements-typescript`, `jsdoc/flat/requirements-typescript-error`, `jsdoc/flat/requirements-typescript-flavor`, `jsdoc/flat/requirements-typescript-flavor-error`
+   * @see [require-throws-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-throws-type.md#repos-sticky-header)
+   */
+  'jsdoc/require-throws-type': null;
+
+  /**
    * Requires yields are documented.
    * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/requirements-typescript`, `jsdoc/flat/requirements-typescript-error`, `jsdoc/flat/requirements-typescript-flavor`, `jsdoc/flat/requirements-typescript-flavor-error`
    * @see [require-yields](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-yields.md#repos-sticky-header)
@@ -945,6 +977,13 @@ export interface JSDocRules {
    * @see [require-yields-check](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-yields-check.md#repos-sticky-header)
    */
   'jsdoc/require-yields-check': [RequireYieldsCheckOption?];
+
+  /**
+   * Requires a type for `@yields` tags.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/requirements-typescript`, `jsdoc/flat/requirements-typescript-error`, `jsdoc/flat/requirements-typescript-flavor`, `jsdoc/flat/requirements-typescript-flavor-error`
+   * @see [require-yields-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-yields-type.md#repos-sticky-header)
+   */
+  'jsdoc/require-yields-type': null;
 
   /**
    * Sorts tags by a specified sequence according to tag name.
