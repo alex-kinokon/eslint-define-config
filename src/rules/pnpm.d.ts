@@ -25,6 +25,10 @@ export interface JsonEnforceCatalogOption {
    * Fields to check for catalog
    */
   fields?: string[];
+  /**
+   * Ignore certain packages that require version specification
+   */
+  ignores?: string[];
 }
 
 export interface JsonValidCatalogOption {

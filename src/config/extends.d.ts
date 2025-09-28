@@ -293,33 +293,18 @@ type PromiseExtends = 'plugin:promise/recommended';
  */
 type ReactExtends =
   | 'plugin:@eslint-react/all'
-  | 'plugin:@eslint-react/all-legacy'
-  | 'plugin:@eslint-react/core'
-  | 'plugin:@eslint-react/core-legacy'
   | 'plugin:@eslint-react/debug'
-  | 'plugin:@eslint-react/debug-legacy'
+  | 'plugin:@eslint-react/disable-conflict-eslint-plugin-react'
   | 'plugin:@eslint-react/disable-debug'
-  | 'plugin:@eslint-react/disable-debug-legacy'
   | 'plugin:@eslint-react/disable-dom'
-  | 'plugin:@eslint-react/disable-dom-legacy'
   | 'plugin:@eslint-react/disable-type-checked'
-  | 'plugin:@eslint-react/disable-type-checked-legacy'
   | 'plugin:@eslint-react/disable-web-api'
-  | 'plugin:@eslint-react/disable-web-api-legacy'
   | 'plugin:@eslint-react/dom'
-  | 'plugin:@eslint-react/dom-legacy'
   | 'plugin:@eslint-react/off'
-  | 'plugin:@eslint-react/off-dom'
-  | 'plugin:@eslint-react/off-dom-legacy'
-  | 'plugin:@eslint-react/off-legacy'
   | 'plugin:@eslint-react/recommended'
-  | 'plugin:@eslint-react/recommended-legacy'
   | 'plugin:@eslint-react/recommended-type-checked'
-  | 'plugin:@eslint-react/recommended-type-checked-legacy'
   | 'plugin:@eslint-react/recommended-typescript'
-  | 'plugin:@eslint-react/recommended-typescript-legacy'
-  | 'plugin:@eslint-react/x'
-  | 'plugin:@eslint-react/x-legacy';
+  | 'plugin:@eslint-react/x';
 
 /**
  * ESLint ReactHooks extends.
@@ -342,6 +327,7 @@ type ReactQueryExtends = 'plugin:@tanstack/query/recommended';
  * ESLint ReactRefresh extends.
  */
 type ReactRefreshExtends =
+  | 'plugin:react-refresh/next'
   | 'plugin:react-refresh/recommended'
   | 'plugin:react-refresh/vite';
 

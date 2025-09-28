@@ -115,7 +115,11 @@ export interface EslintMarkdownRules {
    * @preset `markdown/recommended`
    * @see [no-missing-label-refs](https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-label-refs.md)
    */
-  'markdown/no-missing-label-refs': null;
+  'markdown/no-missing-label-refs': [
+    {
+      allowLabels?: string[];
+    }?,
+  ];
 
   /**
    * Disallow link fragments that do not reference valid headings.
@@ -139,6 +143,13 @@ export interface EslintMarkdownRules {
       frontmatterTitle?: string;
     }?,
   ];
+
+  /**
+   * Disallow URLs that match defined reference identifiers.
+   * @preset `markdown/recommended`
+   * @see [no-reference-like-urls](https://github.com/eslint/markdown/blob/main/docs/rules/no-reference-like-urls.md)
+   */
+  'markdown/no-reference-like-urls': null;
 
   /**
    * Disallow reversed link and image syntax.

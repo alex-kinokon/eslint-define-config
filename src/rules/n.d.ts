@@ -3187,14 +3187,14 @@ export interface NRules {
   'n/no-extraneous-require': [NoExtraneousRequireOption?];
 
   /**
-   * Disallow `import` declarations which import non-existence modules.
+   * Disallow `import` declarations which import missing modules.
    * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-missing-import](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-missing-import.md)
    */
   'n/no-missing-import': [NoMissingImportOption?];
 
   /**
-   * Disallow `require()` expressions which import non-existence modules.
+   * Disallow `require()` expressions which import missing modules.
    * @preset `n/recommended-module`, `n/recommended-script`, `n/recommended`, `n/flat/recommended-module`, `n/flat/recommended-script`, `n/flat/recommended`, `n/flat/mixed-esm-and-cjs`, `n/flat/all`
    * @see [no-missing-require](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/no-missing-require.md)
    */

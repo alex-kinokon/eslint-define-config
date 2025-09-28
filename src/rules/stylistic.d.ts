@@ -296,6 +296,12 @@ export type GeneratorStarSpacingOption =
             before?: boolean;
             after?: boolean;
           };
+      shorthand?:
+        | ('before' | 'after' | 'both' | 'neither')
+        | {
+            before?: boolean;
+            after?: boolean;
+          };
     };
 
 export namespace Indent {
@@ -582,22 +588,6 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      arguments?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      as?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      async?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      await?: {
-        before?: boolean;
-        after?: boolean;
-      };
       boolean?: {
         before?: boolean;
         after?: boolean;
@@ -662,10 +652,6 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      eval?: {
-        before?: boolean;
-        after?: boolean;
-      };
       export?: {
         before?: boolean;
         after?: boolean;
@@ -694,15 +680,7 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      from?: {
-        before?: boolean;
-        after?: boolean;
-      };
       function?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      get?: {
         before?: boolean;
         after?: boolean;
       };
@@ -738,10 +716,6 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      let?: {
-        before?: boolean;
-        after?: boolean;
-      };
       long?: {
         before?: boolean;
         after?: boolean;
@@ -755,10 +729,6 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       null?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      of?: {
         before?: boolean;
         after?: boolean;
       };
@@ -779,10 +749,6 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       return?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      set?: {
         before?: boolean;
         after?: boolean;
       };
@@ -830,15 +796,7 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      type?: {
-        before?: boolean;
-        after?: boolean;
-      };
       typeof?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      using?: {
         before?: boolean;
         after?: boolean;
       };
@@ -859,6 +817,54 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       with?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      arguments?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      as?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      async?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      await?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      eval?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      from?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      get?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      let?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      of?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      set?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      type?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      using?: {
         before?: boolean;
         after?: boolean;
       };
@@ -1253,13 +1259,22 @@ export type ObjectCurlyNewlineOption =
           };
     };
 
-export type ObjectCurlySpacingRuleConfig = [
-  ('always' | 'never')?,
-  {
-    arraysInObjects?: boolean;
-    objectsInObjects?: boolean;
-  }?,
-];
+export interface ObjectCurlySpacingConfig {
+  arraysInObjects?: boolean;
+  objectsInObjects?: boolean;
+  overrides?: {
+    ObjectPattern?: 'always' | 'never';
+    ObjectExpression?: 'always' | 'never';
+    ImportDeclaration?: 'always' | 'never';
+    ImportAttributes?: 'always' | 'never';
+    ExportNamedDeclaration?: 'always' | 'never';
+    ExportAllDeclaration?: 'always' | 'never';
+    TSMappedType?: 'always' | 'never';
+    TSTypeLiteral?: 'always' | 'never';
+    TSInterfaceBody?: 'always' | 'never';
+    TSEnumBody?: 'always' | 'never';
+  };
+}
 
 export namespace OperatorLinebreak {
   export type OperatorLinebreakOption = ('after' | 'before' | 'none') | null;
@@ -1985,7 +2000,10 @@ export interface StylisticRules {
    * Enforce consistent spacing inside braces.
    * @see [object-curly-spacing](https://eslint.style/rules/object-curly-spacing)
    */
-  'stylistic/object-curly-spacing': ObjectCurlySpacingRuleConfig;
+  'stylistic/object-curly-spacing': [
+    ('always' | 'never')?,
+    ObjectCurlySpacingConfig?,
+  ];
 
   /**
    * Enforce placing object properties on separate lines.

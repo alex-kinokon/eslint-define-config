@@ -83,6 +83,7 @@ export interface AttributesOrderOption {
       )[]
   )[];
   alphabetical?: boolean;
+  sortLineLength?: boolean;
 }
 
 export interface BlockLangOption {
@@ -392,22 +393,6 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      arguments?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      as?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      async?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      await?: {
-        before?: boolean;
-        after?: boolean;
-      };
       boolean?: {
         before?: boolean;
         after?: boolean;
@@ -472,10 +457,6 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      eval?: {
-        before?: boolean;
-        after?: boolean;
-      };
       export?: {
         before?: boolean;
         after?: boolean;
@@ -504,15 +485,7 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      from?: {
-        before?: boolean;
-        after?: boolean;
-      };
       function?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      get?: {
         before?: boolean;
         after?: boolean;
       };
@@ -548,10 +521,6 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      let?: {
-        before?: boolean;
-        after?: boolean;
-      };
       long?: {
         before?: boolean;
         after?: boolean;
@@ -565,10 +534,6 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       null?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      of?: {
         before?: boolean;
         after?: boolean;
       };
@@ -589,10 +554,6 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       return?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      set?: {
         before?: boolean;
         after?: boolean;
       };
@@ -640,15 +601,7 @@ export namespace KeywordSpacing {
         before?: boolean;
         after?: boolean;
       };
-      type?: {
-        before?: boolean;
-        after?: boolean;
-      };
       typeof?: {
-        before?: boolean;
-        after?: boolean;
-      };
-      using?: {
         before?: boolean;
         after?: boolean;
       };
@@ -669,6 +622,54 @@ export namespace KeywordSpacing {
         after?: boolean;
       };
       with?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      arguments?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      as?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      async?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      await?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      eval?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      from?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      get?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      let?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      of?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      set?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      type?: {
+        before?: boolean;
+        after?: boolean;
+      };
+      using?: {
         before?: boolean;
         after?: boolean;
       };
@@ -1130,13 +1131,22 @@ export type ObjectCurlyNewlineOption =
           };
     };
 
-export type ObjectCurlySpacingRuleConfig = [
-  ('always' | 'never')?,
-  {
-    arraysInObjects?: boolean;
-    objectsInObjects?: boolean;
-  }?,
-];
+export interface ObjectCurlySpacingConfig {
+  arraysInObjects?: boolean;
+  objectsInObjects?: boolean;
+  overrides?: {
+    ObjectPattern?: 'always' | 'never';
+    ObjectExpression?: 'always' | 'never';
+    ImportDeclaration?: 'always' | 'never';
+    ImportAttributes?: 'always' | 'never';
+    ExportNamedDeclaration?: 'always' | 'never';
+    ExportAllDeclaration?: 'always' | 'never';
+    TSMappedType?: 'always' | 'never';
+    TSTypeLiteral?: 'always' | 'never';
+    TSInterfaceBody?: 'always' | 'never';
+    TSEnumBody?: 'always' | 'never';
+  };
+}
 
 export type ObjectShorthandOption =
   | []
@@ -1758,7 +1768,11 @@ export interface VueRules {
    * @preset `vue/vue2-essential`, `vue/essential`
    * @see [no-async-in-computed-properties](https://eslint.vuejs.org/rules/no-async-in-computed-properties.html)
    */
-  'vue/no-async-in-computed-properties': null;
+  'vue/no-async-in-computed-properties': [
+    {
+      ignoredObjectNames?: string[];
+    }?,
+  ];
 
   /**
    * Disallow the use of bare strings in `<template>`.
@@ -2523,7 +2537,11 @@ export interface VueRules {
    * @preset `vue/vue2-recommended`, `vue/recommended`
    * @see [no-v-html](https://eslint.vuejs.org/rules/no-v-html.html)
    */
-  'vue/no-v-html': null;
+  'vue/no-v-html': [
+    {
+      ignorePattern?: string;
+    }?,
+  ];
 
   /**
    * Disallow adding an argument to `v-model` used in custom component.
@@ -2570,7 +2588,10 @@ export interface VueRules {
    * @preset `vue/no-layout-rules`
    * @see [object-curly-spacing](https://eslint.vuejs.org/rules/object-curly-spacing.html)
    */
-  'vue/object-curly-spacing': ObjectCurlySpacingRuleConfig;
+  'vue/object-curly-spacing': [
+    ('always' | 'never')?,
+    ObjectCurlySpacingConfig?,
+  ];
 
   /**
    * Enforce placing object properties on separate lines in `<template>`.
