@@ -1174,6 +1174,10 @@ export type NoRestrictedImportsOption =
           message?: string;
           importNames?: string[];
           allowImportNames?: string[];
+          /**
+           * Whether to allow type-only imports for a path.
+           */
+          allowTypeImports?: boolean;
         }
     )[]
   | []
@@ -1186,6 +1190,10 @@ export type NoRestrictedImportsOption =
               message?: string;
               importNames?: string[];
               allowImportNames?: string[];
+              /**
+               * Whether to allow type-only imports for a path.
+               */
+              allowTypeImports?: boolean;
             }
         )[];
         patterns?:

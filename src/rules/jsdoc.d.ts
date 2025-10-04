@@ -72,7 +72,6 @@ export namespace CheckLineAlignment {
     /**
      * An object with any of the following spacing keys set to an integer.
      * If a spacing is not defined, it defaults to one.
-     *
      */
     customSpacings?: {
       /**
@@ -244,6 +243,12 @@ export namespace CheckTagNames {
      */
     enableFixer?: boolean;
     /**
+     * List of tags to allow inline.
+     *
+     * Defaults to array of `'link', 'linkcode', 'linkplain', 'tutorial'`
+     */
+    inlineTags?: string[];
+    /**
      * If this is set to `true`, all of the following tags used to control JSX output are allowed:
      *
      * ```
@@ -398,7 +403,6 @@ export interface ConvertToJsdocCommentsOption {
    *
    * Defaults to `ArrowFunctionExpression`, `FunctionDeclaration`,
    * `FunctionExpression`, `TSDeclareFunction`.
-   *
    */
   contexts?: (
     | string
@@ -457,7 +461,6 @@ export interface ConvertToJsdocCommentsOption {
    * ```
    *
    * Defaults to `multi`.
-   *
    */
   enforceJsdocLineStyle?: 'multi' | 'single';
   /**
@@ -482,9 +485,28 @@ export interface EmptyTagsOption {
    *   'jsdoc/empty-tags': ['error', {tags: ['event']}]
    * }
    * ```
-   *
    */
   tags?: string[];
+}
+
+export interface EscapeInlineTagsOption {
+  /**
+   * A listing of tags you wish to allow unescaped. Defaults to an empty array.
+   */
+  allowedInlineTags?: string[];
+  /**
+   * Whether to enable the fixer. Defaults to `false`.
+   */
+  enableFixer?: boolean;
+  /**
+   * How to escape the inline tag.
+   *
+   * May be "backticks" to enclose tags in backticks (treating as code segments), or
+   * "backslash" to escape tags with a backslash, i.e., `\@`
+   *
+   * Defaults to "backslash".
+   */
+  fixType?: 'backticks' | 'backslash';
 }
 
 export interface ImplementsOnClassesOption {
@@ -531,7 +553,6 @@ export interface InformativeDocsOption {
    *   "a": ["an", "our"]
    * }
    * ```
-   *
    */
   aliases?: {
     [k: string]: string[];
@@ -549,7 +570,6 @@ export interface InformativeDocsOption {
    * ```
    *
    * No tags are excluded by default.
-   *
    */
   excludedTags?: string[];
   /**
@@ -567,7 +587,6 @@ export interface InformativeDocsOption {
    * ```json
    * ["a", "an", "i", "in", "of", "s", "the"]
    * ```
-   *
    */
   uselessWords?: string[];
 }
@@ -576,26 +595,22 @@ export interface LinesBeforeBlockOption {
   /**
    * Whether to additionally check the start of blocks, such as classes or functions.
    * Defaults to `false`.
-   *
    */
   checkBlockStarts?: boolean;
   /**
    * An array of tags whose presence in the JSDoc block will prevent the
    * application of the rule. Defaults to `['type']` (i.e., if `@type` is present,
    * lines before the block will not be added).
-   *
    */
   excludedTags?: string[];
   /**
    * This option excludes cases where the JSDoc block occurs on the same line as a
    * preceding code or comment. Defaults to `true`.
-   *
    */
   ignoreSameLine?: boolean;
   /**
    * This option excludes cases where the JSDoc block is only one line long.
    * Defaults to `true`.
-   *
    */
   ignoreSingleLines?: boolean;
   /**
@@ -618,7 +633,6 @@ export interface MatchDescriptionOption {
    *
    * See the ["AST and Selectors"](../#advanced-ast-and-selectors)
    * section of our Advanced docs for more on the expected format.
-   *
    */
   contexts?: (
     | string
@@ -700,7 +714,6 @@ export interface MatchDescriptionOption {
    *
    * This can be overridden per tag or for the main block description by setting
    * `message` within `tags` or `mainDescription`, respectively.
-   *
    */
   message?: string;
   /**
@@ -789,7 +802,6 @@ export interface MatchNameOption {
    * tag of the desired tag and/or name and no `disallowName` (or `allowName`) is
    * supplied. In such a case, only one error will be reported, but no fixer will
    * be applied, however.
-   *
    */
   match: {
     /**
@@ -873,7 +885,6 @@ export interface MultilineBlocksOption {
    * lines.
    *
    * Defaults to `['*']`.
-   *
    */
   multilineTags?: '*' | string[];
   /**
@@ -898,7 +909,6 @@ export interface MultilineBlocksOption {
    * are whitelisted in `singleLineTags`.
    *
    * Defaults to `false`.
-   *
    */
   noSingleLineBlocks?: boolean;
   /**
@@ -919,7 +929,6 @@ export interface MultilineBlocksOption {
    * descriptions.
    *
    * Defaults to `null`.
-   *
    */
   requireSingleLineUnderCount?: number;
   /**
@@ -941,7 +950,6 @@ export interface NoBadBlocksOption {
    *
    * Defaults to `['ts-check', 'ts-expect-error', 'ts-ignore', 'ts-nocheck']`
    * (some directives [used by TypeScript](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html#ts-check)).
-   *
    */
   ignore?: string[];
   /**
@@ -1116,7 +1124,6 @@ export interface NoTypesOption {
    *
    * See the ["AST and Selectors"](../#advanced-ast-and-selectors)
    * section of our Advanced docs for more on the expected format.
-   *
    */
   contexts?: (
     | string
@@ -1197,7 +1204,6 @@ export namespace RequireAsteriskPrefix {
      *   }]
      * }
      * ```
-     *
      */
     tags?: {
       /**
@@ -1313,7 +1319,6 @@ export interface RequireDescriptionCompleteSentenceOption {
    * its "description" (e.g., for `@returns {someType} some description`, the
    * description is `some description` while for `@some-tag xyz`, the description
    * is `xyz`).
-   *
    */
   tags?: string[];
 }
@@ -1435,8 +1440,6 @@ export namespace RequireFileOverview {
      * in this configuration object regardless of whether you have configured
      * `fileoverview` instead of `file` on `tagNamePreference` (i.e., `fileoverview`
      * will be checked, but you must use `file` on the configuration object).
-     *
-     *
      */
     tags?: {
       [k: string]: {
@@ -1475,7 +1478,6 @@ export namespace RequireHyphenBeforeParamDescription {
      *   `'*': 'always'` to apply hyphen checking to any tag (besides the preferred
      *   `@param` tag which follows the main string option setting and besides any
      *   other `tags` entries).
-     *
      */
     tags?:
       | {
@@ -1507,7 +1509,6 @@ export namespace RequireJsdoc {
      * getters should be checked but only when there is no setter. This may be useful
      * if one only wishes documentation on one of the two accessors. Defaults to
      * `false`.
-     *
      */
     checkGetters?: boolean | 'no-setter';
     /**
@@ -1562,7 +1563,6 @@ export namespace RequireJsdoc {
      * function/method names are sufficient for themselves as documentation).
      *
      * Defaults to `false`.
-     *
      */
     exemptEmptyFunctions?: boolean;
     /**
@@ -1595,7 +1595,6 @@ export namespace RequireJsdoc {
      * - `esm` - ESM exports are checked for JSDoc comments (Defaults to `true`)
      * - `cjs` - CommonJS exports are checked for JSDoc comments  (Defaults to `true`)
      * - `window` - Window global exports are checked for JSDoc comments
-     *
      */
     publicOnly?:
       | boolean
@@ -1655,13 +1654,11 @@ export namespace RequireParam {
     /**
      * Numeric to indicate the number at which to begin auto-incrementing roots.
      * Defaults to `0`.
-     *
      */
     autoIncrementBase?: number;
     /**
      * A value indicating whether `constructor`s should be checked. Defaults to
      * `true`.
-     *
      */
     checkConstructors?: boolean;
     /**
@@ -1678,7 +1675,6 @@ export namespace RequireParam {
      * implied to be `false` (i.e., the inside of the roots will not be checked
      * either, e.g., it will also not complain if `a` or `b` do not have their own
      * documentation). Defaults to `true`.
-     *
      */
     checkDestructuredRoots?: boolean;
     /**
@@ -1736,7 +1732,6 @@ export namespace RequireParam {
      * function quux ({num, ...extra}) {
      * }
      * ```
-     *
      */
     checkRestProperty?: boolean;
     /**
@@ -1790,7 +1785,6 @@ export namespace RequireParam {
      *
      * See the ["AST and Selectors"](../#advanced-ast-and-selectors)
      * section of our Advanced docs for more on the expected format.
-     *
      */
     contexts?: (
       | string
@@ -1837,7 +1831,6 @@ export namespace RequireParam {
      * type to use.
      *
      * Defaults to `true`.
-     *
      */
     enableRestElementFixer?: boolean;
     /**
@@ -1981,7 +1974,6 @@ export interface RequireParamNameOption {
    *
    * See the ["AST and Selectors"](../#advanced-ast-and-selectors)
    * section of our Advanced docs for more on the expected format.
-   *
    */
   contexts?: (
     | string
@@ -2113,7 +2105,6 @@ export namespace RequireReturns {
      * - `esm` - ESM exports are checked for `@returns` JSDoc comments (Defaults to `true`)
      * - `cjs` - CommonJS exports are checked for `@returns` JSDoc comments  (Defaults to `true`)
      * - `window` - Window global exports are checked for `@returns` JSDoc comments
-     *
      */
     publicOnly?:
       | boolean
@@ -2151,6 +2142,11 @@ export interface RequireReturnsCheckOption {
    * if you wish for a missing `return` to be flagged regardless.
    */
   exemptGenerators?: boolean;
+  /**
+   * Whether to check that async functions do not
+   * indicate they return non-native types. Defaults to `true`.
+   */
+  noNativeTypes?: boolean;
   /**
    * If `true` and no return or
    * resolve value is found, this setting will even insist that reporting occur
@@ -2248,7 +2244,6 @@ export interface RequireTemplateOption {
    * ```
    *
    * Defaults to `false`.
-   *
    */
   requireSeparateTemplates?: boolean;
 }
@@ -2618,7 +2613,6 @@ export namespace SortTags {
      *   'todo',
      * ]}];
      * ```
-     *
      */
     tagSequence?: {
       /**
@@ -2902,6 +2896,13 @@ export interface JSDocRules {
    * @see [empty-tags](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/empty-tags.md#repos-sticky-header)
    */
   'jsdoc/empty-tags': [EmptyTagsOption?];
+
+  /**
+   * Reports use of JSDoc tags in non-tag positions (in the default "typescript" mode).
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/logical-typescript`, `jsdoc/flat/logical-typescript-error`, `jsdoc/flat/logical-typescript-flavor`, `jsdoc/flat/logical-typescript-flavor-error`, `jsdoc/flat/recommended-mixed`
+   * @see [escape-inline-tags](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/escape-inline-tags.md#repos-sticky-header)
+   */
+  'jsdoc/escape-inline-tags': [EscapeInlineTagsOption?];
 
   /**
    * Prohibits use of `@implements` on non-constructor functions (to enforce the tag only being used on classes/constructors).
@@ -3198,6 +3199,13 @@ export interface JSDocRules {
    * @see [require-template](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-template.md#repos-sticky-header)
    */
   'jsdoc/require-template': [RequireTemplateOption?];
+
+  /**
+   * Requires a description for `@template` tags.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/recommended-mixed`
+   * @see [require-template-description](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-template-description.md#repos-sticky-header)
+   */
+  'jsdoc/require-template-description': null;
 
   /**
    * Requires that throw statements are documented with `@throws` tags.

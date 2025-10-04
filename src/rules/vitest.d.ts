@@ -609,6 +609,20 @@ export interface VitestRules {
    * @see [warn-todo](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/warn-todo.md)
    */
   'vitest/warn-todo': null;
+
+  /**
+   * Prefer dynamic import in mock.
+   * @preset `vitest/all`
+   * @see [prefer-import-in-mock](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-import-in-mock.md)
+   */
+  'vitest/prefer-import-in-mock': null;
+
+  /**
+   * Prefer `toHaveBeenCalledExactlyOnceWith` over `toHaveBeenCalledOnce` and `toHaveBeenCalledWith`.
+   * @preset `vitest/recommended`, `vitest/all`
+   * @see [prefer-called-exactly-once-with](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-called-exactly-once-with.md)
+   */
+  'vitest/prefer-called-exactly-once-with': null;
 }
 
 export type VitestRulesObject = RulesObject<VitestRules>;

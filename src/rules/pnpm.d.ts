@@ -103,6 +103,13 @@ export interface PnpmRules {
       allow?: string[];
     }?,
   ];
+
+  /**
+   * Ensure all package patterns in `pnpm-workspace.yaml` match at least one directory.
+   * @preset `pnpm/yaml`
+   * @see [yaml-valid-packages](https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-valid-packages.test.ts)
+   */
+  'pnpm/yaml-valid-packages': null;
 }
 
 export type PnpmRulesObject = RulesObject<PnpmRules>;

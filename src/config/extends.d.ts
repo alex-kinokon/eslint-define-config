@@ -314,6 +314,7 @@ type ReactExtends =
 type ReactHooksExtends =
   | 'plugin:react-hooks/recommended'
   | 'plugin:react-hooks/recommended-latest'
+  | 'plugin:react-hooks/recommended-latest-legacy'
   | 'plugin:react-hooks/recommended-legacy';
 
 /**
