@@ -16,6 +16,10 @@ export interface UseMemoOption {
   [k: string]: any;
 }
 
+export interface VoidUseMemoOption {
+  [k: string]: any;
+}
+
 export interface ComponentHookFactoriesOption {
   [k: string]: any;
 }
@@ -110,7 +114,7 @@ export interface FbtOption {
 export interface ReactHooksRules {
   /**
    * Verifies the list of dependencies for Hooks like useEffect and similar.
-   * @preset `react-hooks/recommended-legacy`, `react-hooks/recommended-latest-legacy`, `react-hooks/flat/recommended`, `react-hooks/recommended-latest`, `react-hooks/recommended`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    * @see [exhaustive-deps](https://github.com/facebook/react/issues/14920)
    */
   'react-hooks/exhaustive-deps': [
@@ -124,7 +128,7 @@ export interface ReactHooksRules {
 
   /**
    * Enforces the Rules of Hooks.
-   * @preset `react-hooks/recommended-legacy`, `react-hooks/recommended-latest-legacy`, `react-hooks/flat/recommended`, `react-hooks/recommended-latest`, `react-hooks/recommended`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    * @see [rules-of-hooks](https://react.dev/reference/rules/rules-of-hooks)
    */
   'react-hooks/rules-of-hooks': [
@@ -145,49 +149,55 @@ export interface ReactHooksRules {
 
   /**
    * Validates that components are static, not recreated every render. Components that are recreated dynamically can reset state and trigger excessive re-rendering.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/static-components': [StaticComponentsOption?];
 
   /**
    * Validates usage of the useMemo() hook against common mistakes. See [`useMemo()` docs](https://react.dev/reference/react/useMemo) for more information.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/use-memo': [UseMemoOption?];
 
   /**
+   * Validates that useMemos always return a value. See [`useMemo()` docs](https://react.dev/reference/react/useMemo) for more information.
+   * @preset `react-hooks/recommended-latest`
+   */
+  'react-hooks/void-use-memo': [VoidUseMemoOption?];
+
+  /**
    * Validates against higher order functions defining nested components or hooks. Components and hooks should be defined at the module level.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/component-hook-factories': [ComponentHookFactoriesOption?];
 
   /**
    * Validates that existing manual memoized is preserved by the compiler. React Compiler will only compile components and hooks if its inference [matches or exceeds the existing manual memoization](https://react.dev/learn/react-compiler/introduction#what-should-i-do-about-usememo-usecallback-and-reactmemo).
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/preserve-manual-memoization': [PreserveManualMemoizationOption?];
 
   /**
    * Validates against usage of libraries which are incompatible with memoization (manual or automatic).
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/incompatible-library': [IncompatibleLibraryOption?];
 
   /**
    * Validates against mutating props, state, and other values that [are immutable](https://react.dev/reference/rules/components-and-hooks-must-be-pure#props-and-state-are-immutable).
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/immutability': [ImmutabilityOption?];
 
   /**
    * Validates against assignment/mutation of globals during render, part of ensuring that [side effects must render outside of render](https://react.dev/reference/rules/components-and-hooks-must-be-pure#side-effects-must-run-outside-of-render).
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/globals': [GlobalsOption?];
 
   /**
    * Validates correct usage of refs, not reading/writing during render. See the "pitfalls" section in [`useRef()` usage](https://react.dev/reference/react/useRef#usage).
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/refs': [RefsOption?];
 
@@ -200,7 +210,7 @@ export interface ReactHooksRules {
 
   /**
    * Validates against calling setState synchronously in an effect, which can lead to re-renders that degrade performance.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/set-state-in-effect': [SetStateInEffectOption?];
 
@@ -211,19 +221,19 @@ export interface ReactHooksRules {
 
   /**
    * Validates usage of error boundaries instead of try/catch for errors in child components.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/error-boundaries': [ErrorBoundariesOption?];
 
   /**
    * Validates that [components/hooks are pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure) by checking that they do not call known-impure functions.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/purity': [PurityOption?];
 
   /**
    * Validates against setting state during render, which can trigger additional renders and potential infinite render loops.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/set-state-in-render': [SetStateInRenderOption?];
 
@@ -244,19 +254,19 @@ export interface ReactHooksRules {
 
   /**
    * Validates against syntax that we do not plan to support in React Compiler.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/unsupported-syntax': [UnsupportedSyntaxOption?];
 
   /**
    * Validates the compiler configuration options.
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/config': [ConfigOption?];
 
   /**
    * Validates configuration of [gating mode](https://react.dev/reference/react-compiler/gating).
-   * @preset `react-hooks/recommended-latest-legacy`, `react-hooks/recommended-latest`
+   * @preset `react-hooks/recommended`, `react-hooks/recommended-latest`
    */
   'react-hooks/gating': [GatingOption?];
 

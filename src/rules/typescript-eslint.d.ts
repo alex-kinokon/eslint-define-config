@@ -11,26 +11,47 @@ export interface ArrayTypeOption {
   readonly?: 'array' | 'generic' | 'array-simple';
 }
 
-export namespace BanTsComment {
-  export type DirectiveConfigSchema =
+export interface BanTsCommentOption {
+  /**
+   * A minimum character length for descriptions when `allow-with-description` is enabled.
+   */
+  minimumDescriptionLength?: number;
+  /**
+   * Whether allow ts-check directives, and with which restrictions.
+   */
+  'ts-check'?:
     | boolean
     | 'allow-with-description'
     | {
         descriptionFormat?: string;
       };
-
-  export interface BanTsCommentOption {
-    /**
-     * A minimum character length for descriptions when `allow-with-description` is enabled.
-     */
-    minimumDescriptionLength?: number;
-    'ts-check'?: DirectiveConfigSchema;
-    'ts-expect-error'?: DirectiveConfigSchema;
-    'ts-ignore'?: DirectiveConfigSchema;
-    'ts-nocheck'?: DirectiveConfigSchema;
-  }
-
-  export type BanTsCommentRuleConfig = [BanTsCommentOption?];
+  /**
+   * Whether and when expect-error directives, and with which restrictions.
+   */
+  'ts-expect-error'?:
+    | boolean
+    | 'allow-with-description'
+    | {
+        descriptionFormat?: string;
+      };
+  /**
+   * Whether allow ts-ignore directives, and with which restrictions.
+   */
+  'ts-ignore'?:
+    | boolean
+    | 'allow-with-description'
+    | {
+        descriptionFormat?: string;
+      };
+  /**
+   * Whether allow ts-nocheck directives, and with which restrictions.
+   */
+  'ts-nocheck'?:
+    | boolean
+    | 'allow-with-description'
+    | {
+        descriptionFormat?: string;
+      };
 }
 
 /**
@@ -180,33 +201,40 @@ export interface ExplicitFunctionReturnTypeOption {
   allowTypedFunctionExpressions?: boolean;
 }
 
-export namespace ExplicitMemberAccessibility {
-  export type AccessibilityLevel = 'explicit' | 'no-public' | 'off';
-
-  export interface ExplicitMemberAccessibilityOption {
+export interface ExplicitMemberAccessibilityOption {
+  /**
+   * Which accessibility modifier is required to exist or not exist.
+   */
+  accessibility?: 'explicit' | 'no-public' | 'off';
+  /**
+   * Specific method names that may be ignored.
+   */
+  ignoredMethodNames?: string[];
+  /**
+   * Changes to required accessibility modifiers for specific kinds of class members.
+   */
+  overrides?: {
     /**
-     * Which accessibility modifier is required to exist or not exist.
+     * Which member accessibility modifier requirements to apply for accessors.
      */
-    accessibility?: 'explicit' | 'no-public' | 'off';
+    accessors?: 'explicit' | 'no-public' | 'off';
     /**
-     * Specific method names that may be ignored.
+     * Which member accessibility modifier requirements to apply for constructors.
      */
-    ignoredMethodNames?: string[];
+    constructors?: 'explicit' | 'no-public' | 'off';
     /**
-     * Changes to required accessibility modifiers for specific kinds of class members.
+     * Which member accessibility modifier requirements to apply for methods.
      */
-    overrides?: {
-      accessors?: AccessibilityLevel;
-      constructors?: AccessibilityLevel;
-      methods?: AccessibilityLevel;
-      parameterProperties?: AccessibilityLevel;
-      properties?: AccessibilityLevel;
-    };
-  }
-
-  export type ExplicitMemberAccessibilityRuleConfig = [
-    ExplicitMemberAccessibilityOption?,
-  ];
+    methods?: 'explicit' | 'no-public' | 'off';
+    /**
+     * Which member accessibility modifier requirements to apply for parameterProperties.
+     */
+    parameterProperties?: 'explicit' | 'no-public' | 'off';
+    /**
+     * Which member accessibility modifier requirements to apply for properties.
+     */
+    properties?: 'explicit' | 'no-public' | 'off';
+  };
 }
 
 export interface ExplicitModuleBoundaryTypesOption {
@@ -265,14 +293,6 @@ export interface MaxParamsOption {
 }
 
 export namespace MemberOrdering {
-  export type BaseConfig =
-    | 'never'
-    | (AllItems | AllItems[])[]
-    | {
-        memberTypes?: (AllItems | AllItems[])[] | 'never';
-        optionalityOrder?: OptionalityOrderOptions;
-        order?: OrderOptions;
-      };
   export type AllItems =
     | 'readonly-signature'
     | 'signature'
@@ -434,14 +454,6 @@ export namespace MemberOrdering {
     | 'as-written'
     | 'natural'
     | 'natural-case-insensitive';
-  export type TypesConfig =
-    | 'never'
-    | (TypeItems | TypeItems[])[]
-    | {
-        memberTypes?: (TypeItems | TypeItems[])[] | 'never';
-        optionalityOrder?: OptionalityOrderOptions;
-        order?: OrderOptions;
-      };
   export type TypeItems =
     | 'readonly-signature'
     | 'signature'
@@ -451,15 +463,70 @@ export namespace MemberOrdering {
     | 'constructor';
 
   export interface MemberOrderingOption {
-    classes?: BaseConfig;
-    classExpressions?: BaseConfig;
-    default?: BaseConfig;
-    interfaces?: TypesConfig;
-    typeLiterals?: TypesConfig;
+    /**
+     * Which ordering to enforce for classes.
+     */
+    classes?:
+      | 'never'
+      | (AllItems | AllItems[])[]
+      | {
+          memberTypes?: (AllItems | AllItems[])[] | 'never';
+          optionalityOrder?: OptionalityOrderOptions;
+          order?: OrderOptions;
+        };
+    /**
+     * Which ordering to enforce for classExpressions.
+     */
+    classExpressions?:
+      | 'never'
+      | (AllItems | AllItems[])[]
+      | {
+          memberTypes?: (AllItems | AllItems[])[] | 'never';
+          optionalityOrder?: OptionalityOrderOptions;
+          order?: OrderOptions;
+        };
+    /**
+     * Which ordering to enforce for default.
+     */
+    default?:
+      | 'never'
+      | (AllItems | AllItems[])[]
+      | {
+          memberTypes?: (AllItems | AllItems[])[] | 'never';
+          optionalityOrder?: OptionalityOrderOptions;
+          order?: OrderOptions;
+        };
+    /**
+     * Which ordering to enforce for interfaces.
+     */
+    interfaces?:
+      | 'never'
+      | (TypeItems | TypeItems[])[]
+      | {
+          memberTypes?: (TypeItems | TypeItems[])[] | 'never';
+          optionalityOrder?: OptionalityOrderOptions;
+          order?: OrderOptions;
+        };
+    /**
+     * Which ordering to enforce for typeLiterals.
+     */
+    typeLiterals?:
+      | 'never'
+      | (TypeItems | TypeItems[])[]
+      | {
+          memberTypes?: (TypeItems | TypeItems[])[] | 'never';
+          optionalityOrder?: OptionalityOrderOptions;
+          order?: OrderOptions;
+        };
   }
 
   export type MemberOrderingRuleConfig = [MemberOrderingOption?];
 }
+
+/**
+ * The method signature style to enforce using.
+ */
+export type MethodSignatureStyleOption = 'property' | 'method';
 
 export namespace NamingConvention {
   export type FormatOptionsConfig = PredefinedFormats[] | null;
@@ -982,7 +1049,7 @@ export interface NoBaseToStringOption {
    */
   checkUnknown?: boolean;
   /**
-   * Stringified regular expressions of type names to ignore.
+   * Stringified type names to ignore.
    */
   ignoredTypeNames?: string[];
 }
@@ -1542,6 +1609,13 @@ export interface NoUnnecessaryTypeAssertionOption {
   typesToIgnore?: string[];
 }
 
+export interface NoUnsafeMemberAccessOption {
+  /**
+   * Whether to allow `?.` optional chains on `any` values.
+   */
+  allowOptionalChaining?: boolean;
+}
+
 export type NoUnusedVarsOption =
   | ('all' | 'local')
   | {
@@ -1573,6 +1647,10 @@ export type NoUnusedVarsOption =
        * Whether to ignore sibling properties in `...` destructurings.
        */
       ignoreRestSiblings?: boolean;
+      /**
+       * Whether to ignore using or await using declarations.
+       */
+      ignoreUsingDeclarations?: boolean;
       /**
        * Whether to report variables that match any of the valid ignore pattern options if they have been used.
        */
@@ -2188,7 +2266,7 @@ export interface TypeScriptRules {
    * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [ban-ts-comment](https://typescript-eslint.io/rules/ban-ts-comment)
    */
-  '@typescript-eslint/ban-ts-comment': BanTsComment.BanTsCommentRuleConfig;
+  '@typescript-eslint/ban-ts-comment': [BanTsCommentOption?];
 
   /**
    * Disallow `// tslint:<rule-flag>` comments.
@@ -2302,7 +2380,9 @@ export interface TypeScriptRules {
    * @preset `@typescript-eslint/all`
    * @see [explicit-member-accessibility](https://typescript-eslint.io/rules/explicit-member-accessibility)
    */
-  '@typescript-eslint/explicit-member-accessibility': ExplicitMemberAccessibility.ExplicitMemberAccessibilityRuleConfig;
+  '@typescript-eslint/explicit-member-accessibility': [
+    ExplicitMemberAccessibilityOption?,
+  ];
 
   /**
    * Require explicit return and argument types on exported functions' and classes' public class methods.
@@ -2339,7 +2419,7 @@ export interface TypeScriptRules {
    * @preset `@typescript-eslint/all`
    * @see [method-signature-style](https://typescript-eslint.io/rules/method-signature-style)
    */
-  '@typescript-eslint/method-signature-style': [('property' | 'method')?];
+  '@typescript-eslint/method-signature-style': [MethodSignatureStyleOption?];
 
   /**
    * Enforce naming conventions for everything across a codebase.
@@ -2782,7 +2862,7 @@ export interface TypeScriptRules {
    * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/recommended-type-checked-only`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-unsafe-member-access](https://typescript-eslint.io/rules/no-unsafe-member-access)
    */
-  '@typescript-eslint/no-unsafe-member-access': null;
+  '@typescript-eslint/no-unsafe-member-access': [NoUnsafeMemberAccessOption?];
 
   /**
    * Disallow returning a value with type `any` from a function.
