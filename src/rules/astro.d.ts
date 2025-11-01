@@ -345,6 +345,19 @@ export interface AstroRules {
   'astro/no-set-text-directive': null;
 
   /**
+   * Disallow inline `<script>` without `src` to encourage CSP-safe patterns.
+   * @see [no-unsafe-inline-scripts](https://ota-meshi.github.io/eslint-plugin-astro/rules/no-unsafe-inline-scripts/)
+   */
+  'astro/no-unsafe-inline-scripts': [
+    {
+      allowDefineVars?: boolean;
+      allowModuleScripts?: boolean;
+      allowNonExecutingTypes?: string[];
+      allowNonce?: boolean;
+    }?,
+  ];
+
+  /**
    * Disallow selectors defined in `style` tag that don't use in HTML.
    * @see [no-unused-css-selector](https://ota-meshi.github.io/eslint-plugin-astro/rules/no-unused-css-selector/)
    */

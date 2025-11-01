@@ -160,7 +160,7 @@ export interface ReactHooksRules {
   'react-hooks/use-memo': [UseMemoOption?];
 
   /**
-   * Validates that useMemos always return a value. See [`useMemo()` docs](https://react.dev/reference/react/useMemo) for more information.
+   * Validates that useMemos always return a value and that the result of the useMemo is used by the component/hook. See [`useMemo()` docs](https://react.dev/reference/react/useMemo) for more information.
    * @preset `react-hooks/recommended-latest`
    */
   'react-hooks/void-use-memo': [VoidUseMemoOption?];

@@ -237,6 +237,13 @@ export interface PlaywrightRules {
   'playwright/no-unsafe-references': null;
 
   /**
+   * Disallow usage of page locators that are not used.
+   * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
+   * @see [no-unused-locators](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-unused-locators.md)
+   */
+  'playwright/no-unused-locators': null;
+
+  /**
    * Disallow unnecessary awaits for Playwright methods.
    * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    * @see [no-useless-await](https://github.com/playwright-community/eslint-plugin-playwright/tree/main/docs/rules/no-useless-await.md)
@@ -413,7 +420,7 @@ export interface PlaywrightRules {
   'playwright/valid-expect-in-promise': null;
 
   /**
-   * Enforce valid tag format in Playwright test blocks.
+   * Enforce valid tag format in Playwright test blocks and titles.
    * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
    */
   'playwright/valid-test-tags': [ValidTestTagsOption?];

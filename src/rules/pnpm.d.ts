@@ -61,6 +61,14 @@ export interface JsonPreferWorkspaceSettingsOption {
   autofix?: boolean;
 }
 
+export interface YamlNoDuplicateCatalogItemOption {
+  allow?: string[];
+  /**
+   * Determines what constitutes a duplicate: "name-only" errors on any duplicate package name, "exact-version" only errors on identical version strings
+   */
+  checkDuplicates?: 'name-only' | 'exact-version';
+}
+
 /**
  * All Pnpm rules.
  */
@@ -98,11 +106,7 @@ export interface PnpmRules {
    * @preset `pnpm/yaml`
    * @see [yaml-no-duplicate-catalog-item](https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-no-duplicate-catalog-item.test.ts)
    */
-  'pnpm/yaml-no-duplicate-catalog-item': [
-    {
-      allow?: string[];
-    }?,
-  ];
+  'pnpm/yaml-no-duplicate-catalog-item': [YamlNoDuplicateCatalogItemOption?];
 
   /**
    * Ensure all package patterns in `pnpm-workspace.yaml` match at least one directory.

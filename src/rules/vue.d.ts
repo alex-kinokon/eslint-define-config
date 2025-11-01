@@ -1146,6 +1146,7 @@ export interface ObjectCurlySpacingConfig {
     TSInterfaceBody?: 'always' | 'never';
     TSEnumBody?: 'always' | 'never';
   };
+  emptyObjects?: 'ignore' | 'always' | 'never';
 }
 
 export type ObjectShorthandOption =

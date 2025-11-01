@@ -340,7 +340,13 @@ export namespace Indent {
     ObjectExpression?: number | ('first' | 'off');
     ImportDeclaration?: number | ('first' | 'off');
     flatTernaryExpressions?: boolean;
-    offsetTernaryExpressions?: boolean;
+    offsetTernaryExpressions?:
+      | boolean
+      | {
+          CallExpression?: boolean;
+          AwaitExpression?: boolean;
+          NewExpression?: boolean;
+        };
     offsetTernaryExpressionsOffsetCallExpressions?: boolean;
     ignoredNodes?: string[];
     ignoreComments?: boolean;
@@ -923,6 +929,53 @@ export type LinesBetweenClassMembersRuleConfig = [
   }?,
 ];
 
+export namespace ExpListStyle {
+  export interface ExpListStyleOption {
+    singleLine?: SingleLineConfig;
+    multiLine?: MultiLineConfig;
+    overrides?: {
+      '[]'?: BaseConfig;
+      '{}'?: BaseConfig;
+      '<>'?: BaseConfig;
+      '()'?: BaseConfig;
+      ArrayExpression?: BaseConfig;
+      ArrayPattern?: BaseConfig;
+      ArrowFunctionExpression?: BaseConfig;
+      CallExpression?: BaseConfig;
+      ExportNamedDeclaration?: BaseConfig;
+      FunctionDeclaration?: BaseConfig;
+      FunctionExpression?: BaseConfig;
+      ImportDeclaration?: BaseConfig;
+      ImportAttributes?: BaseConfig;
+      NewExpression?: BaseConfig;
+      ObjectExpression?: BaseConfig;
+      ObjectPattern?: BaseConfig;
+      TSDeclareFunction?: BaseConfig;
+      TSFunctionType?: BaseConfig;
+      TSInterfaceBody?: BaseConfig;
+      TSEnumBody?: BaseConfig;
+      TSTupleType?: BaseConfig;
+      TSTypeLiteral?: BaseConfig;
+      TSTypeParameterDeclaration?: BaseConfig;
+      TSTypeParameterInstantiation?: BaseConfig;
+      JSONArrayExpression?: BaseConfig;
+      JSONObjectExpression?: BaseConfig;
+    };
+  }
+  export interface SingleLineConfig {
+    spacing?: 'always' | 'never';
+    maxItems?: number;
+  }
+  export interface MultiLineConfig {
+    minItems?: number;
+  }
+  export interface BaseConfig {
+    singleLine?: SingleLineConfig;
+    multiline?: MultiLineConfig;
+  }
+
+  export type ExpListStyleRuleConfig = [ExpListStyleOption?];
+}
 export namespace MaxLen {
   export type MaxLenOption =
     | {
@@ -1274,6 +1327,7 @@ export interface ObjectCurlySpacingConfig {
     TSInterfaceBody?: 'always' | 'never';
     TSEnumBody?: 'always' | 'never';
   };
+  emptyObjects?: 'ignore' | 'always' | 'never';
 }
 
 export namespace OperatorLinebreak {
@@ -1851,6 +1905,12 @@ export interface StylisticRules {
    * @see [lines-between-class-members](https://eslint.style/rules/lines-between-class-members)
    */
   'stylistic/lines-between-class-members': LinesBetweenClassMembersRuleConfig;
+
+  /**
+   * Enforce consistent spacing and line break styles inside brackets.
+   * @see [exp-list-style](https://eslint.style/rules/list-style)
+   */
+  'stylistic/exp-list-style': ExpListStyle.ExpListStyleRuleConfig;
 
   /**
    * Enforce a maximum line length.

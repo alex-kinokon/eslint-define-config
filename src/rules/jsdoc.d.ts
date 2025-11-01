@@ -2707,6 +2707,32 @@ export interface TextEscapingOption {
   escapeMarkdown?: boolean;
 }
 
+export interface TsMethodSignatureStyleConfig {
+  /**
+   * Whether to enable the fixer. Defaults to `true`.
+   */
+  enableFixer?: boolean;
+}
+
+export type TsMethodSignatureStyleRuleConfig = [
+  ('method' | 'property')?,
+  TsMethodSignatureStyleConfig?,
+];
+
+export interface TsNoUnnecessaryTemplateExpressionOption {
+  /**
+   * Whether to enable the fixer. Defaults to `true`.
+   */
+  enableFixer?: boolean;
+}
+
+export interface TsPreferFunctionTypeOption {
+  /**
+   * Whether to enable the fixer or not
+   */
+  enableFixer?: boolean;
+}
+
 export interface TypeFormattingOption {
   /**
    * Determines how array generics are represented. Set to `angle` for the style `Array<type>` or `square` for the style `type[]`. Defaults to "square".
@@ -3340,6 +3366,36 @@ export interface JSDocRules {
    * @see [text-escaping](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/text-escaping.md#repos-sticky-header)
    */
   'jsdoc/text-escaping': [TextEscapingOption?];
+
+  /**
+   * Prefers either function properties or method signatures.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/recommended-mixed`
+   * @see [ts-method-signature-style](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/ts-method-signature-style.md#repos-sticky-header)
+   */
+  'jsdoc/ts-method-signature-style': TsMethodSignatureStyleRuleConfig;
+
+  /**
+   * Warns against use of the empty object type.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/recommended-mixed`
+   * @see [ts-no-empty-object-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/ts-no-empty-object-type.md#repos-sticky-header)
+   */
+  'jsdoc/ts-no-empty-object-type': null;
+
+  /**
+   * Catches unnecessary template expressions such as string expressions within a template literal.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/recommended-mixed`
+   * @see [ts-no-unnecessary-template-expression](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/ts-no-unnecessary-template-expression.md#repos-sticky-header)
+   */
+  'jsdoc/ts-no-unnecessary-template-expression': [
+    TsNoUnnecessaryTemplateExpressionOption?,
+  ];
+
+  /**
+   * Prefers function types over call signatures when there are no other properties.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/recommended-mixed`
+   * @see [ts-prefer-function-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/ts-prefer-function-type.md#repos-sticky-header)
+   */
+  'jsdoc/ts-prefer-function-type': [TsPreferFunctionTypeOption?];
 
   /**
    * Formats JSDoc type values.

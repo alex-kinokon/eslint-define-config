@@ -293,17 +293,20 @@ type PromiseExtends = 'plugin:promise/recommended';
  */
 type ReactExtends =
   | 'plugin:@eslint-react/all'
-  | 'plugin:@eslint-react/debug'
   | 'plugin:@eslint-react/disable-conflict-eslint-plugin-react'
-  | 'plugin:@eslint-react/disable-debug'
   | 'plugin:@eslint-react/disable-dom'
   | 'plugin:@eslint-react/disable-type-checked'
   | 'plugin:@eslint-react/disable-web-api'
   | 'plugin:@eslint-react/dom'
+  | 'plugin:@eslint-react/no-deprecated'
   | 'plugin:@eslint-react/off'
   | 'plugin:@eslint-react/recommended'
   | 'plugin:@eslint-react/recommended-type-checked'
   | 'plugin:@eslint-react/recommended-typescript'
+  | 'plugin:@eslint-react/strict'
+  | 'plugin:@eslint-react/strict-type-checked'
+  | 'plugin:@eslint-react/strict-typescript'
+  | 'plugin:@eslint-react/web-api'
   | 'plugin:@eslint-react/x';
 
 /**

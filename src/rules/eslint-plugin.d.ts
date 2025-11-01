@@ -57,6 +57,13 @@ export interface RequireMetaSchemaOption {
   requireSchemaPropertyWhenOptionless?: boolean;
 }
 
+export interface RequireTestCaseNameOption {
+  /**
+   * When should the name property be required on a test case object.
+   */
+  require?: 'always' | 'objects' | 'objects-with-config';
+}
+
 /**
  * What order to enforce for test case properties.
  */
@@ -290,6 +297,13 @@ export interface EslintPluginRules {
   'eslint-plugin/require-meta-type': null;
 
   /**
+   * Require test cases to have a `name` property under certain conditions.
+   * @preset `eslint-plugin/all`, `eslint-plugin/all-type-checked`, `eslint-plugin/tests`
+   * @see [require-test-case-name](https://github.com/eslint-community/eslint-plugin-eslint-plugin/tree/HEAD/docs/rules/require-test-case-name.md)
+   */
+  'eslint-plugin/require-test-case-name': [RequireTestCaseNameOption?];
+
+  /**
    * Require the properties of a test case to be placed in a consistent order.
    * @preset `eslint-plugin/all`, `eslint-plugin/all-type-checked`, `eslint-plugin/tests`
    * @see [test-case-property-ordering](https://github.com/eslint-community/eslint-plugin-eslint-plugin/tree/HEAD/docs/rules/test-case-property-ordering.md)
@@ -306,6 +320,13 @@ export interface EslintPluginRules {
   'eslint-plugin/test-case-shorthand-strings': [
     TestCaseShorthandStringsOption?,
   ];
+
+  /**
+   * Enforce that all test cases with names have unique names.
+   * @preset `eslint-plugin/all`, `eslint-plugin/all-type-checked`, `eslint-plugin/tests`
+   * @see [unique-test-case-names](https://github.com/eslint-community/eslint-plugin-eslint-plugin/tree/HEAD/docs/rules/unique-test-case-names.md)
+   */
+  'eslint-plugin/unique-test-case-names': null;
 }
 
 export type EslintPluginRulesObject = RulesObject<EslintPluginRules>;
