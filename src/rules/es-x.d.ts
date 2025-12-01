@@ -803,6 +803,102 @@ export interface EsXRules {
   ];
 
   /**
+   * Disallow the `Intl.Locale.prototype.firstDayOfWeek` property.
+   * @preset `es-x/flat/no-intl-locale-info`, `es-x/flat/no-new-in-esnext-intl-api`, `es-x/no-intl-locale-info`, `es-x/no-new-in-esnext-intl-api`
+   * @see [no-intl-locale-prototype-firstdayofweek](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale-prototype-firstdayofweek.html)
+   */
+  'es-x/no-intl-locale-prototype-firstdayofweek': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Intl.Locale.prototype.getCalendars` method.
+   * @preset `es-x/flat/no-intl-locale-info`, `es-x/flat/no-new-in-esnext-intl-api`, `es-x/no-intl-locale-info`, `es-x/no-new-in-esnext-intl-api`
+   * @see [no-intl-locale-prototype-getcalendars](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale-prototype-getcalendars.html)
+   */
+  'es-x/no-intl-locale-prototype-getcalendars': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Intl.Locale.prototype.getCollations` method.
+   * @preset `es-x/flat/no-intl-locale-info`, `es-x/flat/no-new-in-esnext-intl-api`, `es-x/no-intl-locale-info`, `es-x/no-new-in-esnext-intl-api`
+   * @see [no-intl-locale-prototype-getcollations](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale-prototype-getcollations.html)
+   */
+  'es-x/no-intl-locale-prototype-getcollations': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Intl.Locale.prototype.getHourCycles` method.
+   * @preset `es-x/flat/no-intl-locale-info`, `es-x/flat/no-new-in-esnext-intl-api`, `es-x/no-intl-locale-info`, `es-x/no-new-in-esnext-intl-api`
+   * @see [no-intl-locale-prototype-gethourcycles](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale-prototype-gethourcycles.html)
+   */
+  'es-x/no-intl-locale-prototype-gethourcycles': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Intl.Locale.prototype.getNumberingSystems` method.
+   * @preset `es-x/flat/no-intl-locale-info`, `es-x/flat/no-new-in-esnext-intl-api`, `es-x/no-intl-locale-info`, `es-x/no-new-in-esnext-intl-api`
+   * @see [no-intl-locale-prototype-getnumberingsystems](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale-prototype-getnumberingsystems.html)
+   */
+  'es-x/no-intl-locale-prototype-getnumberingsystems': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Intl.Locale.prototype.getTextInfo` method.
+   * @preset `es-x/flat/no-intl-locale-info`, `es-x/flat/no-new-in-esnext-intl-api`, `es-x/no-intl-locale-info`, `es-x/no-new-in-esnext-intl-api`
+   * @see [no-intl-locale-prototype-gettextinfo](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale-prototype-gettextinfo.html)
+   */
+  'es-x/no-intl-locale-prototype-gettextinfo': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Intl.Locale.prototype.getTimeZones` method.
+   * @preset `es-x/flat/no-intl-locale-info`, `es-x/flat/no-new-in-esnext-intl-api`, `es-x/no-intl-locale-info`, `es-x/no-new-in-esnext-intl-api`
+   * @see [no-intl-locale-prototype-gettimezones](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale-prototype-gettimezones.html)
+   */
+  'es-x/no-intl-locale-prototype-gettimezones': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Intl.Locale.prototype.getWeekInfo` method.
+   * @preset `es-x/flat/no-intl-locale-info`, `es-x/flat/no-new-in-esnext-intl-api`, `es-x/no-intl-locale-info`, `es-x/no-new-in-esnext-intl-api`
+   * @see [no-intl-locale-prototype-getweekinfo](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-locale-prototype-getweekinfo.html)
+   */
+  'es-x/no-intl-locale-prototype-getweekinfo': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
    * Disallow the `NumberFormat.prototype.formatRange` method.
    * @preset `es-x/flat/no-intl-numberformat-v3`, `es-x/flat/no-new-in-es2023-intl-api`, `es-x/flat/restrict-to-es-intl-api-1st-edition`, `es-x/flat/restrict-to-es2015-intl-api`, `es-x/flat/restrict-to-es2016-intl-api`, `es-x/flat/restrict-to-es2017-intl-api`, `es-x/flat/restrict-to-es2018-intl-api`, `es-x/flat/restrict-to-es2019-intl-api`, `es-x/flat/restrict-to-es2020-intl-api`, `es-x/flat/restrict-to-es2021-intl-api`, `es-x/flat/restrict-to-es2022-intl-api`, `es-x/no-intl-numberformat-v3`, `es-x/no-new-in-es2023-intl-api`
    * @see [no-intl-numberformat-prototype-formatrange](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-intl-numberformat-prototype-formatrange.html)
@@ -900,6 +996,17 @@ export interface EsXRules {
    * @see [no-iterator](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator.html)
    */
   'es-x/no-iterator': null;
+
+  /**
+   * Disallow the `Iterator.concat` method.
+   * @preset `es-x/flat/no-new-in-esnext`, `es-x/no-new-in-esnext`
+   * @see [no-iterator-concat](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-iterator-concat.html)
+   */
+  'es-x/no-iterator-concat': [
+    {
+      allowTestedProperty?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow the `Iterator.prototype.drop` method.

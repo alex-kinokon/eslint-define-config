@@ -4,6 +4,13 @@ export type JsxShorthandBooleanOption = -1 | 1;
 
 export type JsxShorthandFragmentOption = -1 | 1;
 
+export interface NoUselessFragmentOption {
+  /**
+   * Allow fragments with a single expression child
+   */
+  allowExpressions?: boolean;
+}
+
 export interface NoForbiddenPropsOption {
   forbid?: (
     | string
@@ -18,17 +25,16 @@ export interface NoForbiddenPropsOption {
   )[];
 }
 
-export interface NoUselessFragmentOption {
-  /**
-   * Allow fragments with a single expression child
-   */
-  allowExpressions?: boolean;
-}
-
 /**
  * All React rules.
  */
 export interface ReactRules {
+  /**
+   * Prevents dollar signs from being inserted as text nodes before expressions.
+   * @see [jsx-dollar](https://eslint-react.xyz/docs/rules/jsx-dollar)
+   */
+  '@eslint-react/jsx-dollar': null;
+
   /**
    * Enforces that the 'key' prop is placed before the spread prop in JSX elements.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
@@ -219,13 +225,6 @@ export interface ReactRules {
   '@eslint-react/no-duplicate-key': null;
 
   /**
-   * Disallow certain props on components.
-   * @preset `@eslint-react/all`, `@eslint-react/off`
-   * @see [no-forbidden-props](https://eslint-react.xyz/docs/rules/no-forbidden-props)
-   */
-  '@eslint-react/no-forbidden-props': [NoForbiddenPropsOption?];
-
-  /**
    * Replaces usages of `forwardRef` with passing `ref` as a prop.
    * @preset `@eslint-react/all`, `@eslint-react/no-deprecated`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-forward-ref](https://eslint-react.xyz/docs/rules/no-forward-ref)
@@ -391,7 +390,11 @@ export interface ReactRules {
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-unstable-default-props](https://eslint-react.xyz/docs/rules/no-unstable-default-props)
    */
-  '@eslint-react/no-unstable-default-props': null;
+  '@eslint-react/no-unstable-default-props': [
+    {
+      safeDefaultProps?: string[];
+    }?,
+  ];
 
   /**
    * Warns unused class component methods and properties.
@@ -462,6 +465,14 @@ export interface ReactRules {
    * @see [prefer-use-state-lazy-initialization](https://eslint-react.xyz/docs/rules/prefer-use-state-lazy-initialization)
    */
   '@eslint-react/prefer-use-state-lazy-initialization': null;
+
+  /**
+   * Disallow certain props on components.
+   * @deprecated
+   * @preset `@eslint-react/all`, `@eslint-react/off`
+   * @see [no-forbidden-props](https://eslint-react.xyz/docs/rules/no-forbidden-props)
+   */
+  '@eslint-react/no-forbidden-props': [NoForbiddenPropsOption?];
 }
 
 export type ReactRulesObject = RulesObject<ReactRules>;

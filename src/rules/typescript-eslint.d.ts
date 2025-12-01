@@ -2901,6 +2901,13 @@ export interface TypeScriptRules {
   ];
 
   /**
+   * Disallow unused private class members.
+   * @preset `@typescript-eslint/all`
+   * @see [no-unused-private-class-members](https://typescript-eslint.io/rules/no-unused-private-class-members)
+   */
+  '@typescript-eslint/no-unused-private-class-members': null;
+
+  /**
    * Disallow unused variables.
    * @preset `@typescript-eslint/all`, `@typescript-eslint/recommended`, `@typescript-eslint/recommended-requiring-type-checking`, `@typescript-eslint/recommended-type-checked`, `@typescript-eslint/strict`, `@typescript-eslint/strict-type-checked`
    * @see [no-unused-vars](https://typescript-eslint.io/rules/no-unused-vars)

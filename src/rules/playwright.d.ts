@@ -2,6 +2,7 @@ import type { RulesObject } from '../rule-config';
 
 export interface ExpectExpectOption {
   assertFunctionNames?: [] | [string];
+  assertFunctionPatterns?: [] | [string];
 }
 
 export interface NoRestrictedMatchersOption {

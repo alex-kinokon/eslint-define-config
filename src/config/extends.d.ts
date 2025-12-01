@@ -44,6 +44,7 @@ type EsXExtends =
   | 'plugin:es-x/no-explicit-resource-management'
   | 'plugin:es-x/no-float16array'
   | 'plugin:es-x/no-import-attributes'
+  | 'plugin:es-x/no-intl-locale-info'
   | 'plugin:es-x/no-intl-numberformat-v3'
   | 'plugin:es-x/no-is-usv-string'
   | 'plugin:es-x/no-iterator-helpers'

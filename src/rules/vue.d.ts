@@ -2019,6 +2019,12 @@ export interface VueRules {
   ];
 
   /**
+   * Disallow duplication of class names in class attributes.
+   * @see [no-duplicate-class-names](https://eslint.vuejs.org/rules/no-duplicate-class-names.html)
+   */
+  'vue/no-duplicate-class-names': null;
+
+  /**
    * Disallow the `<template>` `<script>` `<style>` block to be empty.
    * @see [no-empty-component-block](https://eslint.vuejs.org/rules/no-empty-component-block.html)
    */

@@ -1,5 +1,12 @@
 import type { RulesObject } from '../rule-config';
 
+export interface ConsistentEachForOption {
+  test?: 'each' | 'for';
+  it?: 'each' | 'for';
+  describe?: 'each' | 'for';
+  suite?: 'each' | 'for';
+}
+
 export interface ConsistentTestItOption {
   fn?: 'test' | 'it';
   withinDescribe?: 'test' | 'it';
@@ -7,6 +14,13 @@ export interface ConsistentTestItOption {
 
 export interface ConsistentVitestViOption {
   fn?: 'vi' | 'vitest';
+}
+
+export interface NoHooksOption {
+  /**
+   * This array option controls which Vitest hooks are checked by this rule.
+   */
+  allow?: ('beforeAll' | 'beforeEach' | 'afterAll' | 'afterEach')[];
 }
 
 export interface NoLargeSnapshotsOption {
@@ -44,6 +58,13 @@ export interface ValidTitleOption {
  * All Vitest rules.
  */
 export interface VitestRules {
+  /**
+   * Enforce using `.each` or `.for` consistently.
+   * @preset `vitest/all`
+   * @see [consistent-each-for](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/consistent-each-for.md)
+   */
+  'vitest/consistent-each-for': [ConsistentEachForOption?];
+
   /**
    * Require test file pattern.
    * @preset `vitest/all`
@@ -127,7 +148,7 @@ export interface VitestRules {
 
   /**
    * Disallow conditional expects.
-   * @preset `vitest/all`
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-conditional-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-expect.md)
    */
   'vitest/no-conditional-expect': null;
@@ -148,7 +169,7 @@ export interface VitestRules {
 
   /**
    * Disallow disabled tests.
-   * @preset `vitest/all`
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-disabled-tests](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-disabled-tests.md)
    */
   'vitest/no-disabled-tests': null;
@@ -169,7 +190,7 @@ export interface VitestRules {
 
   /**
    * Disallow focused tests.
-   * @preset `vitest/all`
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-focused-tests](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-focused-tests.md)
    */
   'vitest/no-focused-tests': [
@@ -183,11 +204,7 @@ export interface VitestRules {
    * @preset `vitest/all`
    * @see [no-hooks](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-hooks.md)
    */
-  'vitest/no-hooks': [
-    {
-      allow?: any[];
-    }?,
-  ];
+  'vitest/no-hooks': [NoHooksOption?];
 
   /**
    * Disallow identical titles.
@@ -212,7 +229,7 @@ export interface VitestRules {
 
   /**
    * Disallow string interpolation in snapshots.
-   * @preset `vitest/all`
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-interpolation-in-snapshots](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-interpolation-in-snapshots.md)
    */
   'vitest/no-interpolation-in-snapshots': null;
@@ -226,7 +243,7 @@ export interface VitestRules {
 
   /**
    * Disallow importing from __mocks__ directory.
-   * @preset `vitest/all`
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-mocks-import](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-mocks-import.md)
    */
   'vitest/no-mocks-import': null;
@@ -247,7 +264,7 @@ export interface VitestRules {
 
   /**
    * Disallow using `expect` outside of `it` or `test` blocks.
-   * @preset `vitest/all`
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [no-standalone-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-standalone-expect.md)
    */
   'vitest/no-standalone-expect': [
@@ -376,7 +393,7 @@ export interface VitestRules {
   'vitest/prefer-each': null;
 
   /**
-   * Enforce using the built-in quality matchers.
+   * Enforce using the built-in equality matchers.
    * @preset `vitest/all`
    * @see [prefer-equality-matcher](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-equality-matcher.md)
    */
@@ -536,6 +553,13 @@ export interface VitestRules {
   'vitest/prefer-vi-mocked': null;
 
   /**
+   * Ensure that every `expect.poll` call is awaited.
+   * @preset `vitest/all`
+   * @see [require-awaited-expect-poll](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-awaited-expect-poll.md)
+   */
+  'vitest/require-awaited-expect-poll': null;
+
+  /**
    * Require setup and teardown to be within a hook.
    * @preset `vitest/all`
    * @see [require-hook](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-hook.md)
@@ -545,6 +569,13 @@ export interface VitestRules {
       allowedFunctionCalls?: string[];
     }?,
   ];
+
+  /**
+   * Require usage of import in vi.mock().
+   * @preset `vitest/all`
+   * @see [require-import-vi-mock](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-import-vi-mock.md)
+   */
+  'vitest/require-import-vi-mock': null;
 
   /**
    * Require local Test Context for concurrent snapshot tests.
@@ -591,7 +622,7 @@ export interface VitestRules {
 
   /**
    * Require promises that have expectations in their chain to be valid.
-   * @preset `vitest/all`
+   * @preset `vitest/recommended`, `vitest/all`
    * @see [valid-expect-in-promise](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/valid-expect-in-promise.md)
    */
   'vitest/valid-expect-in-promise': null;

@@ -86,7 +86,8 @@ type CustomRules = {
  * @see [Rules](https://eslint.org/docs/user-guide/configuring/rules)
  */
 export interface Rules
-  extends RulesObject<CustomRules>,
+  extends
+    RulesObject<CustomRules>,
     // #region union
     AstroRulesObject,
     CspellRulesObject,

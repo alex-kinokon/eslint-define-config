@@ -32,6 +32,10 @@ export interface CheckExamplesOption {
 
 export interface CheckIndentationOption {
   /**
+   * Allows indentation of nested sections on subsequent lines (like bullet lists)
+   */
+  allowIndentedSections?: boolean;
+  /**
    * Array of tags (e.g., `['example', 'description']`) whose content will be
    * "hidden" from the `check-indentation` rule. Defaults to `['example']`.
    *
@@ -2022,6 +2026,34 @@ export interface RequireParamTypeOption {
   setDefaultDestructuredRootType?: boolean;
 }
 
+export interface RequireRejectsOption {
+  /**
+   * Set this to an array of strings representing the AST context
+   * (or objects with optional `context` and `comment` properties) where you wish
+   * the rule to be applied.
+   *
+   * `context` defaults to `any` and `comment` defaults to no specific comment context.
+   *
+   * Overrides the default contexts (`ArrowFunctionExpression`, `FunctionDeclaration`,
+   * `FunctionExpression`).
+   */
+  contexts?: (
+    | string
+    | {
+        comment?: string;
+        context?: string;
+      }
+  )[];
+  /**
+   * Array of tags (e.g., `['type']`) whose presence on the
+   * document block avoids the need for a `@rejects`. Defaults to an array
+   * with `abstract`, `virtual`, and `type`. If you set this array, it will overwrite the default,
+   * so be sure to add back those tags if you wish their presence to cause
+   * exemption of the rule.
+   */
+  exemptedBy?: string[];
+}
+
 export namespace RequireReturns {
   export interface RequireReturnsOption {
     /**
@@ -2431,6 +2463,12 @@ export namespace SortTags {
      * may wish to use the `endLines` option of the `tag-lines` rule.
      */
     reportTagGroupSpacing?: boolean;
+    /**
+     * Allows specification by tag of a specific higher maximum number of lines. Keys are tags and values are the maximum number of lines allowed for such tags. Overrides `linesBetween`. Defaults to no special exceptions per tag.
+     */
+    tagExceptions?: {
+      [k: string]: number;
+    };
     /**
      * An array of tag group objects indicating the preferred sequence for sorting tags.
      *
@@ -3247,6 +3285,13 @@ export interface JSDocRules {
    * @see [require-property-type](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-property-type.md#repos-sticky-header)
    */
   'jsdoc/require-property-type': null;
+
+  /**
+   * Requires that Promise rejections are documented with `@rejects` tags.
+   * @preset `jsdoc/recommended`, `jsdoc/recommended-error`, `jsdoc/recommended-typescript`, `jsdoc/recommended-typescript-error`, `jsdoc/recommended-typescript-flavor`, `jsdoc/recommended-typescript-flavor-error`, `jsdoc/flat/recommended`, `jsdoc/flat/recommended-error`, `jsdoc/flat/recommended-typescript`, `jsdoc/flat/recommended-typescript-error`, `jsdoc/flat/recommended-typescript-flavor`, `jsdoc/flat/recommended-typescript-flavor-error`, `jsdoc/flat/recommended-mixed`
+   * @see [require-rejects](https://github.com/gajus/eslint-plugin-jsdoc/blob/main/docs/rules/require-rejects.md#repos-sticky-header)
+   */
+  'jsdoc/require-rejects': [RequireRejectsOption?];
 
   /**
    * Requires that returns are documented with `@returns`.
