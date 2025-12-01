@@ -311,6 +311,13 @@ type ReactExtends =
   | 'plugin:@eslint-react/x';
 
 /**
+ * ESLint ReactHooksExtra extends.
+ *
+ * @see [ReactHooksExtra extends](https://www.eslint-react.xyz/docs/rules/overview#hooks-extra-rules)
+ */
+type ReactHooksExtraExtends = 'plugin:react-hooks-extra/recommended';
+
+/**
  * ESLint ReactHooks extends.
  *
  * @see [ReactHooks extends](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
@@ -558,6 +565,7 @@ export type KnownExtends = LiteralUnion<
   | PnpmExtends
   | PromiseExtends
   | ReactExtends
+  | ReactHooksExtraExtends
   | ReactHooksExtends
   | ReactQueryExtends
   | ReactRefreshExtends

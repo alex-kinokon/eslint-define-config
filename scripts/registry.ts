@@ -145,6 +145,12 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
       extends: 'https://eslint-react.xyz/docs/installation',
     },
   }),
+  include('react-hooks-extra', {
+    import: () => import('eslint-plugin-react-hooks-extra'),
+    docs: {
+      home: 'https://www.eslint-react.xyz/docs/rules/overview#hooks-extra-rules',
+    },
+  }),
   include('react-hooks', {
     import: () => import('eslint-plugin-react-hooks'),
     docs: {
@@ -318,6 +324,7 @@ type PluginID =
   | 'pnpm'
   | 'prettier'
   | 'promise'
+  | 'react-hooks-extra'
   | 'react-hooks'
   | 'react-query'
   | 'react-refresh'

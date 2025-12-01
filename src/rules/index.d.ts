@@ -26,6 +26,7 @@ import type { PrettierRulesObject } from './prettier';
 import type { PromiseRulesObject } from './promise';
 import type { ReactRulesObject } from './react';
 import type { ReactHooksRulesObject } from './react-hooks';
+import type { ReactHooksExtraRulesObject } from './react-hooks-extra';
 import type { ReactQueryRulesObject } from './react-query';
 import type { ReactRefreshRulesObject } from './react-refresh';
 import type { RegExpRulesObject } from './regexp';
@@ -113,6 +114,7 @@ export interface Rules
     PnpmRulesObject,
     PromiseRulesObject,
     ReactRulesObject,
+    ReactHooksExtraRulesObject,
     ReactHooksRulesObject,
     ReactQueryRulesObject,
     ReactRefreshRulesObject,
