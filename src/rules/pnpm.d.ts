@@ -69,6 +69,27 @@ export interface YamlNoDuplicateCatalogItemOption {
   checkDuplicates?: 'name-only' | 'exact-version';
 }
 
+export interface YamlEnforceSettingsOption {
+  /**
+   * Whether to autofix the linting error
+   */
+  autofix?: boolean;
+  /**
+   * Exact settings to enforce, for both keys and values. Auto-fixable.
+   */
+  settings?: {
+    [k: string]: any;
+  };
+  /**
+   * Required settings fields to enforce, regardless of their values. Not-autofixable.
+   */
+  requiredFields?: string[];
+  /**
+   * Forbidden settings fields to enforce, regardless of their values. Not-autofixable.
+   */
+  forbiddenFields?: string[];
+}
+
 /**
  * All Pnpm rules.
  */
@@ -114,6 +135,12 @@ export interface PnpmRules {
    * @see [yaml-valid-packages](https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-valid-packages.test.ts)
    */
   'pnpm/yaml-valid-packages': null;
+
+  /**
+   * Enforce settings in `pnpm-workspace.yaml`.
+   * @see [yaml-enforce-settings](https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm/src/rules/yaml/yaml-enforce-settings.test.ts)
+   */
+  'pnpm/yaml-enforce-settings': [YamlEnforceSettingsOption?];
 }
 
 export type PnpmRulesObject = RulesObject<PnpmRules>;

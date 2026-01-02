@@ -48,6 +48,7 @@ type EsXExtends =
   | 'plugin:es-x/no-intl-numberformat-v3'
   | 'plugin:es-x/no-is-usv-string'
   | 'plugin:es-x/no-iterator-helpers'
+  | 'plugin:es-x/no-json-parse-with-source'
   | 'plugin:es-x/no-new-in-es2015'
   | 'plugin:es-x/no-new-in-es2015-intl-api'
   | 'plugin:es-x/no-new-in-es2016'

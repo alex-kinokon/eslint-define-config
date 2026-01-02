@@ -1148,11 +1148,40 @@ export interface EsXRules {
   'es-x/no-json': null;
 
   /**
+   * Disallow the `JSON.isRawJSON` method.
+   * @preset `es-x/flat/no-json-parse-with-source`, `es-x/flat/no-new-in-esnext`, `es-x/no-json-parse-with-source`, `es-x/no-new-in-esnext`
+   * @see [no-json-israwjson](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-json-israwjson.html)
+   */
+  'es-x/no-json-israwjson': [
+    {
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
    * Disallow JSON Modules.
    * @preset `es-x/flat/no-new-in-es2025`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/flat/restrict-to-es2015`, `es-x/flat/restrict-to-es2016`, `es-x/flat/restrict-to-es2017`, `es-x/flat/restrict-to-es2018`, `es-x/flat/restrict-to-es2019`, `es-x/flat/restrict-to-es2020`, `es-x/flat/restrict-to-es2021`, `es-x/flat/restrict-to-es2022`, `es-x/flat/restrict-to-es2023`, `es-x/flat/restrict-to-es2024`, `es-x/no-new-in-es2025`
    * @see [no-json-modules](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-json-modules.html)
    */
   'es-x/no-json-modules': null;
+
+  /**
+   * Disallow the `context` parameter in `JSON.parse` reviver function.
+   * @preset `es-x/flat/no-json-parse-with-source`, `es-x/flat/no-new-in-esnext`, `es-x/no-json-parse-with-source`, `es-x/no-new-in-esnext`
+   * @see [no-json-parse-reviver-context-parameter](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-json-parse-reviver-context-parameter.html)
+   */
+  'es-x/no-json-parse-reviver-context-parameter': null;
+
+  /**
+   * Disallow the `JSON.rawJSON` method.
+   * @preset `es-x/flat/no-json-parse-with-source`, `es-x/flat/no-new-in-esnext`, `es-x/no-json-parse-with-source`, `es-x/no-new-in-esnext`
+   * @see [no-json-rawjson](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-json-rawjson.html)
+   */
+  'es-x/no-json-rawjson': [
+    {
+      allowTestedProperty?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow `\u2028` and `\u2029` in string literals.

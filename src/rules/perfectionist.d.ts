@@ -6,14 +6,18 @@ export interface SortVariableDeclarationsOption {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -35,41 +39,28 @@ export interface SortVariableDeclarationsOption {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
    * Defines custom groups to match specific members.
    */
   customGroups?: (
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -79,71 +70,112 @@ export interface SortVariableDeclarationsOption {
           | 'line-length'
           | 'custom'
           | 'unsorted';
-        anyOf?: {
-          /**
-           * Selector filter.
-           */
-          selector?: 'initialized' | 'uninitialized';
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-        }[];
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?: 'initialized' | 'uninitialized';
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?: 'initialized' | 'uninitialized';
+          }[],
+        ];
       }
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -154,9 +186,14 @@ export interface SortVariableDeclarationsOption {
           | 'custom'
           | 'unsorted';
         /**
-         * Selector filter.
+         * Custom group name.
          */
-        selector?: 'initialized' | 'uninitialized';
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
         /**
          * Regular expression.
          */
@@ -187,8 +224,63 @@ export interface SortVariableDeclarationsOption {
                 }
               | string
             );
+        /**
+         * Selector filter.
+         */
+        selector?: 'initialized' | 'uninitialized';
       }
   )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
@@ -294,21 +386,6 @@ export interface SortVariableDeclarationsOption {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }
 
 export type SortIntersectionTypesOption = {
@@ -317,14 +394,18 @@ export type SortIntersectionTypesOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -346,41 +427,28 @@ export type SortIntersectionTypesOption = {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
    * Defines custom groups to match specific members.
    */
   customGroups?: (
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -390,83 +458,136 @@ export type SortIntersectionTypesOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted';
-        anyOf?: {
-          /**
-           * Selector filter.
-           */
-          selector?:
-            | 'intersection'
-            | 'conditional'
-            | 'function'
-            | 'operator'
-            | 'keyword'
-            | 'literal'
-            | 'nullish'
-            | 'import'
-            | 'object'
-            | 'named'
-            | 'tuple'
-            | 'union';
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-        }[];
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?:
+              | 'intersection'
+              | 'conditional'
+              | 'function'
+              | 'operator'
+              | 'keyword'
+              | 'literal'
+              | 'nullish'
+              | 'import'
+              | 'object'
+              | 'named'
+              | 'tuple'
+              | 'union';
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?:
+              | 'intersection'
+              | 'conditional'
+              | 'function'
+              | 'operator'
+              | 'keyword'
+              | 'literal'
+              | 'nullish'
+              | 'import'
+              | 'object'
+              | 'named'
+              | 'tuple'
+              | 'union';
+          }[],
+        ];
       }
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -476,6 +597,45 @@ export type SortIntersectionTypesOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
         /**
          * Selector filter.
          */
@@ -492,38 +652,59 @@ export type SortIntersectionTypesOption = {
           | 'named'
           | 'tuple'
           | 'union';
-        /**
-         * Regular expression.
-         */
-        elementNamePattern?:
-          | (
-              | {
-                  /**
-                   * Regular expression pattern.
-                   */
-                  pattern: string;
-                  /**
-                   * Regular expression flags.
-                   */
-                  flags?: string;
-                }
-              | string
-            )[]
-          | (
-              | {
-                  /**
-                   * Regular expression pattern.
-                   */
-                  pattern: string;
-                  /**
-                   * Regular expression flags.
-                   */
-                  flags?: string;
-                }
-              | string
-            );
       }
   )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
@@ -629,37 +810,26 @@ export type SortIntersectionTypesOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
-export interface SortHeritageClausesOption {
+export type SortImportAttributesOption = {
   /**
    * Fallback sort order.
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -680,106 +850,29 @@ export interface SortHeritageClausesOption {
    * Specifies whether to sort items in ascending or descending order.
    */
   order?: 'asc' | 'desc';
-  /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
-   * Specifies custom groups.
-   */
-  customGroups?: {
-    [k: string]: string | string[];
-  };
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
-}
-
-export type SortArrayIncludesOption = {
-  /**
-   * Fallback sort order.
-   */
-  fallbackSort?: {
-    /**
-     * Specifies whether to sort items in ascending or descending order.
-     */
-    order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  };
-  /**
-   * Specifies whether to trim, remove, or keep special characters before sorting.
-   */
-  specialCharacters?: 'remove' | 'trim' | 'keep';
-  /**
-   * Controls whether sorting should be case-sensitive or not.
-   */
-  ignoreCase?: boolean;
-  /**
-   * Used only when the `type` option is set to `'custom'`. Specifies the custom alphabet for sorting.
-   */
-  alphabet?: string;
-  /**
-   * Specifies the sorting locales.
-   */
-  locales?: string | string[];
-  /**
-   * Specifies whether to sort items in ascending or descending order.
-   */
-  order?: 'asc' | 'desc';
-  /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
-   * [DEPRECATED] Specifies top-level groups.
-   */
-  groupKind?: 'mixed' | 'literals-first' | 'spreads-first';
   /**
    * Defines custom groups to match specific members.
    */
   customGroups?: (
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -789,71 +882,104 @@ export type SortArrayIncludesOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted';
-        anyOf?: {
-          /**
-           * Selector filter.
-           */
-          selector?: 'literal' | 'spread';
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-        }[];
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
       }
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -864,9 +990,14 @@ export type SortArrayIncludesOption = {
           | 'custom'
           | 'unsorted';
         /**
-         * Selector filter.
+         * Custom group name.
          */
-        selector?: 'literal' | 'spread';
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
         /**
          * Regular expression.
          */
@@ -899,6 +1030,1197 @@ export type SortArrayIncludesOption = {
             );
       }
   )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
+  /**
+   * Enables the use of comments to separate the nodes into logical groups.
+   */
+  partitionByComment?:
+    | boolean
+    | (
+        | (
+            | {
+                /**
+                 * Regular expression pattern.
+                 */
+                pattern: string;
+                /**
+                 * Regular expression flags.
+                 */
+                flags?: string;
+              }
+            | string
+          )[]
+        | (
+            | {
+                /**
+                 * Regular expression pattern.
+                 */
+                pattern: string;
+                /**
+                 * Regular expression flags.
+                 */
+                flags?: string;
+              }
+            | string
+          )
+      )
+    | {
+        /**
+         * Enables specific block comments to separate the nodes.
+         */
+        block?:
+          | boolean
+          | (
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )
+            );
+        /**
+         * Enables specific line comments to separate the nodes.
+         */
+        line?:
+          | boolean
+          | (
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )
+            );
+      };
+  /**
+   * Enables the use of newlines to separate the nodes into logical groups.
+   */
+  partitionByNewLine?: boolean;
+}[];
+
+export type SortExportAttributesOption = {
+  /**
+   * Fallback sort order.
+   */
+  fallbackSort?: {
+    /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
+     * Specifies whether to sort items in ascending or descending order.
+     */
+    order?: 'asc' | 'desc';
+  };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  /**
+   * Specifies whether to trim, remove, or keep special characters before sorting.
+   */
+  specialCharacters?: 'remove' | 'trim' | 'keep';
+  /**
+   * Controls whether sorting should be case-sensitive or not.
+   */
+  ignoreCase?: boolean;
+  /**
+   * Used only when the `type` option is set to `'custom'`. Specifies the custom alphabet for sorting.
+   */
+  alphabet?: string;
+  /**
+   * Specifies the sorting locales.
+   */
+  locales?: string | string[];
+  /**
+   * Specifies whether to sort items in ascending or descending order.
+   */
+  order?: 'asc' | 'desc';
+  /**
+   * Defines custom groups to match specific members.
+   */
+  customGroups?: (
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
+  /**
+   * Enables the use of comments to separate the nodes into logical groups.
+   */
+  partitionByComment?:
+    | boolean
+    | (
+        | (
+            | {
+                /**
+                 * Regular expression pattern.
+                 */
+                pattern: string;
+                /**
+                 * Regular expression flags.
+                 */
+                flags?: string;
+              }
+            | string
+          )[]
+        | (
+            | {
+                /**
+                 * Regular expression pattern.
+                 */
+                pattern: string;
+                /**
+                 * Regular expression flags.
+                 */
+                flags?: string;
+              }
+            | string
+          )
+      )
+    | {
+        /**
+         * Enables specific block comments to separate the nodes.
+         */
+        block?:
+          | boolean
+          | (
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )
+            );
+        /**
+         * Enables specific line comments to separate the nodes.
+         */
+        line?:
+          | boolean
+          | (
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )
+            );
+      };
+  /**
+   * Enables the use of newlines to separate the nodes into logical groups.
+   */
+  partitionByNewLine?: boolean;
+}[];
+
+export type SortHeritageClausesOption = {
+  /**
+   * Fallback sort order.
+   */
+  fallbackSort?: {
+    /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
+     * Specifies whether to sort items in ascending or descending order.
+     */
+    order?: 'asc' | 'desc';
+  };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  /**
+   * Specifies whether to trim, remove, or keep special characters before sorting.
+   */
+  specialCharacters?: 'remove' | 'trim' | 'keep';
+  /**
+   * Controls whether sorting should be case-sensitive or not.
+   */
+  ignoreCase?: boolean;
+  /**
+   * Used only when the `type` option is set to `'custom'`. Specifies the custom alphabet for sorting.
+   */
+  alphabet?: string;
+  /**
+   * Specifies the sorting locales.
+   */
+  locales?: string | string[];
+  /**
+   * Specifies whether to sort items in ascending or descending order.
+   */
+  order?: 'asc' | 'desc';
+  /**
+   * Defines custom groups to match specific members.
+   */
+  customGroups?: (
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
+  /**
+   * Enables the use of newlines to separate the nodes into logical groups.
+   */
+  partitionByNewLine?: boolean;
+  /**
+   * Enables the use of comments to separate the nodes into logical groups.
+   */
+  partitionByComment?:
+    | boolean
+    | (
+        | (
+            | {
+                /**
+                 * Regular expression pattern.
+                 */
+                pattern: string;
+                /**
+                 * Regular expression flags.
+                 */
+                flags?: string;
+              }
+            | string
+          )[]
+        | (
+            | {
+                /**
+                 * Regular expression pattern.
+                 */
+                pattern: string;
+                /**
+                 * Regular expression flags.
+                 */
+                flags?: string;
+              }
+            | string
+          )
+      )
+    | {
+        /**
+         * Enables specific block comments to separate the nodes.
+         */
+        block?:
+          | boolean
+          | (
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )
+            );
+        /**
+         * Enables specific line comments to separate the nodes.
+         */
+        line?:
+          | boolean
+          | (
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )
+            );
+      };
+}[];
+
+export type SortArrayIncludesOption = {
+  /**
+   * Fallback sort order.
+   */
+  fallbackSort?: {
+    /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
+     * Specifies whether to sort items in ascending or descending order.
+     */
+    order?: 'asc' | 'desc';
+  };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  /**
+   * Specifies whether to trim, remove, or keep special characters before sorting.
+   */
+  specialCharacters?: 'remove' | 'trim' | 'keep';
+  /**
+   * Controls whether sorting should be case-sensitive or not.
+   */
+  ignoreCase?: boolean;
+  /**
+   * Used only when the `type` option is set to `'custom'`. Specifies the custom alphabet for sorting.
+   */
+  alphabet?: string;
+  /**
+   * Specifies the sorting locales.
+   */
+  locales?: string | string[];
+  /**
+   * Specifies whether to sort items in ascending or descending order.
+   */
+  order?: 'asc' | 'desc';
+  /**
+   * Defines custom groups to match specific members.
+   */
+  customGroups?: (
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?: 'literal' | 'spread';
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?: 'literal' | 'spread';
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+        /**
+         * Selector filter.
+         */
+        selector?: 'literal' | 'spread';
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Specifies filters to match a particular options configuration for a given element to sort.
    */
@@ -1039,21 +2361,6 @@ export type SortArrayIncludesOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export type SortNamedImportsOption = {
@@ -1062,14 +2369,18 @@ export type SortNamedImportsOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -1091,49 +2402,28 @@ export type SortNamedImportsOption = {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
-   * [DEPRECATED] Specifies top-level groups.
-   */
-  groupKind?: 'mixed' | 'values-first' | 'types-first';
-  /**
-   * Controls whether to ignore alias names.
-   */
-  ignoreAlias?: boolean;
-  /**
    * Defines custom groups to match specific members.
    */
   customGroups?: (
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -1143,75 +2433,120 @@ export type SortNamedImportsOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted';
-        anyOf?: {
-          /**
-           * Modifier filters.
-           */
-          modifiers?: ('value' | 'type')[];
-          /**
-           * Selector filter.
-           */
-          selector?: 'import';
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-        }[];
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('value' | 'type')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'import';
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('value' | 'type')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'import';
+          }[],
+        ];
       }
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -1222,13 +2557,14 @@ export type SortNamedImportsOption = {
           | 'custom'
           | 'unsorted';
         /**
-         * Modifier filters.
+         * Custom group name.
          */
-        modifiers?: ('value' | 'type')[];
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
         /**
-         * Selector filter.
+         * Specifies whether to sort items in ascending or descending order.
          */
-        selector?: 'import';
+        order?: 'asc' | 'desc';
         /**
          * Regular expression.
          */
@@ -1259,8 +2595,71 @@ export type SortNamedImportsOption = {
                 }
               | string
             );
+        /**
+         * Modifier filters.
+         */
+        modifiers?: ('value' | 'type')[];
+        /**
+         * Selector filter.
+         */
+        selector?: 'import';
       }
   )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
+  /**
+   * Controls whether to ignore alias names.
+   */
+  ignoreAlias?: boolean;
   /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
@@ -1366,21 +2765,6 @@ export type SortNamedImportsOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export namespace SortNamedExports {
@@ -1390,14 +2774,18 @@ export namespace SortNamedExports {
      */
     fallbackSort?: {
       /**
+       * Specifies the sorting method.
+       */
+      type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+      /**
        * Specifies whether to sort items in ascending or descending order.
        */
       order?: 'asc' | 'desc';
-      /**
-       * Specifies the sorting method.
-       */
-      type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
     };
+    /**
+     * Specifies the sorting method.
+     */
+    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
     /**
      * Specifies whether to trim, remove, or keep special characters before sorting.
      */
@@ -1419,49 +2807,28 @@ export namespace SortNamedExports {
      */
     order?: 'asc' | 'desc';
     /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-    /**
-     * [DEPRECATED] Specifies top-level groups.
-     */
-    groupKind?: 'mixed' | 'values-first' | 'types-first';
-    /**
-     * Controls whether to ignore alias names.
-     */
-    ignoreAlias?: boolean;
-    /**
      * Defines custom groups to match specific members.
      */
     customGroups?: (
       | {
-          newlinesInside?: ('always' | 'never') | number;
           /**
            * Fallback sort order.
            */
           fallbackSort?: {
             /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
              * Specifies the sorting method.
              */
-            type?:
+            type:
               | 'alphabetical'
               | 'natural'
               | 'line-length'
               | 'custom'
               | 'unsorted';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
           };
-          /**
-           * Custom group name.
-           */
-          groupName: string;
-          /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
           /**
            * Specifies the sorting method.
            */
@@ -1471,75 +2838,120 @@ export namespace SortNamedExports {
             | 'line-length'
             | 'custom'
             | 'unsorted';
-          anyOf?: {
-            /**
-             * Modifier filters.
-             */
-            modifiers?: ('value' | 'type')[];
-            /**
-             * Selector filter.
-             */
-            selector?: 'export';
-            /**
-             * Regular expression.
-             */
-            elementNamePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
-          }[];
+          /**
+           * Custom group name.
+           */
+          groupName: string;
+          newlinesInside?: 'ignore' | number;
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          /**
+           * @minItems 1
+           */
+          anyOf: [
+            {
+              /**
+               * Regular expression.
+               */
+              elementNamePattern?:
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  )[]
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  );
+              /**
+               * Modifier filters.
+               */
+              modifiers?: ('value' | 'type')[];
+              /**
+               * Selector filter.
+               */
+              selector?: 'export';
+            },
+            ...{
+              /**
+               * Regular expression.
+               */
+              elementNamePattern?:
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  )[]
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  );
+              /**
+               * Modifier filters.
+               */
+              modifiers?: ('value' | 'type')[];
+              /**
+               * Selector filter.
+               */
+              selector?: 'export';
+            }[],
+          ];
         }
       | {
-          newlinesInside?: ('always' | 'never') | number;
           /**
            * Fallback sort order.
            */
           fallbackSort?: {
             /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
              * Specifies the sorting method.
              */
-            type?:
+            type:
               | 'alphabetical'
               | 'natural'
               | 'line-length'
               | 'custom'
               | 'unsorted';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
           };
-          /**
-           * Custom group name.
-           */
-          groupName: string;
-          /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
           /**
            * Specifies the sorting method.
            */
@@ -1550,13 +2962,14 @@ export namespace SortNamedExports {
             | 'custom'
             | 'unsorted';
           /**
-           * Modifier filters.
+           * Custom group name.
            */
-          modifiers?: ('value' | 'type')[];
+          groupName: string;
+          newlinesInside?: 'ignore' | number;
           /**
-           * Selector filter.
+           * Specifies whether to sort items in ascending or descending order.
            */
-          selector?: 'export';
+          order?: 'asc' | 'desc';
           /**
            * Regular expression.
            */
@@ -1587,8 +3000,71 @@ export namespace SortNamedExports {
                   }
                 | string
               );
+          /**
+           * Modifier filters.
+           */
+          modifiers?: ('value' | 'type')[];
+          /**
+           * Selector filter.
+           */
+          selector?: 'export';
         }
     )[];
+    newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+    /**
+     * Specifies a list of groups for sorting.
+     */
+    groups?: (
+      | string
+      | [string, ...string[]]
+      | {
+          newlinesBetween: 'ignore' | number;
+        }
+      | {
+          group: string | [string, ...string[]];
+          /**
+           * Fallback sort order.
+           */
+          fallbackSort?: {
+            /**
+             * Specifies the sorting method.
+             */
+            type:
+              | 'alphabetical'
+              | 'natural'
+              | 'line-length'
+              | 'custom'
+              | 'unsorted';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
+          };
+          /**
+           * Specifies a comment to enforce above the group.
+           */
+          commentAbove?: string;
+          /**
+           * Specifies the sorting method.
+           */
+          type?:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          newlinesInside?: 'ignore' | number;
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        }
+    )[];
+    newlinesBetween?: 'ignore' | number;
+    /**
+     * Controls whether to ignore alias names.
+     */
+    ignoreAlias?: boolean;
     /**
      * Enables the use of comments to separate the nodes into logical groups.
      */
@@ -1694,21 +3170,6 @@ export namespace SortNamedExports {
      * Enables the use of newlines to separate the nodes into logical groups.
      */
     partitionByNewLine?: boolean;
-    newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-    /**
-     * Specifies a list of groups for sorting.
-     */
-    groups?: (
-      | string
-      | string[]
-      | {
-          newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-          /**
-           * Specifies a comment to enforce above the group.
-           */
-          commentAbove?: string;
-        }
-    )[];
   }[];
 
   export type SortNamedExportsRuleConfig = SortNamedExportsOption;
@@ -1720,15 +3181,19 @@ export type SortObjectTypesOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
     sortBy?: 'name' | 'value';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -1749,211 +3214,55 @@ export type SortObjectTypesOption = {
    * Specifies whether to sort items in ascending or descending order.
    */
   order?: 'asc' | 'desc';
+  sortBy?: 'name' | 'value';
   /**
-   * Specifies the sorting method.
+   * Defines custom groups to match specific members.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  customGroups?:
+  customGroups?: (
     | {
-        [k: string]: string | string[];
-      }
-    | (
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-              sortBy?: 'name' | 'value';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            anyOf?: {
-              /**
-               * Modifier filters.
-               */
-              modifiers?: ('optional' | 'required' | 'multiline')[];
-              /**
-               * Selector filter.
-               */
-              selector?:
-                | 'index-signature'
-                | 'member'
-                | 'method'
-                | 'multiline'
-                | 'property';
-              /**
-               * Regular expression.
-               */
-              elementValuePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-              /**
-               * Regular expression.
-               */
-              elementNamePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-              sortBy?: 'name' | 'value';
-            }[];
-          }
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-              sortBy?: 'name' | 'value';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            /**
-             * Modifier filters.
-             */
-            modifiers?: ('optional' | 'required' | 'multiline')[];
-            /**
-             * Selector filter.
-             */
-            selector?:
-              | 'index-signature'
-              | 'member'
-              | 'method'
-              | 'multiline'
-              | 'property';
-            /**
-             * Regular expression.
-             */
-            elementValuePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
             /**
              * Regular expression.
              */
@@ -1984,13 +3293,279 @@ export type SortObjectTypesOption = {
                     }
                   | string
                 );
-            sortBy?: 'name' | 'value';
-          }
-      )[];
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('optional' | 'required' | 'multiline')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'index-signature' | 'member' | 'method' | 'property';
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('optional' | 'required' | 'multiline')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'index-signature' | 'member' | 'method' | 'property';
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+        /**
+         * Modifier filters.
+         */
+        modifiers?: ('optional' | 'required' | 'multiline')[];
+        /**
+         * Selector filter.
+         */
+        selector?: 'index-signature' | 'member' | 'method' | 'property';
+        /**
+         * Regular expression.
+         */
+        elementValuePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
   /**
-   * [DEPRECATED] Specifies top-level groups.
+   * Specifies a list of groups for sorting.
    */
-  groupKind?: 'mixed' | 'required-first' | 'optional-first';
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Specifies filters to match a particular options configuration for a given element to sort.
    */
@@ -2026,11 +3601,16 @@ export type SortObjectTypesOption = {
           | string
         );
     /**
+     * Specifies whether to only match types that have exclusively numeric keys.
+     */
+    hasNumericKeysOnly?: boolean;
+    /**
      * Regular expression.
      */
-    declarationMatchesPattern?:
+    declarationCommentMatchesPattern?:
       | (
           | {
+              scope?: 'shallow' | 'deep';
               /**
                * Regular expression pattern.
                */
@@ -2044,6 +3624,39 @@ export type SortObjectTypesOption = {
         )[]
       | (
           | {
+              scope?: 'shallow' | 'deep';
+              /**
+               * Regular expression pattern.
+               */
+              pattern: string;
+              /**
+               * Regular expression flags.
+               */
+              flags?: string;
+            }
+          | string
+        );
+    /**
+     * Regular expression.
+     */
+    declarationMatchesPattern?:
+      | (
+          | {
+              scope?: 'shallow' | 'deep';
+              /**
+               * Regular expression pattern.
+               */
+              pattern: string;
+              /**
+               * Regular expression flags.
+               */
+              flags?: string;
+            }
+          | string
+        )[]
+      | (
+          | {
+              scope?: 'shallow' | 'deep';
               /**
                * Regular expression pattern.
                */
@@ -2161,52 +3774,6 @@ export type SortObjectTypesOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Regular expression.
-   */
-  ignorePattern?:
-    | (
-        | {
-            /**
-             * Regular expression pattern.
-             */
-            pattern: string;
-            /**
-             * Regular expression flags.
-             */
-            flags?: string;
-          }
-        | string
-      )[]
-    | (
-        | {
-            /**
-             * Regular expression pattern.
-             */
-            pattern: string;
-            /**
-             * Regular expression flags.
-             */
-            flags?: string;
-          }
-        | string
-      );
-  sortBy?: 'name' | 'value';
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export type SortUnionTypesOption = {
@@ -2215,14 +3782,18 @@ export type SortUnionTypesOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -2244,41 +3815,28 @@ export type SortUnionTypesOption = {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
    * Defines custom groups to match specific members.
    */
   customGroups?: (
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -2288,83 +3846,136 @@ export type SortUnionTypesOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted';
-        anyOf?: {
-          /**
-           * Selector filter.
-           */
-          selector?:
-            | 'intersection'
-            | 'conditional'
-            | 'function'
-            | 'operator'
-            | 'keyword'
-            | 'literal'
-            | 'nullish'
-            | 'import'
-            | 'object'
-            | 'named'
-            | 'tuple'
-            | 'union';
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-        }[];
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?:
+              | 'intersection'
+              | 'conditional'
+              | 'function'
+              | 'operator'
+              | 'keyword'
+              | 'literal'
+              | 'nullish'
+              | 'import'
+              | 'object'
+              | 'named'
+              | 'tuple'
+              | 'union';
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?:
+              | 'intersection'
+              | 'conditional'
+              | 'function'
+              | 'operator'
+              | 'keyword'
+              | 'literal'
+              | 'nullish'
+              | 'import'
+              | 'object'
+              | 'named'
+              | 'tuple'
+              | 'union';
+          }[],
+        ];
       }
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -2375,21 +3986,14 @@ export type SortUnionTypesOption = {
           | 'custom'
           | 'unsorted';
         /**
-         * Selector filter.
+         * Custom group name.
          */
-        selector?:
-          | 'intersection'
-          | 'conditional'
-          | 'function'
-          | 'operator'
-          | 'keyword'
-          | 'literal'
-          | 'nullish'
-          | 'import'
-          | 'object'
-          | 'named'
-          | 'tuple'
-          | 'union';
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
         /**
          * Regular expression.
          */
@@ -2420,8 +4024,75 @@ export type SortUnionTypesOption = {
                 }
               | string
             );
+        /**
+         * Selector filter.
+         */
+        selector?:
+          | 'intersection'
+          | 'conditional'
+          | 'function'
+          | 'operator'
+          | 'keyword'
+          | 'literal'
+          | 'nullish'
+          | 'import'
+          | 'object'
+          | 'named'
+          | 'tuple'
+          | 'union';
       }
   )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
@@ -2527,21 +4198,6 @@ export type SortUnionTypesOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export interface SortSwitchCaseOption {
@@ -2550,14 +4206,18 @@ export interface SortSwitchCaseOption {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -2578,26 +4238,26 @@ export interface SortSwitchCaseOption {
    * Specifies whether to sort items in ascending or descending order.
    */
   order?: 'asc' | 'desc';
-  /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
 }
 
-export interface SortDecoratorsOption {
+export type SortDecoratorsOption = {
   /**
    * Fallback sort order.
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -2619,9 +4279,236 @@ export interface SortDecoratorsOption {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
+   * Defines custom groups to match specific members.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  customGroups?: (
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Controls whether sorting should be enabled for method parameter decorators.
    */
@@ -2744,26 +4631,10 @@ export interface SortDecoratorsOption {
             );
       };
   /**
-   * Specifies custom groups.
+   * Enables the use of newlines to separate the nodes into logical groups.
    */
-  customGroups?: {
-    [k: string]: string | string[];
-  };
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
-}
+  partitionByNewLine?: boolean;
+}[];
 
 export type SortInterfacesOption = {
   /**
@@ -2771,15 +4642,19 @@ export type SortInterfacesOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
     sortBy?: 'name' | 'value';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -2800,211 +4675,55 @@ export type SortInterfacesOption = {
    * Specifies whether to sort items in ascending or descending order.
    */
   order?: 'asc' | 'desc';
+  sortBy?: 'name' | 'value';
   /**
-   * Specifies the sorting method.
+   * Defines custom groups to match specific members.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  customGroups?:
+  customGroups?: (
     | {
-        [k: string]: string | string[];
-      }
-    | (
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-              sortBy?: 'name' | 'value';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            anyOf?: {
-              /**
-               * Modifier filters.
-               */
-              modifiers?: ('optional' | 'required' | 'multiline')[];
-              /**
-               * Selector filter.
-               */
-              selector?:
-                | 'index-signature'
-                | 'member'
-                | 'method'
-                | 'multiline'
-                | 'property';
-              /**
-               * Regular expression.
-               */
-              elementValuePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-              /**
-               * Regular expression.
-               */
-              elementNamePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-              sortBy?: 'name' | 'value';
-            }[];
-          }
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-              sortBy?: 'name' | 'value';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            /**
-             * Modifier filters.
-             */
-            modifiers?: ('optional' | 'required' | 'multiline')[];
-            /**
-             * Selector filter.
-             */
-            selector?:
-              | 'index-signature'
-              | 'member'
-              | 'method'
-              | 'multiline'
-              | 'property';
-            /**
-             * Regular expression.
-             */
-            elementValuePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
             /**
              * Regular expression.
              */
@@ -3035,13 +4754,279 @@ export type SortInterfacesOption = {
                     }
                   | string
                 );
-            sortBy?: 'name' | 'value';
-          }
-      )[];
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('optional' | 'required' | 'multiline')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'index-signature' | 'member' | 'method' | 'property';
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('optional' | 'required' | 'multiline')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'index-signature' | 'member' | 'method' | 'property';
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+        /**
+         * Modifier filters.
+         */
+        modifiers?: ('optional' | 'required' | 'multiline')[];
+        /**
+         * Selector filter.
+         */
+        selector?: 'index-signature' | 'member' | 'method' | 'property';
+        /**
+         * Regular expression.
+         */
+        elementValuePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
   /**
-   * [DEPRECATED] Specifies top-level groups.
+   * Specifies a list of groups for sorting.
    */
-  groupKind?: 'mixed' | 'required-first' | 'optional-first';
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Specifies filters to match a particular options configuration for a given element to sort.
    */
@@ -3077,11 +5062,16 @@ export type SortInterfacesOption = {
           | string
         );
     /**
+     * Specifies whether to only match types that have exclusively numeric keys.
+     */
+    hasNumericKeysOnly?: boolean;
+    /**
      * Regular expression.
      */
-    declarationMatchesPattern?:
+    declarationCommentMatchesPattern?:
       | (
           | {
+              scope?: 'shallow' | 'deep';
               /**
                * Regular expression pattern.
                */
@@ -3095,6 +5085,39 @@ export type SortInterfacesOption = {
         )[]
       | (
           | {
+              scope?: 'shallow' | 'deep';
+              /**
+               * Regular expression pattern.
+               */
+              pattern: string;
+              /**
+               * Regular expression flags.
+               */
+              flags?: string;
+            }
+          | string
+        );
+    /**
+     * Regular expression.
+     */
+    declarationMatchesPattern?:
+      | (
+          | {
+              scope?: 'shallow' | 'deep';
+              /**
+               * Regular expression pattern.
+               */
+              pattern: string;
+              /**
+               * Regular expression flags.
+               */
+              flags?: string;
+            }
+          | string
+        )[]
+      | (
+          | {
+              scope?: 'shallow' | 'deep';
               /**
                * Regular expression pattern.
                */
@@ -3212,52 +5235,6 @@ export type SortInterfacesOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Regular expression.
-   */
-  ignorePattern?:
-    | (
-        | {
-            /**
-             * Regular expression pattern.
-             */
-            pattern: string;
-            /**
-             * Regular expression flags.
-             */
-            flags?: string;
-          }
-        | string
-      )[]
-    | (
-        | {
-            /**
-             * Regular expression pattern.
-             */
-            pattern: string;
-            /**
-             * Regular expression flags.
-             */
-            flags?: string;
-          }
-        | string
-      );
-  sortBy?: 'name' | 'value';
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export type SortJsxPropsOption = {
@@ -3266,14 +5243,18 @@ export type SortJsxPropsOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -3295,197 +5276,51 @@ export type SortJsxPropsOption = {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
+   * Defines custom groups to match specific members.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  customGroups?:
+  customGroups?: (
     | {
-        [k: string]: string | string[];
-      }
-    | (
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            anyOf?: {
-              /**
-               * Modifier filters.
-               */
-              modifiers?: ('shorthand' | 'multiline')[];
-              /**
-               * Selector filter.
-               */
-              selector?: 'multiline' | 'prop' | 'shorthand';
-              /**
-               * Regular expression.
-               */
-              elementValuePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-              /**
-               * Regular expression.
-               */
-              elementNamePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-            }[];
-          }
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            /**
-             * Modifier filters.
-             */
-            modifiers?: ('shorthand' | 'multiline')[];
-            /**
-             * Selector filter.
-             */
-            selector?: 'multiline' | 'prop' | 'shorthand';
-            /**
-             * Regular expression.
-             */
-            elementValuePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
             /**
              * Regular expression.
              */
@@ -3516,8 +5351,275 @@ export type SortJsxPropsOption = {
                     }
                   | string
                 );
-          }
-      )[];
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('shorthand' | 'multiline')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'prop';
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('shorthand' | 'multiline')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'prop';
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+        /**
+         * Modifier filters.
+         */
+        modifiers?: ('shorthand' | 'multiline')[];
+        /**
+         * Selector filter.
+         */
+        selector?: 'prop';
+        /**
+         * Regular expression.
+         */
+        elementValuePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Specifies filters to match a particular options configuration for a given element to sort.
    */
@@ -3587,51 +5689,6 @@ export type SortJsxPropsOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Regular expression.
-   */
-  ignorePattern?:
-    | (
-        | {
-            /**
-             * Regular expression pattern.
-             */
-            pattern: string;
-            /**
-             * Regular expression flags.
-             */
-            flags?: string;
-          }
-        | string
-      )[]
-    | (
-        | {
-            /**
-             * Regular expression pattern.
-             */
-            pattern: string;
-            /**
-             * Regular expression flags.
-             */
-            flags?: string;
-          }
-        | string
-      );
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export namespace SortModules {
@@ -3641,14 +5698,30 @@ export namespace SortModules {
      */
     fallbackSort?: {
       /**
+       * Specifies the sorting method.
+       */
+      type:
+        | 'alphabetical'
+        | 'natural'
+        | 'line-length'
+        | 'custom'
+        | 'unsorted'
+        | 'usage';
+      /**
        * Specifies whether to sort items in ascending or descending order.
        */
       order?: 'asc' | 'desc';
-      /**
-       * Specifies the sorting method.
-       */
-      type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
     };
+    /**
+     * Specifies the sorting method.
+     */
+    type?:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'usage';
     /**
      * Specifies whether to trim, remove, or keep special characters before sorting.
      */
@@ -3670,41 +5743,29 @@ export namespace SortModules {
      */
     order?: 'asc' | 'desc';
     /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-    /**
      * Defines custom groups to match specific members.
      */
     customGroups?: (
       | {
-          newlinesInside?: ('always' | 'never') | number;
           /**
            * Fallback sort order.
            */
           fallbackSort?: {
             /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
              * Specifies the sorting method.
              */
-            type?:
+            type:
               | 'alphabetical'
               | 'natural'
               | 'line-length'
               | 'custom'
-              | 'unsorted';
+              | 'unsorted'
+              | 'usage';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
           };
-          /**
-           * Custom group name.
-           */
-          groupName: string;
-          /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
           /**
            * Specifies the sorting method.
            */
@@ -3713,112 +5774,195 @@ export namespace SortModules {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
-          anyOf?: {
-            /**
-             * Modifier filters.
-             */
-            modifiers?: (
-              | 'async'
-              | 'declare'
-              | 'decorated'
-              | 'default'
-              | 'export'
-            )[];
-            /**
-             * Selector filter.
-             */
-            selector?: 'enum' | 'function' | 'interface' | 'type' | 'class';
-            /**
-             * Regular expression.
-             */
-            decoratorNamePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
-            /**
-             * Regular expression.
-             */
-            elementNamePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
-          }[];
+            | 'unsorted'
+            | 'usage';
+          /**
+           * Custom group name.
+           */
+          groupName: string;
+          newlinesInside?: 'ignore' | number;
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          /**
+           * @minItems 1
+           */
+          anyOf: [
+            {
+              /**
+               * Regular expression.
+               */
+              elementNamePattern?:
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  )[]
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  );
+              /**
+               * Modifier filters.
+               */
+              modifiers?: (
+                | 'async'
+                | 'declare'
+                | 'decorated'
+                | 'default'
+                | 'export'
+              )[];
+              /**
+               * Selector filter.
+               */
+              selector?: 'enum' | 'function' | 'interface' | 'type' | 'class';
+              /**
+               * Regular expression.
+               */
+              decoratorNamePattern?:
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  )[]
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  );
+            },
+            ...{
+              /**
+               * Regular expression.
+               */
+              elementNamePattern?:
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  )[]
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  );
+              /**
+               * Modifier filters.
+               */
+              modifiers?: (
+                | 'async'
+                | 'declare'
+                | 'decorated'
+                | 'default'
+                | 'export'
+              )[];
+              /**
+               * Selector filter.
+               */
+              selector?: 'enum' | 'function' | 'interface' | 'type' | 'class';
+              /**
+               * Regular expression.
+               */
+              decoratorNamePattern?:
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  )[]
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  );
+            }[],
+          ];
         }
       | {
-          newlinesInside?: ('always' | 'never') | number;
           /**
            * Fallback sort order.
            */
           fallbackSort?: {
             /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
              * Specifies the sorting method.
              */
-            type?:
+            type:
               | 'alphabetical'
               | 'natural'
               | 'line-length'
               | 'custom'
-              | 'unsorted';
+              | 'unsorted'
+              | 'usage';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
           };
-          /**
-           * Custom group name.
-           */
-          groupName: string;
-          /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
           /**
            * Specifies the sorting method.
            */
@@ -3827,7 +5971,47 @@ export namespace SortModules {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'usage';
+          /**
+           * Custom group name.
+           */
+          groupName: string;
+          newlinesInside?: 'ignore' | number;
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          /**
+           * Regular expression.
+           */
+          elementNamePattern?:
+            | (
+                | {
+                    /**
+                     * Regular expression pattern.
+                     */
+                    pattern: string;
+                    /**
+                     * Regular expression flags.
+                     */
+                    flags?: string;
+                  }
+                | string
+              )[]
+            | (
+                | {
+                    /**
+                     * Regular expression pattern.
+                     */
+                    pattern: string;
+                    /**
+                     * Regular expression flags.
+                     */
+                    flags?: string;
+                  }
+                | string
+              );
           /**
            * Modifier filters.
            */
@@ -3872,38 +6056,61 @@ export namespace SortModules {
                   }
                 | string
               );
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
         }
     )[];
+    newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+    /**
+     * Specifies a list of groups for sorting.
+     */
+    groups?: (
+      | string
+      | [string, ...string[]]
+      | {
+          newlinesBetween: 'ignore' | number;
+        }
+      | {
+          group: string | [string, ...string[]];
+          /**
+           * Fallback sort order.
+           */
+          fallbackSort?: {
+            /**
+             * Specifies the sorting method.
+             */
+            type:
+              | 'alphabetical'
+              | 'natural'
+              | 'line-length'
+              | 'custom'
+              | 'unsorted'
+              | 'usage';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
+          };
+          /**
+           * Specifies a comment to enforce above the group.
+           */
+          commentAbove?: string;
+          /**
+           * Specifies the sorting method.
+           */
+          type?:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted'
+            | 'usage';
+          newlinesInside?: 'ignore' | number;
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        }
+    )[];
+    newlinesBetween?: 'ignore' | number;
     /**
      * Enables the use of comments to separate the nodes into logical groups.
      */
@@ -4009,21 +6216,6 @@ export namespace SortModules {
      * Enables the use of newlines to separate the nodes into logical groups.
      */
     partitionByNewLine?: boolean;
-    newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-    /**
-     * Specifies a list of groups for sorting.
-     */
-    groups?: (
-      | string
-      | string[]
-      | {
-          newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-          /**
-           * Specifies a comment to enforce above the group.
-           */
-          commentAbove?: string;
-        }
-    )[];
   }
 
   export type SortModulesRuleConfig = [SortModulesOption?];
@@ -4035,14 +6227,18 @@ export interface SortClassesOption {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -4064,41 +6260,28 @@ export interface SortClassesOption {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
    * Defines custom groups to match specific members.
    */
   customGroups?: (
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -4108,156 +6291,282 @@ export interface SortClassesOption {
           | 'line-length'
           | 'custom'
           | 'unsorted';
-        anyOf?: {
-          /**
-           * Modifier filters.
-           */
-          modifiers?: (
-            | 'async'
-            | 'protected'
-            | 'private'
-            | 'public'
-            | 'static'
-            | 'abstract'
-            | 'override'
-            | 'readonly'
-            | 'decorated'
-            | 'declare'
-            | 'optional'
-          )[];
-          /**
-           * Selector filter.
-           */
-          selector?:
-            | 'accessor-property'
-            | 'index-signature'
-            | 'constructor'
-            | 'static-block'
-            | 'get-method'
-            | 'set-method'
-            | 'function-property'
-            | 'property'
-            | 'method';
-          /**
-           * Regular expression.
-           */
-          decoratorNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-          /**
-           * Regular expression.
-           */
-          elementValuePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-        }[];
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: (
+              | 'async'
+              | 'protected'
+              | 'private'
+              | 'public'
+              | 'static'
+              | 'abstract'
+              | 'override'
+              | 'readonly'
+              | 'decorated'
+              | 'declare'
+              | 'optional'
+            )[];
+            /**
+             * Selector filter.
+             */
+            selector?:
+              | 'accessor-property'
+              | 'index-signature'
+              | 'constructor'
+              | 'static-block'
+              | 'get-method'
+              | 'set-method'
+              | 'function-property'
+              | 'property'
+              | 'method';
+            /**
+             * Regular expression.
+             */
+            decoratorNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: (
+              | 'async'
+              | 'protected'
+              | 'private'
+              | 'public'
+              | 'static'
+              | 'abstract'
+              | 'override'
+              | 'readonly'
+              | 'decorated'
+              | 'declare'
+              | 'optional'
+            )[];
+            /**
+             * Selector filter.
+             */
+            selector?:
+              | 'accessor-property'
+              | 'index-signature'
+              | 'constructor'
+              | 'static-block'
+              | 'get-method'
+              | 'set-method'
+              | 'function-property'
+              | 'property'
+              | 'method';
+            /**
+             * Regular expression.
+             */
+            decoratorNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
       }
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -4267,6 +6576,45 @@ export interface SortClassesOption {
           | 'line-length'
           | 'custom'
           | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
         /**
          * Modifier filters.
          */
@@ -4356,38 +6704,59 @@ export interface SortClassesOption {
                 }
               | string
             );
-        /**
-         * Regular expression.
-         */
-        elementNamePattern?:
-          | (
-              | {
-                  /**
-                   * Regular expression pattern.
-                   */
-                  pattern: string;
-                  /**
-                   * Regular expression flags.
-                   */
-                  flags?: string;
-                }
-              | string
-            )[]
-          | (
-              | {
-                  /**
-                   * Regular expression pattern.
-                   */
-                  pattern: string;
-                  /**
-                   * Regular expression flags.
-                   */
-                  flags?: string;
-                }
-              | string
-            );
       }
   )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Regular expression.
    */
@@ -4523,21 +6892,6 @@ export interface SortClassesOption {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }
 
 export type SortImportsOption = {
@@ -4546,14 +6900,31 @@ export type SortImportsOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'type-import-first';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    sortBy?: 'specifier' | 'path';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'type-import-first';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -4574,253 +6945,57 @@ export type SortImportsOption = {
    * Specifies whether to sort items in ascending or descending order.
    */
   order?: 'asc' | 'desc';
+  sortBy?: 'specifier' | 'path';
   /**
-   * Specifies the sorting method.
+   * Defines custom groups to match specific members.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  customGroups?:
+  customGroups?: (
     | {
         /**
-         * Specifies custom groups for value imports.
+         * Fallback sort order.
          */
-        value?: {
-          [k: string]: string | string[];
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted'
+            | 'type-import-first';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'specifier' | 'path';
         };
         /**
-         * Specifies custom groups for type imports.
+         * Specifies the sorting method.
          */
-        type?: {
-          [k: string]: string | string[];
-        };
-      }
-    | (
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            anyOf?: {
-              /**
-               * Modifier filters.
-               */
-              modifiers?: (
-                | 'default'
-                | 'named'
-                | 'require'
-                | 'side-effect'
-                | 'ts-equals'
-                | 'type'
-                | 'value'
-                | 'wildcard'
-              )[];
-              /**
-               * Selector filter.
-               */
-              selector?:
-                | 'side-effect-style'
-                | 'tsconfig-path'
-                | 'side-effect'
-                | 'external'
-                | 'internal'
-                | 'builtin'
-                | 'sibling'
-                | 'subpath'
-                | 'import'
-                | 'parent'
-                | 'index'
-                | 'style'
-                | 'type';
-              /**
-               * Regular expression.
-               */
-              elementValuePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-              /**
-               * Regular expression.
-               */
-              elementNamePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-            }[];
-          }
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            /**
-             * Modifier filters.
-             */
-            modifiers?: (
-              | 'default'
-              | 'named'
-              | 'require'
-              | 'side-effect'
-              | 'ts-equals'
-              | 'type'
-              | 'value'
-              | 'wildcard'
-            )[];
-            /**
-             * Selector filter.
-             */
-            selector?:
-              | 'side-effect-style'
-              | 'tsconfig-path'
-              | 'side-effect'
-              | 'external'
-              | 'internal'
-              | 'builtin'
-              | 'sibling'
-              | 'subpath'
-              | 'import'
-              | 'parent'
-              | 'index'
-              | 'style'
-              | 'type';
-            /**
-             * Regular expression.
-             */
-            elementValuePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted'
+          | 'type-import-first';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'specifier' | 'path';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
             /**
              * Regular expression.
              */
@@ -4851,8 +7026,265 @@ export type SortImportsOption = {
                     }
                   | string
                 );
-          }
-      )[];
+            /**
+             * Modifier filters.
+             */
+            modifiers?: (
+              | 'default'
+              | 'multiline'
+              | 'named'
+              | 'require'
+              | 'side-effect'
+              | 'singleline'
+              | 'ts-equals'
+              | 'type'
+              | 'value'
+              | 'wildcard'
+            )[];
+            /**
+             * Selector filter.
+             */
+            selector?:
+              | 'side-effect-style'
+              | 'tsconfig-path'
+              | 'side-effect'
+              | 'external'
+              | 'internal'
+              | 'builtin'
+              | 'sibling'
+              | 'subpath'
+              | 'import'
+              | 'parent'
+              | 'index'
+              | 'style'
+              | 'type';
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: (
+              | 'default'
+              | 'multiline'
+              | 'named'
+              | 'require'
+              | 'side-effect'
+              | 'singleline'
+              | 'ts-equals'
+              | 'type'
+              | 'value'
+              | 'wildcard'
+            )[];
+            /**
+             * Selector filter.
+             */
+            selector?:
+              | 'side-effect-style'
+              | 'tsconfig-path'
+              | 'side-effect'
+              | 'external'
+              | 'internal'
+              | 'builtin'
+              | 'sibling'
+              | 'subpath'
+              | 'import'
+              | 'parent'
+              | 'index'
+              | 'style'
+              | 'type';
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted'
+            | 'type-import-first';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'specifier' | 'path';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted'
+          | 'type-import-first';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'specifier' | 'path';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+        /**
+         * Modifier filters.
+         */
+        modifiers?: (
+          | 'default'
+          | 'multiline'
+          | 'named'
+          | 'require'
+          | 'side-effect'
+          | 'singleline'
+          | 'ts-equals'
+          | 'type'
+          | 'value'
+          | 'wildcard'
+        )[];
+        /**
+         * Selector filter.
+         */
+        selector?:
+          | 'side-effect-style'
+          | 'tsconfig-path'
+          | 'side-effect'
+          | 'external'
+          | 'internal'
+          | 'builtin'
+          | 'sibling'
+          | 'subpath'
+          | 'import'
+          | 'parent'
+          | 'index'
+          | 'style'
+          | 'type';
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted'
+            | 'type-import-first';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          sortBy?: 'specifier' | 'path';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted'
+          | 'type-import-first';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        sortBy?: 'specifier' | 'path';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   tsconfig?: {
     /**
      * Specifies the tsConfig root directory.
@@ -4875,10 +7307,6 @@ export type SortImportsOption = {
    * Specifies the environment.
    */
   environment?: 'node' | 'bun';
-  /**
-   * Specifies the tsConfig root directory.
-   */
-  tsconfigRootDir?: string;
   /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
@@ -4984,7 +7412,6 @@ export type SortImportsOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
   /**
    * Regular expression.
    */
@@ -5015,20 +7442,6 @@ export type SortImportsOption = {
           }
         | string
       );
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export namespace SortExports {
@@ -5038,14 +7451,18 @@ export namespace SortExports {
      */
     fallbackSort?: {
       /**
+       * Specifies the sorting method.
+       */
+      type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+      /**
        * Specifies whether to sort items in ascending or descending order.
        */
       order?: 'asc' | 'desc';
-      /**
-       * Specifies the sorting method.
-       */
-      type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
     };
+    /**
+     * Specifies the sorting method.
+     */
+    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
     /**
      * Specifies whether to trim, remove, or keep special characters before sorting.
      */
@@ -5067,45 +7484,28 @@ export namespace SortExports {
      */
     order?: 'asc' | 'desc';
     /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-    /**
-     * [DEPRECATED] Specifies top-level groups.
-     */
-    groupKind?: 'mixed' | 'values-first' | 'types-first';
-    /**
      * Defines custom groups to match specific members.
      */
     customGroups?: (
       | {
-          newlinesInside?: ('always' | 'never') | number;
           /**
            * Fallback sort order.
            */
           fallbackSort?: {
             /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
              * Specifies the sorting method.
              */
-            type?:
+            type:
               | 'alphabetical'
               | 'natural'
               | 'line-length'
               | 'custom'
               | 'unsorted';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
           };
-          /**
-           * Custom group name.
-           */
-          groupName: string;
-          /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
           /**
            * Specifies the sorting method.
            */
@@ -5115,75 +7515,134 @@ export namespace SortExports {
             | 'line-length'
             | 'custom'
             | 'unsorted';
-          anyOf?: {
-            /**
-             * Modifier filters.
-             */
-            modifiers?: ('value' | 'type')[];
-            /**
-             * Selector filter.
-             */
-            selector?: 'export';
-            /**
-             * Regular expression.
-             */
-            elementNamePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
-          }[];
+          /**
+           * Custom group name.
+           */
+          groupName: string;
+          newlinesInside?: 'ignore' | number;
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+          /**
+           * @minItems 1
+           */
+          anyOf: [
+            {
+              /**
+               * Regular expression.
+               */
+              elementNamePattern?:
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  )[]
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  );
+              /**
+               * Modifier filters.
+               */
+              modifiers?: (
+                | 'value'
+                | 'type'
+                | 'named'
+                | 'wildcard'
+                | 'multiline'
+                | 'singleline'
+              )[];
+              /**
+               * Selector filter.
+               */
+              selector?: 'export';
+            },
+            ...{
+              /**
+               * Regular expression.
+               */
+              elementNamePattern?:
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  )[]
+                | (
+                    | {
+                        /**
+                         * Regular expression pattern.
+                         */
+                        pattern: string;
+                        /**
+                         * Regular expression flags.
+                         */
+                        flags?: string;
+                      }
+                    | string
+                  );
+              /**
+               * Modifier filters.
+               */
+              modifiers?: (
+                | 'value'
+                | 'type'
+                | 'named'
+                | 'wildcard'
+                | 'multiline'
+                | 'singleline'
+              )[];
+              /**
+               * Selector filter.
+               */
+              selector?: 'export';
+            }[],
+          ];
         }
       | {
-          newlinesInside?: ('always' | 'never') | number;
           /**
            * Fallback sort order.
            */
           fallbackSort?: {
             /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
              * Specifies the sorting method.
              */
-            type?:
+            type:
               | 'alphabetical'
               | 'natural'
               | 'line-length'
               | 'custom'
               | 'unsorted';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
           };
-          /**
-           * Custom group name.
-           */
-          groupName: string;
-          /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
           /**
            * Specifies the sorting method.
            */
@@ -5194,13 +7653,14 @@ export namespace SortExports {
             | 'custom'
             | 'unsorted';
           /**
-           * Modifier filters.
+           * Custom group name.
            */
-          modifiers?: ('value' | 'type')[];
+          groupName: string;
+          newlinesInside?: 'ignore' | number;
           /**
-           * Selector filter.
+           * Specifies whether to sort items in ascending or descending order.
            */
-          selector?: 'export';
+          order?: 'asc' | 'desc';
           /**
            * Regular expression.
            */
@@ -5231,8 +7691,74 @@ export namespace SortExports {
                   }
                 | string
               );
+          /**
+           * Modifier filters.
+           */
+          modifiers?: (
+            | 'value'
+            | 'type'
+            | 'named'
+            | 'wildcard'
+            | 'multiline'
+            | 'singleline'
+          )[];
+          /**
+           * Selector filter.
+           */
+          selector?: 'export';
         }
     )[];
+    newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+    /**
+     * Specifies a list of groups for sorting.
+     */
+    groups?: (
+      | string
+      | [string, ...string[]]
+      | {
+          newlinesBetween: 'ignore' | number;
+        }
+      | {
+          group: string | [string, ...string[]];
+          /**
+           * Fallback sort order.
+           */
+          fallbackSort?: {
+            /**
+             * Specifies the sorting method.
+             */
+            type:
+              | 'alphabetical'
+              | 'natural'
+              | 'line-length'
+              | 'custom'
+              | 'unsorted';
+            /**
+             * Specifies whether to sort items in ascending or descending order.
+             */
+            order?: 'asc' | 'desc';
+          };
+          /**
+           * Specifies a comment to enforce above the group.
+           */
+          commentAbove?: string;
+          /**
+           * Specifies the sorting method.
+           */
+          type?:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          newlinesInside?: 'ignore' | number;
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        }
+    )[];
+    newlinesBetween?: 'ignore' | number;
     /**
      * Enables the use of comments to separate the nodes into logical groups.
      */
@@ -5338,21 +7864,6 @@ export namespace SortExports {
      * Enables the use of newlines to separate the nodes into logical groups.
      */
     partitionByNewLine?: boolean;
-    newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-    /**
-     * Specifies a list of groups for sorting.
-     */
-    groups?: (
-      | string
-      | string[]
-      | {
-          newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-          /**
-           * Specifies a comment to enforce above the group.
-           */
-          commentAbove?: string;
-        }
-    )[];
   }[];
 
   export type SortExportsRuleConfig = SortExportsOption;
@@ -5364,14 +7875,18 @@ export type SortObjectsOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -5393,208 +7908,51 @@ export type SortObjectsOption = {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
+   * Defines custom groups to match specific members.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
-   * Controls whether to sort destructured objects.
-   */
-  destructuredObjects?:
-    | boolean
+  customGroups?: (
     | {
         /**
-         * Controls whether to use groups to sort destructured objects.
+         * Fallback sort order.
          */
-        groups?: boolean;
-      };
-  customGroups?:
-    | {
-        [k: string]: string | string[];
-      }
-    | (
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            anyOf?: {
-              /**
-               * Modifier filters.
-               */
-              modifiers?: ('optional' | 'required' | 'multiline')[];
-              /**
-               * Selector filter.
-               */
-              selector?: 'member' | 'method' | 'multiline' | 'property';
-              /**
-               * Regular expression.
-               */
-              elementValuePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-              /**
-               * Regular expression.
-               */
-              elementNamePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-            }[];
-          }
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            /**
-             * Modifier filters.
-             */
-            modifiers?: ('optional' | 'required' | 'multiline')[];
-            /**
-             * Selector filter.
-             */
-            selector?: 'member' | 'method' | 'multiline' | 'property';
-            /**
-             * Regular expression.
-             */
-            elementValuePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
             /**
              * Regular expression.
              */
@@ -5625,8 +7983,275 @@ export type SortObjectsOption = {
                     }
                   | string
                 );
-          }
-      )[];
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('optional' | 'required' | 'multiline')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'member' | 'method' | 'property';
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Modifier filters.
+             */
+            modifiers?: ('optional' | 'required' | 'multiline')[];
+            /**
+             * Selector filter.
+             */
+            selector?: 'member' | 'method' | 'property';
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+        /**
+         * Modifier filters.
+         */
+        modifiers?: ('optional' | 'required' | 'multiline')[];
+        /**
+         * Selector filter.
+         */
+        selector?: 'member' | 'method' | 'property';
+        /**
+         * Regular expression.
+         */
+        elementValuePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Specifies filters to match a particular options configuration for a given element to sort.
    */
@@ -5662,11 +8287,20 @@ export type SortObjectsOption = {
           | string
         );
     /**
+     * Specifies whether to only match destructured objects or regular objects.
+     */
+    objectType?: 'destructured' | 'non-destructured';
+    /**
+     * Specifies whether to only match objects that have exclusively numeric keys.
+     */
+    hasNumericKeysOnly?: boolean;
+    /**
      * Regular expression.
      */
-    callingFunctionNamePattern?:
+    declarationCommentMatchesPattern?:
       | (
           | {
+              scope?: 'shallow' | 'deep';
               /**
                * Regular expression pattern.
                */
@@ -5680,6 +8314,71 @@ export type SortObjectsOption = {
         )[]
       | (
           | {
+              scope?: 'shallow' | 'deep';
+              /**
+               * Regular expression pattern.
+               */
+              pattern: string;
+              /**
+               * Regular expression flags.
+               */
+              flags?: string;
+            }
+          | string
+        );
+    /**
+     * Regular expression.
+     */
+    callingFunctionNamePattern?:
+      | (
+          | {
+              scope?: 'shallow' | 'deep';
+              /**
+               * Regular expression pattern.
+               */
+              pattern: string;
+              /**
+               * Regular expression flags.
+               */
+              flags?: string;
+            }
+          | string
+        )[]
+      | (
+          | {
+              scope?: 'shallow' | 'deep';
+              /**
+               * Regular expression pattern.
+               */
+              pattern: string;
+              /**
+               * Regular expression flags.
+               */
+              flags?: string;
+            }
+          | string
+        );
+    /**
+     * Regular expression.
+     */
+    declarationMatchesPattern?:
+      | (
+          | {
+              scope?: 'shallow' | 'deep';
+              /**
+               * Regular expression pattern.
+               */
+              pattern: string;
+              /**
+               * Regular expression flags.
+               */
+              flags?: string;
+            }
+          | string
+        )[]
+      | (
+          | {
+              scope?: 'shallow' | 'deep';
               /**
                * Regular expression pattern.
                */
@@ -5692,14 +8391,6 @@ export type SortObjectsOption = {
           | string
         );
   };
-  /**
-   * [DEPRECATED] Controls whether to sort only destructured objects.
-   */
-  destructureOnly?: boolean;
-  /**
-   * Controls whether to sort object declarations.
-   */
-  objectDeclarations?: boolean;
   /**
    * Controls whether to sort styled components.
    */
@@ -5809,51 +8500,6 @@ export type SortObjectsOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Regular expression.
-   */
-  ignorePattern?:
-    | (
-        | {
-            /**
-             * Regular expression pattern.
-             */
-            pattern: string;
-            /**
-             * Regular expression flags.
-             */
-            flags?: string;
-          }
-        | string
-      )[]
-    | (
-        | {
-            /**
-             * Regular expression pattern.
-             */
-            pattern: string;
-            /**
-             * Regular expression flags.
-             */
-            flags?: string;
-          }
-        | string
-      );
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export interface SortEnumsOption {
@@ -5862,14 +8508,18 @@ export interface SortEnumsOption {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -5891,181 +8541,51 @@ export interface SortEnumsOption {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
+   * Defines custom groups to match specific members.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  customGroups?:
+  customGroups?: (
     | {
-        [k: string]: string | string[];
-      }
-    | (
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            anyOf?: {
-              /**
-               * Regular expression.
-               */
-              elementValuePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-              /**
-               * Regular expression.
-               */
-              elementNamePattern?:
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  )[]
-                | (
-                    | {
-                        /**
-                         * Regular expression pattern.
-                         */
-                        pattern: string;
-                        /**
-                         * Regular expression flags.
-                         */
-                        flags?: string;
-                      }
-                    | string
-                  );
-            }[];
-          }
-        | {
-            newlinesInside?: ('always' | 'never') | number;
-            /**
-             * Fallback sort order.
-             */
-            fallbackSort?: {
-              /**
-               * Specifies whether to sort items in ascending or descending order.
-               */
-              order?: 'asc' | 'desc';
-              /**
-               * Specifies the sorting method.
-               */
-              type?:
-                | 'alphabetical'
-                | 'natural'
-                | 'line-length'
-                | 'custom'
-                | 'unsorted';
-            };
-            /**
-             * Custom group name.
-             */
-            groupName: string;
-            /**
-             * Specifies whether to sort items in ascending or descending order.
-             */
-            order?: 'asc' | 'desc';
-            /**
-             * Specifies the sorting method.
-             */
-            type?:
-              | 'alphabetical'
-              | 'natural'
-              | 'line-length'
-              | 'custom'
-              | 'unsorted';
-            /**
-             * Regular expression.
-             */
-            elementValuePattern?:
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                )[]
-              | (
-                  | {
-                      /**
-                       * Regular expression pattern.
-                       */
-                      pattern: string;
-                      /**
-                       * Regular expression flags.
-                       */
-                      flags?: string;
-                    }
-                  | string
-                );
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
             /**
              * Regular expression.
              */
@@ -6096,16 +8616,255 @@ export interface SortEnumsOption {
                     }
                   | string
                 );
-          }
-      )[];
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Regular expression.
+             */
+            elementValuePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
+      }
+    | {
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * Regular expression.
+         */
+        elementNamePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+        /**
+         * Regular expression.
+         */
+        elementValuePattern?:
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            )[]
+          | (
+              | {
+                  /**
+                   * Regular expression pattern.
+                   */
+                  pattern: string;
+                  /**
+                   * Regular expression flags.
+                   */
+                  flags?: string;
+                }
+              | string
+            );
+      }
+  )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
   /**
-   * Will always sort numeric enums by their value regardless of the sort type specified.
+   * Specifies a list of groups for sorting.
    */
-  forceNumericSort?: boolean;
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
-   * Compare enum values instead of names.
+   * Specifies whether to sort enums by value.
    */
-  sortByValue?: boolean;
+  sortByValue?: 'always' | 'ifNumericEnum' | 'never';
   /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
@@ -6211,21 +8970,6 @@ export interface SortEnumsOption {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }
 
 export type SortSetsOption = {
@@ -6234,14 +8978,18 @@ export type SortSetsOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -6263,45 +9011,28 @@ export type SortSetsOption = {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
-   * [DEPRECATED] Specifies top-level groups.
-   */
-  groupKind?: 'mixed' | 'literals-first' | 'spreads-first';
-  /**
    * Defines custom groups to match specific members.
    */
   customGroups?: (
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -6311,71 +9042,112 @@ export type SortSetsOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted';
-        anyOf?: {
-          /**
-           * Selector filter.
-           */
-          selector?: 'literal' | 'spread';
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-        }[];
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?: 'literal' | 'spread';
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+            /**
+             * Selector filter.
+             */
+            selector?: 'literal' | 'spread';
+          }[],
+        ];
       }
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -6386,9 +9158,14 @@ export type SortSetsOption = {
           | 'custom'
           | 'unsorted';
         /**
-         * Selector filter.
+         * Custom group name.
          */
-        selector?: 'literal' | 'spread';
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
         /**
          * Regular expression.
          */
@@ -6419,8 +9196,63 @@ export type SortSetsOption = {
                 }
               | string
             );
+        /**
+         * Selector filter.
+         */
+        selector?: 'literal' | 'spread';
       }
   )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Specifies filters to match a particular options configuration for a given element to sort.
    */
@@ -6561,21 +9393,6 @@ export type SortSetsOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 export type SortMapsOption = {
@@ -6584,14 +9401,18 @@ export type SortMapsOption = {
    */
   fallbackSort?: {
     /**
+     * Specifies the sorting method.
+     */
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    /**
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
-    /**
-     * Specifies the sorting method.
-     */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   };
+  /**
+   * Specifies the sorting method.
+   */
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -6613,41 +9434,28 @@ export type SortMapsOption = {
    */
   order?: 'asc' | 'desc';
   /**
-   * Specifies the sorting method.
-   */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
-  /**
    * Defines custom groups to match specific members.
    */
   customGroups?: (
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -6657,67 +9465,104 @@ export type SortMapsOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted';
-        anyOf?: {
-          /**
-           * Regular expression.
-           */
-          elementNamePattern?:
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              )[]
-            | (
-                | {
-                    /**
-                     * Regular expression pattern.
-                     */
-                    pattern: string;
-                    /**
-                     * Regular expression flags.
-                     */
-                    flags?: string;
-                  }
-                | string
-              );
-        }[];
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+        /**
+         * @minItems 1
+         */
+        anyOf: [
+          {
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          },
+          ...{
+            /**
+             * Regular expression.
+             */
+            elementNamePattern?:
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                )[]
+              | (
+                  | {
+                      /**
+                       * Regular expression pattern.
+                       */
+                      pattern: string;
+                      /**
+                       * Regular expression flags.
+                       */
+                      flags?: string;
+                    }
+                  | string
+                );
+          }[],
+        ];
       }
     | {
-        newlinesInside?: ('always' | 'never') | number;
         /**
          * Fallback sort order.
          */
         fallbackSort?: {
           /**
-           * Specifies whether to sort items in ascending or descending order.
-           */
-          order?: 'asc' | 'desc';
-          /**
            * Specifies the sorting method.
            */
-          type?:
+          type:
             | 'alphabetical'
             | 'natural'
             | 'line-length'
             | 'custom'
             | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
         };
-        /**
-         * Custom group name.
-         */
-        groupName: string;
-        /**
-         * Specifies whether to sort items in ascending or descending order.
-         */
-        order?: 'asc' | 'desc';
         /**
          * Specifies the sorting method.
          */
@@ -6727,6 +9572,15 @@ export type SortMapsOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted';
+        /**
+         * Custom group name.
+         */
+        groupName: string;
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
         /**
          * Regular expression.
          */
@@ -6759,6 +9613,57 @@ export type SortMapsOption = {
             );
       }
   )[];
+  newlinesInside?: ('ignore' | number) | 'newlinesBetween';
+  /**
+   * Specifies a list of groups for sorting.
+   */
+  groups?: (
+    | string
+    | [string, ...string[]]
+    | {
+        newlinesBetween: 'ignore' | number;
+      }
+    | {
+        group: string | [string, ...string[]];
+        /**
+         * Fallback sort order.
+         */
+        fallbackSort?: {
+          /**
+           * Specifies the sorting method.
+           */
+          type:
+            | 'alphabetical'
+            | 'natural'
+            | 'line-length'
+            | 'custom'
+            | 'unsorted';
+          /**
+           * Specifies whether to sort items in ascending or descending order.
+           */
+          order?: 'asc' | 'desc';
+        };
+        /**
+         * Specifies a comment to enforce above the group.
+         */
+        commentAbove?: string;
+        /**
+         * Specifies the sorting method.
+         */
+        type?:
+          | 'alphabetical'
+          | 'natural'
+          | 'line-length'
+          | 'custom'
+          | 'unsorted';
+        newlinesInside?: 'ignore' | number;
+        /**
+         * Specifies whether to sort items in ascending or descending order.
+         */
+        order?: 'asc' | 'desc';
+      }
+  )[];
+  newlinesBetween?: 'ignore' | number;
   /**
    * Specifies filters to match a particular options configuration for a given element to sort.
    */
@@ -6899,21 +9804,6 @@ export type SortMapsOption = {
    * Enables the use of newlines to separate the nodes into logical groups.
    */
   partitionByNewLine?: boolean;
-  newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-  /**
-   * Specifies a list of groups for sorting.
-   */
-  groups?: (
-    | string
-    | string[]
-    | {
-        newlinesBetween?: ('ignore' | 'always' | 'never') | number;
-        /**
-         * Specifies a comment to enforce above the group.
-         */
-        commentAbove?: string;
-      }
-  )[];
 }[];
 
 /**
@@ -6935,11 +9825,25 @@ export interface PerfectionistRules {
   'perfectionist/sort-intersection-types': SortIntersectionTypesOption;
 
   /**
+   * Enforce sorted import attributes.
+   * @preset `perfectionist/recommended-alphabetical-legacy`, `perfectionist/recommended-line-length-legacy`, `perfectionist/recommended-natural-legacy`, `perfectionist/recommended-custom-legacy`, `perfectionist/recommended-alphabetical`, `perfectionist/recommended-line-length`, `perfectionist/recommended-natural`, `perfectionist/recommended-custom`
+   * @see [sort-import-attributes](https://perfectionist.dev/rules/sort-import-attributes)
+   */
+  'perfectionist/sort-import-attributes': SortImportAttributesOption;
+
+  /**
+   * Enforce sorted export attributes.
+   * @preset `perfectionist/recommended-alphabetical-legacy`, `perfectionist/recommended-line-length-legacy`, `perfectionist/recommended-natural-legacy`, `perfectionist/recommended-custom-legacy`, `perfectionist/recommended-alphabetical`, `perfectionist/recommended-line-length`, `perfectionist/recommended-natural`, `perfectionist/recommended-custom`
+   * @see [sort-export-attributes](https://perfectionist.dev/rules/sort-export-attributes)
+   */
+  'perfectionist/sort-export-attributes': SortExportAttributesOption;
+
+  /**
    * Enforce sorted heritage clauses.
    * @preset `perfectionist/recommended-alphabetical-legacy`, `perfectionist/recommended-line-length-legacy`, `perfectionist/recommended-natural-legacy`, `perfectionist/recommended-custom-legacy`, `perfectionist/recommended-alphabetical`, `perfectionist/recommended-line-length`, `perfectionist/recommended-natural`, `perfectionist/recommended-custom`
    * @see [sort-heritage-clauses](https://perfectionist.dev/rules/sort-heritage-clauses)
    */
-  'perfectionist/sort-heritage-clauses': [SortHeritageClausesOption?];
+  'perfectionist/sort-heritage-clauses': SortHeritageClausesOption;
 
   /**
    * Enforce sorted arrays before include method.
@@ -6988,7 +9892,7 @@ export interface PerfectionistRules {
    * @preset `perfectionist/recommended-alphabetical-legacy`, `perfectionist/recommended-line-length-legacy`, `perfectionist/recommended-natural-legacy`, `perfectionist/recommended-custom-legacy`, `perfectionist/recommended-alphabetical`, `perfectionist/recommended-line-length`, `perfectionist/recommended-natural`, `perfectionist/recommended-custom`
    * @see [sort-decorators](https://perfectionist.dev/rules/sort-decorators)
    */
-  'perfectionist/sort-decorators': [SortDecoratorsOption?];
+  'perfectionist/sort-decorators': SortDecoratorsOption;
 
   /**
    * Enforce sorted interface properties.

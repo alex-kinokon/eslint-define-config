@@ -16,6 +16,13 @@ export interface ConsistentVitestViOption {
   fn?: 'vi' | 'vitest';
 }
 
+export interface NoConditionalExpectOption {
+  /**
+   * Enable/disable whether expect.assertions() is taken into account
+   */
+  expectAssertions?: boolean;
+}
+
 export interface NoHooksOption {
   /**
    * This array option controls which Vitest hooks are checked by this rule.
@@ -151,7 +158,7 @@ export interface VitestRules {
    * @preset `vitest/recommended`, `vitest/all`
    * @see [no-conditional-expect](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-conditional-expect.md)
    */
-  'vitest/no-conditional-expect': null;
+  'vitest/no-conditional-expect': [NoConditionalExpectOption?];
 
   /**
    * Disallow conditional tests.
@@ -286,6 +293,13 @@ export interface VitestRules {
    * @see [no-test-return-statement](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-test-return-statement.md)
    */
   'vitest/no-test-return-statement': null;
+
+  /**
+   * Disallow unnecessary async function wrapper for expected promises.
+   * @preset `vitest/recommended`, `vitest/all`
+   * @see [no-unneeded-async-expect-function](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/no-unneeded-async-expect-function.md)
+   */
+  'vitest/no-unneeded-async-expect-function': null;
 
   /**
    * Enforce padding around `afterAll` blocks.
@@ -445,7 +459,11 @@ export interface VitestRules {
    * @preset `vitest/all`
    * @see [prefer-import-in-mock](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-import-in-mock.md)
    */
-  'vitest/prefer-import-in-mock': null;
+  'vitest/prefer-import-in-mock': [
+    {
+      fixable?: boolean;
+    }?,
+  ];
 
   /**
    * Enforce importing Vitest globals.
@@ -467,6 +485,12 @@ export interface VitestRules {
    * @see [prefer-mock-promise-shorthand](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-mock-promise-shorthand.md)
    */
   'vitest/prefer-mock-promise-shorthand': null;
+
+  /**
+   * Prefer mock return shorthands.
+   * @see [prefer-mock-return-shorthand](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-mock-return-shorthand.md)
+   */
+  'vitest/prefer-mock-return-shorthand': null;
 
   /**
    * Enforce including a hint with external snapshots.
@@ -532,6 +556,13 @@ export interface VitestRules {
   'vitest/prefer-to-contain': null;
 
   /**
+   * Suggest using `toHaveBeenCalledTimes()`.
+   * @preset `vitest/all`
+   * @see [prefer-to-have-been-called-times](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-have-been-called-times.md)
+   */
+  'vitest/prefer-to-have-been-called-times': null;
+
+  /**
    * Enforce using toHaveLength().
    * @preset `vitest/all`
    * @see [prefer-to-have-length](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-to-have-length.md)
@@ -569,13 +600,6 @@ export interface VitestRules {
       allowedFunctionCalls?: string[];
     }?,
   ];
-
-  /**
-   * Require usage of import in vi.mock().
-   * @preset `vitest/all`
-   * @see [require-import-vi-mock](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-import-vi-mock.md)
-   */
-  'vitest/require-import-vi-mock': null;
 
   /**
    * Require local Test Context for concurrent snapshot tests.
