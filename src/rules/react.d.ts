@@ -6,6 +6,10 @@ export type JsxShorthandFragmentOption = -1 | 1;
 
 export interface NoUselessFragmentOption {
   /**
+   * Allow empty fragments
+   */
+  allowEmptyFragment?: boolean;
+  /**
    * Allow fragments with a single expression child
    */
   allowExpressions?: boolean;
@@ -30,62 +34,62 @@ export interface NoForbiddenPropsOption {
  */
 export interface ReactRules {
   /**
-   * Prevents dollar signs from being inserted as text nodes before expressions.
+   * Prevents unnecessary dollar signs ('$') from being inserted before an expression in JSX.
    * @see [jsx-dollar](https://eslint-react.xyz/docs/rules/jsx-dollar)
    */
   '@eslint-react/jsx-dollar': null;
 
   /**
-   * Enforces that the 'key' prop is placed before the spread prop in JSX elements.
+   * Enforces that the 'key' prop is placed before the spread prop in JSX elements when using the new JSX transform (automatic runtime).
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [jsx-key-before-spread](https://eslint-react.xyz/docs/rules/jsx-key-before-spread)
    */
   '@eslint-react/jsx-key-before-spread': null;
 
   /**
-   * Prevents comments from being inserted as text nodes.
+   * Prevents comment strings (e.g., beginning with '//' or '/*') from being accidentally inserted into a JSX element's text nodes.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [jsx-no-comment-textnodes](https://eslint-react.xyz/docs/rules/jsx-no-comment-textnodes)
    */
   '@eslint-react/jsx-no-comment-textnodes': null;
 
   /**
-   * Disallow duplicate props in JSX elements.
+   * Disallows duplicate props in JSX elements.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [jsx-no-duplicate-props](https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props)
    */
   '@eslint-react/jsx-no-duplicate-props': null;
 
   /**
-   * Disallows 'IIFE' in JSX elements.
+   * Disallows 'IIFE' in JSX.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [jsx-no-iife](https://eslint-react.xyz/docs/rules/jsx-no-iife)
    */
   '@eslint-react/jsx-no-iife': null;
 
   /**
-   * Disallow undefined variables in JSX.
+   * Prevents using variables in JSX that are not defined in the scope.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [jsx-no-undef](https://eslint-react.xyz/docs/rules/jsx-no-undef)
    */
   '@eslint-react/jsx-no-undef': null;
 
   /**
-   * Enforces shorthand syntax for boolean attributes.
+   * Enforces the use of shorthand syntax for boolean attributes.
    * @preset `@eslint-react/all`, `@eslint-react/off`
    * @see [jsx-shorthand-boolean](https://eslint-react.xyz/docs/rules/jsx-shorthand-boolean)
    */
   '@eslint-react/jsx-shorthand-boolean': [JsxShorthandBooleanOption?];
 
   /**
-   * Enforces shorthand syntax for fragments.
+   * Enforces the use of shorthand syntax for fragments.
    * @preset `@eslint-react/all`, `@eslint-react/off`
    * @see [jsx-shorthand-fragment](https://eslint-react.xyz/docs/rules/jsx-shorthand-fragment)
    */
   '@eslint-react/jsx-shorthand-fragment': [JsxShorthandFragmentOption?];
 
   /**
-   * Marks React variables as used when JSX is used.
+   * Marks React variables as used when JSX is present.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [jsx-uses-react](https://eslint-react.xyz/docs/rules/jsx-uses-react)
    */
@@ -99,140 +103,140 @@ export interface ReactRules {
   '@eslint-react/jsx-uses-vars': null;
 
   /**
-   * Disallow accessing `this.state` inside `setState` calls.
+   * Disallows accessing 'this.state' inside 'setState' calls.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-access-state-in-setstate](https://eslint-react.xyz/docs/rules/no-access-state-in-setstate)
    */
   '@eslint-react/no-access-state-in-setstate': null;
 
   /**
-   * Disallow an item's index in the array as its key.
+   * Disallows using an item's index in the array as its key.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-array-index-key](https://eslint-react.xyz/docs/rules/no-array-index-key)
    */
   '@eslint-react/no-array-index-key': null;
 
   /**
-   * Disallow `Children.count`.
+   * Disallows the use of 'Children.count' from the 'react' package.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-children-count](https://eslint-react.xyz/docs/rules/no-children-count)
    */
   '@eslint-react/no-children-count': null;
 
   /**
-   * Disallow 'Children.forEach'.
+   * Disallows the use of 'Children.forEach' from the 'react' package.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-children-for-each](https://eslint-react.xyz/docs/rules/no-children-for-each)
    */
   '@eslint-react/no-children-for-each': null;
 
   /**
-   * Disallow `Children.map`.
+   * Disallows the use of 'Children.map' from the 'react' package.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-children-map](https://eslint-react.xyz/docs/rules/no-children-map)
    */
   '@eslint-react/no-children-map': null;
 
   /**
-   * Disallow `Children.only`.
+   * Disallows the use of 'Children.only' from the 'react' package.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-children-only](https://eslint-react.xyz/docs/rules/no-children-only)
    */
   '@eslint-react/no-children-only': null;
 
   /**
-   * Disallow passing `children` as a prop.
+   * Disallows passing 'children' as a prop.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-children-prop](https://eslint-react.xyz/docs/rules/no-children-prop)
    */
   '@eslint-react/no-children-prop': null;
 
   /**
-   * Disallow `Children.toArray`.
+   * Disallows the use of 'Children.toArray' from the 'react' package.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-children-to-array](https://eslint-react.xyz/docs/rules/no-children-to-array)
    */
   '@eslint-react/no-children-to-array': null;
 
   /**
-   * Disallow class components except for error boundaries.
+   * Disallows class components except for error boundaries.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-class-component](https://eslint-react.xyz/docs/rules/no-class-component)
    */
   '@eslint-react/no-class-component': null;
 
   /**
-   * Disallow `cloneElement`.
+   * Disallows 'cloneElement'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-clone-element](https://eslint-react.xyz/docs/rules/no-clone-element)
    */
   '@eslint-react/no-clone-element': null;
 
   /**
-   * Replace usages of `componentWillMount` with `UNSAFE_componentWillMount`.
+   * Replaces usage of 'componentWillMount' with 'UNSAFE_componentWillMount'.
    * @preset `@eslint-react/all`, `@eslint-react/no-deprecated`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-component-will-mount](https://eslint-react.xyz/docs/rules/no-component-will-mount)
    */
   '@eslint-react/no-component-will-mount': null;
 
   /**
-   * Replace usages of `componentWillReceiveProps` with `UNSAFE_componentWillReceiveProps`.
+   * Replaces usage of 'componentWillReceiveProps' with 'UNSAFE_componentWillReceiveProps'.
    * @preset `@eslint-react/all`, `@eslint-react/no-deprecated`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-component-will-receive-props](https://eslint-react.xyz/docs/rules/no-component-will-receive-props)
    */
   '@eslint-react/no-component-will-receive-props': null;
 
   /**
-   * Replace usages of `componentWillUpdate` with `UNSAFE_componentWillUpdate`.
+   * Replaces usage of 'componentWillUpdate' with 'UNSAFE_componentWillUpdate'.
    * @preset `@eslint-react/all`, `@eslint-react/no-deprecated`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-component-will-update](https://eslint-react.xyz/docs/rules/no-component-will-update)
    */
   '@eslint-react/no-component-will-update': null;
 
   /**
-   * Replace usages of `<Context.Provider>` with `<Context>`.
+   * Replaces usage of '<Context.Provider>' with '<Context>'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-context-provider](https://eslint-react.xyz/docs/rules/no-context-provider)
    */
   '@eslint-react/no-context-provider': null;
 
   /**
-   * Disallow `createRef` in function components.
+   * Disallows 'createRef' in function components.
    * @preset `@eslint-react/all`, `@eslint-react/no-deprecated`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-create-ref](https://eslint-react.xyz/docs/rules/no-create-ref)
    */
   '@eslint-react/no-create-ref': null;
 
   /**
-   * Disallow `defaultProps` property in favor of ES6 default parameters.
+   * Disallows the 'defaultProps' property in favor of ES6 default parameters.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-default-props](https://eslint-react.xyz/docs/rules/no-default-props)
    */
   '@eslint-react/no-default-props': null;
 
   /**
-   * Disallow direct mutation of `this.state`.
+   * Disallows direct mutation of 'this.state'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-direct-mutation-state](https://eslint-react.xyz/docs/rules/no-direct-mutation-state)
    */
   '@eslint-react/no-direct-mutation-state': null;
 
   /**
-   * Disallow duplicate `key` on elements in the same array or a list of `children`.
+   * Disallows duplicate 'key' on elements in the same array or a list of 'children'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-duplicate-key](https://eslint-react.xyz/docs/rules/no-duplicate-key)
    */
   '@eslint-react/no-duplicate-key': null;
 
   /**
-   * Replaces usages of `forwardRef` with passing `ref` as a prop.
+   * Replaces usage of 'forwardRef' with passing 'ref' as a prop.
    * @preset `@eslint-react/all`, `@eslint-react/no-deprecated`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-forward-ref](https://eslint-react.xyz/docs/rules/no-forward-ref)
    */
   '@eslint-react/no-forward-ref': null;
 
   /**
-   * Prevents `key` from not being explicitly specified (e.g. spreading `key` from objects).
+   * Prevents 'key' from not being explicitly specified (e.g., spreading 'key' from objects).
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-implicit-key](https://eslint-react.xyz/docs/rules/no-implicit-key)
    */
@@ -246,77 +250,77 @@ export interface ReactRules {
   '@eslint-react/no-leaked-conditional-rendering': null;
 
   /**
-   * Enforces that all components have a `displayName` which can be used in devtools.
+   * Enforces that all components have a 'displayName' that can be used in devtools.
    * @preset `@eslint-react/all`, `@eslint-react/off`
    * @see [no-missing-component-display-name](https://eslint-react.xyz/docs/rules/no-missing-component-display-name)
    */
   '@eslint-react/no-missing-component-display-name': null;
 
   /**
-   * Enforces that all contexts have a `displayName` which can be used in devtools.
+   * Enforces that all contexts have a 'displayName' that can be used in devtools.
    * @preset `@eslint-react/all`, `@eslint-react/off`
    * @see [no-missing-context-display-name](https://eslint-react.xyz/docs/rules/no-missing-context-display-name)
    */
   '@eslint-react/no-missing-context-display-name': null;
 
   /**
-   * Disallow missing `key` on items in list rendering.
+   * Disallows missing 'key' on items in list rendering.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-missing-key](https://eslint-react.xyz/docs/rules/no-missing-key)
    */
   '@eslint-react/no-missing-key': null;
 
   /**
-   * Prevents incorrect usage of `captureOwnerStack`.
+   * Prevents incorrect usage of 'captureOwnerStack'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-misused-capture-owner-stack](https://eslint-react.xyz/docs/rules/no-misused-capture-owner-stack)
    */
   '@eslint-react/no-misused-capture-owner-stack': null;
 
   /**
-   * Disallow nesting component definitions inside other components.
+   * Disallows nesting component definitions inside other components.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-nested-component-definitions](https://eslint-react.xyz/docs/rules/no-nested-component-definitions)
    */
   '@eslint-react/no-nested-component-definitions': null;
 
   /**
-   * Disallow nesting lazy component declarations inside other components.
+   * Disallows nesting lazy component declarations inside other components.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-nested-lazy-component-declarations](https://eslint-react.xyz/docs/rules/no-nested-lazy-component-declarations)
    */
   '@eslint-react/no-nested-lazy-component-declarations': null;
 
   /**
-   * Disallow `propTypes` in favor of TypeScript or another type-checking solution.
+   * Disallows 'propTypes' in favor of TypeScript or another type-checking solution.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-prop-types](https://eslint-react.xyz/docs/rules/no-prop-types)
    */
   '@eslint-react/no-prop-types': null;
 
   /**
-   * Disallow `shouldComponentUpdate` when extending `React.PureComponent`.
+   * Disallows 'shouldComponentUpdate' when extending 'React.PureComponent'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-redundant-should-component-update](https://eslint-react.xyz/docs/rules/no-redundant-should-component-update)
    */
   '@eslint-react/no-redundant-should-component-update': null;
 
   /**
-   * Disallow calling `this.setState` in `componentDidMount` outside of functions, such as callbacks.
+   * Disallows calling 'this.setState' in 'componentDidMount' outside functions such as callbacks.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-set-state-in-component-did-mount](https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-mount)
    */
   '@eslint-react/no-set-state-in-component-did-mount': null;
 
   /**
-   * Disallow calling `this.setState` in `componentDidUpdate` outside of functions, such as callbacks.
+   * Disallows calling 'this.setState' in 'componentDidUpdate' outside functions such as callbacks.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-set-state-in-component-did-update](https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-update)
    */
   '@eslint-react/no-set-state-in-component-did-update': null;
 
   /**
-   * Disallow calling `this.setState` in `componentWillUpdate` outside of functions, such as callbacks.
+   * Disallows calling 'this.setState' in 'componentWillUpdate' outside functions such as callbacks.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-set-state-in-component-will-update](https://eslint-react.xyz/docs/rules/no-set-state-in-component-will-update)
    */
@@ -330,56 +334,56 @@ export interface ReactRules {
   '@eslint-react/no-string-refs': null;
 
   /**
-   * Prevents the use of unnecessary `key` props on JSX elements when rendering lists.
+   * Prevents 'key' from being placed on non-top-level elements in list rendering.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-unnecessary-key](https://eslint-react.xyz/docs/rules/no-unnecessary-key)
    */
   '@eslint-react/no-unnecessary-key': null;
 
   /**
-   * Disallow unnecessary usage of `useCallback`.
+   * Disallows unnecessary usage of 'useCallback'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-unnecessary-use-callback](https://eslint-react.xyz/docs/rules/no-unnecessary-use-callback)
    */
   '@eslint-react/no-unnecessary-use-callback': null;
 
   /**
-   * Disallow unnecessary usage of `useMemo`.
+   * Disallows unnecessary usage of 'useMemo'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-unnecessary-use-memo](https://eslint-react.xyz/docs/rules/no-unnecessary-use-memo)
    */
   '@eslint-react/no-unnecessary-use-memo': null;
 
   /**
-   * Enforces that a function with the `use` prefix should use at least one Hook inside of it.
+   * Enforces that a function with the 'use' prefix uses at least one Hook inside it.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-unnecessary-use-prefix](https://eslint-react.xyz/docs/rules/no-unnecessary-use-prefix)
    */
   '@eslint-react/no-unnecessary-use-prefix': null;
 
   /**
-   * Warns the usage of `UNSAFE_componentWillMount` in class components.
+   * Warns about the use of 'UNSAFE_componentWillMount' in class components.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-unsafe-component-will-mount](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-mount)
    */
   '@eslint-react/no-unsafe-component-will-mount': null;
 
   /**
-   * Warns the usage of `UNSAFE_componentWillReceiveProps` in class components.
+   * Warns about the use of 'UNSAFE_componentWillReceiveProps' in class components.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-unsafe-component-will-receive-props](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-receive-props)
    */
   '@eslint-react/no-unsafe-component-will-receive-props': null;
 
   /**
-   * Warns the usage of `UNSAFE_componentWillUpdate` in class components.
+   * Warns about the use of 'UNSAFE_componentWillUpdate' in class components.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-unsafe-component-will-update](https://eslint-react.xyz/docs/rules/no-unsafe-component-will-update)
    */
   '@eslint-react/no-unsafe-component-will-update': null;
 
   /**
-   * Prevents non-stable values (i.e. object literals) from being used as a value for `Context.Provider`.
+   * Prevents non-stable values (i.e., object literals) from being used as a value for 'Context.Provider'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-unstable-context-value](https://eslint-react.xyz/docs/rules/no-unstable-context-value)
    */
@@ -397,42 +401,42 @@ export interface ReactRules {
   ];
 
   /**
-   * Warns unused class component methods and properties.
+   * Warns about unused class component methods and properties.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-unused-class-component-members](https://eslint-react.xyz/docs/rules/no-unused-class-component-members)
    */
   '@eslint-react/no-unused-class-component-members': null;
 
   /**
-   * Warns component props that are defined but never used.
+   * Warns about component props that are defined but never used.
    * @preset `@eslint-react/all`, `@eslint-react/disable-type-checked`, `@eslint-react/off`, `@eslint-react/strict-type-checked`
    * @see [no-unused-props](https://eslint-react.xyz/docs/rules/no-unused-props)
    */
   '@eslint-react/no-unused-props': null;
 
   /**
-   * Warns unused class component state.
+   * Warns about unused class component state.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-unused-state](https://eslint-react.xyz/docs/rules/no-unused-state)
    */
   '@eslint-react/no-unused-state': null;
 
   /**
-   * Replaces usages of `useContext` with `use`.
+   * Replaces usage of 'useContext' with 'use'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-use-context](https://eslint-react.xyz/docs/rules/no-use-context)
    */
   '@eslint-react/no-use-context': null;
 
   /**
-   * Disallow useless `forwardRef` calls on components that don't use `ref`s.
+   * Disallows useless 'forwardRef' calls on components that don't use 'ref's.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [no-useless-forward-ref](https://eslint-react.xyz/docs/rules/no-useless-forward-ref)
    */
   '@eslint-react/no-useless-forward-ref': null;
 
   /**
-   * Disallow useless fragment elements.
+   * Disallows useless fragment elements.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`
    * @see [no-useless-fragment](https://eslint-react.xyz/docs/rules/no-useless-fragment)
    */
@@ -446,7 +450,7 @@ export interface ReactRules {
   '@eslint-react/prefer-destructuring-assignment': null;
 
   /**
-   * Enforces React is imported via a namespace import.
+   * Enforces importing React via a namespace import.
    * @preset `@eslint-react/all`, `@eslint-react/off`
    * @see [prefer-namespace-import](https://eslint-react.xyz/docs/rules/prefer-namespace-import)
    */
@@ -460,14 +464,14 @@ export interface ReactRules {
   '@eslint-react/prefer-read-only-props': null;
 
   /**
-   * Enforces function calls made inside `useState` to be wrapped in an `initializer function`.
+   * Enforces wrapping function calls made inside 'useState' in an 'initializer function'.
    * @preset `@eslint-react/all`, `@eslint-react/off`, `@eslint-react/recommended`, `@eslint-react/recommended-type-checked`, `@eslint-react/recommended-typescript`, `@eslint-react/strict`, `@eslint-react/strict-type-checked`, `@eslint-react/strict-typescript`, `@eslint-react/x`
    * @see [prefer-use-state-lazy-initialization](https://eslint-react.xyz/docs/rules/prefer-use-state-lazy-initialization)
    */
   '@eslint-react/prefer-use-state-lazy-initialization': null;
 
   /**
-   * Disallow certain props on components.
+   * Disallows certain props on components.
    * @deprecated
    * @preset `@eslint-react/all`, `@eslint-react/off`
    * @see [no-forbidden-props](https://eslint-react.xyz/docs/rules/no-forbidden-props)

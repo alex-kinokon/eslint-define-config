@@ -2929,6 +2929,13 @@ export interface TypeScriptRules {
   '@typescript-eslint/no-useless-constructor': null;
 
   /**
+   * Disallow default values that will never be used.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
+   * @see [no-useless-default-assignment](https://typescript-eslint.io/rules/no-useless-default-assignment)
+   */
+  '@typescript-eslint/no-useless-default-assignment': null;
+
+  /**
    * Disallow empty exports that don't change anything in a module file.
    * @preset `@typescript-eslint/all`
    * @see [no-useless-empty-export](https://typescript-eslint.io/rules/no-useless-empty-export)

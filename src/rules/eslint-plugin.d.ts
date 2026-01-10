@@ -125,6 +125,13 @@ export interface EslintPluginRules {
   'eslint-plugin/no-identical-tests': null;
 
   /**
+   * Require suggestions to have different `messageId` than their parent report.
+   * @preset `eslint-plugin/all`, `eslint-plugin/all-type-checked`, `eslint-plugin/rules`
+   * @see [no-matching-violation-suggest-message-ids](https://github.com/eslint-community/eslint-plugin-eslint-plugin/tree/HEAD/docs/rules/no-matching-violation-suggest-message-ids.md)
+   */
+  'eslint-plugin/no-matching-violation-suggest-message-ids': null;
+
+  /**
    * Disallow using the `meta.replacedBy` rule property.
    * @preset `eslint-plugin/all`, `eslint-plugin/all-type-checked`, `eslint-plugin/recommended`, `eslint-plugin/rules`, `eslint-plugin/rules-recommended`
    * @see [no-meta-replaced-by](https://github.com/eslint-community/eslint-plugin-eslint-plugin/tree/HEAD/docs/rules/no-meta-replaced-by.md)

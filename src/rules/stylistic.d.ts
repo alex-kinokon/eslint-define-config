@@ -1526,7 +1526,7 @@ export namespace TypeAnnotationSpacing {
     after?: boolean;
     overrides?: {
       colon?: SpacingConfig;
-      arrow?: SpacingConfig;
+      arrow?: 'ignore' | SpacingConfig;
       variable?: SpacingConfig;
       parameter?: SpacingConfig;
       property?: SpacingConfig;
@@ -1828,6 +1828,7 @@ export interface StylisticRules {
 
   /**
    * Enforce props alphabetical sorting.
+   * @deprecated
    * @see [jsx-sort-props](https://eslint.style/rules/jsx-sort-props)
    */
   'stylistic/jsx-sort-props': [JsxSortPropsOption?];

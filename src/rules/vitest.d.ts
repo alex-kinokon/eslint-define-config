@@ -602,6 +602,13 @@ export interface VitestRules {
   ];
 
   /**
+   * Require tests to declare a timeout.
+   * @preset `vitest/all`
+   * @see [require-test-timeout](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-test-timeout.md)
+   */
+  'vitest/require-test-timeout': null;
+
+  /**
    * Require local Test Context for concurrent snapshot tests.
    * @preset `vitest/recommended`, `vitest/all`
    * @see [require-local-test-context-for-concurrent-snapshots](https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/require-local-test-context-for-concurrent-snapshots.md)

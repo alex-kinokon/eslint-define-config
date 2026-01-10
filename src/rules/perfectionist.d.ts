@@ -8,7 +8,13 @@ export interface SortVariableDeclarationsOption {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -17,7 +23,13 @@ export interface SortVariableDeclarationsOption {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -55,7 +67,8 @@ export interface SortVariableDeclarationsOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -69,7 +82,8 @@ export interface SortVariableDeclarationsOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -170,7 +184,8 @@ export interface SortVariableDeclarationsOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -184,7 +199,8 @@ export interface SortVariableDeclarationsOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -254,7 +270,8 @@ export interface SortVariableDeclarationsOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -272,7 +289,8 @@ export interface SortVariableDeclarationsOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -396,7 +414,13 @@ export type SortIntersectionTypesOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -405,7 +429,13 @@ export type SortIntersectionTypesOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -443,7 +473,8 @@ export type SortIntersectionTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -457,7 +488,8 @@ export type SortIntersectionTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -582,7 +614,8 @@ export type SortIntersectionTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -596,7 +629,8 @@ export type SortIntersectionTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -678,7 +712,8 @@ export type SortIntersectionTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -696,7 +731,8 @@ export type SortIntersectionTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -820,7 +856,13 @@ export type SortImportAttributesOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -829,7 +871,13 @@ export type SortImportAttributesOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -867,7 +915,8 @@ export type SortImportAttributesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -881,7 +930,8 @@ export type SortImportAttributesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -974,7 +1024,8 @@ export type SortImportAttributesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -988,7 +1039,8 @@ export type SortImportAttributesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -1054,7 +1106,8 @@ export type SortImportAttributesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -1072,7 +1125,8 @@ export type SortImportAttributesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -1196,7 +1250,13 @@ export type SortExportAttributesOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -1205,7 +1265,13 @@ export type SortExportAttributesOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -1243,7 +1309,8 @@ export type SortExportAttributesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -1257,7 +1324,8 @@ export type SortExportAttributesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -1350,7 +1418,8 @@ export type SortExportAttributesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -1364,7 +1433,8 @@ export type SortExportAttributesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -1430,7 +1500,8 @@ export type SortExportAttributesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -1448,7 +1519,8 @@ export type SortExportAttributesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -1572,7 +1644,13 @@ export type SortHeritageClausesOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -1581,7 +1659,13 @@ export type SortHeritageClausesOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -1619,7 +1703,8 @@ export type SortHeritageClausesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -1633,7 +1718,8 @@ export type SortHeritageClausesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -1726,7 +1812,8 @@ export type SortHeritageClausesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -1740,7 +1827,8 @@ export type SortHeritageClausesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -1806,7 +1894,8 @@ export type SortHeritageClausesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -1824,7 +1913,8 @@ export type SortHeritageClausesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -1948,7 +2038,13 @@ export type SortArrayIncludesOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -1957,7 +2053,13 @@ export type SortArrayIncludesOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -1995,7 +2097,8 @@ export type SortArrayIncludesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -2009,7 +2112,8 @@ export type SortArrayIncludesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -2110,7 +2214,8 @@ export type SortArrayIncludesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -2124,7 +2229,8 @@ export type SortArrayIncludesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -2194,7 +2300,8 @@ export type SortArrayIncludesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -2212,7 +2319,8 @@ export type SortArrayIncludesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -2371,7 +2479,13 @@ export type SortNamedImportsOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -2380,7 +2494,13 @@ export type SortNamedImportsOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -2418,7 +2538,8 @@ export type SortNamedImportsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -2432,7 +2553,8 @@ export type SortNamedImportsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -2541,7 +2663,8 @@ export type SortNamedImportsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -2555,7 +2678,8 @@ export type SortNamedImportsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -2629,7 +2753,8 @@ export type SortNamedImportsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -2647,7 +2772,8 @@ export type SortNamedImportsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -2776,7 +2902,13 @@ export namespace SortNamedExports {
       /**
        * Specifies the sorting method.
        */
-      type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+      type:
+        | 'alphabetical'
+        | 'natural'
+        | 'line-length'
+        | 'custom'
+        | 'unsorted'
+        | 'subgroup-order';
       /**
        * Specifies whether to sort items in ascending or descending order.
        */
@@ -2785,7 +2917,13 @@ export namespace SortNamedExports {
     /**
      * Specifies the sorting method.
      */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type?:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to trim, remove, or keep special characters before sorting.
      */
@@ -2823,7 +2961,8 @@ export namespace SortNamedExports {
               | 'natural'
               | 'line-length'
               | 'custom'
-              | 'unsorted';
+              | 'unsorted'
+              | 'subgroup-order';
             /**
              * Specifies whether to sort items in ascending or descending order.
              */
@@ -2837,7 +2976,8 @@ export namespace SortNamedExports {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Custom group name.
            */
@@ -2946,7 +3086,8 @@ export namespace SortNamedExports {
               | 'natural'
               | 'line-length'
               | 'custom'
-              | 'unsorted';
+              | 'unsorted'
+              | 'subgroup-order';
             /**
              * Specifies whether to sort items in ascending or descending order.
              */
@@ -2960,7 +3101,8 @@ export namespace SortNamedExports {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Custom group name.
            */
@@ -3034,7 +3176,8 @@ export namespace SortNamedExports {
               | 'natural'
               | 'line-length'
               | 'custom'
-              | 'unsorted';
+              | 'unsorted'
+              | 'subgroup-order';
             /**
              * Specifies whether to sort items in ascending or descending order.
              */
@@ -3052,7 +3195,8 @@ export namespace SortNamedExports {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           newlinesInside?: 'ignore' | number;
           /**
            * Specifies whether to sort items in ascending or descending order.
@@ -3183,7 +3327,13 @@ export type SortObjectTypesOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -3193,7 +3343,13 @@ export type SortObjectTypesOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -3232,7 +3388,8 @@ export type SortObjectTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -3247,7 +3404,8 @@ export type SortObjectTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -3417,7 +3575,8 @@ export type SortObjectTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -3432,7 +3591,8 @@ export type SortObjectTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -3537,7 +3697,8 @@ export type SortObjectTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -3556,7 +3717,8 @@ export type SortObjectTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -3784,7 +3946,13 @@ export type SortUnionTypesOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -3793,7 +3961,13 @@ export type SortUnionTypesOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -3831,7 +4005,8 @@ export type SortUnionTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -3845,7 +4020,8 @@ export type SortUnionTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -3970,7 +4146,8 @@ export type SortUnionTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -3984,7 +4161,8 @@ export type SortUnionTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -4066,7 +4244,8 @@ export type SortUnionTypesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -4084,7 +4263,8 @@ export type SortUnionTypesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -4208,7 +4388,13 @@ export interface SortSwitchCaseOption {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -4217,7 +4403,13 @@ export interface SortSwitchCaseOption {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -4248,7 +4440,13 @@ export type SortDecoratorsOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -4257,7 +4455,13 @@ export type SortDecoratorsOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -4295,7 +4499,8 @@ export type SortDecoratorsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -4309,7 +4514,8 @@ export type SortDecoratorsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -4402,7 +4608,8 @@ export type SortDecoratorsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -4416,7 +4623,8 @@ export type SortDecoratorsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -4482,7 +4690,8 @@ export type SortDecoratorsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -4500,7 +4709,8 @@ export type SortDecoratorsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -4644,7 +4854,13 @@ export type SortInterfacesOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -4654,7 +4870,13 @@ export type SortInterfacesOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -4693,7 +4915,8 @@ export type SortInterfacesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -4708,7 +4931,8 @@ export type SortInterfacesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -4878,7 +5102,8 @@ export type SortInterfacesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -4893,7 +5118,8 @@ export type SortInterfacesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -4998,7 +5224,8 @@ export type SortInterfacesOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -5017,7 +5244,8 @@ export type SortInterfacesOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -5245,7 +5473,13 @@ export type SortJsxPropsOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -5254,7 +5488,13 @@ export type SortJsxPropsOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -5292,7 +5532,8 @@ export type SortJsxPropsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -5306,7 +5547,8 @@ export type SortJsxPropsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -5475,7 +5717,8 @@ export type SortJsxPropsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -5489,7 +5732,8 @@ export type SortJsxPropsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -5593,7 +5837,8 @@ export type SortJsxPropsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -5611,7 +5856,8 @@ export type SortJsxPropsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -5706,6 +5952,7 @@ export namespace SortModules {
         | 'line-length'
         | 'custom'
         | 'unsorted'
+        | 'subgroup-order'
         | 'usage';
       /**
        * Specifies whether to sort items in ascending or descending order.
@@ -5721,6 +5968,7 @@ export namespace SortModules {
       | 'line-length'
       | 'custom'
       | 'unsorted'
+      | 'subgroup-order'
       | 'usage';
     /**
      * Specifies whether to trim, remove, or keep special characters before sorting.
@@ -5760,6 +6008,7 @@ export namespace SortModules {
               | 'line-length'
               | 'custom'
               | 'unsorted'
+              | 'subgroup-order'
               | 'usage';
             /**
              * Specifies whether to sort items in ascending or descending order.
@@ -5775,6 +6024,7 @@ export namespace SortModules {
             | 'line-length'
             | 'custom'
             | 'unsorted'
+            | 'subgroup-order'
             | 'usage';
           /**
            * Custom group name.
@@ -5957,6 +6207,7 @@ export namespace SortModules {
               | 'line-length'
               | 'custom'
               | 'unsorted'
+              | 'subgroup-order'
               | 'usage';
             /**
              * Specifies whether to sort items in ascending or descending order.
@@ -5972,6 +6223,7 @@ export namespace SortModules {
             | 'line-length'
             | 'custom'
             | 'unsorted'
+            | 'subgroup-order'
             | 'usage';
           /**
            * Custom group name.
@@ -6083,6 +6335,7 @@ export namespace SortModules {
               | 'line-length'
               | 'custom'
               | 'unsorted'
+              | 'subgroup-order'
               | 'usage';
             /**
              * Specifies whether to sort items in ascending or descending order.
@@ -6102,6 +6355,7 @@ export namespace SortModules {
             | 'line-length'
             | 'custom'
             | 'unsorted'
+            | 'subgroup-order'
             | 'usage';
           newlinesInside?: 'ignore' | number;
           /**
@@ -6229,7 +6483,13 @@ export interface SortClassesOption {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -6238,7 +6498,13 @@ export interface SortClassesOption {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -6276,7 +6542,8 @@ export interface SortClassesOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -6290,7 +6557,8 @@ export interface SortClassesOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -6561,7 +6829,8 @@ export interface SortClassesOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -6575,7 +6844,8 @@ export interface SortClassesOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -6730,7 +7000,8 @@ export interface SortClassesOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -6748,7 +7019,8 @@ export interface SortClassesOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -6908,6 +7180,7 @@ export type SortImportsOption = {
       | 'line-length'
       | 'custom'
       | 'unsorted'
+      | 'subgroup-order'
       | 'type-import-first';
     /**
      * Specifies whether to sort items in ascending or descending order.
@@ -6924,6 +7197,7 @@ export type SortImportsOption = {
     | 'line-length'
     | 'custom'
     | 'unsorted'
+    | 'subgroup-order'
     | 'type-import-first';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
@@ -6964,6 +7238,7 @@ export type SortImportsOption = {
             | 'line-length'
             | 'custom'
             | 'unsorted'
+            | 'subgroup-order'
             | 'type-import-first';
           /**
            * Specifies whether to sort items in ascending or descending order.
@@ -6980,6 +7255,7 @@ export type SortImportsOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted'
+          | 'subgroup-order'
           | 'type-import-first';
         /**
          * Custom group name.
@@ -7139,6 +7415,7 @@ export type SortImportsOption = {
             | 'line-length'
             | 'custom'
             | 'unsorted'
+            | 'subgroup-order'
             | 'type-import-first';
           /**
            * Specifies whether to sort items in ascending or descending order.
@@ -7155,6 +7432,7 @@ export type SortImportsOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted'
+          | 'subgroup-order'
           | 'type-import-first';
         /**
          * Custom group name.
@@ -7255,6 +7533,7 @@ export type SortImportsOption = {
             | 'line-length'
             | 'custom'
             | 'unsorted'
+            | 'subgroup-order'
             | 'type-import-first';
           /**
            * Specifies whether to sort items in ascending or descending order.
@@ -7275,6 +7554,7 @@ export type SortImportsOption = {
           | 'line-length'
           | 'custom'
           | 'unsorted'
+          | 'subgroup-order'
           | 'type-import-first';
         newlinesInside?: 'ignore' | number;
         /**
@@ -7453,7 +7733,13 @@ export namespace SortExports {
       /**
        * Specifies the sorting method.
        */
-      type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+      type:
+        | 'alphabetical'
+        | 'natural'
+        | 'line-length'
+        | 'custom'
+        | 'unsorted'
+        | 'subgroup-order';
       /**
        * Specifies whether to sort items in ascending or descending order.
        */
@@ -7462,7 +7748,13 @@ export namespace SortExports {
     /**
      * Specifies the sorting method.
      */
-    type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type?:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to trim, remove, or keep special characters before sorting.
      */
@@ -7500,7 +7792,8 @@ export namespace SortExports {
               | 'natural'
               | 'line-length'
               | 'custom'
-              | 'unsorted';
+              | 'unsorted'
+              | 'subgroup-order';
             /**
              * Specifies whether to sort items in ascending or descending order.
              */
@@ -7514,7 +7807,8 @@ export namespace SortExports {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Custom group name.
            */
@@ -7637,7 +7931,8 @@ export namespace SortExports {
               | 'natural'
               | 'line-length'
               | 'custom'
-              | 'unsorted';
+              | 'unsorted'
+              | 'subgroup-order';
             /**
              * Specifies whether to sort items in ascending or descending order.
              */
@@ -7651,7 +7946,8 @@ export namespace SortExports {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Custom group name.
            */
@@ -7732,7 +8028,8 @@ export namespace SortExports {
               | 'natural'
               | 'line-length'
               | 'custom'
-              | 'unsorted';
+              | 'unsorted'
+              | 'subgroup-order';
             /**
              * Specifies whether to sort items in ascending or descending order.
              */
@@ -7750,7 +8047,8 @@ export namespace SortExports {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           newlinesInside?: 'ignore' | number;
           /**
            * Specifies whether to sort items in ascending or descending order.
@@ -7877,7 +8175,13 @@ export type SortObjectsOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -7886,7 +8190,13 @@ export type SortObjectsOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -7924,7 +8234,8 @@ export type SortObjectsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -7938,7 +8249,8 @@ export type SortObjectsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -7986,7 +8298,7 @@ export type SortObjectsOption = {
             /**
              * Modifier filters.
              */
-            modifiers?: ('optional' | 'required' | 'multiline')[];
+            modifiers?: 'multiline'[];
             /**
              * Selector filter.
              */
@@ -8056,7 +8368,7 @@ export type SortObjectsOption = {
             /**
              * Modifier filters.
              */
-            modifiers?: ('optional' | 'required' | 'multiline')[];
+            modifiers?: 'multiline'[];
             /**
              * Selector filter.
              */
@@ -8107,7 +8419,8 @@ export type SortObjectsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -8121,7 +8434,8 @@ export type SortObjectsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -8164,7 +8478,7 @@ export type SortObjectsOption = {
         /**
          * Modifier filters.
          */
-        modifiers?: ('optional' | 'required' | 'multiline')[];
+        modifiers?: 'multiline'[];
         /**
          * Selector filter.
          */
@@ -8225,7 +8539,8 @@ export type SortObjectsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -8243,7 +8558,8 @@ export type SortObjectsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -8510,7 +8826,13 @@ export interface SortEnumsOption {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -8519,7 +8841,13 @@ export interface SortEnumsOption {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -8557,7 +8885,8 @@ export interface SortEnumsOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -8571,7 +8900,8 @@ export interface SortEnumsOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -8724,7 +9054,8 @@ export interface SortEnumsOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -8738,7 +9069,8 @@ export interface SortEnumsOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -8834,7 +9166,8 @@ export interface SortEnumsOption {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -8852,7 +9185,8 @@ export interface SortEnumsOption {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -8980,7 +9314,13 @@ export type SortSetsOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -8989,7 +9329,13 @@ export type SortSetsOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -9027,7 +9373,8 @@ export type SortSetsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -9041,7 +9388,8 @@ export type SortSetsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -9142,7 +9490,8 @@ export type SortSetsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -9156,7 +9505,8 @@ export type SortSetsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -9226,7 +9576,8 @@ export type SortSetsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -9244,7 +9595,8 @@ export type SortSetsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
@@ -9403,7 +9755,13 @@ export type SortMapsOption = {
     /**
      * Specifies the sorting method.
      */
-    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+    type:
+      | 'alphabetical'
+      | 'natural'
+      | 'line-length'
+      | 'custom'
+      | 'unsorted'
+      | 'subgroup-order';
     /**
      * Specifies whether to sort items in ascending or descending order.
      */
@@ -9412,7 +9770,13 @@ export type SortMapsOption = {
   /**
    * Specifies the sorting method.
    */
-  type?: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted';
+  type?:
+    | 'alphabetical'
+    | 'natural'
+    | 'line-length'
+    | 'custom'
+    | 'unsorted'
+    | 'subgroup-order';
   /**
    * Specifies whether to trim, remove, or keep special characters before sorting.
    */
@@ -9450,7 +9814,8 @@ export type SortMapsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -9464,7 +9829,8 @@ export type SortMapsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -9557,7 +9923,8 @@ export type SortMapsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -9571,7 +9938,8 @@ export type SortMapsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         /**
          * Custom group name.
          */
@@ -9637,7 +10005,8 @@ export type SortMapsOption = {
             | 'natural'
             | 'line-length'
             | 'custom'
-            | 'unsorted';
+            | 'unsorted'
+            | 'subgroup-order';
           /**
            * Specifies whether to sort items in ascending or descending order.
            */
@@ -9655,7 +10024,8 @@ export type SortMapsOption = {
           | 'natural'
           | 'line-length'
           | 'custom'
-          | 'unsorted';
+          | 'unsorted'
+          | 'subgroup-order';
         newlinesInside?: 'ignore' | number;
         /**
          * Specifies whether to sort items in ascending or descending order.
