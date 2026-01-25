@@ -80,7 +80,7 @@ export interface SpellcheckerOption {
            */
           name: string;
           /**
-           * Path to the file.
+           * Path or url to the dictionary file.
            */
           path: string;
           /**
@@ -294,7 +294,7 @@ export interface SpellcheckerOption {
   /**
    * Generate suggestions
    */
-  generateSuggestions: boolean;
+  generateSuggestions?: boolean;
   /**
    * Ignore the properties of imported variables, structures, and types.
    *
@@ -311,6 +311,17 @@ export interface SpellcheckerOption {
    * Number of spelling suggestions to make.
    */
   numSuggestions: number;
+  /**
+   * Reporting level for unknown words
+   *
+   * - 'all' - Report all unknown words (default)
+   * - 'simple' - Report unknown words with simple suggestions and flagged words
+   * - 'typos' - Report only common typos and flagged words
+   * - 'flagged' - Report only flagged words
+   *
+   *  default is 'all' unless overridden by CSpell settings
+   */
+  report?: 'all' | 'simple' | 'typos' | 'flagged';
 }
 
 /**

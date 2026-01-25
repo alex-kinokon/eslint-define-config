@@ -1344,14 +1344,14 @@ export interface VueRules {
 
   /**
    * Enforce attribute naming style on custom components in template.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [attribute-hyphenation](https://eslint.vuejs.org/rules/attribute-hyphenation.html)
    */
   'vue/attribute-hyphenation': AttributeHyphenationRuleConfig;
 
   /**
    * Enforce order of attributes.
-   * @preset `vue/vue2-recommended`, `vue/recommended`
+   * @preset `vue/vue2-recommended`, `vue/vue2-recommended-error`, `vue/recommended`, `vue/recommended-error`
    * @see [attributes-order](https://eslint.vuejs.org/rules/attributes-order.html)
    */
   'vue/attributes-order': [AttributesOrderOption?];
@@ -1364,7 +1364,7 @@ export interface VueRules {
 
   /**
    * Enforce order of component top-level elements.
-   * @preset `vue/vue2-recommended`, `vue/recommended`
+   * @preset `vue/vue2-recommended`, `vue/vue2-recommended-error`, `vue/recommended`, `vue/recommended-error`
    * @see [block-order](https://eslint.vuejs.org/rules/block-order.html)
    */
   'vue/block-order': [BlockOrderOption?];
@@ -1441,7 +1441,7 @@ export interface VueRules {
 
   /**
    * Enforce specific casing for component definition name.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [component-definition-name-casing](https://eslint.vuejs.org/rules/component-definition-name-casing.html)
    */
   'vue/component-definition-name-casing': [('PascalCase' | 'kebab-case')?];
@@ -1530,7 +1530,7 @@ export interface VueRules {
 
   /**
    * Enforce the location of first attribute.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [first-attribute-linebreak](https://eslint.vuejs.org/rules/first-attribute-linebreak.html)
    */
   'vue/first-attribute-linebreak': [FirstAttributeLinebreakOption?];
@@ -1556,14 +1556,14 @@ export interface VueRules {
 
   /**
    * Require or disallow a line break before tag's closing brackets.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [html-closing-bracket-newline](https://eslint.vuejs.org/rules/html-closing-bracket-newline.html)
    */
   'vue/html-closing-bracket-newline': [HtmlClosingBracketNewlineOption?];
 
   /**
    * Require or disallow a space before tag's closing brackets.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [html-closing-bracket-spacing](https://eslint.vuejs.org/rules/html-closing-bracket-spacing.html)
    */
   'vue/html-closing-bracket-spacing': [HtmlClosingBracketSpacingOption?];
@@ -1591,28 +1591,28 @@ export interface VueRules {
 
   /**
    * Enforce end tag style.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [html-end-tags](https://eslint.vuejs.org/rules/html-end-tags.html)
    */
   'vue/html-end-tags': null;
 
   /**
    * Enforce consistent indentation in `<template>`.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [html-indent](https://eslint.vuejs.org/rules/html-indent.html)
    */
   'vue/html-indent': HtmlIndent.HtmlIndentRuleConfig;
 
   /**
    * Enforce quotes style of HTML attributes.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [html-quotes](https://eslint.vuejs.org/rules/html-quotes.html)
    */
   'vue/html-quotes': HtmlQuotesRuleConfig;
 
   /**
    * Enforce self-closing style.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [html-self-closing](https://eslint.vuejs.org/rules/html-self-closing.html)
    */
   'vue/html-self-closing': HtmlSelfClosing.HtmlSelfClosingRuleConfig;
@@ -1657,7 +1657,7 @@ export interface VueRules {
 
   /**
    * Enforce the maximum number of attributes per line.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [max-attributes-per-line](https://eslint.vuejs.org/rules/max-attributes-per-line.html)
    */
   'vue/max-attributes-per-line': [MaxAttributesPerLineOption?];
@@ -1715,7 +1715,7 @@ export interface VueRules {
 
   /**
    * Require a line break before and after the contents of a multiline element.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [multiline-html-element-content-newline](https://eslint.vuejs.org/rules/multiline-html-element-content-newline.html)
    */
   'vue/multiline-html-element-content-newline': [
@@ -1735,7 +1735,7 @@ export interface VueRules {
 
   /**
    * Enforce unified spacing in mustache interpolations.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [mustache-interpolation-spacing](https://eslint.vuejs.org/rules/mustache-interpolation-spacing.html)
    */
   'vue/mustache-interpolation-spacing': [('always' | 'never')?];
@@ -2096,8 +2096,14 @@ export interface VueRules {
   'vue/no-lifecycle-after-await': null;
 
   /**
+   * Disallow object, array, and function literals in template.
+   * @see [no-literals-in-template](https://eslint.vuejs.org/rules/no-literals-in-template.html)
+   */
+  'vue/no-literals-in-template': null;
+
+  /**
    * Disallow unnecessary `<template>`.
-   * @preset `vue/vue2-recommended`, `vue/recommended`
+   * @preset `vue/vue2-recommended`, `vue/vue2-recommended-error`, `vue/recommended`, `vue/recommended-error`
    * @see [no-lone-template](https://eslint.vuejs.org/rules/no-lone-template.html)
    */
   'vue/no-lone-template': [
@@ -2114,12 +2120,13 @@ export interface VueRules {
 
   /**
    * Disallow multiple spaces.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [no-multi-spaces](https://eslint.vuejs.org/rules/no-multi-spaces.html)
    */
   'vue/no-multi-spaces': [
     {
       ignoreProperties?: boolean;
+      ignoreEOLComments?: boolean;
     }?,
   ];
 
@@ -2131,7 +2138,7 @@ export interface VueRules {
 
   /**
    * Disallow passing multiple arguments to scoped slots.
-   * @preset `vue/vue2-recommended`, `vue/recommended`
+   * @preset `vue/vue2-recommended`, `vue/vue2-recommended-error`, `vue/recommended`, `vue/recommended-error`
    * @see [no-multiple-slot-args](https://eslint.vuejs.org/rules/no-multiple-slot-args.html)
    */
   'vue/no-multiple-slot-args': null;
@@ -2200,7 +2207,7 @@ export interface VueRules {
 
   /**
    * Enforce props with default values to be optional.
-   * @preset `vue/vue2-recommended`, `vue/recommended`
+   * @preset `vue/vue2-recommended`, `vue/vue2-recommended-error`, `vue/recommended`, `vue/recommended-error`
    * @see [no-required-prop-with-default](https://eslint.vuejs.org/rules/no-required-prop-with-default.html)
    */
   'vue/no-required-prop-with-default': [
@@ -2341,7 +2348,7 @@ export interface VueRules {
 
   /**
    * Disallow spaces around equal signs in attribute.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [no-spaces-around-equal-signs-in-attribute](https://eslint.vuejs.org/rules/no-spaces-around-equal-signs-in-attribute.html)
    */
   'vue/no-spaces-around-equal-signs-in-attribute': null;
@@ -2371,7 +2378,7 @@ export interface VueRules {
 
   /**
    * Disallow variable declarations from shadowing variables declared in the outer scope.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [no-template-shadow](https://eslint.vuejs.org/rules/no-template-shadow.html)
    */
   'vue/no-template-shadow': [
@@ -2406,6 +2413,16 @@ export interface VueRules {
   'vue/no-undef-components': [
     {
       ignorePatterns?: any[];
+    }?,
+  ];
+
+  /**
+   * Disallow use of undefined custom directives.
+   * @see [no-undef-directives](https://eslint.vuejs.org/rules/no-undef-directives.html)
+   */
+  'vue/no-undef-directives': [
+    {
+      ignore?: string[];
     }?,
   ];
 
@@ -2541,7 +2558,7 @@ export interface VueRules {
 
   /**
    * Disallow use of v-html to prevent XSS attack.
-   * @preset `vue/vue2-recommended`, `vue/recommended`
+   * @preset `vue/vue2-recommended`, `vue/vue2-recommended-error`, `vue/recommended`, `vue/recommended-error`
    * @see [no-v-html](https://eslint.vuejs.org/rules/no-v-html.html)
    */
   'vue/no-v-html': [
@@ -2619,7 +2636,7 @@ export interface VueRules {
 
   /**
    * Enforce that each component should be in its own file.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [one-component-per-file](https://eslint.vuejs.org/rules/one-component-per-file.html)
    */
   'vue/one-component-per-file': null;
@@ -2633,7 +2650,7 @@ export interface VueRules {
 
   /**
    * Enforce order of properties in components.
-   * @preset `vue/vue2-recommended`, `vue/recommended`
+   * @preset `vue/vue2-recommended`, `vue/vue2-recommended-error`, `vue/recommended`, `vue/recommended-error`
    * @see [order-in-components](https://eslint.vuejs.org/rules/order-in-components.html)
    */
   'vue/order-in-components': [
@@ -2715,7 +2732,7 @@ export interface VueRules {
 
   /**
    * Enforce specific casing for the Prop name in Vue components.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [prop-name-casing](https://eslint.vuejs.org/rules/prop-name-casing.html)
    */
   'vue/prop-name-casing': PropNameCasingRuleConfig;
@@ -2742,7 +2759,7 @@ export interface VueRules {
 
   /**
    * Require default value for props.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [require-default-prop](https://eslint.vuejs.org/rules/require-default-prop.html)
    */
   'vue/require-default-prop': null;
@@ -2765,7 +2782,7 @@ export interface VueRules {
 
   /**
    * Require `emits` option with name triggered by `$emit()`.
-   * @preset `vue/strongly-recommended`
+   * @preset `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [require-explicit-emits](https://eslint.vuejs.org/rules/require-explicit-emits.html)
    */
   'vue/require-explicit-emits': [
@@ -2821,7 +2838,7 @@ export interface VueRules {
 
   /**
    * Require type definitions in props.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [require-prop-types](https://eslint.vuejs.org/rules/require-prop-types.html)
    */
   'vue/require-prop-types': null;
@@ -2914,7 +2931,7 @@ export interface VueRules {
 
   /**
    * Require a line break before and after the contents of a singleline element.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`, `vue/no-layout-rules`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`, `vue/no-layout-rules`
    * @see [singleline-html-element-content-newline](https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html)
    */
   'vue/singleline-html-element-content-newline': [
@@ -2979,7 +2996,7 @@ export interface VueRules {
 
   /**
    * Disallow usage of `this` in template.
-   * @preset `vue/vue2-recommended`, `vue/recommended`
+   * @preset `vue/vue2-recommended`, `vue/vue2-recommended-error`, `vue/recommended`, `vue/recommended-error`
    * @see [this-in-template](https://eslint.vuejs.org/rules/this-in-template.html)
    */
   'vue/this-in-template': [('always' | 'never')?];
@@ -2993,7 +3010,7 @@ export interface VueRules {
 
   /**
    * Enforce `v-bind` directive style.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [v-bind-style](https://eslint.vuejs.org/rules/v-bind-style.html)
    */
   'vue/v-bind-style': [('shorthand' | 'longform')?, VBindStyleConfig?];
@@ -3013,7 +3030,7 @@ export interface VueRules {
 
   /**
    * Enforce v-on event naming style on custom components in template.
-   * @preset `vue/strongly-recommended`
+   * @preset `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [v-on-event-hyphenation](https://eslint.vuejs.org/rules/v-on-event-hyphenation.html)
    */
   'vue/v-on-event-hyphenation': VOnEventHyphenationRuleConfig;
@@ -3026,14 +3043,14 @@ export interface VueRules {
 
   /**
    * Enforce `v-on` directive style.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [v-on-style](https://eslint.vuejs.org/rules/v-on-style.html)
    */
   'vue/v-on-style': [('shorthand' | 'longform')?];
 
   /**
    * Enforce `v-slot` directive style.
-   * @preset `vue/vue2-strongly-recommended`, `vue/strongly-recommended`
+   * @preset `vue/vue2-strongly-recommended`, `vue/vue2-strongly-recommended-error`, `vue/strongly-recommended`, `vue/strongly-recommended-error`
    * @see [v-slot-style](https://eslint.vuejs.org/rules/v-slot-style.html)
    */
   'vue/v-slot-style': [VSlotStyleOption?];

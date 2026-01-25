@@ -21,7 +21,7 @@ export interface VuePugRules {
 
   /**
    * Disallow parsing errors in `<template lang="pug">`.
-   * @preset `vue-pug/essential`, `vue-pug/vue3-essential`
+   * @preset `vue-pug/vue2-essential`, `vue-pug/essential`
    * @see [no-parsing-error](https://eslint.vuejs.org/rules/no-parsing-error.html)
    */
   'vue-pug/no-parsing-error': [
@@ -58,7 +58,7 @@ export interface VuePugRules {
 
   /**
    * Disallow pug control flow features.
-   * @preset `vue-pug/strongly-recommended`, `vue-pug/vue3-strongly-recommended`
+   * @preset `vue-pug/vue2-strongly-recommended`, `vue-pug/strongly-recommended`
    * @see [no-pug-control-flow](https://eslint-plugin-vue-pug.rash.codes/rules/no-pug-control-flow.html)
    */
   'vue-pug/no-pug-control-flow': null;

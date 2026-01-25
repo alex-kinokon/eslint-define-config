@@ -300,6 +300,10 @@ export interface SortVariableDeclarationsOption {
   )[];
   newlinesBetween?: 'ignore' | number;
   /**
+   * Enables experimental dependency detection for sorting rules that support it.
+   */
+  useExperimentalDependencyDetection?: boolean;
+  /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
   partitionByComment?:
@@ -6366,6 +6370,10 @@ export namespace SortModules {
     )[];
     newlinesBetween?: 'ignore' | number;
     /**
+     * Enables experimental dependency detection for sorting rules that support it.
+     */
+    useExperimentalDependencyDetection?: boolean;
+    /**
      * Enables the use of comments to separate the nodes into logical groups.
      */
     partitionByComment?:
@@ -7588,6 +7596,10 @@ export type SortImportsOption = {
    */
   environment?: 'node' | 'bun';
   /**
+   * Enables experimental dependency detection for sorting rules that support it.
+   */
+  useExperimentalDependencyDetection?: boolean;
+  /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
   partitionByComment?:
@@ -8186,6 +8198,7 @@ export type SortObjectsOption = {
      * Specifies whether to sort items in ascending or descending order.
      */
     order?: 'asc' | 'desc';
+    sortBy?: 'name' | 'value';
   };
   /**
    * Specifies the sorting method.
@@ -8217,6 +8230,7 @@ export type SortObjectsOption = {
    * Specifies whether to sort items in ascending or descending order.
    */
   order?: 'asc' | 'desc';
+  sortBy?: 'name' | 'value';
   /**
    * Defines custom groups to match specific members.
    */
@@ -8240,6 +8254,7 @@ export type SortObjectsOption = {
            * Specifies whether to sort items in ascending or descending order.
            */
           order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
         };
         /**
          * Specifies the sorting method.
@@ -8260,6 +8275,7 @@ export type SortObjectsOption = {
          * Specifies whether to sort items in ascending or descending order.
          */
         order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
         /**
          * @minItems 1
          */
@@ -8425,6 +8441,7 @@ export type SortObjectsOption = {
            * Specifies whether to sort items in ascending or descending order.
            */
           order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
         };
         /**
          * Specifies the sorting method.
@@ -8445,6 +8462,7 @@ export type SortObjectsOption = {
          * Specifies whether to sort items in ascending or descending order.
          */
         order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
         /**
          * Regular expression.
          */
@@ -8545,6 +8563,7 @@ export type SortObjectsOption = {
            * Specifies whether to sort items in ascending or descending order.
            */
           order?: 'asc' | 'desc';
+          sortBy?: 'name' | 'value';
         };
         /**
          * Specifies a comment to enforce above the group.
@@ -8565,6 +8584,7 @@ export type SortObjectsOption = {
          * Specifies whether to sort items in ascending or descending order.
          */
         order?: 'asc' | 'desc';
+        sortBy?: 'name' | 'value';
       }
   )[];
   newlinesBetween?: 'ignore' | number;
@@ -8711,6 +8731,10 @@ export type SortObjectsOption = {
    * Controls whether to sort styled components.
    */
   styledComponents?: boolean;
+  /**
+   * Enables experimental dependency detection for sorting rules that support it.
+   */
+  useExperimentalDependencyDetection?: boolean;
   /**
    * Enables the use of comments to separate the nodes into logical groups.
    */
@@ -9199,6 +9223,10 @@ export interface SortEnumsOption {
    * Specifies whether to sort enums by value.
    */
   sortByValue?: 'always' | 'ifNumericEnum' | 'never';
+  /**
+   * Enables experimental dependency detection for sorting rules that support it.
+   */
+  useExperimentalDependencyDetection?: boolean;
   /**
    * Enables the use of comments to separate the nodes into logical groups.
    */

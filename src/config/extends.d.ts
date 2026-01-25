@@ -472,10 +472,14 @@ type VueExtends =
   | 'plugin:vue/essential'
   | 'plugin:vue/no-layout-rules'
   | 'plugin:vue/recommended'
+  | 'plugin:vue/recommended-error'
   | 'plugin:vue/strongly-recommended'
+  | 'plugin:vue/strongly-recommended-error'
   | 'plugin:vue/vue2-essential'
   | 'plugin:vue/vue2-recommended'
-  | 'plugin:vue/vue2-strongly-recommended';
+  | 'plugin:vue/vue2-recommended-error'
+  | 'plugin:vue/vue2-strongly-recommended'
+  | 'plugin:vue/vue2-strongly-recommended-error';
 
 /**
  * ESLint VueI18n extends.
@@ -498,9 +502,9 @@ type VuePugExtends =
   | 'plugin:vue-pug/essential'
   | 'plugin:vue-pug/recommended'
   | 'plugin:vue-pug/strongly-recommended'
-  | 'plugin:vue-pug/vue3-essential'
-  | 'plugin:vue-pug/vue3-recommended'
-  | 'plugin:vue-pug/vue3-strongly-recommended';
+  | 'plugin:vue-pug/vue2-essential'
+  | 'plugin:vue-pug/vue2-recommended'
+  | 'plugin:vue-pug/vue2-strongly-recommended';
 
 /**
  * ESLint Yml extends.

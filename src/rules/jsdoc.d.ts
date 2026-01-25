@@ -2883,6 +2883,10 @@ export interface TypeFormattingOption {
    */
   objectFieldSeparatorTrailingPunctuation?: boolean;
   /**
+   * The space character (if any) to add after an object's initial curly bracket and before its ending curly bracket
+   */
+  objectTypeBracketSpacing?: string;
+  /**
    * The space character (if any) to use between the equal signs of a default value. Defaults to " ".
    */
   parameterDefaultValueSpacing?: string;
@@ -2904,6 +2908,10 @@ export interface TypeFormattingOption {
    * or `double`. Defaults to 'double'.
    */
   stringQuotes?: 'double' | 'single';
+  /**
+   * If `objectFieldSeparatorTrailingPunctuation` is set, this will determine whether the trailing puncutation is only added when the type is multiline
+   */
+  trailingPunctuationMultilineOnly?: boolean;
   /**
    * A string of spaces that will be added immediately after the type's initial
    * curly bracket and immediately before its ending curly bracket. Defaults

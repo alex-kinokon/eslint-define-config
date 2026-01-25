@@ -269,35 +269,30 @@ export type SpacedCommentRuleConfig = [
 export interface YmlRules {
   /**
    * Enforce consistent line breaks after `:` indicator.
-   * @preset `yml/prettier`
    * @see [block-mapping-colon-indicator-newline](https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping-colon-indicator-newline.html)
    */
   'yml/block-mapping-colon-indicator-newline': [('always' | 'never')?];
 
   /**
    * Enforce consistent line breaks after `?` indicator.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [block-mapping-question-indicator-newline](https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping-question-indicator-newline.html)
    */
   'yml/block-mapping-question-indicator-newline': [('always' | 'never')?];
 
   /**
    * Require or disallow block style mappings.
-   * @preset `yml/standard`
    * @see [block-mapping](https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping.html)
    */
   'yml/block-mapping': [BlockMappingOption?];
 
   /**
    * Enforce consistent line breaks after `-` indicator.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [block-sequence-hyphen-indicator-newline](https://ota-meshi.github.io/eslint-plugin-yml/rules/block-sequence-hyphen-indicator-newline.html)
    */
   'yml/block-sequence-hyphen-indicator-newline': BlockSequenceHyphenIndicatorNewlineRuleConfig;
 
   /**
    * Require or disallow block style sequences.
-   * @preset `yml/standard`
    * @see [block-sequence](https://ota-meshi.github.io/eslint-plugin-yml/rules/block-sequence.html)
    */
   'yml/block-sequence': [BlockSequenceOption?];
@@ -310,35 +305,30 @@ export interface YmlRules {
 
   /**
    * Enforce consistent line breaks inside braces.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [flow-mapping-curly-newline](https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-mapping-curly-newline.html)
    */
   'yml/flow-mapping-curly-newline': [FlowMappingCurlyNewlineOption?];
 
   /**
    * Enforce consistent spacing inside braces.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [flow-mapping-curly-spacing](https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-mapping-curly-spacing.html)
    */
   'yml/flow-mapping-curly-spacing': FlowMappingCurlySpacingRuleConfig;
 
   /**
    * Enforce linebreaks after opening and before closing flow sequence brackets.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [flow-sequence-bracket-newline](https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-sequence-bracket-newline.html)
    */
   'yml/flow-sequence-bracket-newline': [FlowSequenceBracketNewlineOption?];
 
   /**
    * Enforce consistent spacing inside flow sequence brackets.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [flow-sequence-bracket-spacing](https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-sequence-bracket-spacing.html)
    */
   'yml/flow-sequence-bracket-spacing': FlowSequenceBracketSpacingRuleConfig;
 
   /**
    * Enforce consistent indentation.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [indent](https://ota-meshi.github.io/eslint-plugin-yml/rules/indent.html)
    */
   'yml/indent': IndentRuleConfig;
@@ -351,42 +341,36 @@ export interface YmlRules {
 
   /**
    * Enforce consistent spacing between keys and values in mapping pairs.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [key-spacing](https://ota-meshi.github.io/eslint-plugin-yml/rules/key-spacing.html)
    */
   'yml/key-spacing': [KeySpacingOption?];
 
   /**
    * Disallow empty document.
-   * @preset `yml/recommended`, `yml/standard`
    * @see [no-empty-document](https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-document.html)
    */
   'yml/no-empty-document': null;
 
   /**
    * Disallow empty mapping keys.
-   * @preset `yml/recommended`, `yml/standard`
    * @see [no-empty-key](https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-key.html)
    */
   'yml/no-empty-key': null;
 
   /**
    * Disallow empty mapping values.
-   * @preset `yml/recommended`, `yml/standard`
    * @see [no-empty-mapping-value](https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-mapping-value.html)
    */
   'yml/no-empty-mapping-value': null;
 
   /**
    * Disallow empty sequence entries.
-   * @preset `yml/recommended`, `yml/standard`
    * @see [no-empty-sequence-entry](https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-sequence-entry.html)
    */
   'yml/no-empty-sequence-entry': null;
 
   /**
    * Disallow irregular whitespace.
-   * @preset `yml/recommended`, `yml/standard`
    * @see [no-irregular-whitespace](https://ota-meshi.github.io/eslint-plugin-yml/rules/no-irregular-whitespace.html)
    */
   'yml/no-irregular-whitespace': [
@@ -398,7 +382,6 @@ export interface YmlRules {
 
   /**
    * Disallow multiple empty lines.
-   * @preset `yml/prettier`
    * @see [no-multiple-empty-lines](https://ota-meshi.github.io/eslint-plugin-yml/rules/no-multiple-empty-lines.html)
    */
   'yml/no-multiple-empty-lines': [
@@ -411,28 +394,24 @@ export interface YmlRules {
 
   /**
    * Disallow tabs for indentation.
-   * @preset `yml/recommended`, `yml/standard`
    * @see [no-tab-indent](https://ota-meshi.github.io/eslint-plugin-yml/rules/no-tab-indent.html)
    */
   'yml/no-tab-indent': null;
 
   /**
    * Disallow trailing zeros for floats.
-   * @preset `yml/prettier`
    * @see [no-trailing-zeros](https://ota-meshi.github.io/eslint-plugin-yml/rules/no-trailing-zeros.html)
    */
   'yml/no-trailing-zeros': null;
 
   /**
    * Require or disallow plain style scalar.
-   * @preset `yml/standard`
    * @see [plain-scalar](https://ota-meshi.github.io/eslint-plugin-yml/rules/plain-scalar.html)
    */
   'yml/plain-scalar': [('always' | 'never')?, PlainScalarConfig?];
 
   /**
    * Enforce the consistent use of either double, or single quotes.
-   * @preset `yml/standard`, `yml/prettier`
    * @see [quotes](https://ota-meshi.github.io/eslint-plugin-yml/rules/quotes.html)
    */
   'yml/quotes': [QuotesOption?];
@@ -457,7 +436,6 @@ export interface YmlRules {
 
   /**
    * Enforce consistent spacing after the `#` in a comment.
-   * @preset `yml/standard`
    * @see [spaced-comment](https://ota-meshi.github.io/eslint-plugin-yml/rules/spaced-comment.html)
    */
   'yml/spaced-comment': SpacedCommentRuleConfig;
