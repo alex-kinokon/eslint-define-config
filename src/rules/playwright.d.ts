@@ -444,6 +444,7 @@ export interface PlaywrightRules {
   /**
    * Enforce valid tag format in Playwright test blocks and titles.
    * @preset `playwright/flat/recommended`, `playwright/playwright-test`, `playwright/recommended`
+   * @see [valid-test-tags](https://github.com/mskelton/eslint-plugin-playwright/tree/main/docs/rules/valid-test-tags.md)
    */
   'playwright/valid-test-tags': [ValidTestTagsOption?];
 

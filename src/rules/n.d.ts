@@ -3321,6 +3321,12 @@ export interface NRules {
   'n/prefer-global/console': [('always' | 'never')?];
 
   /**
+   * Enforce either `crypto` or `require("crypto").webcrypto`.
+   * @see [prefer-global/crypto](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/crypto.md)
+   */
+  'n/prefer-global/crypto': [('always' | 'never')?];
+
+  /**
    * Enforce either `process` or `require("process")`.
    * @see [prefer-global/process](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/process.md)
    */
@@ -3349,6 +3355,12 @@ export interface NRules {
    * @see [prefer-global/url](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/url.md)
    */
   'n/prefer-global/url': [('always' | 'never')?];
+
+  /**
+   * Enforce either global timer functions or `require("timers")`.
+   * @see [prefer-global/timers](https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/prefer-global/timers.md)
+   */
+  'n/prefer-global/timers': [('always' | 'never')?];
 
   /**
    * Enforce using the `node:` protocol when importing Node.js builtin modules.

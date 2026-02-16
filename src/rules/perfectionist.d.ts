@@ -2165,7 +2165,7 @@ export type SortArrayIncludesOption = {
             /**
              * Selector filter.
              */
-            selector?: 'literal' | 'spread';
+            selector?: 'literal';
           },
           ...{
             /**
@@ -2201,7 +2201,7 @@ export type SortArrayIncludesOption = {
             /**
              * Selector filter.
              */
-            selector?: 'literal' | 'spread';
+            selector?: 'literal';
           }[],
         ];
       }
@@ -2277,7 +2277,7 @@ export type SortArrayIncludesOption = {
         /**
          * Selector filter.
          */
-        selector?: 'literal' | 'spread';
+        selector?: 'literal';
       }
   )[];
   newlinesInside?: ('ignore' | number) | 'newlinesBetween';
@@ -7038,6 +7038,10 @@ export interface SortClassesOption {
   )[];
   newlinesBetween?: 'ignore' | number;
   /**
+   * Enables experimental dependency detection for sorting rules that support it.
+   */
+  useExperimentalDependencyDetection?: boolean;
+  /**
    * Regular expression.
    */
   ignoreCallbackDependenciesPatterns?:
@@ -9465,7 +9469,7 @@ export type SortSetsOption = {
             /**
              * Selector filter.
              */
-            selector?: 'literal' | 'spread';
+            selector?: 'literal';
           },
           ...{
             /**
@@ -9501,7 +9505,7 @@ export type SortSetsOption = {
             /**
              * Selector filter.
              */
-            selector?: 'literal' | 'spread';
+            selector?: 'literal';
           }[],
         ];
       }
@@ -9577,7 +9581,7 @@ export type SortSetsOption = {
         /**
          * Selector filter.
          */
-        selector?: 'literal' | 'spread';
+        selector?: 'literal';
       }
   )[];
   newlinesInside?: ('ignore' | number) | 'newlinesBetween';

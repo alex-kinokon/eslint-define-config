@@ -9,9 +9,9 @@ export interface ReactRefreshRules {
    */
   'react-refresh/only-export-components': [
     {
+      extraHOCs?: string[];
       allowExportNames?: string[];
       allowConstantExport?: boolean;
-      customHOCs?: string[];
       checkJS?: boolean;
     }?,
   ];

@@ -1242,6 +1242,30 @@ export interface EsXRules {
   ];
 
   /**
+   * Disallow the `Map.prototype.getOrInsert` method.
+   * @preset `es-x/flat/no-new-in-esnext`, `es-x/flat/no-upsert`, `es-x/no-new-in-esnext`, `es-x/no-upsert`
+   * @see [no-map-prototype-getorinsert](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-map-prototype-getorinsert.html)
+   */
+  'es-x/no-map-prototype-getorinsert': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `Map.prototype.getOrInsertComputed` method.
+   * @preset `es-x/flat/no-new-in-esnext`, `es-x/flat/no-upsert`, `es-x/no-new-in-esnext`, `es-x/no-upsert`
+   * @see [no-map-prototype-getorinsertcomputed](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-map-prototype-getorinsertcomputed.html)
+   */
+  'es-x/no-map-prototype-getorinsertcomputed': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
    * Disallow the `Math.acosh` method.
    * @preset `es-x/flat/no-new-in-es2015`, `es-x/flat/restrict-to-es3`, `es-x/flat/restrict-to-es5`, `es-x/no-new-in-es2015`, `es-x/no-2015`
    * @see [no-math-acosh](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-math-acosh.html)
@@ -3453,6 +3477,30 @@ export interface EsXRules {
    * @see [no-weak-set](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-weak-set.html)
    */
   'es-x/no-weak-set': null;
+
+  /**
+   * Disallow the `WeakMap.prototype.getOrInsert` method.
+   * @preset `es-x/flat/no-new-in-esnext`, `es-x/flat/no-upsert`, `es-x/no-new-in-esnext`, `es-x/no-upsert`
+   * @see [no-weakmap-prototype-getorinsert](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-weakmap-prototype-getorinsert.html)
+   */
+  'es-x/no-weakmap-prototype-getorinsert': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
+
+  /**
+   * Disallow the `WeakMap.prototype.getOrInsertComputed` method.
+   * @preset `es-x/flat/no-new-in-esnext`, `es-x/flat/no-upsert`, `es-x/no-new-in-esnext`, `es-x/no-upsert`
+   * @see [no-weakmap-prototype-getorinsertcomputed](http://eslint-community.github.io/eslint-plugin-es-x/rules/no-weakmap-prototype-getorinsertcomputed.html)
+   */
+  'es-x/no-weakmap-prototype-getorinsertcomputed': [
+    {
+      aggressive?: boolean;
+      allowTestedProperty?: boolean;
+    }?,
+  ];
 
   /**
    * Disallow the `WeakRef` and `FinalizationRegistry` class.

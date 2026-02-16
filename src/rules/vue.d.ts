@@ -84,6 +84,7 @@ export interface AttributesOrderOption {
   )[];
   alphabetical?: boolean;
   sortLineLength?: boolean;
+  ignoreVBindObject?: boolean;
 }
 
 export interface BlockLangOption {
@@ -192,7 +193,7 @@ export type CustomEventNameCasingRuleConfig = [
 ];
 
 export interface DefinePropsDestructuringOption {
-  destructure?: 'always' | 'never';
+  destructure?: 'only-when-assigned' | 'always' | 'never';
 }
 
 export interface EnforceStyleAttributeOption {
@@ -3146,7 +3147,11 @@ export interface VueRules {
    * @preset `vue/vue2-essential`, `vue/essential`
    * @see [valid-v-for](https://eslint.vuejs.org/rules/valid-v-for.html)
    */
-  'vue/valid-v-for': null;
+  'vue/valid-v-for': [
+    {
+      allowEmptyAlias?: boolean;
+    }?,
+  ];
 
   /**
    * Enforce valid `v-html` directives.

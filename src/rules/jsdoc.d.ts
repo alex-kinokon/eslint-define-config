@@ -249,7 +249,7 @@ export namespace CheckTagNames {
     /**
      * List of tags to allow inline.
      *
-     * Defaults to array of `'link', 'linkcode', 'linkplain', 'tutorial'`
+     * Defaults to array of `'link', 'linkcode', 'linkplain', 'tutorial', 'inheritDoc', 'label', 'include', and 'includeCode'`
      */
     inlineTags?: string[];
     /**

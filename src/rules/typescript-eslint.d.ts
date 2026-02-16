@@ -1640,6 +1640,15 @@ export type NoUnusedVarsOption =
        */
       destructuredArrayIgnorePattern?: string;
       /**
+       * Configurable automatic fixes for different types of unused variables.
+       */
+      enableAutofixRemoval?: {
+        /**
+         * Whether to enable automatic removal of unused imports.
+         */
+        imports?: boolean;
+      };
+      /**
        * Whether to ignore classes with at least one static initialization block.
        */
       ignoreClassWithStaticInitBlock?: boolean;
@@ -1700,6 +1709,13 @@ export namespace NoUseBeforeDefine {
       };
 
   export type NoUseBeforeDefineRuleConfig = [NoUseBeforeDefineOption?];
+}
+
+export interface NoUselessDefaultAssignmentOption {
+  /**
+   * Unless this is set to `true`, the rule will error on every file whose `tsconfig.json` does _not_ have the `strictNullChecks` compiler option (or `strict`) set to `true`.
+   */
+  allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing?: boolean;
 }
 
 export interface NoVarRequiresOption {
@@ -2147,6 +2163,13 @@ export interface StrictBooleanExpressionsOption {
    * Whether to allow `string`s in a boolean context.
    */
   allowString?: boolean;
+}
+
+export interface StrictVoidReturnOption {
+  /**
+   * Whether to allow functions returning `any` to be used in place expecting a `void` function.
+   */
+  allowReturnAny?: boolean;
 }
 
 export interface SwitchExhaustivenessCheckOption {
@@ -2933,7 +2956,9 @@ export interface TypeScriptRules {
    * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/strict-type-checked`, `@typescript-eslint/strict-type-checked-only`, `@typescript-eslint/flat/disable-type-checked`
    * @see [no-useless-default-assignment](https://typescript-eslint.io/rules/no-useless-default-assignment)
    */
-  '@typescript-eslint/no-useless-default-assignment': null;
+  '@typescript-eslint/no-useless-default-assignment': [
+    NoUselessDefaultAssignmentOption?,
+  ];
 
   /**
    * Disallow empty exports that don't change anything in a module file.
@@ -3188,6 +3213,13 @@ export interface TypeScriptRules {
   '@typescript-eslint/strict-boolean-expressions': [
     StrictBooleanExpressionsOption?,
   ];
+
+  /**
+   * Disallow passing a value-returning function in a position accepting a void function.
+   * @preset `@typescript-eslint/all`, `@typescript-eslint/disable-type-checked`, `@typescript-eslint/flat/disable-type-checked`
+   * @see [strict-void-return](https://typescript-eslint.io/rules/strict-void-return)
+   */
+  '@typescript-eslint/strict-void-return': [StrictVoidReturnOption?];
 
   /**
    * Require switch-case statements to be exhaustive.

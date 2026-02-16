@@ -750,7 +750,7 @@ export interface SonarJSRules {
   'sonarjs/no-nested-functions': NoNestedFunctionsOption;
 
   /**
-   * Hard-coded passwords are security-sensitive.
+   * Credentials should not be hard-coded.
    * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
    * @see [no-hardcoded-passwords](https://sonarsource.github.io/rspec/#/rspec/S2068/javascript)
    */
@@ -1982,7 +1982,7 @@ export interface SonarJSRules {
   'sonarjs/aws-iam-all-resources-accessible': null;
 
   /**
-   * Using unencrypted Elasticsearch domains is security-sensitive.
+   * Using unencrypted Opensearch domains is security-sensitive.
    * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
    * @see [aws-opensearchservice-domain](https://sonarsource.github.io/rspec/#/rspec/S6308/javascript)
    */
@@ -2101,7 +2101,7 @@ export interface SonarJSRules {
   'sonarjs/single-char-in-character-classes': null;
 
   /**
-   * Hard-coded secrets are security-sensitive.
+   * Secrets should not be hard-coded.
    * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
    * @see [no-hardcoded-secrets](https://sonarsource.github.io/rspec/#/rspec/S6418/javascript)
    */
@@ -2113,6 +2113,13 @@ export interface SonarJSRules {
    * @see [no-exclusive-tests](https://sonarsource.github.io/rspec/#/rspec/S6426/javascript)
    */
   'sonarjs/no-exclusive-tests': null;
+
+  /**
+   * Credentials should not be hard-coded.
+   * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
+   * @see [hardcoded-secret-signatures](https://sonarsource.github.io/rspec/#/rspec/S6437/javascript)
+   */
+  'sonarjs/hardcoded-secret-signatures': null;
 
   /**
    * React components should not render non-boolean condition values.
@@ -2190,6 +2197,20 @@ export interface SonarJSRules {
    * @see [no-async-constructor](https://sonarsource.github.io/rspec/#/rspec/S7059/javascript)
    */
   'sonarjs/no-async-constructor': null;
+
+  /**
+   * Wallet phrases should not be hard-coded.
+   * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
+   * @see [review-blockchain-mnemonic](https://sonarsource.github.io/rspec/#/rspec/S7639/javascript)
+   */
+  'sonarjs/review-blockchain-mnemonic': null;
+
+  /**
+   * Templates should not be constructed dynamically.
+   * @preset `sonarjs/recommended`, `sonarjs/recommended-legacy`
+   * @see [dynamically-constructed-templates](https://sonarsource.github.io/rspec/#/rspec/S7790/javascript)
+   */
+  'sonarjs/dynamically-constructed-templates': null;
 }
 
 export type SonarJSRulesObject = RulesObject<SonarJSRules>;

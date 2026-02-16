@@ -492,6 +492,16 @@ export interface JsxOneExpressionPerLineOption {
   allow?: 'none' | 'literal' | 'single-child' | 'single-line' | 'non-jsx';
 }
 
+export interface ExpJsxPropsStyleOption {
+  singleLine?: {
+    maxItems?: number;
+  };
+  multiLine?: {
+    minItems?: number;
+    maxItemsPerLine?: number;
+  };
+}
+
 export interface JsxSortPropsOption {
   callbacksLast?: boolean;
   shorthandFirst?: boolean;
@@ -934,10 +944,10 @@ export namespace ExpListStyle {
     singleLine?: SingleLineConfig;
     multiLine?: MultiLineConfig;
     overrides?: {
+      '()'?: BaseConfig;
       '[]'?: BaseConfig;
       '{}'?: BaseConfig;
       '<>'?: BaseConfig;
-      '()'?: BaseConfig;
       ArrayExpression?: BaseConfig;
       ArrayPattern?: BaseConfig;
       ArrowFunctionExpression?: BaseConfig;
@@ -945,21 +955,22 @@ export namespace ExpListStyle {
       ExportNamedDeclaration?: BaseConfig;
       FunctionDeclaration?: BaseConfig;
       FunctionExpression?: BaseConfig;
-      ImportDeclaration?: BaseConfig;
+      IfStatement?: BaseConfig;
       ImportAttributes?: BaseConfig;
+      ImportDeclaration?: BaseConfig;
+      JSONArrayExpression?: BaseConfig;
+      JSONObjectExpression?: BaseConfig;
       NewExpression?: BaseConfig;
       ObjectExpression?: BaseConfig;
       ObjectPattern?: BaseConfig;
       TSDeclareFunction?: BaseConfig;
+      TSEnumBody?: BaseConfig;
       TSFunctionType?: BaseConfig;
       TSInterfaceBody?: BaseConfig;
-      TSEnumBody?: BaseConfig;
       TSTupleType?: BaseConfig;
       TSTypeLiteral?: BaseConfig;
       TSTypeParameterDeclaration?: BaseConfig;
       TSTypeParameterInstantiation?: BaseConfig;
-      JSONArrayExpression?: BaseConfig;
-      JSONObjectExpression?: BaseConfig;
     };
   }
   export interface SingleLineConfig {
@@ -1808,6 +1819,12 @@ export interface StylisticRules {
    * @see [jsx-props-no-multi-spaces](https://eslint.style/rules/jsx-props-no-multi-spaces)
    */
   'stylistic/jsx-props-no-multi-spaces': null;
+
+  /**
+   * Enforce consistent line break styles for JSX props.
+   * @see [exp-jsx-props-style](https://eslint.style/rules/jsx-props-style)
+   */
+  'stylistic/exp-jsx-props-style': [ExpJsxPropsStyleOption?];
 
   /**
    * Enforce the consistent use of either double or single quotes in JSX attributes.

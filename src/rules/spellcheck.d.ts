@@ -59,7 +59,7 @@ export interface SpellcheckerOption {
      *
      * For example, `!typescript` will turn off the dictionary with the name `typescript`.
      *
-     * See the [Dictionaries](https://cspell.org/docs/dictionaries/) and [Custom Dictionaries](https://cspell.org/docs/dictionaries-custom/) for more details.
+     * See the [Dictionaries](https://cspell.org/docs/dictionaries/) and [Custom Dictionaries](https://cspell.org/docs/dictionaries/custom-dictionaries/) for more details.
      */
     dictionaries?: string[];
     dictionaryDefinitions?: (
