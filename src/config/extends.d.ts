@@ -410,7 +410,25 @@ type StylisticExtends =
 /**
  * ESLint Tailwind extends.
  */
-type TailwindExtends = 'plugin:tailwindcss/recommended';
+type TailwindExtends =
+  | 'plugin:better-tailwindcss/correctness'
+  | 'plugin:better-tailwindcss/correctness-error'
+  | 'plugin:better-tailwindcss/correctness-warn'
+  | 'plugin:better-tailwindcss/legacy-correctness'
+  | 'plugin:better-tailwindcss/legacy-correctness-error'
+  | 'plugin:better-tailwindcss/legacy-correctness-warn'
+  | 'plugin:better-tailwindcss/legacy-recommended'
+  | 'plugin:better-tailwindcss/legacy-recommended-error'
+  | 'plugin:better-tailwindcss/legacy-recommended-warn'
+  | 'plugin:better-tailwindcss/legacy-stylistic'
+  | 'plugin:better-tailwindcss/legacy-stylistic-error'
+  | 'plugin:better-tailwindcss/legacy-stylistic-warn'
+  | 'plugin:better-tailwindcss/recommended'
+  | 'plugin:better-tailwindcss/recommended-error'
+  | 'plugin:better-tailwindcss/recommended-warn'
+  | 'plugin:better-tailwindcss/stylistic'
+  | 'plugin:better-tailwindcss/stylistic-error'
+  | 'plugin:better-tailwindcss/stylistic-warn';
 
 /**
  * ESLint TestingLibrary extends.

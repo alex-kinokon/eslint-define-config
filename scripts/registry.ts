@@ -214,8 +214,8 @@ export const PLUGIN_REGISTRY: PluginEntry[] = [
     import: () => import('@stylistic/eslint-plugin'),
   }),
   include('tailwind', {
-    prefix: 'tailwindcss',
-    import: () => import('eslint-plugin-tailwindcss'),
+    prefix: 'better-tailwindcss',
+    import: () => import('eslint-plugin-better-tailwindcss'),
   }),
   include('testing-library', {
     import: () => import('eslint-plugin-testing-library'),
